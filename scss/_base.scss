@@ -10,6 +10,7 @@ $base-font-size: 14px;
 
     --base-font-size: $base-font-size;
     --base-line-height: 1.15;
+    --base-letter-spacing: 1.5px;
 
     /* pixel scales ---------------------------- */
     /* nagative scales */
@@ -35,6 +36,7 @@ $base-font-size: 14px;
     /* ------------------------------------------*/
     /* fonts scales */
 
+    --fs-0: 10px;
     --fs-1: 12px;
     --fs-2: 14px;
     --fs-3: 16px;

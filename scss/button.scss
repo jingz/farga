@@ -1,13 +1,46 @@
 @use 'base';
 
-aside.menu {
-  p {
+.btn {
+  background-color: var(--primary-8);
+  color: var(--primary-2);
+  padding: 8px 10px;
+  font-size: base.$base-font-size;
+  border: 0px;
+  cursor: pointer;
+  border-radius: 5px;
 
+  &:hover {
+    opacity: 0.9;
   }
 
-  ul {
-    li {
+  &.btn-secondary {
+      background-color: var(--orange-1);
+      color: var(--orange-8);
+  }
 
-    }
+  &.btn-danger {
+      background-color: var(--red-8);
+      color: var(--red-1);
+  }
+
+  &.btn-outline {
+      background-color: var(--neutral-1);
+      color: var(--neutral-9);
+  }
+
+  // size
+  &.btn-small {
+    font-size: 12px;
+    padding: 6px 8px;
+  }
+
+  &.btn-large {
+    font-size: 16px;
+    padding: 12px 16px;
+  }
+
+  &.btn-extra {
+    font-size: 20px;
+    padding: 15px 30px;
   }
 }
