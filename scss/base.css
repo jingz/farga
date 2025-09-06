@@ -1,0 +1,731 @@
+:root {
+    /* fonts */
+    --sans-serif-fonts: Arial, sans-serif;
+    --serif-fonts: Garamond, serif;
+    --monospace-fonts: 'Courier New', monospace;
+    --cursive-fonts: 'Brush Script MT', cursive;
+
+    --base-font-size: 16px;
+
+    /* pixel scales ---------------------------- */
+    /* nagative scales */
+    --px-n3: 0.25rem;
+    --px-n2: 0.5rem;
+    --px-n1: 0.75rem;
+
+    /* positive scales */
+    --px-0: 1rem;
+    --px-p1: 1.5rem;
+    --px-p2: 2rem;
+    --px-p3: 3rem;
+    --px-p4: 4rem;
+    --px-p5: 6rem;
+    --px-p6: 8rem;
+    --px-p7: 12rem;
+    --px-p8: 16rem;
+    --px-p9: 24rem;
+    --px-p10: 32rem;
+    --px-p11: 40rem;
+    --px-p12: 48rem;
+
+    /* ------------------------------------------*/
+    /* fonts scales */
+
+    --fs-1: 12px;
+    --fs-2: 14px;
+    --fs-3: 16px;
+    --fs-4: 18px;
+    --fs-5: 20px;
+    --fs-6: 24px;
+    --fs-7: 30px;
+    --fs-8: 36px;
+    --fs-9: 48px;
+    --fs-10: 60px;
+    --fs-11: 72px;
+
+    /* ------------------------------------------*/
+
+    /* colors */
+    --ghost-off-white: #f8f8ff; /* Ghost White */
+
+    --primary-l3: rgb(241,248,254);
+    --primary-l2: rgb(178,241,242);
+    --primary-l1: rgb(113,160,211);
+    --primary: rgb(72,129,194);
+    --primary-d1: rgb(55,103,157);
+    --primary-d2: rgb(39,72,110);
+    --primary-d3: rgb(39,60,82);
+
+    --neutral-l3: rgb(248,249,250);
+    --neutral-l2: rgb(226,231,235);
+    --neutral-l1: rgb(208,214,221);
+    --neutral: rgb(186,196,205);
+    --neutral-d1: rgb(138,149,165);
+    --neutral-d2: rgb(97,107,121);
+    --neutral-d3: rgb(35,41,51);
+
+    --red-d3: hsl(0 96% 20%);
+    --red-d2: hsl(0 85% 30%);
+    --red-d1: hsl(0 80% 40%);
+    --red: hsl(0 96% 20%);
+    --red-l1: hsl(0 80% 68%);
+    --red-l2: hsl(0 85% 85%);
+    --red-l3: hsl(0 97% 94%);
+
+    --green-d3: hsl(150 96% 20%);
+    --green-d2: hsl(150 85% 30%);
+    --green-d1: hsl(150 80% 40%);
+    --green: hsl(150 96% 20%);
+    --green-l1: hsl(150 80% 68%);
+    --green-l2: hsl(150 85% 85%);
+    --green-l3: hsl(150 97% 94%);
+
+    /* no-custom generation from  https://hypejunction.github.io/color-wizard/ */
+     --red-0: hsl(0, 80%, 94%);
+     --red-1: hsl(0, 80%, 90%);
+     --red-2: hsl(0, 80%, 86%);
+     --red-3: hsl(0, 80%, 77%);
+     --red-4: hsl(0, 80%, 68%);
+     --red-5: hsl(0, 80%, 59%);
+     --red-6: hsl(0, 80%, 50%);
+     --red-7: hsl(0, 80%, 41%);
+     --red-8: hsl(0, 80%, 32%);
+     --red-9: hsl(0, 80%, 23%);
+
+     --pink-0: hsl(339, 80%, 94%);
+     --pink-1: hsl(339, 80%, 90%);
+     --pink-2: hsl(339, 80%, 86%);
+     --pink-3: hsl(339, 80%, 77%);
+     --pink-4: hsl(339, 80%, 68%);
+     --pink-5: hsl(339, 80%, 59%);
+     --pink-6: hsl(339, 80%, 50%);
+     --pink-7: hsl(339, 80%, 41%);
+     --pink-8: hsl(339, 80%, 32%);
+     --pink-9: hsl(339, 80%, 23%);
+
+     --grape-0: hsl(288, 80%, 94%);
+     --grape-1: hsl(288, 80%, 90%);
+     --grape-2: hsl(288, 80%, 86%);
+     --grape-3: hsl(288, 80%, 77%);
+     --grape-4: hsl(288, 80%, 68%);
+     --grape-5: hsl(288, 80%, 59%);
+     --grape-6: hsl(288, 80%, 50%);
+     --grape-7: hsl(288, 80%, 41%);
+     --grape-8: hsl(288, 80%, 32%);
+     --grape-9: hsl(288, 80%, 23%);
+
+     --violet-0: hsl(255, 80%, 94%);
+     --violet-1: hsl(255, 80%, 90%);
+     --violet-2: hsl(255, 80%, 86%);
+     --violet-3: hsl(255, 80%, 77%);
+     --violet-4: hsl(255, 80%, 68%);
+     --violet-5: hsl(255, 80%, 59%);
+     --violet-6: hsl(255, 80%, 50%);
+     --violet-7: hsl(255, 80%, 41%);
+     --violet-8: hsl(255, 80%, 32%);
+     --violet-9: hsl(255, 80%, 23%);
+
+     --indigo-0: hsl(230, 80%, 94%);
+     --indigo-1: hsl(230, 80%, 90%);
+     --indigo-2: hsl(230, 80%, 86%);
+     --indigo-3: hsl(230, 80%, 77%);
+     --indigo-4: hsl(230, 80%, 68%);
+     --indigo-5: hsl(230, 80%, 59%);
+     --indigo-6: hsl(230, 80%, 50%);
+     --indigo-7: hsl(230, 80%, 41%);
+     --indigo-8: hsl(230, 80%, 32%);
+     --indigo-9: hsl(230, 80%, 23%);
+
+     --blue-0: hsl(208, 80%, 94%);
+     --blue-1: hsl(208, 80%, 90%);
+     --blue-2: hsl(208, 80%, 86%);
+     --blue-3: hsl(208, 80%, 77%);
+     --blue-4: hsl(208, 80%, 68%);
+     --blue-5: hsl(208, 80%, 59%);
+     --blue-6: hsl(208, 80%, 50%);
+     --blue-7: hsl(208, 80%, 41%);
+     --blue-8: hsl(208, 80%, 32%);
+     --blue-9: hsl(208, 80%, 23%);
+
+     --cyan-0: hsl(188, 80%, 94%);
+     --cyan-1: hsl(188, 80%, 90%);
+     --cyan-2: hsl(188, 80%, 86%);
+     --cyan-3: hsl(188, 80%, 77%);
+     --cyan-4: hsl(188, 80%, 68%);
+     --cyan-5: hsl(188, 80%, 59%);
+     --cyan-6: hsl(188, 80%, 50%);
+     --cyan-7: hsl(188, 80%, 41%);
+     --cyan-8: hsl(188, 80%, 32%);
+     --cyan-9: hsl(188, 80%, 23%);
+
+     --teal-0: hsl(162, 80%, 94%);
+     --teal-1: hsl(162, 80%, 90%);
+     --teal-2: hsl(162, 80%, 86%);
+     --teal-3: hsl(162, 80%, 77%);
+     --teal-4: hsl(162, 80%, 68%);
+     --teal-5: hsl(162, 80%, 59%);
+     --teal-6: hsl(162, 80%, 50%);
+     --teal-7: hsl(162, 80%, 41%);
+     --teal-8: hsl(162, 80%, 32%);
+     --teal-9: hsl(162, 80%, 23%);
+
+     --green-0: hsl(131, 80%, 94%);
+     --green-1: hsl(131, 80%, 90%);
+     --green-2: hsl(131, 80%, 86%);
+     --green-3: hsl(131, 80%, 77%);
+     --green-4: hsl(131, 80%, 68%);
+     --green-5: hsl(131, 80%, 59%);
+     --green-6: hsl(131, 80%, 50%);
+     --green-7: hsl(131, 80%, 41%);
+     --green-8: hsl(131, 80%, 32%);
+     --green-9: hsl(131, 80%, 23%);
+
+     --lime-0: hsl(85, 80%, 94%);
+     --lime-1: hsl(85, 80%, 90%);
+     --lime-2: hsl(85, 80%, 86%);
+     --lime-3: hsl(85, 80%, 77%);
+     --lime-4: hsl(85, 80%, 68%);
+     --lime-5: hsl(85, 80%, 59%);
+     --lime-6: hsl(85, 80%, 50%);
+     --lime-7: hsl(85, 80%, 41%);
+     --lime-8: hsl(85, 80%, 32%);
+     --lime-9: hsl(85, 80%, 23%);
+
+     --yellow-0: hsl(39, 80%, 94%);
+     --yellow-1: hsl(39, 80%, 90%);
+     --yellow-2: hsl(39, 80%, 86%);
+     --yellow-3: hsl(39, 80%, 77%);
+     --yellow-4: hsl(39, 80%, 68%);
+     --yellow-5: hsl(39, 80%, 59%);
+     --yellow-6: hsl(39, 80%, 50%);
+     --yellow-7: hsl(39, 80%, 41%);
+     --yellow-8: hsl(39, 80%, 32%);
+     --yellow-9: hsl(39, 80%, 23%);
+
+     --orange-0: hsl(24, 80%, 94%);
+     --orange-1: hsl(24, 80%, 90%);
+     --orange-2: hsl(24, 80%, 86%);
+     --orange-3: hsl(24, 80%, 77%);
+     --orange-4: hsl(24, 80%, 68%);
+     --orange-5: hsl(24, 80%, 59%);
+     --orange-6: hsl(24, 80%, 50%);
+     --orange-7: hsl(24, 80%, 41%);
+     --orange-8: hsl(24, 80%, 32%);
+     --orange-9: hsl(24, 80%, 23%);
+
+     --grey-0: hsl(0, 0%, 94%);
+     --grey-1: hsl(0, 0%, 90%);
+     --grey-2: hsl(0, 0%, 86%);
+     --grey-3: hsl(0, 0%, 77%);
+     --grey-4: hsl(0, 0%, 68%);
+     --grey-5: hsl(0, 0%, 59%);
+     --grey-6: hsl(0, 0%, 50%);
+     --grey-7: hsl(0, 0%, 41%);
+     --grey-8: hsl(0, 0%, 32%);
+     --grey-9: hsl(0, 0%, 23%);
+}
+
+/* reset css */
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, ol, ul, dl, dt {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+/* end reset css */
+
+body {
+    font-family: var(--sans-serif-fonts);
+    font-size: var(--base-font-size);
+    background-color: var(--ghost-off-white);
+}
+
+section {
+    padding: 0.3rem 0;
+}
+
+nav {
+    display: flex;
+    align-items: baseline;
+    align-content: center;
+}
+
+nav > * + * {
+    margin-left: 1.5rem;
+}
+
+nav li {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+a > h1 {
+    text-decoration: none;
+    color: var(--indigo-7);
+}
+
+
+button {
+
+}
+
+
+a:disabled {
+    color: var(--gray-1);
+    color :red;
+}
+
+big {
+    font-size: 1.2rem;
+}
+
+/* buttons ---------------------------------- */
+.btn {
+    border-radius: 5px;
+    color: var(--blue-0);
+    background-color: var(--blue-5);
+    text-decoration: none;
+}
+
+.btn2 {
+    border-radius: 5px;
+    color: var(--teal-0);
+    background-color: var(--teal-5);
+    text-decoration: none;
+}
+
+.btn3 {
+    border-radius: 5px;
+    color: var(--blue-8);
+    border: 1px solid var(--blue-5);
+    text-decoration: none;
+}
+
+.btn3:hover {
+    border-radius: 5px;
+    color: var(--blue-9);
+    background-color: var(--blue-1);
+}
+
+.btn:hover {
+    color: var(--violet-1);
+    background-color: var(--violet-6);
+}
+
+.btn-xl {
+    font-size: 20px;
+    padding: 15px 30px;
+}
+
+.btn-l {
+    font-size: 16px;
+    padding: 12px 16px;
+    border-radius: 5px;
+}
+
+.btn-m {
+    font-size: 14px;
+    padding: 8px 10px;
+    border-radius: 5px;
+}
+
+.btn-s {
+    font-size: 12px;
+    padding: 6px 8px;
+    border-radius: 5px;
+}
+
+/* MODIFICATIONS */
+/* TYPOGRAPHY --------------------------------------- */
+.cap {
+    text-transform: uppercase;
+    letter-spacing: 0.03em; /* 8% based of current font-size */
+    font-family: var(--sans-serif-fonts);
+}
+
+a.nostyle {
+    text-decoration: none;
+}
+
+/* CONTROLS ----------------------------------------- */
+label {
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+
+/* AMIN THEME --------------------------------------- */
+body.admin {
+    padding: 0;
+    margin: 0;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+body.admin > main {
+    height: 100vh;
+    overflow-y: scroll;
+    min-width: calc(100vw - 60px);
+    background-color: var(--ghost-off-white);
+}
+
+body.admin > main > section {
+    background-color: var(--ghost-off-white);
+}
+
+.admin main > nav {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  background-color: var(--ghost-off-white);
+  border-bottom: 2px inset var(--indigo-0);
+  width: auto;
+  padding: var(--px-0);
+}
+
+.admin main > nav a {
+    text-decoration: none;
+    color: var(--indigo-8);
+}
+
+.admin main > nav a:hover {
+    text-decoration: underline;
+    color: var(--indigo-9);
+}
+
+.admin main > section {
+    padding: 1rem;
+}
+
+body.admin > aside {
+    width: 60px;
+    height: 100vh;
+
+    background-color: var(--indigo-9);
+    color: var(--indigo-1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: center;
+    align-self: flex-start;
+
+    /* border-right: 2px solid var(--indigo-1); */
+}
+
+body.admin > aside > nav {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+}
+
+body.admin > aside > nav > .logo {
+    text-decoration: none;
+    color: var(--yellow-3);
+    padding: var(--px-0);
+    text-align: center;
+    padding: 0.5rem;
+    align-self: center;
+
+    display: flex;
+    justify-content: center;
+}
+
+.admin aside a.nav-text-menu {
+    text-transform: uppercase;
+    padding: 1rem;
+    display: block;
+    color: var(--indigo-1);
+    text-decoration: none;
+}
+
+.admin aside li:hover {
+    text-decoration: underline;
+}
+
+dt {
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+dd + dt {
+    margin-top: var(--px-n1);
+}
+
+dd {
+    font-family: var(--serif-fonts);
+}
+
+fieldset {
+    border: 1px solid var(--indigo-2);
+}
+
+fieldset legend {
+    font-family: var(--sans-serif-fonts);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 1rem;
+
+    padding: 0.3rem;
+}
+
+.admin aside > nav li.is-active-menu {
+    background-color: var(--ghost-off-white);
+}
+
+.admin aside > nav li.is-active-menu a.nav-text-menu {
+    color: var(--indigo-9);
+}
+
+body.admin > aside > nav ul {
+    padding: 0;
+    margin: 0;
+}
+
+body.admin > aside > nav li {
+}
+
+body.admin > aside > footer {
+    padding: 0.3rem;
+}
+
+.avatar {
+    background-color: var(--indigo-5);
+    border: 2px solid var(--indigo-7);
+    color: var(--indigo-1);
+    font-weight: bold;
+    border-radius: 100%;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    letter-spacing: 0.1rem;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.admin table {
+    padding: 0;
+    margin: 0;
+    border-spacing: 0;
+    border-collapse: collapse;
+
+    min-width: 50vw;
+}
+
+.admin table thead {
+    white-space: nowrap;
+    background-color: var(--neutral-d1);
+    color: var(--violet-1);
+
+    text-transform: uppercase;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 55px;
+}
+
+.admin table thead td {
+    padding: var(--px-0);
+}
+
+.admin button.filter-record {
+    padding: 0;
+}
+
+.admin table .not-found-row {
+    padding: var(--px-0);
+}
+
+    .admin table .not-found-row > h4 {
+        color: var(--yellow-8);
+        background-color: var(--yellow-1);
+        padding: var(--px-0);
+        font-weight: bold;
+    }
+
+.admin table thead tr {
+    /* border-top: 1px inset var(--violet-3); */
+}
+
+.admin table thead a {
+    color: var(--grey-1);
+}
+
+.admin table thead th {
+    padding: 0.25rem;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin: 0;
+    font-size: 0.75rem;
+}
+
+.admin table thead th input[type=text],
+.admin table thead th select {
+    color: var(--violet-0);
+    padding: var(--px-n2);
+    border: 0;
+}
+
+.admin table thead th input[type=text]::placeholder {
+    color: var(--violet-4);
+}
+
+.admin table thead th input[type=text]:focus {
+    border-color: var(--primary-6);
+    background-color: var(--violet-2);
+    color: var(--violet-8);
+    border: 0;
+}
+
+.admin table tbody {
+    font-family: var(--serif-fonts);
+}
+
+.admin table tbody td {
+    border: 1px solid var(--violet-1);
+    padding: var(--px-n1) var(--px-n2);
+}
+
+.admin table tbody tr:nth-child(even) {
+    background-color: var(--grey-0);
+}
+
+.admin table tbody tr:hover {
+    background-color: var(--grey-2);
+    cursor: pointer;
+}
+
+.admin .action-cell {
+    white-space: nowrap;
+}
+.admin .action-cell a {
+    text-decoration: none;
+}
+.admin .action-cell a + a {
+    margin-left: 0.3rem;
+}
+
+/* admin form  */
+.admin .admin-form {
+    color: var(--indigo-9);
+}
+
+    .admin-form .field {
+        padding-bottom: 0.8rem;
+    }
+
+    .admin-form .field .error {
+        color: var(--red-6);
+    }
+
+    .admin-form .field input[type=text],
+    .admin-form select,
+    .admin-form input[type=datetime] {
+        padding: 0.3rem;
+        width: var(--px-p10);
+        font-size: 16px;
+    }
+
+    .admin-form .field textarea {
+        padding: 0.3rem;
+        width: 50vw;
+        height: 100px;
+        font-size: 16px;
+    }
+
+    .admin-form .form-actions {
+        padding: 0.5rem;
+        background-color: var(--indigo-1)
+    }
+
+    .admin-form .form-actions * + *{
+        margin-left: 0.5rem;
+    }
+
+/* hide submit button in the filter row */
+.admin .filter-row input[type=submit] {
+    display: none;
+}
+
+.admin .flash-message {
+    border: 1px solid var(--blue-2);
+    background-color: var(--blue-2);
+    color: var(--blue-8);
+    position: fixed;
+    top: 10px;
+    right: 20px;
+    padding: 12px 16px;
+    font-size: 16px;
+    border-radius: 5px;
+    visibility: hidden;
+    text-align: center;
+    z-index: 2;
+    box-shadow: 6px 6px 6px var(--grey-4);
+
+    animation: 5s slidein;
+}
+
+.admin .flash-message.is-success {
+    border: 1px solid var(--green-1);
+    background-color: var(--green-1);
+    color: var(--green-9);
+}
+
+.admin .flash-message.is-warn {
+    border: 1px solid var(--yellow-2);
+    background-color: var(--yellow-2);
+    color: var(--yellow-8);
+}
+
+.admin .flash-message.is-error {
+    border: 1px solid var(--red-2);
+    background-color: var(--red-2);
+    color: var(--red-8);
+}
+
+/* Animation --------------------------- */
+@keyframes slidein {
+    from {
+        visibility: visible;
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+
+    5% {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+
+    95% {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}

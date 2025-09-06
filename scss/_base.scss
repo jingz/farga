@@ -1,0 +1,193 @@
+$base-font-size: 14px;
+
+:root {
+    /* fonts */
+    --sans-serif-fonts: Verdana, sans-serif;
+    --serif-fonts: Georgia, serif;
+    --monospace-fonts: "Lucida Console", "Monaco", monospace;
+    --fantasy-fonts: Papyrus,fantasy;
+    --cursive-fonts: 'Brush Script MT', cursive;
+
+    --base-font-size: $base-font-size;
+    --base-line-height: 1.15;
+
+    /* pixel scales ---------------------------- */
+    /* nagative scales */
+    --px-n3: 0.25rem;
+    --px-n2: 0.5rem;
+    --px-n1: 0.75rem;
+
+    /* positive scales */
+    --px-0: 1rem;
+    --px-p1: 1.5rem;
+    --px-p2: 2rem;
+    --px-p3: 3rem;
+    --px-p4: 4rem;
+    --px-p5: 6rem;
+    --px-p6: 8rem;
+    --px-p7: 12rem;
+    --px-p8: 16rem;
+    --px-p9: 24rem;
+    --px-p10: 32rem;
+    --px-p11: 40rem;
+    --px-p12: 48rem;
+
+    /* ------------------------------------------*/
+    /* fonts scales */
+
+    --fs-1: 12px;
+    --fs-2: 14px;
+    --fs-3: 16px;
+    --fs-4: 18px;
+    --fs-5: 20px;
+    --fs-6: 24px;
+    --fs-7: 30px;
+    --fs-8: 36px;
+    --fs-9: 48px;
+    --fs-10: 60px;
+    --fs-11: 72px;
+
+    /* ------------------------------------------*/
+
+    /* colors */
+    --ghost-off-white: #f8f8ff; /* Ghost White */
+
+    /* text color */
+    --text-color-dark: #0c1b6a; /* use against shad 0-4 of each color */
+    --text-color-white: white; /* use against shad 8-9 of each color */
+
+    --primary-0: hsl(230, 80%, 95%);
+    --primary-1: hsl(230, 80%, 91%);
+    --primary-2: hsl(230, 80%, 87%);
+    --primary-3: hsl(230, 80%, 79%);
+    --primary-4: hsl(230, 80%, 72%); /* default primary */
+    --primary-8: hsl(230, 80%, 32%);
+    --primary-9: hsl(230, 80%, 23%);
+
+    --secondary-0: hsl(24, 80%, 94%);
+    --secondary-1: hsl(24, 80%, 90%);
+    --secondary-2: hsl(24, 80%, 86%);
+    --secondary-3: hsl(24, 80%, 77%);
+    --secondary-4: hsl(24, 80%, 68%);
+    --secondary-8: hsl(24, 80%, 32%);
+    --secondary-9: hsl(24, 80%, 23%);
+
+    --neutral-0: hsl(0, 0%, 94%);
+    --neutral-1: hsl(0, 0%, 90%);
+    --neutral-2: hsl(0, 0%, 86%);
+    --neutral-3: hsl(0, 0%, 77%);
+    --neutral-4: hsl(0, 0%, 68%); /* default neutral */
+    --neutral-8: hsl(0, 0%, 32%);
+    --neutral-9: hsl(0, 0%, 23%);
+
+    /* no-custom generation from  https://hypejunction.github.io/color-wizard/ */
+    /* Color 0-4 for dark text */
+    /* Color 8-9 for white text and being dark text for 0-4 of the same shad */
+    /* Removing color shad 5-6-7 since contrast ratio */
+    /* System colors are red (error), green (success), blue (info) */
+    /* Grey is neutral color */
+
+    --red-0: hsl(0, 80%, 94%);
+    --red-1: hsl(0, 80%, 90%);
+    --red-2: hsl(0, 80%, 86%);
+    --red-3: hsl(0, 80%, 77%);
+    --red-4: hsl(0, 80%, 68%);
+    --red-8: hsl(0, 80%, 32%);
+    --red-9: hsl(0, 80%, 23%);
+
+    --pink-0: hsl(339, 80%, 94%);
+    --pink-1: hsl(339, 80%, 90%);
+    --pink-2: hsl(339, 80%, 86%);
+    --pink-3: hsl(339, 80%, 77%);
+    --pink-4: hsl(339, 80%, 68%);
+    --pink-8: hsl(339, 80%, 32%);
+    --pink-9: hsl(339, 80%, 23%);
+
+    --grape-0: hsl(288, 80%, 94%);
+    --grape-1: hsl(288, 80%, 90%);
+    --grape-2: hsl(288, 80%, 86%);
+    --grape-3: hsl(288, 80%, 77%);
+    --grape-4: hsl(288, 80%, 68%);
+    --grape-8: hsl(288, 80%, 32%);
+    --grape-9: hsl(288, 80%, 23%);
+
+    --violet-0: hsl(255, 80%, 94%);
+    --violet-1: hsl(255, 80%, 90%);
+    --violet-2: hsl(255, 80%, 86%);
+    --violet-3: hsl(255, 80%, 77%);
+    --violet-4: hsl(255, 80%, 68%);
+    --violet-8: hsl(255, 80%, 32%);
+    --violet-9: hsl(255, 80%, 23%);
+
+    --indigo-0: hsl(230, 80%, 95%);
+    --indigo-1: hsl(230, 80%, 91%);
+    --indigo-2: hsl(230, 80%, 87%);
+    --indigo-3: hsl(230, 80%, 79%);
+    --indigo-4: hsl(230, 80%, 72%);
+    --indigo-8: hsl(230, 80%, 32%);
+    --indigo-9: hsl(230, 80%, 23%);
+
+    --blue-0: hsl(208, 80%, 94%);
+    --blue-1: hsl(208, 80%, 90%);
+    --blue-2: hsl(208, 80%, 86%);
+    --blue-3: hsl(208, 80%, 77%);
+    --blue-4: hsl(208, 80%, 68%);
+    --blue-8: hsl(208, 80%, 32%);
+    --blue-9: hsl(208, 80%, 23%);
+
+    --cyan-0: hsl(188, 80%, 94%);
+    --cyan-1: hsl(188, 80%, 90%);
+    --cyan-2: hsl(188, 80%, 86%);
+    --cyan-3: hsl(188, 80%, 77%);
+    --cyan-4: hsl(188, 80%, 68%);
+    --cyan-8: hsl(188, 80%, 32%);
+    --cyan-9: hsl(188, 80%, 23%);
+
+    --teal-0: hsl(162, 80%, 94%);
+    --teal-1: hsl(162, 80%, 90%);
+    --teal-2: hsl(162, 80%, 86%);
+    --teal-3: hsl(162, 80%, 77%);
+    --teal-4: hsl(162, 80%, 68%);
+    --teal-8: hsl(162, 80%, 32%);
+    --teal-9: hsl(162, 80%, 23%);
+
+    --green-0: hsl(131, 80%, 94%);
+    --green-1: hsl(131, 80%, 90%);
+    --green-2: hsl(131, 80%, 86%);
+    --green-3: hsl(131, 80%, 77%);
+    --green-4: hsl(131, 80%, 68%);
+    --green-8: hsl(131, 80%, 32%);
+    --green-9: hsl(131, 80%, 23%);
+
+    --lime-0: hsl(85, 80%, 94%);
+    --lime-1: hsl(85, 80%, 90%);
+    --lime-2: hsl(85, 80%, 86%);
+    --lime-3: hsl(85, 80%, 77%);
+    --lime-4: hsl(85, 80%, 68%);
+    --lime-8: hsl(85, 80%, 32%);
+    --lime-9: hsl(85, 80%, 23%);
+
+    --yellow-0: hsl(39, 80%, 94%);
+    --yellow-1: hsl(39, 80%, 90%);
+    --yellow-2: hsl(39, 80%, 86%);
+    --yellow-3: hsl(39, 80%, 77%);
+    --yellow-4: hsl(39, 80%, 68%);
+    --yellow-8: hsl(39, 80%, 32%);
+    --yellow-9: hsl(39, 80%, 23%);
+
+    --orange-0: hsl(24, 80%, 94%);
+    --orange-1: hsl(24, 80%, 90%);
+    --orange-2: hsl(24, 80%, 86%);
+    --orange-3: hsl(24, 80%, 77%);
+    --orange-4: hsl(24, 80%, 68%);
+    --orange-8: hsl(24, 80%, 32%);
+    --orange-9: hsl(24, 80%, 23%);
+
+    --grey-0: hsl(0, 0%, 94%);
+    --grey-1: hsl(0, 0%, 90%);
+    --grey-2: hsl(0, 0%, 86%);
+    --grey-3: hsl(0, 0%, 77%);
+    --grey-4: hsl(0, 0%, 68%);
+    --grey-8: hsl(0, 0%, 32%);
+    --grey-9: hsl(0, 0%, 23%);
+}

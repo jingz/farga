@@ -1,0 +1,63 @@
+{% extends "layout/base.html"%}
+
+{% block inline_style %}
+pre {
+    background-color: var(--neutral-0);
+    border-radius: 5px;
+}
+{% endblock %}
+
+{% block content %}
+<h1>Buttons</h1>
+<div>
+    <h2>Small Size</h2>
+    {% set small_buttons %}
+    <button class='btn btn-small'>Primary</button>
+    <button class='btn btn-small btn-secondary'>Secondary</button>
+    <button class='btn btn-small btn-danger'>Danger</button>
+    <button class='btn btn-small btn-outline'>Outline</button>
+    {% endset %}
+
+    {{ small_buttons }}
+    <pre> {{ small_buttons | e}} </pre>
+</div>
+
+<div>
+    <h2>Normal Size</h2>
+    {% set normal_buttons %}
+    <button class='btn'>Primary</button>
+    <button class='btn btn-secondary'>Secondary</button>
+    <button class='btn btn-danger'>Danger</button>
+    <button class='btn btn-outline'>Outline</button>
+    {% endset %}
+
+    {{ normal_buttons }}
+    <pre> {{ normal_buttons | e }} </pre>
+</div>
+
+<div>
+    <h2>Large Size</h2>
+    {% set large_buttons %}
+    <button class='btn btn-large'>Primary</button>
+    <button class='btn btn-large btn-secondary'>Secondary</button>
+    <button class='btn btn-large btn-danger'>Danger</button>
+    <button class='btn btn-large btn-outline'>Outline</button>
+    {% endset %}
+
+    {{ large_buttons }}
+    <pre> {{ large_buttons | e }} </pre>
+</div>
+
+<div>
+    <h2>Extra Size</h2>
+    {% set extra_buttons %}
+    <button class='btn btn-extra'>Primary</button>
+    <button class='btn btn-extra btn-secondary'>Secondary</button>
+    <button class='btn btn-extra btn-danger'>Danger</button>
+    <button class='btn btn-extra btn-outline'>Outline</button>
+    {% endset %}
+
+    {{ extra_buttons }}
+    <pre> {{ extra_buttons | e }} </pre>
+</div>
+{% endblock%}

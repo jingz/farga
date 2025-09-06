@@ -1,0 +1,689 @@
+:root {
+  /* fonts */
+  --sans-serif-fonts: Verdana, sans-serif;
+  --serif-fonts: Georgia, serif;
+  --monospace-fonts: "Lucida Console", "Monaco", monospace;
+  --fantasy-fonts: Papyrus,fantasy;
+  --cursive-fonts: "Brush Script MT", cursive;
+  --base-font-size: $base-font-size;
+  --base-line-height: 1.15;
+  /* pixel scales ---------------------------- */
+  /* nagative scales */
+  --px-n3: 0.25rem;
+  --px-n2: 0.5rem;
+  --px-n1: 0.75rem;
+  /* positive scales */
+  --px-0: 1rem;
+  --px-p1: 1.5rem;
+  --px-p2: 2rem;
+  --px-p3: 3rem;
+  --px-p4: 4rem;
+  --px-p5: 6rem;
+  --px-p6: 8rem;
+  --px-p7: 12rem;
+  --px-p8: 16rem;
+  --px-p9: 24rem;
+  --px-p10: 32rem;
+  --px-p11: 40rem;
+  --px-p12: 48rem;
+  /* ------------------------------------------*/
+  /* fonts scales */
+  --fs-1: 12px;
+  --fs-2: 14px;
+  --fs-3: 16px;
+  --fs-4: 18px;
+  --fs-5: 20px;
+  --fs-6: 24px;
+  --fs-7: 30px;
+  --fs-8: 36px;
+  --fs-9: 48px;
+  --fs-10: 60px;
+  --fs-11: 72px;
+  /* ------------------------------------------*/
+  /* colors */
+  --ghost-off-white: #f8f8ff; /* Ghost White */
+  /* text color */
+  --text-color-dark: #0c1b6a; /* use against shad 0-4 of each color */
+  --text-color-white: white; /* use against shad 8-9 of each color */
+  --primary-0: hsl(230, 80%, 95%);
+  --primary-1: hsl(230, 80%, 91%);
+  --primary-2: hsl(230, 80%, 87%);
+  --primary-3: hsl(230, 80%, 79%);
+  --primary-4: hsl(230, 80%, 72%); /* default primary */
+  --primary-8: hsl(230, 80%, 32%);
+  --primary-9: hsl(230, 80%, 23%);
+  --secondary-0: hsl(24, 80%, 94%);
+  --secondary-1: hsl(24, 80%, 90%);
+  --secondary-2: hsl(24, 80%, 86%);
+  --secondary-3: hsl(24, 80%, 77%);
+  --secondary-4: hsl(24, 80%, 68%);
+  --secondary-8: hsl(24, 80%, 32%);
+  --secondary-9: hsl(24, 80%, 23%);
+  --neutral-0: hsl(0, 0%, 94%);
+  --neutral-1: hsl(0, 0%, 90%);
+  --neutral-2: hsl(0, 0%, 86%);
+  --neutral-3: hsl(0, 0%, 77%);
+  --neutral-4: hsl(0, 0%, 68%); /* default neutral */
+  --neutral-8: hsl(0, 0%, 32%);
+  --neutral-9: hsl(0, 0%, 23%);
+  /* no-custom generation from  https://hypejunction.github.io/color-wizard/ */
+  /* Color 0-4 for dark text */
+  /* Color 8-9 for white text and being dark text for 0-4 of the same shad */
+  /* Removing color shad 5-6-7 since contrast ratio */
+  /* System colors are red (error), green (success), blue (info) */
+  /* Grey is neutral color */
+  --red-0: hsl(0, 80%, 94%);
+  --red-1: hsl(0, 80%, 90%);
+  --red-2: hsl(0, 80%, 86%);
+  --red-3: hsl(0, 80%, 77%);
+  --red-4: hsl(0, 80%, 68%);
+  --red-8: hsl(0, 80%, 32%);
+  --red-9: hsl(0, 80%, 23%);
+  --pink-0: hsl(339, 80%, 94%);
+  --pink-1: hsl(339, 80%, 90%);
+  --pink-2: hsl(339, 80%, 86%);
+  --pink-3: hsl(339, 80%, 77%);
+  --pink-4: hsl(339, 80%, 68%);
+  --pink-8: hsl(339, 80%, 32%);
+  --pink-9: hsl(339, 80%, 23%);
+  --grape-0: hsl(288, 80%, 94%);
+  --grape-1: hsl(288, 80%, 90%);
+  --grape-2: hsl(288, 80%, 86%);
+  --grape-3: hsl(288, 80%, 77%);
+  --grape-4: hsl(288, 80%, 68%);
+  --grape-8: hsl(288, 80%, 32%);
+  --grape-9: hsl(288, 80%, 23%);
+  --violet-0: hsl(255, 80%, 94%);
+  --violet-1: hsl(255, 80%, 90%);
+  --violet-2: hsl(255, 80%, 86%);
+  --violet-3: hsl(255, 80%, 77%);
+  --violet-4: hsl(255, 80%, 68%);
+  --violet-8: hsl(255, 80%, 32%);
+  --violet-9: hsl(255, 80%, 23%);
+  --indigo-0: hsl(230, 80%, 95%);
+  --indigo-1: hsl(230, 80%, 91%);
+  --indigo-2: hsl(230, 80%, 87%);
+  --indigo-3: hsl(230, 80%, 79%);
+  --indigo-4: hsl(230, 80%, 72%);
+  --indigo-8: hsl(230, 80%, 32%);
+  --indigo-9: hsl(230, 80%, 23%);
+  --blue-0: hsl(208, 80%, 94%);
+  --blue-1: hsl(208, 80%, 90%);
+  --blue-2: hsl(208, 80%, 86%);
+  --blue-3: hsl(208, 80%, 77%);
+  --blue-4: hsl(208, 80%, 68%);
+  --blue-8: hsl(208, 80%, 32%);
+  --blue-9: hsl(208, 80%, 23%);
+  --cyan-0: hsl(188, 80%, 94%);
+  --cyan-1: hsl(188, 80%, 90%);
+  --cyan-2: hsl(188, 80%, 86%);
+  --cyan-3: hsl(188, 80%, 77%);
+  --cyan-4: hsl(188, 80%, 68%);
+  --cyan-8: hsl(188, 80%, 32%);
+  --cyan-9: hsl(188, 80%, 23%);
+  --teal-0: hsl(162, 80%, 94%);
+  --teal-1: hsl(162, 80%, 90%);
+  --teal-2: hsl(162, 80%, 86%);
+  --teal-3: hsl(162, 80%, 77%);
+  --teal-4: hsl(162, 80%, 68%);
+  --teal-8: hsl(162, 80%, 32%);
+  --teal-9: hsl(162, 80%, 23%);
+  --green-0: hsl(131, 80%, 94%);
+  --green-1: hsl(131, 80%, 90%);
+  --green-2: hsl(131, 80%, 86%);
+  --green-3: hsl(131, 80%, 77%);
+  --green-4: hsl(131, 80%, 68%);
+  --green-8: hsl(131, 80%, 32%);
+  --green-9: hsl(131, 80%, 23%);
+  --lime-0: hsl(85, 80%, 94%);
+  --lime-1: hsl(85, 80%, 90%);
+  --lime-2: hsl(85, 80%, 86%);
+  --lime-3: hsl(85, 80%, 77%);
+  --lime-4: hsl(85, 80%, 68%);
+  --lime-8: hsl(85, 80%, 32%);
+  --lime-9: hsl(85, 80%, 23%);
+  --yellow-0: hsl(39, 80%, 94%);
+  --yellow-1: hsl(39, 80%, 90%);
+  --yellow-2: hsl(39, 80%, 86%);
+  --yellow-3: hsl(39, 80%, 77%);
+  --yellow-4: hsl(39, 80%, 68%);
+  --yellow-8: hsl(39, 80%, 32%);
+  --yellow-9: hsl(39, 80%, 23%);
+  --orange-0: hsl(24, 80%, 94%);
+  --orange-1: hsl(24, 80%, 90%);
+  --orange-2: hsl(24, 80%, 86%);
+  --orange-3: hsl(24, 80%, 77%);
+  --orange-4: hsl(24, 80%, 68%);
+  --orange-8: hsl(24, 80%, 32%);
+  --orange-9: hsl(24, 80%, 23%);
+  --grey-0: hsl(0, 0%, 94%);
+  --grey-1: hsl(0, 0%, 90%);
+  --grey-2: hsl(0, 0%, 86%);
+  --grey-3: hsl(0, 0%, 77%);
+  --grey-4: hsl(0, 0%, 68%);
+  --grey-8: hsl(0, 0%, 32%);
+  --grey-9: hsl(0, 0%, 23%);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--serif-fonts);
+  margin: 0.67em 0;
+}
+
+h2, h3, h4, h5, h6 {
+  font-weight: 500;
+}
+
+h1 {
+  font-size: var(--fs-8);
+}
+
+h2 {
+  font-size: var(--fs-7);
+}
+
+h3 {
+  font-size: var(--fs-6);
+}
+
+h4 {
+  font-size: var(--fs-5);
+}
+
+h5 {
+  font-size: var(--fs-4);
+}
+
+h6 {
+  font-size: var(--fs-3);
+}
+
+body, div, span, p, button {
+  font-family: var(--sans-serif-fonts);
+}
+
+p {
+  line-height: var(--base-line-height);
+  margin: 0.67em 0;
+}
+
+/* font utilities */
+.ft-sans-serif {
+  font-family: var(--sans-serif-fonts);
+}
+
+.ft-serif {
+  font-family: var(--serif-fonts);
+}
+
+.ft-mono {
+  font-family: var(--monospace-fonts);
+}
+
+.ft-fantasy {
+  font-family: var(--fantasy-fonts);
+}
+
+.ft-cursive {
+  font-family: var(--cursive-fonts);
+  font-size: 150%;
+}
+
+.btn {
+  background-color: var(--primary-8);
+  color: var(--primary-2);
+  padding: 8px 10px;
+  font-size: 14px;
+  border: 0px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.btn:hover {
+  opacity: 0.9;
+}
+.btn.btn-secondary {
+  background-color: var(--orange-1);
+  color: var(--orange-8);
+}
+.btn.btn-danger {
+  background-color: var(--red-8);
+  color: var(--red-1);
+}
+.btn.btn-outline {
+  background-color: var(--neutral-1);
+  color: var(--neutral-9);
+}
+.btn.btn-small {
+  font-size: 12px;
+  padding: 6px 8px;
+}
+.btn.btn-large {
+  font-size: 16px;
+  padding: 12px 16px;
+}
+.btn.btn-extra {
+  font-size: 20px;
+  padding: 15px 30px;
+}
+
+.bg-primary-0 {
+  background-color: var(--primary-0);
+}
+
+.bg-primary-1 {
+  background-color: var(--primary-1);
+}
+
+.bg-primary-2 {
+  background-color: var(--primary-2);
+}
+
+.bg-primary-3 {
+  background-color: var(--primary-3);
+}
+
+.bg-primary-4 {
+  background-color: var(--primary-4);
+}
+
+.bg-primary-8 {
+  background-color: var(--primary-8);
+}
+
+.bg-primary-9 {
+  background-color: var(--primary-9);
+}
+
+.bg-secondary-0 {
+  background-color: var(--secondary-0);
+}
+
+.bg-secondary-1 {
+  background-color: var(--secondary-1);
+}
+
+.bg-secondary-2 {
+  background-color: var(--secondary-2);
+}
+
+.bg-secondary-3 {
+  background-color: var(--secondary-3);
+}
+
+.bg-secondary-4 {
+  background-color: var(--secondary-4);
+}
+
+.bg-secondary-8 {
+  background-color: var(--secondary-8);
+}
+
+.bg-secondary-9 {
+  background-color: var(--secondary-9);
+}
+
+.bg-red-0 {
+  background-color: var(--red-0);
+}
+
+.bg-red-1 {
+  background-color: var(--red-1);
+}
+
+.bg-red-2 {
+  background-color: var(--red-2);
+}
+
+.bg-red-3 {
+  background-color: var(--red-3);
+}
+
+.bg-red-4 {
+  background-color: var(--red-4);
+}
+
+.bg-red-8 {
+  background-color: var(--red-8);
+}
+
+.bg-red-9 {
+  background-color: var(--red-9);
+}
+
+.bg-pink-0 {
+  background-color: var(--pink-0);
+}
+
+.bg-pink-1 {
+  background-color: var(--pink-1);
+}
+
+.bg-pink-2 {
+  background-color: var(--pink-2);
+}
+
+.bg-pink-3 {
+  background-color: var(--pink-3);
+}
+
+.bg-pink-4 {
+  background-color: var(--pink-4);
+}
+
+.bg-pink-8 {
+  background-color: var(--pink-8);
+}
+
+.bg-pink-9 {
+  background-color: var(--pink-9);
+}
+
+.bg-grape-0 {
+  background-color: var(--grape-0);
+}
+
+.bg-grape-1 {
+  background-color: var(--grape-1);
+}
+
+.bg-grape-2 {
+  background-color: var(--grape-2);
+}
+
+.bg-grape-3 {
+  background-color: var(--grape-3);
+}
+
+.bg-grape-4 {
+  background-color: var(--grape-4);
+}
+
+.bg-grape-8 {
+  background-color: var(--grape-8);
+}
+
+.bg-grape-9 {
+  background-color: var(--grape-9);
+}
+
+.bg-violet-0 {
+  background-color: var(--violet-0);
+}
+
+.bg-violet-1 {
+  background-color: var(--violet-1);
+}
+
+.bg-violet-2 {
+  background-color: var(--violet-2);
+}
+
+.bg-violet-3 {
+  background-color: var(--violet-3);
+}
+
+.bg-violet-4 {
+  background-color: var(--violet-4);
+}
+
+.bg-violet-8 {
+  background-color: var(--violet-8);
+}
+
+.bg-violet-9 {
+  background-color: var(--violet-9);
+}
+
+.bg-indigo-0 {
+  background-color: var(--indigo-0);
+}
+
+.bg-indigo-1 {
+  background-color: var(--indigo-1);
+}
+
+.bg-indigo-2 {
+  background-color: var(--indigo-2);
+}
+
+.bg-indigo-3 {
+  background-color: var(--indigo-3);
+}
+
+.bg-indigo-4 {
+  background-color: var(--indigo-4);
+}
+
+.bg-indigo-8 {
+  background-color: var(--indigo-8);
+}
+
+.bg-indigo-9 {
+  background-color: var(--indigo-9);
+}
+
+.bg-blue-0 {
+  background-color: var(--blue-0);
+}
+
+.bg-blue-1 {
+  background-color: var(--blue-1);
+}
+
+.bg-blue-2 {
+  background-color: var(--blue-2);
+}
+
+.bg-blue-3 {
+  background-color: var(--blue-3);
+}
+
+.bg-blue-4 {
+  background-color: var(--blue-4);
+}
+
+.bg-blue-8 {
+  background-color: var(--blue-8);
+}
+
+.bg-blue-9 {
+  background-color: var(--blue-9);
+}
+
+.bg-cyan-0 {
+  background-color: var(--cyan-0);
+}
+
+.bg-cyan-1 {
+  background-color: var(--cyan-1);
+}
+
+.bg-cyan-2 {
+  background-color: var(--cyan-2);
+}
+
+.bg-cyan-3 {
+  background-color: var(--cyan-3);
+}
+
+.bg-cyan-4 {
+  background-color: var(--cyan-4);
+}
+
+.bg-cyan-8 {
+  background-color: var(--cyan-8);
+}
+
+.bg-cyan-9 {
+  background-color: var(--cyan-9);
+}
+
+.bg-teal-0 {
+  background-color: var(--teal-0);
+}
+
+.bg-teal-1 {
+  background-color: var(--teal-1);
+}
+
+.bg-teal-2 {
+  background-color: var(--teal-2);
+}
+
+.bg-teal-3 {
+  background-color: var(--teal-3);
+}
+
+.bg-teal-4 {
+  background-color: var(--teal-4);
+}
+
+.bg-teal-8 {
+  background-color: var(--teal-8);
+}
+
+.bg-teal-9 {
+  background-color: var(--teal-9);
+}
+
+.bg-green-0 {
+  background-color: var(--green-0);
+}
+
+.bg-green-1 {
+  background-color: var(--green-1);
+}
+
+.bg-green-2 {
+  background-color: var(--green-2);
+}
+
+.bg-green-3 {
+  background-color: var(--green-3);
+}
+
+.bg-green-4 {
+  background-color: var(--green-4);
+}
+
+.bg-green-8 {
+  background-color: var(--green-8);
+}
+
+.bg-green-9 {
+  background-color: var(--green-9);
+}
+
+.bg-lime-0 {
+  background-color: var(--lime-0);
+}
+
+.bg-lime-1 {
+  background-color: var(--lime-1);
+}
+
+.bg-lime-2 {
+  background-color: var(--lime-2);
+}
+
+.bg-lime-3 {
+  background-color: var(--lime-3);
+}
+
+.bg-lime-4 {
+  background-color: var(--lime-4);
+}
+
+.bg-lime-8 {
+  background-color: var(--lime-8);
+}
+
+.bg-lime-9 {
+  background-color: var(--lime-9);
+}
+
+.bg-yellow-0 {
+  background-color: var(--yellow-0);
+}
+
+.bg-yellow-1 {
+  background-color: var(--yellow-1);
+}
+
+.bg-yellow-2 {
+  background-color: var(--yellow-2);
+}
+
+.bg-yellow-3 {
+  background-color: var(--yellow-3);
+}
+
+.bg-yellow-4 {
+  background-color: var(--yellow-4);
+}
+
+.bg-yellow-8 {
+  background-color: var(--yellow-8);
+}
+
+.bg-yellow-9 {
+  background-color: var(--yellow-9);
+}
+
+.bg-orange-0 {
+  background-color: var(--orange-0);
+}
+
+.bg-orange-1 {
+  background-color: var(--orange-1);
+}
+
+.bg-orange-2 {
+  background-color: var(--orange-2);
+}
+
+.bg-orange-3 {
+  background-color: var(--orange-3);
+}
+
+.bg-orange-4 {
+  background-color: var(--orange-4);
+}
+
+.bg-orange-8 {
+  background-color: var(--orange-8);
+}
+
+.bg-orange-9 {
+  background-color: var(--orange-9);
+}
+
+.bg-grey-0 {
+  background-color: var(--grey-0);
+}
+
+.bg-grey-1 {
+  background-color: var(--grey-1);
+}
+
+.bg-grey-2 {
+  background-color: var(--grey-2);
+}
+
+.bg-grey-3 {
+  background-color: var(--grey-3);
+}
+
+.bg-grey-4 {
+  background-color: var(--grey-4);
+}
+
+.bg-grey-8 {
+  background-color: var(--grey-8);
+}
+
+.bg-grey-9 {
+  background-color: var(--grey-9);
+}
+
+/*# sourceMappingURL=fargo.css.map */

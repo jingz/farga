@@ -1,0 +1,180 @@
+{% extends "layout/base.html" %}
+
+{% block inline_style %}
+.flex {
+    display: flex;
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  place-items: center;
+  justify-content: center;
+  margin-top: var(--px-0);
+  color: var(--text-color-dark);
+}
+
+.box + .box {
+    margin-left: var(--px-0);
+}
+
+.box:nth-child(n+6) {
+    color: var(--text-color-white);
+}
+{% endblock %}
+
+{% block content %}
+<div>
+  <h1>Colors</h1>
+  <div>
+      We have to defined our own primary and secondary colors
+      from the color list below.
+
+      In this case we pink indigo and oriange and priamry and secondary
+      color repectively
+  </div>
+  <div class='flex'>
+    <div class="box bg-primary-0">primary-0</div>
+    <div class="box bg-primary-1">primary-1</div>
+    <div class="box bg-primary-2">primary-2</div>
+    <div class="box bg-primary-3">primary-3</div>
+    <div class="box bg-primary-4">primary-4</div>
+    <div class="box bg-primary-8">primary-8</div>
+    <div class="box bg-primary-9">primary-9</div>
+  </div>
+  <div class='flex'>
+    <div class="box bg-secondary-0">secondary-0</div>
+    <div class="box bg-secondary-1">secondary-1</div>
+    <div class="box bg-secondary-2">secondary-2</div>
+    <div class="box bg-secondary-3">secondary-3</div>
+    <div class="box bg-secondary-4">secondary-4</div>
+    <div class="box bg-secondary-8">secondary-8</div>
+    <div class="box bg-secondary-9">secondary-9</div>
+  </div>
+  <div class='flex'>
+    <div class="box bg-grey-0">grey-0</div>
+    <div class="box bg-grey-1">grey-1</div>
+    <div class="box bg-grey-2">grey-2</div>
+    <div class="box bg-grey-3">grey-3</div>
+    <div class="box bg-grey-4">grey-4</div>
+    <div class="box bg-grey-8">grey-8</div>
+    <div class="box bg-grey-9">grey-9</div>
+  </div>
+  <h2>System Colors</h2>
+  <div>
+      System colors are the colors that are used for communicate system status
+      such as success, fail status or use for inform and warning
+      by using color green, red, blue and yellow repetively
+  </div>
+  <div class='flex'>
+    <div class="box bg-red-0">red-0</div>
+    <div class="box bg-red-1">red-1</div>
+    <div class="box bg-red-2">red-2</div>
+    <div class="box bg-red-3">red-3</div>
+    <div class="box bg-red-4">red-4</div>
+    <div class="box bg-red-8">red-8</div>
+    <div class="box bg-red-9">red-9</div>
+  </div>
+  <div class='flex'>
+    <div class="box bg-green-0">green-0</div>
+    <div class="box bg-green-1">green-1</div>
+    <div class="box bg-green-2">green-2</div>
+    <div class="box bg-green-3">green-3</div>
+    <div class="box bg-green-4">green-4</div>
+    <div class="box bg-green-8">green-8</div>
+    <div class="box bg-green-9">green-9</div>
+  </div>
+  <div class='flex'>
+    <div class="box bg-blue-0">blue-0</div>
+    <div class="box bg-blue-1">blue-1</div>
+    <div class="box bg-blue-2">blue-2</div>
+    <div class="box bg-blue-3">blue-3</div>
+    <div class="box bg-blue-4">blue-4</div>
+    <div class="box bg-blue-8">blue-8</div>
+    <div class="box bg-blue-9">blue-9</div>
+  </div>
+  <div class='flex'>
+    <div class="box bg-yellow-0">yellow-0</div>
+    <div class="box bg-yellow-1">yellow-1</div>
+    <div class="box bg-yellow-2">yellow-2</div>
+    <div class="box bg-yellow-3">yellow-3</div>
+    <div class="box bg-yellow-4">yellow-4</div>
+    <div class="box bg-yellow-8">yellow-8</div>
+    <div class="box bg-yellow-9">yellow-9</div>
+  </div>
+  <h2>All colors</h2>
+  <div class='flex'>
+    <div class="box bg-pink-0">pink-0</div>
+    <div class="box bg-pink-1">pink-1</div>
+    <div class="box bg-pink-2">pink-2</div>
+    <div class="box bg-pink-3">pink-3</div>
+    <div class="box bg-pink-4">pink-4</div>
+    <div class="box bg-pink-8">pink-8</div>
+    <div class="box bg-pink-9">pink-9</div>
+  </div>
+  <div class='flex'>
+    <div class="box bg-grape-0">grape-0</div>
+    <div class="box bg-grape-1">grape-1</div>
+    <div class="box bg-grape-2">grape-2</div>
+    <div class="box bg-grape-3">grape-3</div>
+    <div class="box bg-grape-4">grape-4</div>
+    <div class="box bg-grape-8">grape-8</div>
+    <div class="box bg-grape-9">grape-9</div>
+  </div>
+  <div class='flex'>
+    <div class="box bg-violet-0">violet-0</div>
+    <div class="box bg-violet-1">violet-1</div>
+    <div class="box bg-violet-2">violet-2</div>
+    <div class="box bg-violet-3">violet-3</div>
+    <div class="box bg-violet-4">violet-4</div>
+    <div class="box bg-violet-8">violet-8</div>
+    <div class="box bg-violet-9">violet-9</div>
+  </div>
+  <div class='flex'>
+    <div class="box bg-indigo-0">indigo-0</div>
+    <div class="box bg-indigo-1">indigo-1</div>
+    <div class="box bg-indigo-2">indigo-2</div>
+    <div class="box bg-indigo-3">indigo-3</div>
+    <div class="box bg-indigo-4">indigo-4</div>
+    <div class="box bg-indigo-8">indigo-8</div>
+    <div class="box bg-indigo-9">indigo-9</div>
+  </div>
+  <div class='flex'>
+    <div class="box bg-cyan-0">cyan-0</div>
+    <div class="box bg-cyan-1">cyan-1</div>
+    <div class="box bg-cyan-2">cyan-2</div>
+    <div class="box bg-cyan-3">cyan-3</div>
+    <div class="box bg-cyan-4">cyan-4</div>
+    <div class="box bg-cyan-8">cyan-8</div>
+    <div class="box bg-cyan-9">cyan-9</div>
+  </div>
+  <div class='flex'>
+    <div class="box bg-teal-0">teal-0</div>
+    <div class="box bg-teal-1">teal-1</div>
+    <div class="box bg-teal-2">teal-2</div>
+    <div class="box bg-teal-3">teal-3</div>
+    <div class="box bg-teal-4">teal-4</div>
+    <div class="box bg-teal-8">teal-8</div>
+    <div class="box bg-teal-9">teal-9</div>
+  </div>
+  <div class='flex'>
+    <div class="box bg-lime-0">lime-0</div>
+    <div class="box bg-lime-1">lime-1</div>
+    <div class="box bg-lime-2">lime-2</div>
+    <div class="box bg-lime-3">lime-3</div>
+    <div class="box bg-lime-4">lime-4</div>
+    <div class="box bg-lime-8">lime-8</div>
+    <div class="box bg-lime-9">lime-9</div>
+  </div>
+  <div class='flex'>
+    <div class="box bg-orange-0">orange-0</div>
+    <div class="box bg-orange-1">orange-1</div>
+    <div class="box bg-orange-2">orange-2</div>
+    <div class="box bg-orange-3">orange-3</div>
+    <div class="box bg-orange-4">orange-4</div>
+    <div class="box bg-orange-8">orange-8</div>
+    <div class="box bg-orange-9">orange-9</div>
+  </div>
+</div>
+{% endblock %}

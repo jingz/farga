@@ -1,0 +1,63 @@
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--serif-fonts);
+  margin: 0.67em 0;
+}
+
+h2, h3, h4, h5, h6 {
+    font-weight: 500;
+}
+
+h1 {
+  font-size: var(--fs-8);
+}
+
+h2 {
+  font-size: var(--fs-7);
+}
+
+h3 {
+  font-size: var(--fs-6);
+}
+
+h4 {
+  font-size: var(--fs-5);
+}
+
+h5 {
+  font-size: var(--fs-4);
+}
+
+h6 {
+  font-size: var(--fs-3);
+}
+
+body, div, span, p, button {
+  font-family: var(--sans-serif-fonts);
+}
+
+p {
+  line-height: var(--base-line-height);
+  margin: 0.67em 0;
+}
+
+/* font utilities */
+.ft-sans-serif {
+  font-family: var(--sans-serif-fonts);
+}
+
+.ft-serif {
+  font-family: var(--serif-fonts);
+}
+
+.ft-mono {
+  font-family: var(--monospace-fonts);
+}
+
+.ft-fantasy {
+  font-family: var(--fantasy-fonts);
+}
+
+.ft-cursive {
+  font-family: var(--cursive-fonts);
+  font-size: 150%;
+}

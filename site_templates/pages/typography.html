@@ -1,0 +1,67 @@
+{% extends "layout/base.html" %}
+
+{% block inline_style %}
+.flex {
+    display: flex;
+}
+{% endblock %}
+
+{% block content %}
+<div>
+  <h1>Typography</h1>
+  <h2>Font Styles</h2>
+  <div class="flex">
+      <div class="ft-sans-serif">
+        <strong>.ft-sans-serif</strong>
+        <p>
+        The quick brown fox jumps over the lazy dog. 1234567890 !@#$%^&*()_+[]{};:'",/?
+        </p>
+      </div>
+  </div>
+
+  <div class="ft-serif">
+    <strong>.ft-serif</strong>
+    <p class="ft-serif">
+    The quick brown fox jumps over the lazy dog. 1234567890 !@#$%^&*()_+[]{};:'",/?
+    </p>
+  </div>
+  <div class="ft-mono">
+    <strong>.ft-mono</strong>
+    The quick brown fox jumps over the lazy dog. 1234567890 !@#$%^&*()_+[]{};:'",/?
+  </div>
+  <div class="ft-fantasy">
+    <strong>.ft-fantasy</strong>
+    The quick brown fox jumps over the lazy dog. 1234567890 !@#$%^&*()_+[]{};:'",/?
+  </div>
+  <div class="ft-cursive">
+    <strong>.ft-cursive</strong>
+    The quick brown fox jumps over the lazy dog. 1234567890 !@#$%^&*()_+[]{};:'",/?
+  </div>
+
+  <h2>Parapraph</h2>
+  <p style="width: 500px;">
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  </p>
+
+  <div>
+    <h1>Heading 1</h1>
+    <h2>Heading 2</h2>
+    <h3>Heading 3</h3>
+    <h4>Heading 4</h4>
+    <h5>Heading 5</h5>
+    <h6>Heading 6</h6>
+  </div>
+
+  <h2>Text Styling</h2>
+  <div>
+    <div><strong>Bold Text</strong></div>
+    <div> <i>Italic Text</i> </div>
+    <div> <small>Small Text</small> </div>
+    <div> <strike>Strike Text</strike> </div>
+    <div> <u>Underline Text</u> </div>
+    <div> <mark>Mark Text</mark> </div>
+    <div> <code>Code Text</code> </div>
+  </div>
+
+</div>
+{% endblock %}
