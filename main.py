@@ -7,7 +7,7 @@ env = Environment(
 
 index_html = env.get_template("pages/index.html")
 
-print(index_html.render())
+# print(index_html.render())
 
 # render all the files in the pages
 # and write output corresonding the the file name
