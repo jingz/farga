@@ -55,7 +55,8 @@ $base-font-size: 14px;
     --ghost-off-white: #f8f8ff; /* Ghost White */
 
     /* text color */
-    --text-color-dark: #0c1b6a; /* use against shad 0-4 of each color */
+    /*--text-color-dark: #0c1b6a; /* use against shad 0-4 of each color */
+    --text-color-dark: var(--grey-9); /* use against shad 0-4 of each color */
     --text-color-white: white; /* use against shad 8-9 of each color */
     --text-color-muted: var(--grey-8); /* use against shad 0-4 of each color */
 

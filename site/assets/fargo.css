@@ -46,7 +46,8 @@
   /* colors */
   --ghost-off-white: #f8f8ff; /* Ghost White */
   /* text color */
-  --text-color-dark: #0c1b6a; /* use against shad 0-4 of each color */
+  /*--text-color-dark: #0c1b6a; /* use against shad 0-4 of each color */
+  --text-color-dark: var(--grey-9); /* use against shad 0-4 of each color */
   --text-color-white: white; /* use against shad 8-9 of each color */
   --text-color-muted: var(--grey-8); /* use against shad 0-4 of each color */
   --primary-0: hsl(230, 80%, 95%);
@@ -171,6 +172,7 @@
 
 body, div, section, main, p {
   font-size: var(--fs-2);
+  color: var(--text-color-dark);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -243,15 +245,15 @@ p {
   font-size: 150%;
 }
 
-aside.menu ul li, aside.menu details ul li, aside.menu details summary {
+nav.menu ul li, nav.menu details ul li, nav.menu details summary {
   padding: 6px 10px;
   cursor: pointer;
 }
 
-aside.menu {
+nav.menu {
   max-width: 180px;
 }
-aside.menu p {
+nav.menu p {
   font-family: var(--serif-fonts);
   color: var(--text-color-muted);
   letter-spacing: calc(var(--fs-2) * 0.05);
@@ -259,59 +261,72 @@ aside.menu p {
   margin: 0.3rem 0;
   margin-top: 0.5rem;
 }
-aside.menu details {
+nav.menu details {
   padding: 0 0.3rem;
 }
-aside.menu details[open] summary {
+nav.menu details[open] summary {
   background-color: var(--grey-0);
 }
-aside.menu details[open] summary::after {
+nav.menu details[open] summary::after {
   content: "–";
 }
-aside.menu details summary {
+nav.menu details summary {
   list-style: none;
 }
-aside.menu details summary::after {
+nav.menu details summary::after {
   font-family: var(--monospace-fonts);
   content: "+";
   float: right;
   color: var(--text-color-muted);
   font-weight: bold;
 }
-aside.menu details summary:hover {
+nav.menu details summary:hover {
   background-color: var(--grey-0);
 }
-aside.menu details ul {
+nav.menu details ul {
   list-style: none;
   padding: 0;
   margin: 0;
   margin-left: 0.7rem;
 }
-aside.menu details ul li {
+nav.menu details ul li {
   border-left: 1px solid var(--grey-3);
-  /* TODO */
   /* second level menu */
 }
-aside.menu details ul li:hover {
+nav.menu details ul li:hover {
   border-left: 1px solid var(--grey-0);
 }
-aside.menu details ul li:active {
+nav.menu details ul li:active {
   border-left: 1px solid var(--primary-4);
 }
-aside.menu ul {
+nav.menu details ul li a {
+  color: var(--text-color-dark);
+  text-decoration: none;
+}
+nav.menu details ul li a:visited {
+  color: pink;
+}
+nav.menu ul {
   list-style: none;
   padding: 0;
   margin: 0;
   margin-left: 0.3rem;
 }
-aside.menu ul li {
+nav.menu ul li {
   /* second level menu */
 }
-aside.menu ul li:hover {
+nav.menu ul li:hover {
   background-color: var(--grey-0);
 }
-aside.menu ul li.active {
+nav.menu ul li.active {
   background-color: var(--primary-1);
+}
+nav.menu ul li a {
+  color: var(--text-color-dark);
+  text-decoration: none;
+}
+nav.menu ul li a:visited {
+  color: var(--text-color-dark);
 }
 button {
   background-color: var(--primary-8);

@@ -5,7 +5,7 @@
   cursor: pointer;
 }
 
-aside.menu {
+nav.menu {
   max-width: 180px;
 
   p {
@@ -66,8 +66,14 @@ aside.menu {
           border-left: 1px solid var(--primary-4);
         }
 
-        /* TODO */
-        a {}
+        a {
+          color: var(--text-color-dark);
+          text-decoration: none;
+          &:visited {
+            color: pink;
+          }
+        }
+
 
         /* second level menu */
         ul {}
@@ -93,8 +99,14 @@ aside.menu {
         background-color: var(--primary-1);
       }
 
+      a {
+        color: var(--text-color-dark);
+        text-decoration: none;
 
-      a {}
+        &:visited {
+          color: var(--text-color-dark);
+        }
+      }
 
       /* second level menu */
       ul {

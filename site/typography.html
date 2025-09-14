@@ -10,18 +10,31 @@
     display: flex;
 }
 
+
+    body {
+        display: flex;
+
+        nav.menu {
+            width: 180px;
+        }
+
+        main {
+            padding: 0 1rem;
+        }
+    }
     </style>
 
   </head>
   <body>
-      <nav>
-          <ol>
+      <nav class="menu">
+          <p>Side Menu</p>
+          <ul>
               <li><a href="./index.html">Home</a></li>
               <li><a href="./color.html">Colors</a></li>
               <li><a href="./typography.html">Typography</a></li>
               <li><a href="./navigation.html">Navigation</a></li>
               <li><a href="./button.html">Buttons</a></li>
-          </ol>
+          </ul>
       </nav>
       <main>
           
@@ -29,7 +42,11 @@
   <h1>Typography</h1>
   <hr/>
 
-  <h2>Font Styles</h2>
+  <h2>Font Style Utilities</h2>
+  <p>
+  We mostly use serif and sans-serif fonts for rendering text content.
+  But we can use others fonts when needed.
+  </p>
 
   <div class="ft-sans-serif">
     <strong>.ft-sans-serif</strong>
@@ -87,7 +104,7 @@
 
   <div>
     <hgroup>
-      <h2>Header</h2>
+      <h2>Header Group</h2>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
     </hgroup>
   </div>
