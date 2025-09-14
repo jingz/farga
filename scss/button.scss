@@ -1,6 +1,6 @@
 @use 'base';
 
-.btn {
+button {
   background-color: var(--primary-8);
   color: var(--primary-2);
   padding: 8px 10px;
@@ -42,5 +42,15 @@
   &.btn-extra {
     font-size: 20px;
     padding: 15px 30px;
+  }
+}
+
+a {
+  &:link {
+    color: var(--violet-8);
+  }
+
+  &:visited {
+    color: var(--grape-8);
   }
 }
