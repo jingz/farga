@@ -1,46 +1,49 @@
 @use 'base';
 
+%menu-link-padding {
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
 aside.menu {
+  max-width: 180px;
+
   p {
     font-family: var(--serif-fonts);
-    color: var(--neutral-8);
-    font-size: var(--fs-2);
-    letter-spacing: calc(var(--fs-1) * 0.15);
+    color: var(--text-color-muted);
+    letter-spacing: calc(var(--fs-2) * 0.05);
     padding: 0 0.3rem;
-    margin: 10px 0;
+    margin: 0.3rem 0;
+    margin-top: 0.5rem;
   }
 
   details {
-    padding-left: 20px;
+    padding: 0 0.3rem;
 
     &[open] {
       summary{
+        background-color: var(--grey-0);
 
-        &::before {
-          font-family: var(--monospace-fonts);
+        &::after {
           content: "–";
         }
       }
     }
 
     summary {
-      font-size: var(--fs-2);
-      color: var(--neutral-8);
+      @extend %menu-link-padding;
       list-style: none;
-      padding: 10px 0px;
-      cursor: pointer;
 
-      span {
-        font-family: var(--serif-fonts);
-        margin-left: 0.3rem;
-        text-decoration: none;
-        letter-spacing: calc(var(--fs-1) * 0.15);
+      &::after {
+        font-family: var(--monospace-fonts);
+        content: "+";
+        float: right;
+        color: var(--text-color-muted);
+        font-weight: bold;
       }
 
-      &::before {
-        font-family: var(--monospace-fonts);
-        content: ">";
-        color: var(--grey-4);
+      &:hover {
+          background-color: var(--grey-0);
       }
     }
 
@@ -48,22 +51,26 @@ aside.menu {
       list-style: none;
       padding: 0;
       margin: 0;
-      margin-left: 0.3rem;
-      border-left: 1px solid var(--grey-3);
+      margin-left: 0.7rem;
 
       li {
-        padding: 10px 14px;
-        cursor: pointer;
+        @extend %menu-link-padding;
+
+        border-left: 1px solid var(--grey-3);
 
         &:hover {
-          background-color: var(--grey-0);
+          border-left: 1px solid var(--grey-0);
         }
 
+        &:active {
+          border-left: 1px solid var(--primary-4);
+        }
+
+        /* TODO */
         a {}
 
         /* second level menu */
-        ul {
-        }
+        ul {}
       }
     }
 
@@ -76,12 +83,16 @@ aside.menu {
     margin-left: 0.3rem;
 
     li {
-      padding: 10px 14px;
-      cursor: pointer;
+      @extend %menu-link-padding;
 
       &:hover {
         background-color: var(--grey-0);
       }
+
+      &.active {
+        background-color: var(--primary-1);
+      }
+
 
       a {}
 

@@ -1,13 +1,13 @@
 @charset "UTF-8";
 :root {
   /* fonts */
-  --sans-serif-fonts: Verdana, sans-serif;
-  --serif-fonts: Georgia, serif;
+  --sans-serif-fonts: Arial, sans-serif;
+  --serif-fonts: Palatino, serif;
   --monospace-fonts: "Lucida Console", "Monaco", monospace;
   --fantasy-fonts: Papyrus,fantasy;
   --cursive-fonts: "Brush Script MT", cursive;
   --base-font-size: $base-font-size;
-  --base-line-height: 1.15;
+  --base-line-height: 1.33;
   --base-letter-spacing: 1.5px;
   /* pixel scales ---------------------------- */
   /* nagative scales */
@@ -48,6 +48,7 @@
   /* text color */
   --text-color-dark: #0c1b6a; /* use against shad 0-4 of each color */
   --text-color-white: white; /* use against shad 8-9 of each color */
+  --text-color-muted: var(--grey-8); /* use against shad 0-4 of each color */
   --primary-0: hsl(230, 80%, 95%);
   --primary-1: hsl(230, 80%, 91%);
   --primary-2: hsl(230, 80%, 87%);
@@ -168,37 +169,47 @@
   --grey-9: hsl(0, 0%, 23%);
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--serif-fonts);
-  margin: 0.67em 0;
+body, div, section, main, p {
+  font-size: var(--fs-2);
 }
 
-h2, h3, h4, h5, h6 {
-  font-weight: 500;
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--serif-fonts);
+  margin: 0.5rem 0;
+  padding: 0;
 }
 
 h1 {
-  font-size: var(--fs-8);
-}
-
-h2 {
   font-size: var(--fs-7);
 }
 
-h3 {
+h2 {
   font-size: var(--fs-6);
 }
 
-h4 {
+h3 {
   font-size: var(--fs-5);
 }
 
-h5 {
+h4 {
   font-size: var(--fs-4);
 }
 
-h6 {
+h5 {
   font-size: var(--fs-3);
+}
+
+h6 {
+  font-size: var(--fs-2);
+}
+
+hgroup h2 {
+  margin-bottom: 0;
+}
+hgroup p {
+  line-height: var(--base-line-height);
+  margin-top: 0;
+  color: var(--text-color-muted);
 }
 
 body, div, span, p, button {
@@ -232,53 +243,60 @@ p {
   font-size: 150%;
 }
 
+aside.menu ul li, aside.menu details ul li, aside.menu details summary {
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+aside.menu {
+  max-width: 180px;
+}
 aside.menu p {
   font-family: var(--serif-fonts);
-  color: var(--neutral-8);
-  font-size: var(--fs-2);
-  letter-spacing: calc(var(--fs-1) * 0.15);
+  color: var(--text-color-muted);
+  letter-spacing: calc(var(--fs-2) * 0.05);
   padding: 0 0.3rem;
-  margin: 10px 0;
+  margin: 0.3rem 0;
+  margin-top: 0.5rem;
 }
 aside.menu details {
-  padding-left: 20px;
+  padding: 0 0.3rem;
 }
-aside.menu details[open] summary::before {
-  font-family: var(--monospace-fonts);
+aside.menu details[open] summary {
+  background-color: var(--grey-0);
+}
+aside.menu details[open] summary::after {
   content: "–";
 }
 aside.menu details summary {
-  font-size: var(--fs-2);
-  color: var(--neutral-8);
   list-style: none;
-  padding: 10px 0px;
-  cursor: pointer;
 }
-aside.menu details summary span {
-  font-family: var(--serif-fonts);
-  margin-left: 0.3rem;
-  text-decoration: none;
-  letter-spacing: calc(var(--fs-1) * 0.15);
-}
-aside.menu details summary::before {
+aside.menu details summary::after {
   font-family: var(--monospace-fonts);
-  content: ">";
-  color: var(--grey-4);
+  content: "+";
+  float: right;
+  color: var(--text-color-muted);
+  font-weight: bold;
+}
+aside.menu details summary:hover {
+  background-color: var(--grey-0);
 }
 aside.menu details ul {
   list-style: none;
   padding: 0;
   margin: 0;
-  margin-left: 0.3rem;
-  border-left: 1px solid var(--grey-3);
+  margin-left: 0.7rem;
 }
 aside.menu details ul li {
-  padding: 10px 14px;
-  cursor: pointer;
+  border-left: 1px solid var(--grey-3);
+  /* TODO */
   /* second level menu */
 }
 aside.menu details ul li:hover {
-  background-color: var(--grey-0);
+  border-left: 1px solid var(--grey-0);
+}
+aside.menu details ul li:active {
+  border-left: 1px solid var(--primary-4);
 }
 aside.menu ul {
   list-style: none;
@@ -287,12 +305,13 @@ aside.menu ul {
   margin-left: 0.3rem;
 }
 aside.menu ul li {
-  padding: 10px 14px;
-  cursor: pointer;
   /* second level menu */
 }
 aside.menu ul li:hover {
   background-color: var(--grey-0);
+}
+aside.menu ul li.active {
+  background-color: var(--primary-1);
 }
 .btn {
   background-color: var(--primary-8);
