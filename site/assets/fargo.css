@@ -50,6 +50,7 @@
   --text-color-dark: var(--grey-9); /* use against shad 0-4 of each color */
   --text-color-white: white; /* use against shad 8-9 of each color */
   --text-color-muted: var(--grey-8); /* use against shad 0-4 of each color */
+  --body-background: white;
   --primary-0: hsl(230, 80%, 95%);
   --primary-1: hsl(230, 80%, 91%);
   --primary-2: hsl(230, 80%, 87%);
@@ -344,13 +345,24 @@ button.btn-secondary {
   background-color: var(--orange-1);
   color: var(--orange-8);
 }
+button.btn-secondary-outline {
+  background-color: var(--body-background);
+  color: var(--orange-4);
+  border: 1px solid var(--orange-4);
+}
 button.btn-danger {
   background-color: var(--red-8);
   color: var(--red-1);
 }
+button.btn-danger-outline {
+  background-color: var(--body-background);
+  border: 1px solid var(--red-4);
+  color: var(--red-4);
+}
 button.btn-outline {
-  background-color: var(--neutral-1);
-  color: var(--neutral-9);
+  background-color: var(--body-background);
+  border: 1px solid var(--primary-4);
+  color: var(--primary-4);
 }
 button.btn-small {
   font-size: 12px;

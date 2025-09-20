@@ -18,14 +18,27 @@ button {
       color: var(--orange-8);
   }
 
+  &.btn-secondary-outline {
+      background-color: var(--body-background);
+      color: var(--orange-4);
+      border: 1px solid var(--orange-4);
+  }
+
   &.btn-danger {
       background-color: var(--red-8);
       color: var(--red-1);
   }
 
+  &.btn-danger-outline {
+      background-color: var(--body-background);
+      border: 1px solid var(--red-4);
+      color: var(--red-4);
+  }
+
   &.btn-outline {
-      background-color: var(--neutral-1);
-      color: var(--neutral-9);
+      background-color: var(--body-background);
+      border: 1px solid var(--primary-4);
+      color: var(--primary-4);
   }
 
   // size
