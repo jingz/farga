@@ -176,6 +176,7 @@
   --text-color-secondary: white;
   --text-color-muted: var(--grey-8);
   --bg-primary: white;
+  --dim: var(--grey-0);
   --bg-list-active: var(--primary-1);
   --bg-list-hover: var(--grey-1);
   --bg-summary-hover: var(--grey-2);
@@ -190,6 +191,7 @@
     --text-color-secondary: black;
     --text-color-muted: var(--grey-4);
     --bg-primary: black;
+    --dim: var(--grey-9);
     /* list */
     --bg-list-active: var(--primary-9);
     --bg-summary-hover: var(--grey-8);
@@ -197,6 +199,11 @@
     --border-nested-link: var(--grey-8);
   }
 }
+/* reset */
+ul {
+  padding: 0;
+}
+
 body, div, section, main, p {
   font-size: var(--fs-2);
   color: var(--text-color-primary);
@@ -211,11 +218,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1, h2, h3 {
-  line-height: 1;
+  line-height: 1.5;
 }
 
 h4, h5, h6 {
-  line-height: 1.5;
+  line-height: 1.75;
 }
 
 h1 {
@@ -282,11 +289,12 @@ p {
   font-size: 150%;
 }
 
-nav.menu ul li a, nav.menu details ul li, nav.menu details summary {
+nav.tab.tab-radio label, nav.tab ul li a, nav.menu ul li a, nav.menu details ul li, nav.menu details summary {
   padding: 6px 10px;
   cursor: pointer;
 }
 
+/* side menu */
 nav.menu {
   max-width: 180px;
 }
@@ -348,6 +356,57 @@ nav.menu ul li a {
 }
 nav.menu ul li a:visited {
   color: var(--text-color-primary);
+}
+
+/* tab */
+nav.tab ul {
+  display: flex;
+  margin: 0;
+}
+nav.tab ul li {
+  list-style: none;
+}
+nav.tab ul li.active {
+  border-bottom: 0;
+  border-bottom: 2px solid var(--primary-4);
+}
+nav.tab ul li a {
+  display: block;
+}
+nav.tab section {
+  margin: 0;
+  padding: 8px 12px;
+  border-top: 1px solid var(--text-color-primary);
+}
+nav.tab.tab-radio {
+  display: flex;
+  flex-wrap: wrap;
+  /* input x label */
+}
+nav.tab.tab-radio input[type=radio] {
+  display: none;
+}
+nav.tab.tab-radio input[type=radio]:checked + label {
+  border-bottom: 2px solid var(--primary-4);
+}
+nav.tab.tab-radio input[type=radio]:checked + label + section {
+  display: block;
+}
+nav.tab.tab-radio label:first-of-type:after {
+  width: 10px;
+  display: block;
+  border: 1px solid red;
+}
+nav.tab.tab-radio label {
+  display: block;
+}
+nav.tab.tab-radio section {
+  border-top: 1px solid var(--text-color-primary);
+  display: none;
+  padding: 8px 10px;
+  flex-grow: 1;
+  width: 100%;
+  order: 99;
 }
 
 button {

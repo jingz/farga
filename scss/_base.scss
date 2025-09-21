@@ -203,6 +203,7 @@ $base-font-size: 14px;
     --text-color-secondary: white;
     --text-color-muted: var(--grey-8);
     --bg-primary: white;
+    --dim: var(--grey-0);
 
     --bg-list-active: var(--primary-1);
     --bg-list-hover: var(--grey-1);
@@ -219,6 +220,7 @@ $base-font-size: 14px;
     --text-color-secondary: black;
     --text-color-muted: var(--grey-4);
     --bg-primary: black;
+    --dim: var(--grey-9);
 
     /* list */
     --bg-list-active: var(--primary-9);
@@ -226,4 +228,9 @@ $base-font-size: 14px;
     --bg-summary-open: var(--grey-9);
     --border-nested-link: var(--grey-8);
   }
+}
+
+/* reset */
+ul {
+  padding: 0;
 }

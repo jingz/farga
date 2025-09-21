@@ -42,8 +42,93 @@
       </nav>
   </div>
 
+  <hr />
+  <hgroup>
   <h2>Tabs</h2>
+  <p>Tab has 2 variations</p>
+  </hgroup>
+  <h3>1. Normal Tabs</h3>
+  <nav class="tab">
+    <ul>
+        <li><a>Introduction</a></li>
+        <li class='active'><a>Get Started</a></li>
+        <li><a>Tutorials</a></li>
+        <li><a>Changelog</a></li>
+    </ul>
+    <section>
+        <h3>Accessibility Features:</h3>
+        <p>
+        Keyboard navigation with arrow keys, Home, and End keys
+        Proper focus management
+        Screen reader support through ARIA attributes
+        Clear visual indicators for active and focused states
+        </p>
+    </section>
+  </nav>
+
+  <hgroup>
+  <h3>2. Tabs using radio input</h3>
+  <p>This semantic doest not require javascript to switch active content to show according to the tab.</p>
+  </hgroup>
+  <nav class="tab tab-radio">
+      <input type="radio" name="tab" id="tab1" checked />
+      <label for="tab1">Introduction</label>
+      <section>
+          <h3>Introduction Content</h3>
+          <p>
+            Accessibility Features:
+            Keyboard navigation with arrow keys, Home, and End keys
+            Proper focus management
+            Screen reader support through ARIA attributes
+            Clear visual indicators for active and focused states
+          </p>
+      </section>
+
+      <input type="radio" name="tab" id="tab2" />
+      <label for="tab2">Get Started</label>
+      <section>
+          <h3>Get Started Content</h3>
+          <p>
+            Accessibility Features:
+            Keyboard navigation with arrow keys, Home, and End keys
+            Proper focus management
+            Screen reader support through ARIA attributes
+            Clear visual indicators for active and focused states
+            </p>
+      </section>
+
+      <input type="radio" name="tab" id="tab3" />
+      <label for="tab3">Tutorials</label>
+      <section>
+          <h3>Tutorials Content</h3>
+          <p>
+            Accessibility Features:
+            Keyboard navigation with arrow keys, Home, and End keys
+            Proper focus management
+            Screen reader support through ARIA attributes
+            Clear visual indicators for active and focused states
+          </p>
+      </section>
+
+      <input type="radio" name="tab" id="tab4" />
+      <label for="tab4">Changelog</label>
+      <section>
+          <h3>Changelog Content</h3>
+          <p>
+            Accessibility Features:
+            Keyboard navigation with arrow keys, Home, and End keys
+            Proper focus management
+            Screen reader support through ARIA attributes
+            Clear visual indicators for active and focused states
+          </p>
+      </section>
+  </nav>
+
+  <hr />
+
   <h2>Breadcrump</h2>
+
+  <hr />
   <h2>Pagination</h2>
 </div>
 {% endblock %}
