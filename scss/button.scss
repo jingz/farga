@@ -19,7 +19,7 @@ button {
   }
 
   &.btn-secondary-outline {
-      background-color: var(--body-background);
+      background-color: var(--bg-primary);
       color: var(--orange-4);
       border: 1px solid var(--orange-4);
   }
@@ -30,13 +30,13 @@ button {
   }
 
   &.btn-danger-outline {
-      background-color: var(--body-background);
+      background-color: var(--bg-primary);
       border: 1px solid var(--red-4);
       color: var(--red-4);
   }
 
   &.btn-outline {
-      background-color: var(--body-background);
+      background-color: var(--bg-primary);
       border: 1px solid var(--primary-4);
       color: var(--primary-4);
   }

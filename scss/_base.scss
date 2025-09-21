@@ -9,14 +9,16 @@ $base-font-size: 14px;
     --cursive-fonts: 'Brush Script MT', cursive;
 
     --base-font-size: $base-font-size;
-    --base-line-height: 1.33;
-    --base-letter-spacing: 1.5px;
+    --base-line-height: 1.5;
+    --base-line-height-head: 1;
+    --base-line-height-small: 1.75;
+    --base-letter-spacing: 0.05em;
 
     /* pixel scales ---------------------------- */
     /* nagative scales */
     --px-n3: 0.25rem;
-    --px-n2: 0.5rem;
     --px-n1: 0.75rem;
+    --px-n2: 0.5rem;
 
     /* positive scales */
     --px-0: 1rem;
@@ -52,17 +54,6 @@ $base-font-size: 14px;
     /* ------------------------------------------*/
 
     /* colors */
-    --ghost-off-white: #f8f8ff; /* Ghost White */
-
-    /* text color */
-    /*--text-color-dark: #0c1b6a; /* use against shad 0-4 of each color */
-    --text-color-dark: var(--grey-9); /* use against shad 0-4 of each color */
-    --text-color-white: white; /* use against shad 8-9 of each color */
-    --text-color-muted: var(--grey-8); /* use against shad 0-4 of each color */
-
-    --body-background: white;
-
-
     --primary-0: hsl(230, 80%, 95%);
     --primary-1: hsl(230, 80%, 91%);
     --primary-2: hsl(230, 80%, 87%);
@@ -88,8 +79,8 @@ $base-font-size: 14px;
     --neutral-9: hsl(0, 0%, 23%);
 
     /* no-custom generation from  https://hypejunction.github.io/color-wizard/ */
-    /* Color 0-4 for dark text */
-    /* Color 8-9 for white text and being dark text for 0-4 of the same shad */
+    /* Color suffix 0-4 for dark text agiant white background */
+    /* Color suffix 8-9 for white text and being dark text for 0-4 of the same shad */
     /* Removing color shad 5-6-7 since contrast ratio */
     /* System colors are red (error), green (success), blue (info) */
     /* Grey is neutral color */
@@ -197,4 +188,42 @@ $base-font-size: 14px;
     --grey-4: hsl(0, 0%, 68%);
     --grey-8: hsl(0, 0%, 32%);
     --grey-9: hsl(0, 0%, 23%);
+
+    /* ------------------------------------------ */
+    /* Theme */
+    /* default is light */
+    --ghost-off-white: #f8f8ff; /* Ghost White */
+
+    /* text color */
+    /*--text-color-dark: #0c1b6a; /* use against shad 0-4 of each color */
+    --text-color-dark: var(--grey-9); /* use against shad 0-4 of each color */
+    --body-background: white;
+
+    --text-color-primary: var(--grey-9);
+    --text-color-secondary: white;
+    --text-color-muted: var(--grey-8);
+    --bg-primary: white;
+
+    --bg-list-active: var(--primary-1);
+    --bg-list-hover: var(--grey-1);
+    --bg-summary-hover: var(--grey-2);
+    --bg-summary-open: var(--grey-1);
+    --border-nested-link: var(--grey-3);
+    /* ---------------------------------------------- */
+
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-color-primary: var(--grey-2);
+    --text-color-secondary: black;
+    --text-color-muted: var(--grey-4);
+    --bg-primary: black;
+
+    /* list */
+    --bg-list-active: var(--primary-9);
+    --bg-summary-hover: var(--grey-8);
+    --bg-summary-open: var(--grey-9);
+    --border-nested-link: var(--grey-8);
+  }
 }

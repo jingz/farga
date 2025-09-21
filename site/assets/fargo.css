@@ -7,13 +7,15 @@
   --fantasy-fonts: Papyrus,fantasy;
   --cursive-fonts: "Brush Script MT", cursive;
   --base-font-size: $base-font-size;
-  --base-line-height: 1.33;
-  --base-letter-spacing: 1.5px;
+  --base-line-height: 1.5;
+  --base-line-height-head: 1;
+  --base-line-height-small: 1.75;
+  --base-letter-spacing: 0.05em;
   /* pixel scales ---------------------------- */
   /* nagative scales */
   --px-n3: 0.25rem;
-  --px-n2: 0.5rem;
   --px-n1: 0.75rem;
+  --px-n2: 0.5rem;
   /* positive scales */
   --px-0: 1rem;
   --px-p1: 1.5rem;
@@ -44,13 +46,6 @@
   --fs-11: 72px;
   /* ------------------------------------------*/
   /* colors */
-  --ghost-off-white: #f8f8ff; /* Ghost White */
-  /* text color */
-  /*--text-color-dark: #0c1b6a; /* use against shad 0-4 of each color */
-  --text-color-dark: var(--grey-9); /* use against shad 0-4 of each color */
-  --text-color-white: white; /* use against shad 8-9 of each color */
-  --text-color-muted: var(--grey-8); /* use against shad 0-4 of each color */
-  --body-background: white;
   --primary-0: hsl(230, 80%, 95%);
   --primary-1: hsl(230, 80%, 91%);
   --primary-2: hsl(230, 80%, 87%);
@@ -73,8 +68,8 @@
   --neutral-8: hsl(0, 0%, 32%);
   --neutral-9: hsl(0, 0%, 23%);
   /* no-custom generation from  https://hypejunction.github.io/color-wizard/ */
-  /* Color 0-4 for dark text */
-  /* Color 8-9 for white text and being dark text for 0-4 of the same shad */
+  /* Color suffix 0-4 for dark text agiant white background */
+  /* Color suffix 8-9 for white text and being dark text for 0-4 of the same shad */
   /* Removing color shad 5-6-7 since contrast ratio */
   /* System colors are red (error), green (success), blue (info) */
   /* Grey is neutral color */
@@ -169,17 +164,58 @@
   --grey-4: hsl(0, 0%, 68%);
   --grey-8: hsl(0, 0%, 32%);
   --grey-9: hsl(0, 0%, 23%);
+  /* ------------------------------------------ */
+  /* Theme */
+  /* default is light */
+  --ghost-off-white: #f8f8ff; /* Ghost White */
+  /* text color */
+  /*--text-color-dark: #0c1b6a; /* use against shad 0-4 of each color */
+  --text-color-dark: var(--grey-9); /* use against shad 0-4 of each color */
+  --body-background: white;
+  --text-color-primary: var(--grey-9);
+  --text-color-secondary: white;
+  --text-color-muted: var(--grey-8);
+  --bg-primary: white;
+  --bg-list-active: var(--primary-1);
+  --bg-list-hover: var(--grey-1);
+  --bg-summary-hover: var(--grey-2);
+  --bg-summary-open: var(--grey-1);
+  --border-nested-link: var(--grey-3);
+  /* ---------------------------------------------- */
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-color-primary: var(--grey-2);
+    --text-color-secondary: black;
+    --text-color-muted: var(--grey-4);
+    --bg-primary: black;
+    /* list */
+    --bg-list-active: var(--primary-9);
+    --bg-summary-hover: var(--grey-8);
+    --bg-summary-open: var(--grey-9);
+    --border-nested-link: var(--grey-8);
+  }
+}
 body, div, section, main, p {
   font-size: var(--fs-2);
-  color: var(--text-color-dark);
+  color: var(--text-color-primary);
+  background-color: var(--bg-primary);
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--serif-fonts);
+  color: var(--text-color-primary);
   margin: 0.5rem 0;
   padding: 0;
+}
+
+h1, h2, h3 {
+  line-height: 1;
+}
+
+h4, h5, h6 {
+  line-height: 1.5;
 }
 
 h1 {
@@ -258,15 +294,11 @@ nav.menu p {
   font-family: var(--serif-fonts);
   color: var(--text-color-muted);
   letter-spacing: calc(var(--fs-2) * 0.05);
-  padding: 0 0.3rem;
-  margin: 0.3rem 0;
-  margin-top: 0.5rem;
-}
-nav.menu details {
-  padding: 0 0.3rem;
+  padding: 6px 10px;
+  margin: 0.75rem 0 -0.25rem 0;
 }
 nav.menu details[open] summary {
-  background-color: var(--grey-0);
+  background-color: var(--bg-summary-open);
 }
 nav.menu details[open] summary::after {
   content: "–";
@@ -275,60 +307,48 @@ nav.menu details summary {
   list-style: none;
 }
 nav.menu details summary::after {
-  font-family: var(--monospace-fonts);
   content: "+";
+  font-family: var(--monospace-fonts);
   float: right;
   color: var(--text-color-muted);
   font-weight: bold;
 }
 nav.menu details summary:hover {
-  background-color: var(--grey-0);
+  background-color: var(--bg-summary-hover);
 }
 nav.menu details ul {
   list-style: none;
   padding: 0;
   margin: 0;
-  margin-left: 0.7rem;
+  margin-left: 12px;
 }
 nav.menu details ul li {
-  border-left: 1px solid var(--grey-3);
-  /* second level menu */
-}
-nav.menu details ul li:hover {
-  border-left: 1px solid var(--grey-0);
-}
-nav.menu details ul li:active {
-  border-left: 1px solid var(--primary-4);
+  border-left: 1px solid var(--border-nested-link);
+  align-items: baseline;
 }
 nav.menu details ul li a {
-  color: var(--text-color-dark);
+  color: var(--text-color-primary);
   text-decoration: none;
-}
-nav.menu details ul li a:visited {
-  color: pink;
 }
 nav.menu ul {
   list-style: none;
   padding: 0;
   margin: 0;
-  margin-left: 0.3rem;
-}
-nav.menu ul li {
-  /* second level menu */
 }
 nav.menu ul li:hover {
-  background-color: var(--grey-0);
+  background-color: var(--bg-summary-hover);
 }
 nav.menu ul li.active {
-  background-color: var(--primary-1);
+  background-color: var(--bg-list-active);
 }
 nav.menu ul li a {
-  color: var(--text-color-dark);
+  color: var(--text-color-primary);
   text-decoration: none;
 }
 nav.menu ul li a:visited {
-  color: var(--text-color-dark);
+  color: var(--text-color-primary);
 }
+
 button {
   background-color: var(--primary-8);
   color: var(--primary-2);
@@ -346,7 +366,7 @@ button.btn-secondary {
   color: var(--orange-8);
 }
 button.btn-secondary-outline {
-  background-color: var(--body-background);
+  background-color: var(--bg-primary);
   color: var(--orange-4);
   border: 1px solid var(--orange-4);
 }
@@ -355,12 +375,12 @@ button.btn-danger {
   color: var(--red-1);
 }
 button.btn-danger-outline {
-  background-color: var(--body-background);
+  background-color: var(--bg-primary);
   border: 1px solid var(--red-4);
   color: var(--red-4);
 }
 button.btn-outline {
-  background-color: var(--body-background);
+  background-color: var(--bg-primary);
   border: 1px solid var(--primary-4);
   color: var(--primary-4);
 }
