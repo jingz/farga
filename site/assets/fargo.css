@@ -282,7 +282,7 @@ p {
   font-size: 150%;
 }
 
-nav.menu ul li, nav.menu details ul li, nav.menu details summary {
+nav.menu ul li a, nav.menu details ul li, nav.menu details summary {
   padding: 6px 10px;
   cursor: pointer;
 }
@@ -344,6 +344,7 @@ nav.menu ul li.active {
 nav.menu ul li a {
   color: var(--text-color-primary);
   text-decoration: none;
+  display: block;
 }
 nav.menu ul li a:visited {
   color: var(--text-color-primary);

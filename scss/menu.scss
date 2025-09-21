@@ -72,7 +72,6 @@ nav.menu {
     margin: 0;
 
     li {
-      @extend %menu-link-padding;
 
       &:hover {
         background-color: var(--bg-summary-hover);
@@ -83,8 +82,11 @@ nav.menu {
       }
 
       a {
+        @extend %menu-link-padding;
+
         color: var(--text-color-primary);
         text-decoration: none;
+        display: block;
 
         &:visited {
           color: var(--text-color-primary);
