@@ -174,13 +174,13 @@
   --body-background: white;
   --text-color-primary: var(--grey-9);
   --text-color-secondary: white;
-  --text-color-muted: var(--grey-8);
+  --text-color-muted: var(--grey-4);
   --bg-primary: white;
   --dim: var(--grey-0);
   --bg-list-active: var(--primary-1);
   --bg-list-hover: var(--grey-1);
-  --bg-summary-hover: var(--grey-2);
-  --bg-summary-open: var(--grey-1);
+  --bg-summary-hover: var(--grey-1);
+  --bg-summary-open: var(--grey-0);
   --border-nested-link: var(--grey-3);
   /* ---------------------------------------------- */
 }
@@ -289,72 +289,72 @@ p {
   font-size: 150%;
 }
 
-nav.breadcrumbs ul li a, nav.tab.tab-radio label, nav.tab ul li a, nav.menu ul li a, nav.menu details ul li, nav.menu details summary {
+nav.pagination ul li a, nav.pagination ul li span, nav.breadcrumbs ul li a, nav.tab.tab-radio label, nav.tab ul li a, nav.sidemenu ul li a, nav.sidemenu details ul li, nav.sidemenu details summary {
   padding: 6px 10px;
   cursor: pointer;
 }
 
 /* side menu */
-nav.menu {
+nav.sidemenu {
   max-width: 180px;
 }
-nav.menu p {
+nav.sidemenu p {
   font-family: var(--serif-fonts);
   color: var(--text-color-muted);
   letter-spacing: calc(var(--fs-2) * 0.05);
   padding: 6px 10px;
   margin: 0.75rem 0 -0.25rem 0;
 }
-nav.menu details[open] summary {
+nav.sidemenu details[open] summary {
   background-color: var(--bg-summary-open);
 }
-nav.menu details[open] summary::after {
+nav.sidemenu details[open] summary::after {
   content: "–";
 }
-nav.menu details summary {
+nav.sidemenu details summary {
   list-style: none;
 }
-nav.menu details summary::after {
+nav.sidemenu details summary::after {
   content: "+";
   font-family: var(--monospace-fonts);
   float: right;
   color: var(--text-color-muted);
   font-weight: bold;
 }
-nav.menu details summary:hover {
+nav.sidemenu details summary:hover {
   background-color: var(--bg-summary-hover);
 }
-nav.menu details ul {
+nav.sidemenu details ul {
   list-style: none;
   padding: 0;
   margin: 0;
   margin-left: 12px;
 }
-nav.menu details ul li {
+nav.sidemenu details ul li {
   border-left: 1px solid var(--border-nested-link);
   align-items: baseline;
 }
-nav.menu details ul li a {
+nav.sidemenu details ul li a {
   color: var(--text-color-primary);
   text-decoration: none;
 }
-nav.menu ul {
+nav.sidemenu ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-nav.menu ul li:hover {
+nav.sidemenu ul li:hover {
   background-color: var(--bg-summary-hover);
 }
-nav.menu ul li.active {
+nav.sidemenu ul li.active {
   background-color: var(--bg-list-active);
 }
-nav.menu ul li a {
+nav.sidemenu ul li a {
   color: var(--text-color-primary);
   text-decoration: none;
   display: block;
 }
-nav.menu ul li a:visited {
+nav.sidemenu ul li a:visited {
   color: var(--text-color-primary);
 }
 
@@ -435,6 +435,38 @@ nav.breadcrumbs ul li a {
 }
 nav.breadcrumbs ul li a:hover {
   text-decoration: underline;
+}
+
+nav.pagination ul {
+  display: flex;
+}
+nav.pagination ul li {
+  display: flex;
+  align-items: baseline;
+  list-style: none;
+  margin-right: 0.2rem;
+  /* for ... */
+}
+nav.pagination ul li.disabled a {
+  color: var(--text-color-muted);
+  cursor: default;
+  pointer-events: none;
+}
+nav.pagination ul li.active a {
+  background-color: var(--dim);
+}
+nav.pagination ul li span {
+  display: block;
+}
+nav.pagination ul li a {
+  text-decoration: none;
+  border: 1px solid var(--dim);
+  border-radius: 5px;
+  color: var(--secondary-4);
+  display: block;
+}
+nav.pagination ul li a:hover {
+  background-color: var(--dim);
 }
 
 button {

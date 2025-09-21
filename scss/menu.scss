@@ -6,7 +6,7 @@
 }
 
 /* side menu */
-nav.menu {
+nav.sidemenu {
   max-width: 180px;
 
   p {
@@ -205,9 +205,54 @@ nav.breadcrumbs {
         &:hover {
           text-decoration: underline;
         }
+      }
+    }
+  }
+}
 
+nav.pagination {
+  ul {
+    display: flex;
+
+    li {
+      display: flex;
+      align-items: baseline;
+      list-style: none;
+      margin-right: 0.2rem;
+
+      &.disabled {
+        a {
+          color: var(--text-color-muted);
+          cursor: default;
+          pointer-events: none;
+        }
       }
 
+      &.active {
+        a {
+          background-color: var(--dim);
+        }
+      }
+
+      /* for ... */
+      span {
+        @extend %menu-link-padding;
+        display: block;
+      }
+
+      a {
+        @extend %menu-link-padding;
+        text-decoration: none;
+        border: 1px solid var(--dim);
+        border-radius: 5px;
+
+        color: var(--secondary-4);
+        display: block;
+
+        &:hover {
+          background-color: var(--dim);
+        }
+      }
     }
   }
 }

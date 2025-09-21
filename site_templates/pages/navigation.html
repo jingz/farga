@@ -12,7 +12,7 @@
 
   <h2>Side Menu</h2>
   <div>
-      <nav class="menu">
+      <nav class="sidemenu">
         <p>General</p>
         <ul>
             <li><a>Dashboard</a></li>
@@ -152,5 +152,25 @@
 
   <hr />
   <h2>Pagination</h2>
+
+  {% set pagination %}
+  <nav class="pagination">
+    <ul>
+        <li class="disabled"><a href="#">Previous</a></li>
+        <li class='active'><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><span>...</span></li>
+        <li><a href="#">10</a></li>
+        <li><a href="#">Next</a></li>
+      </ul>
+   </nav>
+  {% endset %}
+
+  {{ pagination }}
+
+  <pre>
+    {{ pagination | e }}
+  </pre>
 </div>
 {% endblock %}
