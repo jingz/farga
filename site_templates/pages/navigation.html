@@ -68,8 +68,13 @@
 
   <hgroup>
   <h3>2. Tabs using radio input</h3>
-  <p>This semantic doest not require javascript to switch active content to show according to the tab.</p>
+  <p>
+  This semantic doest not require javascript to switch active content to show according to the tab.
+  <a href="https://dev.to/joxx/building-a-tab-component-with-pure-css-using-radio-and-label-tags-200b">Building a tab component with Pure CSS using Radio and Label Tags</a>
+  </p>
+
   </hgroup>
+
   <nav class="tab tab-radio">
       <input type="radio" name="tab" id="tab1" checked />
       <label for="tab1">Introduction</label>
@@ -127,6 +132,23 @@
   <hr />
 
   <h2>Breadcrump</h2>
+
+  {% set breadcrumbs %}
+  <nav class="breadcrumbs">
+    <ul>
+        <li><a>Introduction</a></li>
+        <li><a>Get Started</a></li>
+        <li><a>Tutorials</a></li>
+        <li><a>Changelog</a></li>
+    </ul>
+  </nav>
+  {% endset %}
+
+  {{ breadcrumbs }}
+
+  <pre>
+    {{ breadcrumbs | e }}
+  </pre>
 
   <hr />
   <h2>Pagination</h2>

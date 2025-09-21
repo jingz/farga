@@ -289,7 +289,7 @@ p {
   font-size: 150%;
 }
 
-nav.tab.tab-radio label, nav.tab ul li a, nav.menu ul li a, nav.menu details ul li, nav.menu details summary {
+nav.breadcrumbs ul li a, nav.tab.tab-radio label, nav.tab ul li a, nav.menu ul li a, nav.menu details ul li, nav.menu details summary {
   padding: 6px 10px;
   cursor: pointer;
 }
@@ -407,6 +407,34 @@ nav.tab.tab-radio section {
   flex-grow: 1;
   width: 100%;
   order: 99;
+}
+
+/* breadcrumbs */
+nav.breadcrumbs ul {
+  display: flex;
+}
+nav.breadcrumbs ul li {
+  display: flex;
+  align-items: baseline;
+  list-style: none;
+}
+nav.breadcrumbs ul li:not(:last-child):after {
+  content: " / ";
+}
+nav.breadcrumbs ul li:last-child a {
+  color: var(--text-color-muted);
+  cursor: default;
+}
+nav.breadcrumbs ul li:last-child a:hover {
+  text-decoration: none;
+  pointer-events: none;
+}
+nav.breadcrumbs ul li a {
+  color: var(--primary-4);
+  display: block;
+}
+nav.breadcrumbs ul li a:hover {
+  text-decoration: underline;
 }
 
 button {

@@ -155,7 +155,6 @@ nav.tab {
       @extend %menu-link-padding;
       display: block;
     }
-
     section {
       border-top: 1px solid var(--text-color-primary);
       display: none;
@@ -166,4 +165,49 @@ nav.tab {
     }
   }
 
+}
+
+/* breadcrumbs */
+
+nav.breadcrumbs {
+  ul {
+    display: flex;
+
+    li {
+      display: flex;
+      align-items: baseline;
+      list-style: none;
+
+      &.active { }
+
+      &:not(:last-child):after {
+        content: " / ";
+      }
+
+      &:last-child {
+        a {
+          color: var(--text-color-muted);
+          cursor: default;
+
+          &:hover {
+            text-decoration: none;
+            pointer-events: none;
+          }
+        }
+      }
+
+      a {
+        @extend %menu-link-padding;
+
+        color: var(--primary-4);
+        display: block;
+
+        &:hover {
+          text-decoration: underline;
+        }
+
+      }
+
+    }
+  }
 }
