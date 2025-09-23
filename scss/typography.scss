@@ -44,7 +44,9 @@ h6 {
 }
 
 hgroup {
-  h2 {
+
+  h2, h3, h4 {
+    padding-bottom: 0;
     margin-bottom: 0;
   }
 
@@ -52,6 +54,7 @@ hgroup {
    line-height: var(--base-line-height);
    margin-top: 0;
    color: var(--text-color-muted);
+   line-height: 1;
   }
 }
 

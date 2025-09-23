@@ -1,0 +1,60 @@
+@use 'base';
+
+input, select, textarea {
+  padding: 6px 10px;
+  border: 1px solid var(--text-color-muted);
+
+  &.valid {
+    border: 1px solid var(--green-8);
+  }
+
+  &.error {
+    border: 1px solid var(--red-8);
+
+    & + span, & + small {
+      color: var(--red-8);
+    }
+  }
+}
+
+form {
+  /* control wrapper */
+  p {
+    margin: 0 0 0.5rem 0;
+    display: flex;
+    flex-direction: column;
+
+    label {
+      line-height: 1.75;
+      font-family: var(--serif-fonts);
+      font-size: 0.8rem;
+    }
+  }
+
+  div {
+    display: flex;
+    align-items: baseline;
+    * + * {
+      margin-left: 0.25rem;
+    }
+  }
+
+  fieldset {
+    border: 1px solid var(--dim);
+    border-radius: 5px;
+
+    legend {
+      font-weight: 700;
+      font-family: var(--serif-fonts);
+      margin-left: -0.3rem;
+    }
+  }
+
+  textarea {
+    font-family: var(--sans-serif-fonts);
+  }
+
+  input[type=number], input[type=tel] {
+    font-family: var(--monospace-fonts);
+  }
+}

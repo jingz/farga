@@ -51,6 +51,9 @@
   --primary-2: hsl(230, 80%, 87%);
   --primary-3: hsl(230, 80%, 79%);
   --primary-4: hsl(230, 80%, 72%); /* default primary */
+  --primary-5: hsl(230, 80%, 59%);
+  --primary-6: hsl(230, 80%, 50%);
+  --primary-7: hsl(230, 80%, 41%);
   --primary-8: hsl(230, 80%, 32%);
   --primary-9: hsl(230, 80%, 23%);
   --secondary-0: hsl(24, 80%, 94%);
@@ -58,15 +61,11 @@
   --secondary-2: hsl(24, 80%, 86%);
   --secondary-3: hsl(24, 80%, 77%);
   --secondary-4: hsl(24, 80%, 68%);
+  --secondary-5: hsl(24, 80%, 59%);
+  --secondary-6: hsl(24, 80%, 50%);
+  --secondary-7: hsl(24, 80%, 41%);
   --secondary-8: hsl(24, 80%, 32%);
   --secondary-9: hsl(24, 80%, 23%);
-  --neutral-0: hsl(0, 0%, 94%);
-  --neutral-1: hsl(0, 0%, 90%);
-  --neutral-2: hsl(0, 0%, 86%);
-  --neutral-3: hsl(0, 0%, 77%);
-  --neutral-4: hsl(0, 0%, 68%); /* default neutral */
-  --neutral-8: hsl(0, 0%, 32%);
-  --neutral-9: hsl(0, 0%, 23%);
   /* no-custom generation from  https://hypejunction.github.io/color-wizard/ */
   /* Color suffix 0-4 for dark text agiant white background */
   /* Color suffix 8-9 for white text and being dark text for 0-4 of the same shad */
@@ -78,6 +77,9 @@
   --red-2: hsl(0, 80%, 86%);
   --red-3: hsl(0, 80%, 77%);
   --red-4: hsl(0, 80%, 68%);
+  --red-5: hsl(0, 80%, 59%);
+  --red-6: hsl(0, 80%, 50%);
+  --red-7: hsl(0, 80%, 41%);
   --red-8: hsl(0, 80%, 32%);
   --red-9: hsl(0, 80%, 23%);
   --pink-0: hsl(339, 80%, 94%);
@@ -85,6 +87,9 @@
   --pink-2: hsl(339, 80%, 86%);
   --pink-3: hsl(339, 80%, 77%);
   --pink-4: hsl(339, 80%, 68%);
+  --pink-5: hsl(339, 80%, 59%);
+  --pink-6: hsl(339, 80%, 50%);
+  --pink-7: hsl(339, 80%, 41%);
   --pink-8: hsl(339, 80%, 32%);
   --pink-9: hsl(339, 80%, 23%);
   --grape-0: hsl(288, 80%, 94%);
@@ -92,6 +97,9 @@
   --grape-2: hsl(288, 80%, 86%);
   --grape-3: hsl(288, 80%, 77%);
   --grape-4: hsl(288, 80%, 68%);
+  --grape-5: hsl(288, 80%, 59%);
+  --grape-6: hsl(288, 80%, 50%);
+  --grape-7: hsl(288, 80%, 41%);
   --grape-8: hsl(288, 80%, 32%);
   --grape-9: hsl(288, 80%, 23%);
   --violet-0: hsl(255, 80%, 94%);
@@ -99,6 +107,9 @@
   --violet-2: hsl(255, 80%, 86%);
   --violet-3: hsl(255, 80%, 77%);
   --violet-4: hsl(255, 80%, 68%);
+  --violet-5: hsl(255, 80%, 59%);
+  --violet-6: hsl(255, 80%, 50%);
+  --violet-7: hsl(255, 80%, 41%);
   --violet-8: hsl(255, 80%, 32%);
   --violet-9: hsl(255, 80%, 23%);
   --indigo-0: hsl(230, 80%, 95%);
@@ -106,6 +117,9 @@
   --indigo-2: hsl(230, 80%, 87%);
   --indigo-3: hsl(230, 80%, 79%);
   --indigo-4: hsl(230, 80%, 72%);
+  --indigo-5: hsl(230, 80%, 59%);
+  --indigo-6: hsl(230, 80%, 50%);
+  --indigo-7: hsl(230, 80%, 41%);
   --indigo-8: hsl(230, 80%, 32%);
   --indigo-9: hsl(230, 80%, 23%);
   --blue-0: hsl(208, 80%, 94%);
@@ -113,6 +127,9 @@
   --blue-2: hsl(208, 80%, 86%);
   --blue-3: hsl(208, 80%, 77%);
   --blue-4: hsl(208, 80%, 68%);
+  --blue-5: hsl(208, 80%, 59%);
+  --blue-6: hsl(208, 80%, 50%);
+  --blue-7: hsl(208, 80%, 41%);
   --blue-8: hsl(208, 80%, 32%);
   --blue-9: hsl(208, 80%, 23%);
   --cyan-0: hsl(188, 80%, 94%);
@@ -120,6 +137,9 @@
   --cyan-2: hsl(188, 80%, 86%);
   --cyan-3: hsl(188, 80%, 77%);
   --cyan-4: hsl(188, 80%, 68%);
+  --cyan-5: hsl(188, 80%, 59%);
+  --cyan-6: hsl(188, 80%, 50%);
+  --cyan-7: hsl(188, 80%, 41%);
   --cyan-8: hsl(188, 80%, 32%);
   --cyan-9: hsl(188, 80%, 23%);
   --teal-0: hsl(162, 80%, 94%);
@@ -127,6 +147,9 @@
   --teal-2: hsl(162, 80%, 86%);
   --teal-3: hsl(162, 80%, 77%);
   --teal-4: hsl(162, 80%, 68%);
+  --teal-5: hsl(162, 80%, 59%);
+  --teal-6: hsl(162, 80%, 50%);
+  --teal-7: hsl(162, 80%, 41%);
   --teal-8: hsl(162, 80%, 32%);
   --teal-9: hsl(162, 80%, 23%);
   --green-0: hsl(131, 80%, 94%);
@@ -134,6 +157,9 @@
   --green-2: hsl(131, 80%, 86%);
   --green-3: hsl(131, 80%, 77%);
   --green-4: hsl(131, 80%, 68%);
+  --green-5: hsl(131, 80%, 59%);
+  --green-6: hsl(131, 80%, 50%);
+  --green-7: hsl(131, 80%, 41%);
   --green-8: hsl(131, 80%, 32%);
   --green-9: hsl(131, 80%, 23%);
   --lime-0: hsl(85, 80%, 94%);
@@ -141,6 +167,9 @@
   --lime-2: hsl(85, 80%, 86%);
   --lime-3: hsl(85, 80%, 77%);
   --lime-4: hsl(85, 80%, 68%);
+  --lime-5: hsl(85, 80%, 59%);
+  --lime-6: hsl(85, 80%, 50%);
+  --lime-7: hsl(85, 80%, 41%);
   --lime-8: hsl(85, 80%, 32%);
   --lime-9: hsl(85, 80%, 23%);
   --yellow-0: hsl(39, 80%, 94%);
@@ -148,6 +177,9 @@
   --yellow-2: hsl(39, 80%, 86%);
   --yellow-3: hsl(39, 80%, 77%);
   --yellow-4: hsl(39, 80%, 68%);
+  --yellow-5: hsl(39, 80%, 59%);
+  --yellow-6: hsl(39, 80%, 50%);
+  --yellow-7: hsl(39, 80%, 41%);
   --yellow-8: hsl(39, 80%, 32%);
   --yellow-9: hsl(39, 80%, 23%);
   --orange-0: hsl(24, 80%, 94%);
@@ -155,6 +187,9 @@
   --orange-2: hsl(24, 80%, 86%);
   --orange-3: hsl(24, 80%, 77%);
   --orange-4: hsl(24, 80%, 68%);
+  --orange-5: hsl(24, 80%, 59%);
+  --orange-6: hsl(24, 80%, 50%);
+  --orange-7: hsl(24, 80%, 41%);
   --orange-8: hsl(24, 80%, 32%);
   --orange-9: hsl(24, 80%, 23%);
   --grey-0: hsl(0, 0%, 94%);
@@ -162,6 +197,9 @@
   --grey-2: hsl(0, 0%, 86%);
   --grey-3: hsl(0, 0%, 77%);
   --grey-4: hsl(0, 0%, 68%);
+  --grey-5: hsl(0, 0%, 59%);
+  --grey-6: hsl(0, 0%, 50%);
+  --grey-7: hsl(0, 0%, 41%);
   --grey-8: hsl(0, 0%, 32%);
   --grey-9: hsl(0, 0%, 23%);
   /* ------------------------------------------ */
@@ -174,7 +212,7 @@
   --body-background: white;
   --text-color-primary: var(--grey-9);
   --text-color-secondary: white;
-  --text-color-muted: var(--grey-4);
+  --text-color-muted: var(--grey-5);
   --bg-primary: white;
   --dim: var(--grey-0);
   --bg-list-active: var(--primary-1);
@@ -189,7 +227,7 @@
   :root {
     --text-color-primary: var(--grey-2);
     --text-color-secondary: black;
-    --text-color-muted: var(--grey-4);
+    --text-color-muted: var(--grey-5);
     --bg-primary: black;
     --dim: var(--grey-9);
     /* list */
@@ -249,13 +287,15 @@ h6 {
   font-size: var(--fs-2);
 }
 
-hgroup h2 {
+hgroup h2, hgroup h3, hgroup h4 {
+  padding-bottom: 0;
   margin-bottom: 0;
 }
 hgroup p {
   line-height: var(--base-line-height);
   margin-top: 0;
   color: var(--text-color-muted);
+  line-height: 1;
 }
 
 body, div, span, p, button, a {
@@ -469,7 +509,7 @@ nav.pagination ul li a:hover {
   background-color: var(--dim);
 }
 
-button {
+button, .btn {
   background-color: var(--primary-8);
   color: var(--primary-2);
   padding: 8px 10px;
@@ -478,41 +518,48 @@ button {
   cursor: pointer;
   border-radius: 5px;
 }
-button:hover {
-  opacity: 0.9;
+
+button:hover, .btn:hover {
+  background-color: var(--primary-7);
 }
-button.btn-secondary {
+button.btn-secondary, .btn.btn-secondary {
   background-color: var(--orange-1);
   color: var(--orange-8);
 }
-button.btn-secondary-outline {
+button.btn-secondary-outline, .btn.btn-secondary-outline {
   background-color: var(--bg-primary);
   color: var(--orange-4);
   border: 1px solid var(--orange-4);
 }
-button.btn-danger {
+button.btn-danger, .btn.btn-danger {
   background-color: var(--red-8);
-  color: var(--red-1);
+  color: var(--red-2);
 }
-button.btn-danger-outline {
+button.btn-danger:hover, .btn.btn-danger:hover {
+  background-color: var(--red-7);
+}
+button.btn-danger-outline, .btn.btn-danger-outline {
   background-color: var(--bg-primary);
   border: 1px solid var(--red-4);
   color: var(--red-4);
 }
-button.btn-outline {
+button.btn-outline, .btn.btn-outline {
   background-color: var(--bg-primary);
-  border: 1px solid var(--primary-4);
-  color: var(--primary-4);
+  border: 1px solid var(--primary-5);
+  color: var(--primary-5);
 }
-button.btn-small {
+button.btn-outline:hover, .btn.btn-outline:hover {
+  border: 1px solid var(--primary-4);
+}
+button.btn-small, .btn.btn-small {
   font-size: 12px;
   padding: 6px 8px;
 }
-button.btn-large {
+button.btn-large, .btn.btn-large {
   font-size: 16px;
   padding: 12px 16px;
 }
-button.btn-extra {
+button.btn-extra, .btn.btn-extra {
   font-size: 20px;
   padding: 15px 30px;
 }
@@ -522,6 +569,56 @@ a:link {
 }
 a:visited {
   color: var(--grape-8);
+}
+
+input, select, textarea {
+  padding: 6px 10px;
+  border: 1px solid var(--text-color-muted);
+}
+input.valid, select.valid, textarea.valid {
+  border: 1px solid var(--green-8);
+}
+input.error, select.error, textarea.error {
+  border: 1px solid var(--red-8);
+}
+input.error + span, input.error + small, select.error + span, select.error + small, textarea.error + span, textarea.error + small {
+  color: var(--red-8);
+}
+
+form {
+  /* control wrapper */
+}
+form p {
+  margin: 0 0 0.5rem 0;
+  display: flex;
+  flex-direction: column;
+}
+form p label {
+  line-height: 1.75;
+  font-family: var(--serif-fonts);
+  font-size: 0.8rem;
+}
+form div {
+  display: flex;
+  align-items: baseline;
+}
+form div * + * {
+  margin-left: 0.25rem;
+}
+form fieldset {
+  border: 1px solid var(--dim);
+  border-radius: 5px;
+}
+form fieldset legend {
+  font-weight: 700;
+  font-family: var(--serif-fonts);
+  margin-left: -0.3rem;
+}
+form textarea {
+  font-family: var(--sans-serif-fonts);
+}
+form input[type=number], form input[type=tel] {
+  font-family: var(--monospace-fonts);
 }
 
 .bg-primary-0 {
@@ -542,6 +639,18 @@ a:visited {
 
 .bg-primary-4 {
   background-color: var(--primary-4);
+}
+
+.bg-primary-5 {
+  background-color: var(--primary-5);
+}
+
+.bg-primary-6 {
+  background-color: var(--primary-6);
+}
+
+.bg-primary-7 {
+  background-color: var(--primary-7);
 }
 
 .bg-primary-8 {
@@ -572,6 +681,18 @@ a:visited {
   background-color: var(--secondary-4);
 }
 
+.bg-secondary-5 {
+  background-color: var(--secondary-5);
+}
+
+.bg-secondary-6 {
+  background-color: var(--secondary-6);
+}
+
+.bg-secondary-7 {
+  background-color: var(--secondary-7);
+}
+
 .bg-secondary-8 {
   background-color: var(--secondary-8);
 }
@@ -598,6 +719,18 @@ a:visited {
 
 .bg-red-4 {
   background-color: var(--red-4);
+}
+
+.bg-red-5 {
+  background-color: var(--red-5);
+}
+
+.bg-red-6 {
+  background-color: var(--red-6);
+}
+
+.bg-red-7 {
+  background-color: var(--red-7);
 }
 
 .bg-red-8 {
@@ -628,6 +761,18 @@ a:visited {
   background-color: var(--pink-4);
 }
 
+.bg-pink-5 {
+  background-color: var(--pink-5);
+}
+
+.bg-pink-6 {
+  background-color: var(--pink-6);
+}
+
+.bg-pink-7 {
+  background-color: var(--pink-7);
+}
+
 .bg-pink-8 {
   background-color: var(--pink-8);
 }
@@ -654,6 +799,18 @@ a:visited {
 
 .bg-grape-4 {
   background-color: var(--grape-4);
+}
+
+.bg-grape-5 {
+  background-color: var(--grape-5);
+}
+
+.bg-grape-6 {
+  background-color: var(--grape-6);
+}
+
+.bg-grape-7 {
+  background-color: var(--grape-7);
 }
 
 .bg-grape-8 {
@@ -684,6 +841,18 @@ a:visited {
   background-color: var(--violet-4);
 }
 
+.bg-violet-5 {
+  background-color: var(--violet-5);
+}
+
+.bg-violet-6 {
+  background-color: var(--violet-6);
+}
+
+.bg-violet-7 {
+  background-color: var(--violet-7);
+}
+
 .bg-violet-8 {
   background-color: var(--violet-8);
 }
@@ -710,6 +879,18 @@ a:visited {
 
 .bg-indigo-4 {
   background-color: var(--indigo-4);
+}
+
+.bg-indigo-5 {
+  background-color: var(--indigo-5);
+}
+
+.bg-indigo-6 {
+  background-color: var(--indigo-6);
+}
+
+.bg-indigo-7 {
+  background-color: var(--indigo-7);
 }
 
 .bg-indigo-8 {
@@ -740,6 +921,18 @@ a:visited {
   background-color: var(--blue-4);
 }
 
+.bg-blue-5 {
+  background-color: var(--blue-5);
+}
+
+.bg-blue-6 {
+  background-color: var(--blue-6);
+}
+
+.bg-blue-7 {
+  background-color: var(--blue-7);
+}
+
 .bg-blue-8 {
   background-color: var(--blue-8);
 }
@@ -766,6 +959,18 @@ a:visited {
 
 .bg-cyan-4 {
   background-color: var(--cyan-4);
+}
+
+.bg-cyan-5 {
+  background-color: var(--cyan-5);
+}
+
+.bg-cyan-6 {
+  background-color: var(--cyan-6);
+}
+
+.bg-cyan-7 {
+  background-color: var(--cyan-7);
 }
 
 .bg-cyan-8 {
@@ -796,6 +1001,18 @@ a:visited {
   background-color: var(--teal-4);
 }
 
+.bg-teal-5 {
+  background-color: var(--teal-5);
+}
+
+.bg-teal-6 {
+  background-color: var(--teal-6);
+}
+
+.bg-teal-7 {
+  background-color: var(--teal-7);
+}
+
 .bg-teal-8 {
   background-color: var(--teal-8);
 }
@@ -822,6 +1039,18 @@ a:visited {
 
 .bg-green-4 {
   background-color: var(--green-4);
+}
+
+.bg-green-5 {
+  background-color: var(--green-5);
+}
+
+.bg-green-6 {
+  background-color: var(--green-6);
+}
+
+.bg-green-7 {
+  background-color: var(--green-7);
 }
 
 .bg-green-8 {
@@ -852,6 +1081,18 @@ a:visited {
   background-color: var(--lime-4);
 }
 
+.bg-lime-5 {
+  background-color: var(--lime-5);
+}
+
+.bg-lime-6 {
+  background-color: var(--lime-6);
+}
+
+.bg-lime-7 {
+  background-color: var(--lime-7);
+}
+
 .bg-lime-8 {
   background-color: var(--lime-8);
 }
@@ -878,6 +1119,18 @@ a:visited {
 
 .bg-yellow-4 {
   background-color: var(--yellow-4);
+}
+
+.bg-yellow-5 {
+  background-color: var(--yellow-5);
+}
+
+.bg-yellow-6 {
+  background-color: var(--yellow-6);
+}
+
+.bg-yellow-7 {
+  background-color: var(--yellow-7);
 }
 
 .bg-yellow-8 {
@@ -908,6 +1161,18 @@ a:visited {
   background-color: var(--orange-4);
 }
 
+.bg-orange-5 {
+  background-color: var(--orange-5);
+}
+
+.bg-orange-6 {
+  background-color: var(--orange-6);
+}
+
+.bg-orange-7 {
+  background-color: var(--orange-7);
+}
+
 .bg-orange-8 {
   background-color: var(--orange-8);
 }
@@ -934,6 +1199,18 @@ a:visited {
 
 .bg-grey-4 {
   background-color: var(--grey-4);
+}
+
+.bg-grey-5 {
+  background-color: var(--grey-5);
+}
+
+.bg-grey-6 {
+  background-color: var(--grey-6);
+}
+
+.bg-grey-7 {
+  background-color: var(--grey-7);
 }
 
 .bg-grey-8 {

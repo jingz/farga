@@ -1,6 +1,6 @@
 @use 'base';
 
-button {
+%primary-button {
   background-color: var(--primary-8);
   color: var(--primary-2);
   padding: 8px 10px;
@@ -8,9 +8,13 @@ button {
   border: 0px;
   cursor: pointer;
   border-radius: 5px;
+}
+
+button, .btn {
+  @extend %primary-button;
 
   &:hover {
-    opacity: 0.9;
+    background-color: var(--primary-7);
   }
 
   &.btn-secondary {
@@ -26,7 +30,11 @@ button {
 
   &.btn-danger {
       background-color: var(--red-8);
-      color: var(--red-1);
+      color: var(--red-2);
+
+      &:hover {
+        background-color: var(--red-7);
+      }
   }
 
   &.btn-danger-outline {
@@ -37,8 +45,12 @@ button {
 
   &.btn-outline {
       background-color: var(--bg-primary);
-      border: 1px solid var(--primary-4);
-      color: var(--primary-4);
+      border: 1px solid var(--primary-5);
+      color: var(--primary-5);
+
+      &:hover {
+        border: 1px solid var(--primary-4);
+      }
   }
 
   // size

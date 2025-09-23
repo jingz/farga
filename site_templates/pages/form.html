@@ -1,0 +1,158 @@
+{% extends "layout/base.html" %}
+
+{% block inline_style %}
+.flex {
+    display: flex;
+    flex-direction: column;
+}
+{% endblock %}
+
+{% block content %}
+<div>
+  <h1>Form</h1>
+
+  <hgroup>
+    <h2>Normal Form</h2>
+    <p>form that has field with label</p>
+  </hgroup>
+
+  <form>
+    <h1>Payment form</h1>
+    <fieldset>
+      <legend>General Info Form</legend>
+    <p>
+      <label for="username">Username</label>
+      <input id="username" type="text" name="username" placeholder="Text" aria-label="Text">
+    </p>
+
+    <p>
+      <label for="email">Email</label>
+      <input id="email" type="email" name="email" placeholder="Email" aria-label="Email" autocomplete="email">
+    </p>
+
+    <p>
+      <label for="age">Age</label>
+      <input id="age" type="number" name="number" placeholder="Number" aria-label="Number">
+    </p>
+
+    <p>
+      <label for="password">Password</label>
+      <input type="password" name="password" placeholder="Password" aria-label="Password">
+    </p>
+
+    <p>
+      <label for="mobile">Mobile</label>
+      <input id="mobile" type="tel" name="tel" placeholder="Tel" aria-label="Tel" autocomplete="tel">
+    </p>
+
+    <p>
+      <label for="site">Personal Site</label>
+      <input id="site" type="url" name="url" placeholder="Url" aria-label="Url">
+    </p>
+
+    <p>
+      <label for="birthdate">Birth Date</label>
+      <input id="birthdate" type="date" name="date" aria-label="Date">
+    </p>
+
+    <p>
+      <label for="timezone">Timezone</label>
+      <input id="timezone" type="datetime-local" name="datetime-local" aria-label="Datetime local">
+    </p>
+
+    <p>
+      <label for="month">Birth Month</label>
+      <input id="month" type="month" name="month" aria-label="Month">
+    </p>
+
+    <p>
+      <label for="birthtime">Birth Time</label>
+      <input id="birthtime" type="time" name="time" aria-label="Time">
+    </p>
+
+    <p>
+      <label for="card"> Card type </label>
+      <select id="card" name="user-card">
+        <option value="visa">Visa</option>
+        <option value="mc">Mastercard</option>
+        <option value="amex">American Express</option>
+      </select>
+    </p>
+
+    <p>
+    <label for="message">Message</label>
+    <textarea>This is message</textarea>
+    </p>
+    </fieldset>
+  </form>
+
+  <br />
+
+  <hgroup>
+    <h2>Form State</h2>
+    <p>Form validation states, error and valid.</p>
+  </hgroup>
+
+  <form>
+    <p>
+      <label for="valid-field">Required Field</label>
+      <input id="valid-field" type="text" required value="" />
+    </p>
+    <p>
+      <label for="valid-field">Valid Field</label>
+      <input id="valid-field" class="valid" type="text" value="valid value" />
+    </p>
+    <p>
+      <label for="valid-card">Valid Select</label>
+      <select id="valid-card" class="valid" name="user-card">
+        <option value="visa">Visa</option>
+        <option value="mc">Mastercard</option>
+        <option value="amex">American Express</option>
+      </select>
+    </p>
+    <p>
+      <label for="error-field">Error Field</label>
+      <input id="error-field" class="error" type="text" value="error value" />
+      <small>This field is error</small>
+    </p>
+    <div>
+      <button type="submit">Submit</button>
+      <input class="btn" type="submit" value="Submit with input" />
+      <button class="btn-outline">Reset</button>
+      <button class="btn-danger">Remove</button>
+    </div>
+  </form>
+
+  <hgroup>
+    <h2>Checkboxes and Radio Buttons</h2>
+  </hgroup>
+  <form>
+    <p>
+      <div>
+        <input id="checker" type="checkbox" value="1" />
+        <label for="checker">Check me 1</label>
+      </div>
+      <div>
+        <input id="cc" type="checkbox" value="1" />
+        <label for="cc" >Check me 2</label>
+      </div>
+    </p>
+    <p>
+      <div>
+        <input id="v1" type="radio" name="version" value="v1" />
+        <label for="v1" >Version 1</label>
+      </div>
+
+      <div>
+        <input id="v2" type="radio" name="version" value="v2" />
+        <label for="v2" >Version 2</label>
+      </div>
+
+      <div>
+        <input id="v3" type="radio" name="version" value="v3" />
+        <label for="v3" >Version 3</label>
+      </div>
+    </p>
+  </form>
+</div>
+{% endblock %}

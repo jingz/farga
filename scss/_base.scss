@@ -59,6 +59,9 @@ $base-font-size: 14px;
     --primary-2: hsl(230, 80%, 87%);
     --primary-3: hsl(230, 80%, 79%);
     --primary-4: hsl(230, 80%, 72%); /* default primary */
+    --primary-5: hsl(230, 80%, 59%);
+    --primary-6: hsl(230, 80%, 50%);
+    --primary-7: hsl(230, 80%, 41%);
     --primary-8: hsl(230, 80%, 32%);
     --primary-9: hsl(230, 80%, 23%);
 
@@ -67,16 +70,11 @@ $base-font-size: 14px;
     --secondary-2: hsl(24, 80%, 86%);
     --secondary-3: hsl(24, 80%, 77%);
     --secondary-4: hsl(24, 80%, 68%);
+    --secondary-5: hsl(24, 80%, 59%);
+    --secondary-6: hsl(24, 80%, 50%);
+    --secondary-7: hsl(24, 80%, 41%);
     --secondary-8: hsl(24, 80%, 32%);
     --secondary-9: hsl(24, 80%, 23%);
-
-    --neutral-0: hsl(0, 0%, 94%);
-    --neutral-1: hsl(0, 0%, 90%);
-    --neutral-2: hsl(0, 0%, 86%);
-    --neutral-3: hsl(0, 0%, 77%);
-    --neutral-4: hsl(0, 0%, 68%); /* default neutral */
-    --neutral-8: hsl(0, 0%, 32%);
-    --neutral-9: hsl(0, 0%, 23%);
 
     /* no-custom generation from  https://hypejunction.github.io/color-wizard/ */
     /* Color suffix 0-4 for dark text agiant white background */
@@ -90,6 +88,9 @@ $base-font-size: 14px;
     --red-2: hsl(0, 80%, 86%);
     --red-3: hsl(0, 80%, 77%);
     --red-4: hsl(0, 80%, 68%);
+    --red-5: hsl(0, 80%, 59%);
+    --red-6: hsl(0, 80%, 50%);
+    --red-7: hsl(0, 80%, 41%);
     --red-8: hsl(0, 80%, 32%);
     --red-9: hsl(0, 80%, 23%);
 
@@ -98,6 +99,9 @@ $base-font-size: 14px;
     --pink-2: hsl(339, 80%, 86%);
     --pink-3: hsl(339, 80%, 77%);
     --pink-4: hsl(339, 80%, 68%);
+    --pink-5: hsl(339, 80%, 59%);
+    --pink-6: hsl(339, 80%, 50%);
+    --pink-7: hsl(339, 80%, 41%);
     --pink-8: hsl(339, 80%, 32%);
     --pink-9: hsl(339, 80%, 23%);
 
@@ -106,6 +110,9 @@ $base-font-size: 14px;
     --grape-2: hsl(288, 80%, 86%);
     --grape-3: hsl(288, 80%, 77%);
     --grape-4: hsl(288, 80%, 68%);
+    --grape-5: hsl(288, 80%, 59%);
+    --grape-6: hsl(288, 80%, 50%);
+    --grape-7: hsl(288, 80%, 41%);
     --grape-8: hsl(288, 80%, 32%);
     --grape-9: hsl(288, 80%, 23%);
 
@@ -114,6 +121,9 @@ $base-font-size: 14px;
     --violet-2: hsl(255, 80%, 86%);
     --violet-3: hsl(255, 80%, 77%);
     --violet-4: hsl(255, 80%, 68%);
+    --violet-5: hsl(255, 80%, 59%);
+    --violet-6: hsl(255, 80%, 50%);
+    --violet-7: hsl(255, 80%, 41%);
     --violet-8: hsl(255, 80%, 32%);
     --violet-9: hsl(255, 80%, 23%);
 
@@ -122,6 +132,9 @@ $base-font-size: 14px;
     --indigo-2: hsl(230, 80%, 87%);
     --indigo-3: hsl(230, 80%, 79%);
     --indigo-4: hsl(230, 80%, 72%);
+    --indigo-5: hsl(230, 80%, 59%);
+    --indigo-6: hsl(230, 80%, 50%);
+    --indigo-7: hsl(230, 80%, 41%);
     --indigo-8: hsl(230, 80%, 32%);
     --indigo-9: hsl(230, 80%, 23%);
 
@@ -130,6 +143,9 @@ $base-font-size: 14px;
     --blue-2: hsl(208, 80%, 86%);
     --blue-3: hsl(208, 80%, 77%);
     --blue-4: hsl(208, 80%, 68%);
+    --blue-5: hsl(208, 80%, 59%);
+    --blue-6: hsl(208, 80%, 50%);
+    --blue-7: hsl(208, 80%, 41%);
     --blue-8: hsl(208, 80%, 32%);
     --blue-9: hsl(208, 80%, 23%);
 
@@ -138,6 +154,9 @@ $base-font-size: 14px;
     --cyan-2: hsl(188, 80%, 86%);
     --cyan-3: hsl(188, 80%, 77%);
     --cyan-4: hsl(188, 80%, 68%);
+    --cyan-5: hsl(188, 80%, 59%);
+    --cyan-6: hsl(188, 80%, 50%);
+    --cyan-7: hsl(188, 80%, 41%);
     --cyan-8: hsl(188, 80%, 32%);
     --cyan-9: hsl(188, 80%, 23%);
 
@@ -146,6 +165,9 @@ $base-font-size: 14px;
     --teal-2: hsl(162, 80%, 86%);
     --teal-3: hsl(162, 80%, 77%);
     --teal-4: hsl(162, 80%, 68%);
+    --teal-5: hsl(162, 80%, 59%);
+    --teal-6: hsl(162, 80%, 50%);
+    --teal-7: hsl(162, 80%, 41%);
     --teal-8: hsl(162, 80%, 32%);
     --teal-9: hsl(162, 80%, 23%);
 
@@ -154,6 +176,9 @@ $base-font-size: 14px;
     --green-2: hsl(131, 80%, 86%);
     --green-3: hsl(131, 80%, 77%);
     --green-4: hsl(131, 80%, 68%);
+    --green-5: hsl(131, 80%, 59%);
+    --green-6: hsl(131, 80%, 50%);
+    --green-7: hsl(131, 80%, 41%);
     --green-8: hsl(131, 80%, 32%);
     --green-9: hsl(131, 80%, 23%);
 
@@ -162,6 +187,9 @@ $base-font-size: 14px;
     --lime-2: hsl(85, 80%, 86%);
     --lime-3: hsl(85, 80%, 77%);
     --lime-4: hsl(85, 80%, 68%);
+    --lime-5: hsl(85, 80%, 59%);
+    --lime-6: hsl(85, 80%, 50%);
+    --lime-7: hsl(85, 80%, 41%);
     --lime-8: hsl(85, 80%, 32%);
     --lime-9: hsl(85, 80%, 23%);
 
@@ -170,6 +198,9 @@ $base-font-size: 14px;
     --yellow-2: hsl(39, 80%, 86%);
     --yellow-3: hsl(39, 80%, 77%);
     --yellow-4: hsl(39, 80%, 68%);
+    --yellow-5: hsl(39, 80%, 59%);
+    --yellow-6: hsl(39, 80%, 50%);
+    --yellow-7: hsl(39, 80%, 41%);
     --yellow-8: hsl(39, 80%, 32%);
     --yellow-9: hsl(39, 80%, 23%);
 
@@ -178,6 +209,9 @@ $base-font-size: 14px;
     --orange-2: hsl(24, 80%, 86%);
     --orange-3: hsl(24, 80%, 77%);
     --orange-4: hsl(24, 80%, 68%);
+    --orange-5: hsl(24, 80%, 59%);
+    --orange-6: hsl(24, 80%, 50%);
+    --orange-7: hsl(24, 80%, 41%);
     --orange-8: hsl(24, 80%, 32%);
     --orange-9: hsl(24, 80%, 23%);
 
@@ -186,6 +220,9 @@ $base-font-size: 14px;
     --grey-2: hsl(0, 0%, 86%);
     --grey-3: hsl(0, 0%, 77%);
     --grey-4: hsl(0, 0%, 68%);
+    --grey-5: hsl(0, 0%, 59%);
+    --grey-6: hsl(0, 0%, 50%);
+    --grey-7: hsl(0, 0%, 41%);
     --grey-8: hsl(0, 0%, 32%);
     --grey-9: hsl(0, 0%, 23%);
 
@@ -201,7 +238,7 @@ $base-font-size: 14px;
 
     --text-color-primary: var(--grey-9);
     --text-color-secondary: white;
-    --text-color-muted: var(--grey-4);
+    --text-color-muted: var(--grey-5);
     --bg-primary: white;
     --dim: var(--grey-0);
 
@@ -218,7 +255,7 @@ $base-font-size: 14px;
   :root {
     --text-color-primary: var(--grey-2);
     --text-color-secondary: black;
-    --text-color-muted: var(--grey-4);
+    --text-color-muted: var(--grey-5);
     --bg-primary: black;
     --dim: var(--grey-9);
 
