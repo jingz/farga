@@ -128,31 +128,54 @@
   </hgroup>
   <form>
     <p>
-      <div>
-        <input id="checker" type="checkbox" value="1" />
-        <label for="checker">Check me 1</label>
-      </div>
-      <div>
-        <input id="cc" type="checkbox" value="1" />
-        <label for="cc" >Check me 2</label>
-      </div>
+      <label>
+        <input type="checkbox" value="1" />
+        Check me 1
+      </label>
+      <label>
+        <input type="checkbox" value="1" />
+        Check me 2
+      </label>
     </p>
     <p>
-      <div>
-        <input id="v1" type="radio" name="version" value="v1" />
-        <label for="v1" >Version 1</label>
-      </div>
+      <label>
+        <input type="radio" name="version" value="v1" />
+        Version 1
+      </label>
 
-      <div>
-        <input id="v2" type="radio" name="version" value="v2" />
-        <label for="v2" >Version 2</label>
-      </div>
+      <label>
+        <input type="radio" name="version" value="v2" />
+        Version 2
+      </label>
 
-      <div>
-        <input id="v3" type="radio" name="version" value="v3" />
-        <label for="v3" >Version 3</label>
-      </div>
+      <label>
+        <input type="radio" name="version" value="v3" />
+        Version 3
+      </label>
+
+
+    </p>
+  <hgroup>
+    <h3>Switch</h3>
+    <p>
+      <label class="switch">
+        <input name="terms" type="checkbox" role="switch" />
+        I agree to the Terms
+      </label>
+    </p>
+    <p>
+      <label class="switch">
+        <input name="terms" type="checkbox" role="switch" checked />
+        I agree to the default checked
+      </label>
+    </p>
+    <p>
+      <label class="switch">
+        <input name="terms" type="checkbox" role="switch" disabled />
+        I agree to the default disabled
+      </label>
     </p>
   </form>
+  </hgroup>
 </div>
 {% endblock %}

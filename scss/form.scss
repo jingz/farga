@@ -31,6 +31,53 @@ form {
     }
   }
 
+  label.switch {
+    display: flex;
+    align-items: center;
+    color: var(--text-color-primary);
+
+    [type="checkbox"] {
+      appearance: none;
+      background-color: var(--grey-4);
+      height: 1.25rem;
+      width: 2.25rem;
+      border: 1px solid var(--grey-1);
+      border-radius: 1.25rem;
+      margin-right: 0.5rem;
+
+      &:not([aria-invalid]) {
+        border-color: var(--grey-4);
+      }
+
+      &:before {
+        display: block;
+        aspect-ratio: 1;
+        margin-left: -0.4rem;
+        margin-top: -0.13rem;
+        height: 150%;
+        border-radius: 50%;
+        background-color: var(--bg-primary);
+        content: "";
+        transition: margin 0.1s ease-in-out;
+      }
+
+      &:checked {
+        background-color: var(--green-7);
+        border-color: var(--green-1);
+        background-image: none;
+
+        &::before {
+          margin-inline-start: 0.6rem;
+        }
+      }
+
+      &[disabled] {
+        background-color: var(--dim);
+        border-color: var(--dim);
+      }
+    }
+  }
+
   div {
     display: flex;
     align-items: baseline;

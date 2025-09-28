@@ -598,6 +598,46 @@ form p label {
   font-family: var(--serif-fonts);
   font-size: 0.8rem;
 }
+form label.switch {
+  display: flex;
+  align-items: center;
+  color: var(--text-color-primary);
+}
+form label.switch [type=checkbox] {
+  appearance: none;
+  background-color: var(--grey-4);
+  height: 1.25rem;
+  width: 2.25rem;
+  border: 1px solid var(--grey-1);
+  border-radius: 1.25rem;
+  margin-right: 0.5rem;
+}
+form label.switch [type=checkbox]:not([aria-invalid]) {
+  border-color: var(--grey-4);
+}
+form label.switch [type=checkbox]:before {
+  display: block;
+  aspect-ratio: 1;
+  margin-left: -0.4rem;
+  margin-top: -0.13rem;
+  height: 150%;
+  border-radius: 50%;
+  background-color: var(--bg-primary);
+  content: "";
+  transition: margin 0.1s ease-in-out;
+}
+form label.switch [type=checkbox]:checked {
+  background-color: var(--green-7);
+  border-color: var(--green-1);
+  background-image: none;
+}
+form label.switch [type=checkbox]:checked::before {
+  margin-inline-start: 0.6rem;
+}
+form label.switch [type=checkbox][disabled] {
+  background-color: var(--dim);
+  border-color: var(--dim);
+}
 form div {
   display: flex;
   align-items: baseline;
