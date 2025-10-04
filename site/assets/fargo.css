@@ -571,17 +571,17 @@ a:visited {
   color: var(--grape-8);
 }
 
-input, select, textarea {
+input:not([type=range]), select, textarea {
   padding: 6px 10px;
   border: 1px solid var(--text-color-muted);
 }
-input.valid, select.valid, textarea.valid {
+input:not([type=range]).valid, select.valid, textarea.valid {
   border: 1px solid var(--green-8);
 }
-input.error, select.error, textarea.error {
+input:not([type=range]).error, select.error, textarea.error {
   border: 1px solid var(--red-8);
 }
-input.error + span, input.error + small, select.error + span, select.error + small, textarea.error + span, textarea.error + small {
+input:not([type=range]).error + span, input:not([type=range]).error + small, select.error + span, select.error + small, textarea.error + span, textarea.error + small {
   color: var(--red-8);
 }
 
@@ -593,10 +593,13 @@ form p {
   display: flex;
   flex-direction: column;
 }
-form p label {
+form label {
   line-height: 1.75;
   font-family: var(--serif-fonts);
   font-size: 0.8rem;
+}
+form label [type=range] {
+  width: 100%;
 }
 form label.switch {
   display: flex;

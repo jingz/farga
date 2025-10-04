@@ -11,6 +11,12 @@
     flex-direction: column;
 }
 
+pre {
+    padding: 1rem;
+    background-color: var(--dim);
+    font-size: 0.8rem;
+}
+
 
     body {
         display: flex;
@@ -49,7 +55,7 @@
   </hgroup>
 
   <form>
-    <h1>Payment form</h1>
+    <h3>Payment form</h3>
     <fieldset>
       <legend>General Info Form</legend>
     <p>
@@ -161,7 +167,7 @@
   <form>
     <p>
       <label>
-        <input type="checkbox" value="1" />
+        <input type="checkbox" value="1" checked />
         Check me 1
       </label>
       <label>
@@ -171,7 +177,7 @@
     </p>
     <p>
       <label>
-        <input type="radio" name="version" value="v1" />
+        <input type="radio" name="version" value="v1" checked />
         Version 1
       </label>
 
@@ -184,11 +190,11 @@
         <input type="radio" name="version" value="v3" />
         Version 3
       </label>
-
-
     </p>
-  <hgroup>
-    <h3>Switch</h3>
+
+    <hgroup>
+      <h3>Switch</h3>
+    </hgroup>
     <p>
       <label class="switch">
         <input name="terms" type="checkbox" role="switch" />
@@ -208,7 +214,27 @@
       </label>
     </p>
   </form>
+
+  <hgroup>
+      <h2>Range</h2>
   </hgroup>
+  <form>
+
+
+      
+<label>
+    Brightness
+    <input type="range" min="0" max="100" />
+</label>
+
+
+      <pre>
+&lt;label&gt;
+    Brightness
+    &lt;input type=&#34;range&#34; min=&#34;0&#34; max=&#34;100&#34; /&gt;
+&lt;/label&gt;
+</pre>
+  </form>
 </div>
 
       </main>
