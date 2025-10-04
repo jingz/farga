@@ -86,8 +86,8 @@ pre {
     </p>
 
     <p>
-    <label for="message">Message</label>
-    <textarea>This is message</textarea>
+        <label for="message">Message</label>
+        <textarea>This is message</textarea>
     </p>
     </fieldset>
   </form>
@@ -100,27 +100,34 @@ pre {
   </hgroup>
 
   <form>
-    <p>
-      <label for="valid-field">Required Field</label>
+     <label>
+      Required Field
       <input id="valid-field" type="text" required value="" />
-    </p>
-    <p>
-      <label for="valid-field">Valid Field</label>
+    </label>
+
+    <label>
+      Valid Field
       <input id="valid-field" class="valid" type="text" value="valid value" />
-    </p>
-    <p>
-      <label for="valid-card">Valid Select</label>
-      <select id="valid-card" class="valid" name="user-card">
+    </label>
+
+    <label>
+      Valid Select
+      <select aria-invalid="false" name="user-card">
         <option value="visa">Visa</option>
         <option value="mc">Mastercard</option>
         <option value="amex">American Express</option>
       </select>
-    </p>
-    <p>
-      <label for="error-field">Error Field</label>
-      <input id="error-field" class="error" type="text" value="error value" />
+      <small>Valid card!</small>
+    </label>
+
+    <label>
+      Error Field
+      <input id="error-field" aria-invalid="true" type="text" value="error value" />
       <small>This field is error</small>
-    </p>
+    </label>
+
+    <br/>
+
     <div>
       <button type="submit">Submit</button>
       <input class="btn" type="submit" value="Submit with input" />
@@ -129,36 +136,81 @@ pre {
     </div>
   </form>
 
-  <hgroup>
-    <h2>Checkboxes and Radio Buttons</h2>
-  </hgroup>
+  <h2>Select</h2>
   <form>
-    <p>
-      <label>
-        <input type="checkbox" value="1" checked />
-        Check me 1
-      </label>
-      <label>
-        <input type="checkbox" value="1" />
-        Check me 2
-      </label>
-    </p>
-    <p>
-      <label>
-        <input type="radio" name="version" value="v1" checked />
-        Version 1
-      </label>
+{% set select %}
+<label>
+    Select your favorite cuisine...
+<select name="favorite-cuisine" aria-label="Select your favorite cuisine..." required>
+  <option selected disabled value="">
+    Select your favorite cuisine...
+  </option>
+  <option>Italian</option>
+  <option>Japanese</option>
+  <option>Indian</option>
+  <option>Thai</option>
+  <option>French</option>
+</select>
+</label>
+{% endset %}
+{{ select }}
 
-      <label>
-        <input type="radio" name="version" value="v2" />
-        Version 2
-      </label>
+<h3>Select Multiple</h3>
+{% set select_multi %}
+<label>
+    Select your favorite snacks...
+<select aria-label="Select your favorite snacks..." multiple size="6">
+  <option disabled>
+    Select your favorite snacks...
+  </option>
+  <option>Cheese</option>
+  <option selected>Fruits</option>
+  <option selected>Nuts</option>
+  <option>Chocolate</option>
+  <option>Crackers</option>
+</select>
+<label>
+{% endset %}
+{{ select_multi }}
 
-      <label>
-        <input type="radio" name="version" value="v3" />
-        Version 3
-      </label>
-    </p>
+<h3>Disabled Select</h3>
+{% set disabled_select %}
+  <label>Select a meal type...
+<select name="meal-type" aria-label="Select a meal type..." disabled>
+  <option>Select a meal type...</option>
+  <option>...</option>
+</select>
+  </label>
+{% endset%}
+{{ disabled_select }}
+
+  </form>
+
+  <h2>Checkboxes and Radio Buttons</h2>
+  <form>
+  <label>
+    <input type="checkbox" value="1" checked />
+    Check me 1
+  </label>
+
+  <label>
+    <input type="checkbox" value="1" />
+    Check me 2
+  </label>
+  <label>
+    <input type="radio" name="version" value="v1" checked />
+    Version 1
+  </label>
+
+  <label>
+    <input type="radio" name="version" value="v2" />
+    Version 2
+  </label>
+
+  <label>
+    <input type="radio" name="version" value="v3" />
+    Version 3
+  </label>
 
     <hgroup>
       <h3>Switch</h3>

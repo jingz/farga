@@ -4,11 +4,15 @@ input:not([type="range"]), select, textarea {
   padding: 6px 10px;
   border: 1px solid var(--text-color-muted);
 
-  &.valid {
+  &[aria-invalid="false"] {
     border: 1px solid var(--green-8);
+
+    & + span, & + small {
+      color: var(--green-8);
+    }
   }
 
-  &.error {
+  &[aria-invalid="true"] {
     border: 1px solid var(--red-8);
 
     & + span, & + small {
@@ -26,11 +30,31 @@ form {
   }
 
   label {
+    display: block;
     line-height: 1.75;
     font-family: var(--serif-fonts);
     font-size: 0.8rem;
 
-    [type="range"]  {
+    &:not(:first-of-type) {
+      margin-top: 0.8rem;
+    }
+
+    &:has([type="checkbox"]), &:has([type="radio"]) {
+      margin-top: 0.25rem;
+    }
+
+
+    /* margin-top of label when its under a status message */
+    &:has(small) + label { margin-top: 0.3rem; }
+
+    &:has([aria-invalid="false"]) {}
+
+    small {
+      font-family: var(--sans-serif-fonts);
+      line-height: 0.5;
+    }
+
+    select, input:not([type="checkbox"]):not([type="radio"]) {
       width: 100%;
     }
 
