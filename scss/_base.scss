@@ -240,6 +240,8 @@ $base-font-size: 14px;
     --text-color-secondary: white;
     --text-color-muted: var(--grey-5);
     --bg-primary: white;
+    --border-color-primary: var(--grey-4);
+    --border-color-muted: var(--grey-1);
     --dim: var(--grey-0);
 
     --bg-list-active: var(--primary-1);
@@ -257,6 +259,8 @@ $base-font-size: 14px;
     --text-color-secondary: black;
     --text-color-muted: var(--grey-5);
     --bg-primary: black;
+    --border-color-primary: var(--grey-5);
+    --border-color-muted: var(--grey-8);
     --dim: var(--grey-9);
 
     /* list */

@@ -32,19 +32,35 @@
     body {
         display: flex;
 
-        nav.menu {
+        #side-menu {
+          width: 200px;
+        }
+
+        nav.sidemenu {
             width: 180px;
         }
 
         main {
             padding: 0 1rem;
         }
+
+        .flex {
+          display: flex;
+
+        }
+
+        pre {
+          font-size: 0.8rem;
+          background-color: var(--dim);
+          border-radius: 5px;
+          padding: 0.3rem;
+        }
     }
     </style>
 
   </head>
   <body>
-      <nav class="sidemenu">
+      <nav id="side-menu" class="sidemenu">
           <p>Side Menu</p>
           <ul>
               <li><a href="./index.html">Home</a></li>
@@ -55,6 +71,15 @@
               <li><a href="./form.html">Form</a></li>
               <li><a href="./table.html">Table</a></li>
           </ul>
+          <details>
+            <summary>
+              <span>Components</span>
+            </summary>
+            <ul>
+              <li><a href="./accordian.html">Accordian</a></li>
+              <li>Test</li>
+            </ul>
+          </details>
       </nav>
       <main>
           

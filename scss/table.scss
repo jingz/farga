@@ -3,19 +3,37 @@
 table {
   border: 0;
   border-collapse: collapse;
+  margin: 0.5rem 0;
 
   thead {
-    background-color: var(--dim);
+    border-bottom: 2px solid var(--border-color-primary);
 
     th {
-      color: var(--text-color-muted);
+      font-family: var(--serif-fonts);
+      color: var(--text-color-primary);
       padding: 6px 10px;
     }
   }
 
   tbody {
+    tr {
+      border-bottom: 1px solid var(--border-color-muted);
+    }
+
     td {
       padding: 4px 8px;
+    }
+  }
+
+  tfoot {
+      border-top: 2px solid var(--border-color-primary);
+  }
+
+  &.striped {
+    tbody {
+      tr:nth-child(odd) {
+        background-color: var(--dim);
+      }
     }
   }
 }

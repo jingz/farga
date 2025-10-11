@@ -7,14 +7,15 @@
 
 /* side menu */
 nav.sidemenu {
-  max-width: 180px;
+  min-width: 180px;
 
+  /* menu group name */
   p {
     font-family: var(--serif-fonts);
     color: var(--text-color-muted);
     letter-spacing: calc(var(--fs-2) * 0.05);
-    padding: 6px 10px;
-    margin: 0.75rem 0 -0.25rem 0;
+    padding: 6px 0px;
+    margin: 0 0 -0.25rem 0;
   }
 
   details {
@@ -39,6 +40,7 @@ nav.sidemenu {
         float: right;
         color: var(--text-color-muted);
         font-weight: bold;
+        margin-top: -0.15rem;
       }
 
       &:hover {
@@ -50,7 +52,7 @@ nav.sidemenu {
       list-style: none;
       padding: 0;
       margin: 0;
-      margin-left: 12px;
+      margin-left: calc(10px + 0.5rem);
 
       li {
         @extend %menu-link-padding;
@@ -61,6 +63,7 @@ nav.sidemenu {
         a {
           color: var(--text-color-primary);
           text-decoration: none;
+          padding: 0;
         }
       }
     }
@@ -155,6 +158,7 @@ nav.tab {
       @extend %menu-link-padding;
       display: block;
     }
+
     section {
       border-top: 1px solid var(--text-color-primary);
       display: none;

@@ -59,6 +59,77 @@ background: var(--dim);
   {% endset %}
 
   {{ static_table }}
-  <pre>{{ static_table | e }}</pre>
+  <details>
+    <summary>Example Code</summary>
+    <pre>{{ static_table | e }}</pre>
+  </details>
+
+  <hgroup>
+  <h2>Striped Table</h2>
+  </hgroup>
+
+  {% set striped_table %}
+  <table class="striped">
+    <thead>
+    <tr>
+      <th>Fruit</th>
+      <th>Serving Size (g)</th>
+      <th>Calories (kcal)</th>
+      <th>Vitamin C (%DV)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Apple</td>
+      <td align="right">182</td>
+      <td align="center">95</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <td>Banana</td>
+      <td align="right">118</td>
+      <td align="center" >105</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <td>Orange</td>
+      <td align="right">131</td>
+      <td align="center">62</td>
+      <td>85</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="4">Nutritional data is approximate and based on standard serving sizes.</td>
+    </tr>
+  </tfoot>
+</table>
+  {% endset %}
+
+  {{ striped_table }}
+  <details>
+    <summary>Example Code</summary>
+    <pre>
+    {{ striped_table | e }}
+    </pre>
+  </details>
+
+  <hgroup>
+    <h2>Horizontal scroll table</h2>
+    <p>When number of columns is large.</p>
+  </hgroup>
+  <p>TODO</p>
+
+  <hgroup>
+    <h2>Fixed header table</h2>
+    <p>When number of columns is large.</p>
+  </hgroup>
+  <p>TODO</p>
+
+  <hgroup>
+    <h2>Fixed first column table</h2>
+    <p>When number of columns is large.</p>
+  </hgroup>
+  <p>TODO</p>
 </div>
 {% endblock %}

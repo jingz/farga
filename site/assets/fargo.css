@@ -214,6 +214,8 @@
   --text-color-secondary: white;
   --text-color-muted: var(--grey-5);
   --bg-primary: white;
+  --border-color-primary: var(--grey-4);
+  --border-color-muted: var(--grey-1);
   --dim: var(--grey-0);
   --bg-list-active: var(--primary-1);
   --bg-list-hover: var(--grey-1);
@@ -229,6 +231,8 @@
     --text-color-secondary: black;
     --text-color-muted: var(--grey-5);
     --bg-primary: black;
+    --border-color-primary: var(--grey-5);
+    --border-color-muted: var(--grey-8);
     --dim: var(--grey-9);
     /* list */
     --bg-list-active: var(--primary-9);
@@ -336,14 +340,15 @@ nav.pagination ul li a, nav.pagination ul li span, nav.breadcrumbs ul li a, nav.
 
 /* side menu */
 nav.sidemenu {
-  max-width: 180px;
+  min-width: 180px;
+  /* menu group name */
 }
 nav.sidemenu p {
   font-family: var(--serif-fonts);
   color: var(--text-color-muted);
   letter-spacing: calc(var(--fs-2) * 0.05);
-  padding: 6px 10px;
-  margin: 0.75rem 0 -0.25rem 0;
+  padding: 6px 0px;
+  margin: 0 0 -0.25rem 0;
 }
 nav.sidemenu details[open] summary {
   background-color: var(--bg-summary-open);
@@ -360,6 +365,7 @@ nav.sidemenu details summary::after {
   float: right;
   color: var(--text-color-muted);
   font-weight: bold;
+  margin-top: -0.15rem;
 }
 nav.sidemenu details summary:hover {
   background-color: var(--bg-summary-hover);
@@ -368,7 +374,7 @@ nav.sidemenu details ul {
   list-style: none;
   padding: 0;
   margin: 0;
-  margin-left: 12px;
+  margin-left: calc(10px + 0.5rem);
 }
 nav.sidemenu details ul li {
   border-left: 1px solid var(--border-nested-link);
@@ -377,6 +383,7 @@ nav.sidemenu details ul li {
 nav.sidemenu details ul li a {
   color: var(--text-color-primary);
   text-decoration: none;
+  padding: 0;
 }
 nav.sidemenu ul {
   list-style: none;
@@ -685,16 +692,27 @@ form input[type=number], form input[type=tel] {
 table {
   border: 0;
   border-collapse: collapse;
+  margin: 0.5rem 0;
 }
 table thead {
-  background-color: var(--dim);
+  border-bottom: 2px solid var(--border-color-primary);
 }
 table thead th {
-  color: var(--text-color-muted);
+  font-family: var(--serif-fonts);
+  color: var(--text-color-primary);
   padding: 6px 10px;
+}
+table tbody tr {
+  border-bottom: 1px solid var(--border-color-muted);
 }
 table tbody td {
   padding: 4px 8px;
+}
+table tfoot {
+  border-top: 2px solid var(--border-color-primary);
+}
+table.striped tbody tr:nth-child(odd) {
+  background-color: var(--dim);
 }
 
 .bg-primary-0 {

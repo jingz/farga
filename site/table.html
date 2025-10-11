@@ -19,19 +19,35 @@ background: var(--dim);
     body {
         display: flex;
 
-        nav.menu {
+        #side-menu {
+          width: 200px;
+        }
+
+        nav.sidemenu {
             width: 180px;
         }
 
         main {
             padding: 0 1rem;
         }
+
+        .flex {
+          display: flex;
+
+        }
+
+        pre {
+          font-size: 0.8rem;
+          background-color: var(--dim);
+          border-radius: 5px;
+          padding: 0.3rem;
+        }
     }
     </style>
 
   </head>
   <body>
-      <nav class="sidemenu">
+      <nav id="side-menu" class="sidemenu">
           <p>Side Menu</p>
           <ul>
               <li><a href="./index.html">Home</a></li>
@@ -42,6 +58,15 @@ background: var(--dim);
               <li><a href="./form.html">Form</a></li>
               <li><a href="./table.html">Table</a></li>
           </ul>
+          <details>
+            <summary>
+              <span>Components</span>
+            </summary>
+            <ul>
+              <li><a href="./accordian.html">Accordian</a></li>
+              <li>Test</li>
+            </ul>
+          </details>
       </nav>
       <main>
           
@@ -92,7 +117,9 @@ background: var(--dim);
   </tfoot>
 </table>
   
-  <pre>
+  <details>
+    <summary>Example Code</summary>
+    <pre>
   &lt;table&gt;
     &lt;thead&gt;
     &lt;tr&gt;
@@ -129,6 +156,111 @@ background: var(--dim);
   &lt;/tfoot&gt;
 &lt;/table&gt;
   </pre>
+  </details>
+
+  <hgroup>
+  <h2>Striped Table</h2>
+  </hgroup>
+
+  
+
+  
+  <table class="striped">
+    <thead>
+    <tr>
+      <th>Fruit</th>
+      <th>Serving Size (g)</th>
+      <th>Calories (kcal)</th>
+      <th>Vitamin C (%DV)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Apple</td>
+      <td align="right">182</td>
+      <td align="center">95</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <td>Banana</td>
+      <td align="right">118</td>
+      <td align="center" >105</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <td>Orange</td>
+      <td align="right">131</td>
+      <td align="center">62</td>
+      <td>85</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="4">Nutritional data is approximate and based on standard serving sizes.</td>
+    </tr>
+  </tfoot>
+</table>
+  
+  <details>
+    <summary>Example Code</summary>
+    <pre>
+    
+  &lt;table class=&#34;striped&#34;&gt;
+    &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Fruit&lt;/th&gt;
+      &lt;th&gt;Serving Size (g)&lt;/th&gt;
+      &lt;th&gt;Calories (kcal)&lt;/th&gt;
+      &lt;th&gt;Vitamin C (%DV)&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Apple&lt;/td&gt;
+      &lt;td align=&#34;right&#34;&gt;182&lt;/td&gt;
+      &lt;td align=&#34;center&#34;&gt;95&lt;/td&gt;
+      &lt;td&gt;14&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Banana&lt;/td&gt;
+      &lt;td align=&#34;right&#34;&gt;118&lt;/td&gt;
+      &lt;td align=&#34;center&#34; &gt;105&lt;/td&gt;
+      &lt;td&gt;17&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Orange&lt;/td&gt;
+      &lt;td align=&#34;right&#34;&gt;131&lt;/td&gt;
+      &lt;td align=&#34;center&#34;&gt;62&lt;/td&gt;
+      &lt;td&gt;85&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+  &lt;tfoot&gt;
+    &lt;tr&gt;
+      &lt;td colspan=&#34;4&#34;&gt;Nutritional data is approximate and based on standard serving sizes.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tfoot&gt;
+&lt;/table&gt;
+  
+    </pre>
+  </details>
+
+  <hgroup>
+    <h2>Horizontal scroll table</h2>
+    <p>When number of columns is large.</p>
+  </hgroup>
+  <p>TODO</p>
+
+  <hgroup>
+    <h2>Fixed header table</h2>
+    <p>When number of columns is large.</p>
+  </hgroup>
+  <p>TODO</p>
+
+  <hgroup>
+    <h2>Fixed first column table</h2>
+    <p>When number of columns is large.</p>
+  </hgroup>
+  <p>TODO</p>
 </div>
 
       </main>

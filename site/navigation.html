@@ -14,19 +14,35 @@
     body {
         display: flex;
 
-        nav.menu {
+        #side-menu {
+          width: 200px;
+        }
+
+        nav.sidemenu {
             width: 180px;
         }
 
         main {
             padding: 0 1rem;
         }
+
+        .flex {
+          display: flex;
+
+        }
+
+        pre {
+          font-size: 0.8rem;
+          background-color: var(--dim);
+          border-radius: 5px;
+          padding: 0.3rem;
+        }
     }
     </style>
 
   </head>
   <body>
-      <nav class="sidemenu">
+      <nav id="side-menu" class="sidemenu">
           <p>Side Menu</p>
           <ul>
               <li><a href="./index.html">Home</a></li>
@@ -37,50 +53,103 @@
               <li><a href="./form.html">Form</a></li>
               <li><a href="./table.html">Table</a></li>
           </ul>
+          <details>
+            <summary>
+              <span>Components</span>
+            </summary>
+            <ul>
+              <li><a href="./accordian.html">Accordian</a></li>
+              <li>Test</li>
+            </ul>
+          </details>
       </nav>
       <main>
           
 <div>
   <h1>Navigation</h1>
 
-  <h2>Side Menu</h2>
-  <div>
-      <nav class="sidemenu">
-        <p>General</p>
+  <hgroup>
+    <h2>Side Menu</h2>
+    <p>The menu that usually reside on the left side of the screen</p>
+  </hgroup>
+  <div class="flex">
+    
+    
+    <nav class="sidemenu">
+      <p>General</p>
+      <ul>
+          <li><a>Dashboard</a></li>
+          <li class="active"><a>Customers</a></li>
+          <li><a>Entity</a></li>
+          <li><a>Feed</a></li>
+          <li><a>News</a></li>
+      </ul>
+      <details open>
+        <summary>
+          <span>Setting</span>
+        </summary>
         <ul>
-            <li><a>Dashboard</a></li>
-            <li class="active"><a>Customers</a></li>
-            <li><a>Entity</a></li>
-            <li><a>Feed</a></li>
-            <li><a>News</a></li>
+          <li class="active">Account</li>
+          <li>Preference</li>
         </ul>
-        <details open>
-          <summary>
-            <span>Setting</span>
-          </summary>
-          <ul>
-            <li class="active">Account</li>
-            <li>Preference</li>
-          </ul>
-        </details>
+      </details>
 
-        <p>Documentation</p>
-        <ul>
-            <li><a>Introduction</a></li>
-            <li><a>Get Started</a></li>
-            <li><a>Tutorials</a></li>
-            <li><a>Changelog</a></li>
-        </ul>
+      <p>Documentation</p>
+      <ul>
+          <li><a>Introduction</a></li>
+          <li><a>Get Started</a></li>
+          <li><a>Tutorials</a></li>
+          <li><a>Changelog</a></li>
+      </ul>
+    </nav>
+    
 
-      </nav>
+    <details open>
+      <summary>Example Code</summary>
+      <pre>
+    &lt;nav class=&#34;sidemenu&#34;&gt;
+      &lt;p&gt;General&lt;/p&gt;
+      &lt;ul&gt;
+          &lt;li&gt;&lt;a&gt;Dashboard&lt;/a&gt;&lt;/li&gt;
+          &lt;li class=&#34;active&#34;&gt;&lt;a&gt;Customers&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a&gt;Entity&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a&gt;Feed&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a&gt;News&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;details open&gt;
+        &lt;summary&gt;
+          &lt;span&gt;Setting&lt;/span&gt;
+        &lt;/summary&gt;
+        &lt;ul&gt;
+          &lt;li class=&#34;active&#34;&gt;Account&lt;/li&gt;
+          &lt;li&gt;Preference&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/details&gt;
+
+      &lt;p&gt;Documentation&lt;/p&gt;
+      &lt;ul&gt;
+          &lt;li&gt;&lt;a&gt;Introduction&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a&gt;Get Started&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a&gt;Tutorials&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a&gt;Changelog&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/nav&gt;
+    </pre>
+    </details>
   </div>
 
-  <hr />
   <hgroup>
-  <h2>Tabs</h2>
-  <p>Tab has 2 variations</p>
+    <h2>Tabs</h2>
+    <p>Tab has 2 variations</p>
   </hgroup>
-  <h3>1. Normal Tabs</h3>
+
+  <hgroup>
+    <h3>1. Normal Tabs</h3>
+    <p>This tab work with javascript for toggling between tabs</p>
+  </hgroup>
+
+  
+  
   <nav class="tab">
     <ul>
         <li><a>Introduction</a></li>
@@ -98,23 +167,48 @@
         </p>
     </section>
   </nav>
+  
+
+  <details>
+    <summary>Example Code</summary>
+    <pre>
+  &lt;nav class=&#34;tab&#34;&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a&gt;Introduction&lt;/a&gt;&lt;/li&gt;
+        &lt;li class=&#39;active&#39;&gt;&lt;a&gt;Get Started&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a&gt;Tutorials&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a&gt;Changelog&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;section&gt;
+        &lt;h3&gt;Accessibility Features:&lt;/h3&gt;
+        &lt;p&gt;
+        Keyboard navigation with arrow keys, Home, and End keys
+        Proper focus management
+        Screen reader support through ARIA attributes
+        Clear visual indicators for active and focused states
+        &lt;/p&gt;
+    &lt;/section&gt;
+  &lt;/nav&gt;
+  </pre>
+  </details>
 
   <hgroup>
-  <h3>2. Tabs using radio input</h3>
-  <p>
-  This semantic doest not require javascript to switch active content to show according to the tab.
-  <a href="https://dev.to/joxx/building-a-tab-component-with-pure-css-using-radio-and-label-tags-200b">Building a tab component with Pure CSS using Radio and Label Tags</a>
-  </p>
-
+    <h3>2. Tabs using radio input</h3>
+    <p>
+      This semantic doest not require javascript to switch active content to show according to the tab.
+      <a href="https://dev.to/joxx/building-a-tab-component-with-pure-css-using-radio-and-label-tags-200b">Building a tab component with Pure CSS using Radio and Label Tags</a>
+    </p>
   </hgroup>
 
+  
+  
   <nav class="tab tab-radio">
       <input type="radio" name="tab" id="tab1" checked />
       <label for="tab1">Introduction</label>
       <section>
           <h3>Introduction Content</h3>
           <p>
-            Accessibility Features:
+            Introduction Features:
             Keyboard navigation with arrow keys, Home, and End keys
             Proper focus management
             Screen reader support through ARIA attributes
@@ -127,7 +221,7 @@
       <section>
           <h3>Get Started Content</h3>
           <p>
-            Accessibility Features:
+            Get started Features:
             Keyboard navigation with arrow keys, Home, and End keys
             Proper focus management
             Screen reader support through ARIA attributes
@@ -140,7 +234,7 @@
       <section>
           <h3>Tutorials Content</h3>
           <p>
-            Accessibility Features:
+            Tutorials Features:
             Keyboard navigation with arrow keys, Home, and End keys
             Proper focus management
             Screen reader support through ARIA attributes
@@ -153,7 +247,7 @@
       <section>
           <h3>Changelog Content</h3>
           <p>
-            Accessibility Features:
+            Changelog Features:
             Keyboard navigation with arrow keys, Home, and End keys
             Proper focus management
             Screen reader support through ARIA attributes
@@ -161,8 +255,66 @@
           </p>
       </section>
   </nav>
+  
+  <details>
+    <summary>Example Code</summary>
+    <pre>
+  &lt;nav class=&#34;tab tab-radio&#34;&gt;
+      &lt;input type=&#34;radio&#34; name=&#34;tab&#34; id=&#34;tab1&#34; checked /&gt;
+      &lt;label for=&#34;tab1&#34;&gt;Introduction&lt;/label&gt;
+      &lt;section&gt;
+          &lt;h3&gt;Introduction Content&lt;/h3&gt;
+          &lt;p&gt;
+            Introduction Features:
+            Keyboard navigation with arrow keys, Home, and End keys
+            Proper focus management
+            Screen reader support through ARIA attributes
+            Clear visual indicators for active and focused states
+          &lt;/p&gt;
+      &lt;/section&gt;
 
-  <hr />
+      &lt;input type=&#34;radio&#34; name=&#34;tab&#34; id=&#34;tab2&#34; /&gt;
+      &lt;label for=&#34;tab2&#34;&gt;Get Started&lt;/label&gt;
+      &lt;section&gt;
+          &lt;h3&gt;Get Started Content&lt;/h3&gt;
+          &lt;p&gt;
+            Get started Features:
+            Keyboard navigation with arrow keys, Home, and End keys
+            Proper focus management
+            Screen reader support through ARIA attributes
+            Clear visual indicators for active and focused states
+            &lt;/p&gt;
+      &lt;/section&gt;
+
+      &lt;input type=&#34;radio&#34; name=&#34;tab&#34; id=&#34;tab3&#34; /&gt;
+      &lt;label for=&#34;tab3&#34;&gt;Tutorials&lt;/label&gt;
+      &lt;section&gt;
+          &lt;h3&gt;Tutorials Content&lt;/h3&gt;
+          &lt;p&gt;
+            Tutorials Features:
+            Keyboard navigation with arrow keys, Home, and End keys
+            Proper focus management
+            Screen reader support through ARIA attributes
+            Clear visual indicators for active and focused states
+          &lt;/p&gt;
+      &lt;/section&gt;
+
+      &lt;input type=&#34;radio&#34; name=&#34;tab&#34; id=&#34;tab4&#34; /&gt;
+      &lt;label for=&#34;tab4&#34;&gt;Changelog&lt;/label&gt;
+      &lt;section&gt;
+          &lt;h3&gt;Changelog Content&lt;/h3&gt;
+          &lt;p&gt;
+            Changelog Features:
+            Keyboard navigation with arrow keys, Home, and End keys
+            Proper focus management
+            Screen reader support through ARIA attributes
+            Clear visual indicators for active and focused states
+          &lt;/p&gt;
+      &lt;/section&gt;
+  &lt;/nav&gt;
+  </pre>
+  </details>
+
 
   <h2>Breadcrump</h2>
 
@@ -192,7 +344,6 @@
   
   </pre>
 
-  <hr />
   <h2>Pagination</h2>
 
   
