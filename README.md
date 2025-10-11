@@ -15,3 +15,7 @@ uv env
 uv pip install jinja2
 ```
 
+Project Structure
+=======
+
+folder `site` is where the built website files reside

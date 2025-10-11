@@ -1,0 +1,21 @@
+@use 'base';
+
+table {
+  border: 0;
+  border-collapse: collapse;
+
+  thead {
+    background-color: var(--dim);
+
+    th {
+      color: var(--text-color-muted);
+      padding: 6px 10px;
+    }
+  }
+
+  tbody {
+    td {
+      padding: 4px 8px;
+    }
+  }
+}

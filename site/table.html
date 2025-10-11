@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Fargo Documentation</title>
+    <link rel="stylesheet" type="text/css" href="./assets/fargo.css">
+
+    <style type="text/css" media="all">
+    
+.flex {
+    display: flex;
+}
+
+pre {
+font-size: 0.8rem;
+background: var(--dim);
+}
+
+
+    body {
+        display: flex;
+
+        nav.menu {
+            width: 180px;
+        }
+
+        main {
+            padding: 0 1rem;
+        }
+    }
+    </style>
+
+  </head>
+  <body>
+      <nav class="sidemenu">
+          <p>Side Menu</p>
+          <ul>
+              <li><a href="./index.html">Home</a></li>
+              <li><a href="./color.html">Colors</a></li>
+              <li><a href="./typography.html">Typography</a></li>
+              <li><a href="./navigation.html">Navigation</a></li>
+              <li><a href="./button.html">Buttons</a></li>
+              <li><a href="./form.html">Form</a></li>
+              <li><a href="./table.html">Table</a></li>
+          </ul>
+      </nav>
+      <main>
+          
+<div>
+  <h1>Table</h1>
+
+  <hgroup>
+  <h2>Static Table</h2>
+  <p>The classic, full-width table. Best for small and simple datasets.
+  </hgroup>
+
+  
+
+  
+  <table>
+    <thead>
+    <tr>
+      <th>Fruit</th>
+      <th>Serving Size (g)</th>
+      <th>Calories (kcal)</th>
+      <th>Vitamin C (%DV)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Apple</td>
+      <td align="right">182</td>
+      <td align="center">95</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <td>Banana</td>
+      <td align="right">118</td>
+      <td align="center" >105</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <td>Orange</td>
+      <td align="right">131</td>
+      <td align="center">62</td>
+      <td>85</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="4">Nutritional data is approximate and based on standard serving sizes.</td>
+    </tr>
+  </tfoot>
+</table>
+  
+  <pre>
+  &lt;table&gt;
+    &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Fruit&lt;/th&gt;
+      &lt;th&gt;Serving Size (g)&lt;/th&gt;
+      &lt;th&gt;Calories (kcal)&lt;/th&gt;
+      &lt;th&gt;Vitamin C (%DV)&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Apple&lt;/td&gt;
+      &lt;td align=&#34;right&#34;&gt;182&lt;/td&gt;
+      &lt;td align=&#34;center&#34;&gt;95&lt;/td&gt;
+      &lt;td&gt;14&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Banana&lt;/td&gt;
+      &lt;td align=&#34;right&#34;&gt;118&lt;/td&gt;
+      &lt;td align=&#34;center&#34; &gt;105&lt;/td&gt;
+      &lt;td&gt;17&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Orange&lt;/td&gt;
+      &lt;td align=&#34;right&#34;&gt;131&lt;/td&gt;
+      &lt;td align=&#34;center&#34;&gt;62&lt;/td&gt;
+      &lt;td&gt;85&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+  &lt;tfoot&gt;
+    &lt;tr&gt;
+      &lt;td colspan=&#34;4&#34;&gt;Nutritional data is approximate and based on standard serving sizes.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tfoot&gt;
+&lt;/table&gt;
+  </pre>
+</div>
+
+      </main>
+  </body>
+</html>

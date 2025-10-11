@@ -682,6 +682,21 @@ form input[type=number], form input[type=tel] {
   font-family: var(--monospace-fonts);
 }
 
+table {
+  border: 0;
+  border-collapse: collapse;
+}
+table thead {
+  background-color: var(--dim);
+}
+table thead th {
+  color: var(--text-color-muted);
+  padding: 6px 10px;
+}
+table tbody td {
+  padding: 4px 8px;
+}
+
 .bg-primary-0 {
   background-color: var(--primary-0);
 }
