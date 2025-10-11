@@ -50,7 +50,7 @@
               <li><a href="./form.html">Form</a></li>
               <li><a href="./table.html">Table</a></li>
           </ul>
-          <details>
+          <details open>
             <summary>
               <span>Components</span>
             </summary>
@@ -162,4 +162,15 @@
 
       </main>
   </body>
+
+  <script>
+      var filename = window.location.href.toString().split('/').pop();
+      const sideMenuEl = document.querySelector('#side-menu');
+      const links = sideMenuEl.querySelectorAll('a')
+      for ( const link of links ) {
+          if (link.href.split('/').pop() === filename ) {
+              link.parentNode.classList.add('active');
+          }
+      }
+  </script>
 </html>
