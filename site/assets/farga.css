@@ -243,6 +243,7 @@
 }
 /* reset */
 ul {
+  margin: 0;
   padding: 0;
 }
 
@@ -743,10 +744,16 @@ table.striped tbody tr:nth-child(odd) {
   margin-top: -0.15rem;
 }
 .accordion details summary + * {
-  margin: 0 1rem 10px 1rem;
+  margin: 0 0 10px 10px;
 }
 .accordion details summary + ul {
-  margin-left: 1.6rem;
+  margin-left: 1.3rem;
+}
+.accordion details section ul {
+  margin: 0 10px;
+}
+.accordion details section h1, .accordion details section h2, .accordion details section h3, .accordion details section h4, .accordion details section h5, .accordion details section h6 {
+  margin: 0;
 }
 
 .bg-primary-0 {
@@ -1349,4 +1356,4 @@ table.striped tbody tr:nth-child(odd) {
   background-color: var(--grey-9);
 }
 
-/*# sourceMappingURL=fargo.css.map */
+/*# sourceMappingURL=farga.css.map */

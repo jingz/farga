@@ -1,10 +1,10 @@
 .PHONY: clean build
 
-build: fargo.css
+build: farga.css
 	uv run main.py
 
-fargo.css:
-	sass ./scss/main.scss ./site/assets/fargo.css
+farga.css:
+	sass ./scss/main.scss ./site/assets/farga.css
 
 clean:
-	rm ./site/assets/fargo.css
+	rm ./site/assets/farga.css

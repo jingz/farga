@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Farga Documentation</title>
+    <link rel="stylesheet" type="text/css" href="./assets/farga.css">
+
+    <style type="text/css" media="all">
+    
+#accordion-1 {
+    width: 500px;
+}
+
+
+    body {
+        display: flex;
+
+        #side-menu {
+          width: 200px;
+        }
+
+        nav.sidemenu {
+            width: 180px;
+        }
+
+        main {
+            padding: 0 1rem;
+        }
+
+        .flex {
+          display: flex;
+
+        }
+
+        pre {
+          font-size: 0.8rem;
+          background-color: var(--dim);
+          border-radius: 5px;
+          padding: 0.3rem;
+          width: 120ch;
+          overflow-x: auto;
+        }
+    }
+    </style>
+
+  </head>
+  <body>
+      <nav id="side-menu" class="sidemenu">
+          <p>Side Menu</p>
+          <ul>
+              <li><a href="./index.html">Home</a></li>
+              <li><a href="./color.html">Colors</a></li>
+              <li><a href="./typography.html">Typography</a></li>
+              <li><a href="./navigation.html">Navigation</a></li>
+              <li><a href="./button.html">Buttons</a></li>
+              <li><a href="./form.html">Form</a></li>
+              <li><a href="./table.html">Table</a></li>
+          </ul>
+          <details open>
+            <summary>
+              <span>Components</span>
+            </summary>
+            <ul>
+              <li><a href="./accordion.html">Accordion</a></li>
+              <li>Test</li>
+            </ul>
+          </details>
+      </nav>
+      <main>
+          
+<div>
+  <h1>Accordion</h1>
+
+  
+
+  <div id="accordion-1" class="accordion">
+      
+  <details name="acc-1" open>
+      <summary><strong>Accordion 1 with list element</strong></summary>
+      <ul>
+        <li>First list</li>
+        <li>Second list</li>
+      </ul>
+   </details>
+  <details name="acc-2" open>
+      <summary><strong>Accordion 2 with section element</strong></summary>
+      <section>
+        <h5>Critical Considerations & Best Practices</h5>
+        <ul>
+            <li>Human-in-the-Loop (HITL): AI is a co-pilot, not the pilot. All outputs, especially strategic ones, require human review, editing, and final approval</li>
+            <li>Fact-Checking & Hallucinations: LLMs can generate plausible but incorrect information. Rigorous fact-checking is non-negotiable.</li>
+            <li>Brand Voice & Fine-Tuning: For best results, LLMs should be fine-tuned on a brand's specific data (past content, tone guidelines) to ensure consistency.</li>
+            <li>Data Privacy & Security: Never input sensitive customer data (PII) or confidential business strategies into public LLMs without proper security protocols.</li>
+        </ul>
+      </section>
+   </details>
+  
+  </div>
+
+  <details open>
+      <summary>Example Code</summary>
+      <pre>
+  &lt;details name=&#34;acc-1&#34; open&gt;
+      &lt;summary&gt;&lt;strong&gt;Accordion 1 with list element&lt;/strong&gt;&lt;/summary&gt;
+      &lt;ul&gt;
+        &lt;li&gt;First list&lt;/li&gt;
+        &lt;li&gt;Second list&lt;/li&gt;
+      &lt;/ul&gt;
+   &lt;/details&gt;
+  &lt;details name=&#34;acc-2&#34; open&gt;
+      &lt;summary&gt;&lt;strong&gt;Accordion 2 with section element&lt;/strong&gt;&lt;/summary&gt;
+      &lt;section&gt;
+        &lt;h5&gt;Critical Considerations &amp; Best Practices&lt;/h5&gt;
+        &lt;ul&gt;
+            &lt;li&gt;Human-in-the-Loop (HITL): AI is a co-pilot, not the pilot. All outputs, especially strategic ones, require human review, editing, and final approval&lt;/li&gt;
+            &lt;li&gt;Fact-Checking &amp; Hallucinations: LLMs can generate plausible but incorrect information. Rigorous fact-checking is non-negotiable.&lt;/li&gt;
+            &lt;li&gt;Brand Voice &amp; Fine-Tuning: For best results, LLMs should be fine-tuned on a brand&#39;s specific data (past content, tone guidelines) to ensure consistency.&lt;/li&gt;
+            &lt;li&gt;Data Privacy &amp; Security: Never input sensitive customer data (PII) or confidential business strategies into public LLMs without proper security protocols.&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/section&gt;
+   &lt;/details&gt;
+  </pre>
+  </details>
+</div>
+
+      </main>
+  </body>
+
+  <script>
+      var filename = window.location.href.toString().split('/').pop();
+      const sideMenuEl = document.querySelector('#side-menu');
+      const links = sideMenuEl.querySelectorAll('a')
+      for ( const link of links ) {
+          if (link.href.split('/').pop() === filename ) {
+              link.parentNode.classList.add('active');
+          }
+      }
+  </script>
+</html>

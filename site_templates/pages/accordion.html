@@ -1,0 +1,44 @@
+{% extends "layout/base.html" %}
+
+{% block inline_style %}
+#accordion-1 {
+    width: 500px;
+}
+{% endblock %}
+
+{% block content %}
+<div>
+  <h1>Accordion</h1>
+
+  {% set accordion %}
+  <details name="acc-1" open>
+      <summary><strong>Accordion 1 with list element</strong></summary>
+      <ul>
+        <li>First list</li>
+        <li>Second list</li>
+      </ul>
+   </details>
+  <details name="acc-2" open>
+      <summary><strong>Accordion 2 with section element</strong></summary>
+      <section>
+        <h5>Critical Considerations & Best Practices</h5>
+        <ul>
+            <li>Human-in-the-Loop (HITL): AI is a co-pilot, not the pilot. All outputs, especially strategic ones, require human review, editing, and final approval</li>
+            <li>Fact-Checking & Hallucinations: LLMs can generate plausible but incorrect information. Rigorous fact-checking is non-negotiable.</li>
+            <li>Brand Voice & Fine-Tuning: For best results, LLMs should be fine-tuned on a brand's specific data (past content, tone guidelines) to ensure consistency.</li>
+            <li>Data Privacy & Security: Never input sensitive customer data (PII) or confidential business strategies into public LLMs without proper security protocols.</li>
+        </ul>
+      </section>
+   </details>
+  {% endset %}
+
+  <div id="accordion-1" class="accordion">
+      {{ accordion }}
+  </div>
+
+  <details open>
+      <summary>Example Code</summary>
+      <pre>{{ accordion | e }}</pre>
+  </details>
+</div>
+{% endblock %}
