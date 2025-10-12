@@ -1,5 +1,17 @@
 @use 'base';
 
+%btn-padding {
+  padding: 8px 10px;
+}
+
+%btn-padding-small {
+  padding: 6px 8px;
+}
+
+%btn-padding-large {
+  padding: 12px 16px;
+}
+
 %primary-button {
   background-color: var(--primary-8);
   color: var(--primary-2);

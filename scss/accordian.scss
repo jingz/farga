@@ -1,1 +1,45 @@
 @use 'base';
+@use 'button';
+
+.accordion {
+  details {
+    cursor: pointer;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid var(--dim);
+    }
+
+    &[open] {
+      summary{
+        border-color: var(--bg-summary-open);
+
+        &::after {
+          content: "–";
+        }
+      }
+    }
+
+    summary {
+      @extend %btn-padding;
+
+      list-style: none;
+
+      &::after {
+        content: "+";
+        font-family: var(--monospace-fonts);
+        float: right;
+        color: var(--text-color-muted);
+        font-weight: bold;
+        margin-top: -0.15rem;
+      }
+
+      & + * {
+        margin: 0 1rem 10px 1rem;
+      }
+
+      & + ul {
+        margin-left: 1.6rem;
+      }
+    }
+  }
+}

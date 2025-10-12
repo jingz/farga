@@ -516,6 +516,10 @@ nav.pagination ul li a:hover {
   background-color: var(--dim);
 }
 
+.accordion details summary {
+  padding: 8px 10px;
+}
+
 button, .btn {
   background-color: var(--primary-8);
   color: var(--primary-2);
@@ -713,6 +717,36 @@ table tfoot {
 }
 table.striped tbody tr:nth-child(odd) {
   background-color: var(--dim);
+}
+
+.accordion details {
+  cursor: pointer;
+}
+.accordion details:not(:last-child) {
+  border-bottom: 1px solid var(--dim);
+}
+.accordion details[open] summary {
+  border-color: var(--bg-summary-open);
+}
+.accordion details[open] summary::after {
+  content: "–";
+}
+.accordion details summary {
+  list-style: none;
+}
+.accordion details summary::after {
+  content: "+";
+  font-family: var(--monospace-fonts);
+  float: right;
+  color: var(--text-color-muted);
+  font-weight: bold;
+  margin-top: -0.15rem;
+}
+.accordion details summary + * {
+  margin: 0 1rem 10px 1rem;
+}
+.accordion details summary + ul {
+  margin-left: 1.6rem;
 }
 
 .bg-primary-0 {
