@@ -629,7 +629,7 @@ form label small {
   line-height: 0.5;
 }
 form label select, form label input:not([type=checkbox]):not([type=radio]) {
-  width: 100%;
+  width: calc(100% - 1.4rem);
 }
 form label.switch {
   display: flex;
@@ -794,7 +794,7 @@ table.striped tbody tr:nth-child(odd) {
   height: 100vh;
 }
 .flex-sidebar.fixed > *:last-child {
-  margin-left: calc(25ch + 10px);
+  padding-left: calc(25ch + 10px);
 }
 .flex-sidebar.column {
   flex-direction: column;

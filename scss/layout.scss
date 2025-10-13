@@ -48,7 +48,7 @@ $fixed-sidebar-w:  25ch;
   }
 
   &.fixed > *:last-child {
-    margin-left: calc($fixed-sidebar-w + 10px);
+    padding-left: calc($fixed-sidebar-w + 10px);
   }
 
   &.column {

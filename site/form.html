@@ -66,6 +66,9 @@ pre {
     <p>form that has field with label</p>
   </hgroup>
 
+  
+
+  
   <form>
     <h3>Basic form</h3>
     <fieldset>
@@ -135,6 +138,83 @@ pre {
     </p>
     </fieldset>
   </form>
+  
+
+  <br/>
+  <details>
+      <summary>Example Code</summary>
+      <pre>
+  &lt;form&gt;
+    &lt;h3&gt;Basic form&lt;/h3&gt;
+    &lt;fieldset&gt;
+      &lt;legend&gt;General Info Form&lt;/legend&gt;
+    &lt;p&gt;
+      &lt;label for=&#34;username&#34;&gt;Username&lt;/label&gt;
+      &lt;input id=&#34;username&#34; type=&#34;text&#34; name=&#34;username&#34; placeholder=&#34;Text&#34; aria-label=&#34;Text&#34;&gt;
+    &lt;/p&gt;
+
+    &lt;p&gt;
+      &lt;label for=&#34;email&#34;&gt;Email&lt;/label&gt;
+      &lt;input id=&#34;email&#34; type=&#34;email&#34; name=&#34;email&#34; placeholder=&#34;Email&#34; aria-label=&#34;Email&#34; autocomplete=&#34;email&#34;&gt;
+    &lt;/p&gt;
+
+    &lt;p&gt;
+      &lt;label for=&#34;age&#34;&gt;Age&lt;/label&gt;
+      &lt;input id=&#34;age&#34; type=&#34;number&#34; name=&#34;number&#34; placeholder=&#34;Number&#34; aria-label=&#34;Number&#34;&gt;
+    &lt;/p&gt;
+
+    &lt;p&gt;
+      &lt;label for=&#34;password&#34;&gt;Password&lt;/label&gt;
+      &lt;input type=&#34;password&#34; name=&#34;password&#34; placeholder=&#34;Password&#34; aria-label=&#34;Password&#34;&gt;
+    &lt;/p&gt;
+
+    &lt;p&gt;
+      &lt;label for=&#34;mobile&#34;&gt;Mobile&lt;/label&gt;
+      &lt;input id=&#34;mobile&#34; type=&#34;tel&#34; name=&#34;tel&#34; placeholder=&#34;Tel&#34; aria-label=&#34;Tel&#34; autocomplete=&#34;tel&#34;&gt;
+    &lt;/p&gt;
+
+    &lt;p&gt;
+      &lt;label for=&#34;site&#34;&gt;Personal Site&lt;/label&gt;
+      &lt;input id=&#34;site&#34; type=&#34;url&#34; name=&#34;url&#34; placeholder=&#34;Url&#34; aria-label=&#34;Url&#34;&gt;
+    &lt;/p&gt;
+
+    &lt;p&gt;
+      &lt;label for=&#34;birthdate&#34;&gt;Birth Date&lt;/label&gt;
+      &lt;input id=&#34;birthdate&#34; type=&#34;date&#34; name=&#34;date&#34; aria-label=&#34;Date&#34;&gt;
+    &lt;/p&gt;
+
+    &lt;p&gt;
+      &lt;label for=&#34;timezone&#34;&gt;Timezone&lt;/label&gt;
+      &lt;input id=&#34;timezone&#34; type=&#34;datetime-local&#34; name=&#34;datetime-local&#34; aria-label=&#34;Datetime local&#34;&gt;
+    &lt;/p&gt;
+
+    &lt;p&gt;
+      &lt;label for=&#34;month&#34;&gt;Birth Month&lt;/label&gt;
+      &lt;input id=&#34;month&#34; type=&#34;month&#34; name=&#34;month&#34; aria-label=&#34;Month&#34;&gt;
+    &lt;/p&gt;
+
+    &lt;p&gt;
+      &lt;label for=&#34;birthtime&#34;&gt;Birth Time&lt;/label&gt;
+      &lt;input id=&#34;birthtime&#34; type=&#34;time&#34; name=&#34;time&#34; aria-label=&#34;Time&#34;&gt;
+    &lt;/p&gt;
+
+    &lt;p&gt;
+      &lt;label for=&#34;card&#34;&gt; Card type &lt;/label&gt;
+      &lt;select id=&#34;card&#34; name=&#34;user-card&#34;&gt;
+        &lt;option value=&#34;visa&#34;&gt;Visa&lt;/option&gt;
+        &lt;option value=&#34;mc&#34;&gt;Mastercard&lt;/option&gt;
+        &lt;option value=&#34;amex&#34;&gt;American Express&lt;/option&gt;
+      &lt;/select&gt;
+    &lt;/p&gt;
+
+    &lt;p&gt;
+        &lt;label for=&#34;message&#34;&gt;Message&lt;/label&gt;
+        &lt;textarea&gt;This is message&lt;/textarea&gt;
+    &lt;/p&gt;
+    &lt;/fieldset&gt;
+  &lt;/form&gt;
+   </pre>
+  </details>
 
   <br />
 
@@ -143,8 +223,11 @@ pre {
     <p>Form validation states, error and valid.</p>
   </hgroup>
 
+  
+
+  
   <form>
-     <label>
+    <label>
       Required Field
       <input id="valid-field" type="text" required value="" />
     </label>
@@ -179,8 +262,54 @@ pre {
       <button class="btn-danger">Remove</button>
     </div>
   </form>
+  
+
+  <br/>
+
+  <details open>
+      <summary>Example Code</summary>
+      <pre>
+  &lt;form&gt;
+    &lt;label&gt;
+      Required Field
+      &lt;input id=&#34;valid-field&#34; type=&#34;text&#34; required value=&#34;&#34; /&gt;
+    &lt;/label&gt;
+
+    &lt;label&gt;
+      Valid Field
+      &lt;input id=&#34;valid-field&#34; class=&#34;valid&#34; type=&#34;text&#34; value=&#34;valid value&#34; /&gt;
+    &lt;/label&gt;
+
+    &lt;label&gt;
+      Valid Select
+      &lt;select aria-invalid=&#34;false&#34; name=&#34;user-card&#34;&gt;
+        &lt;option value=&#34;visa&#34;&gt;Visa&lt;/option&gt;
+        &lt;option value=&#34;mc&#34;&gt;Mastercard&lt;/option&gt;
+        &lt;option value=&#34;amex&#34;&gt;American Express&lt;/option&gt;
+      &lt;/select&gt;
+      &lt;small&gt;Valid card!&lt;/small&gt;
+    &lt;/label&gt;
+
+    &lt;label&gt;
+      Error Field
+      &lt;input id=&#34;error-field&#34; aria-invalid=&#34;true&#34; type=&#34;text&#34; value=&#34;error value&#34; /&gt;
+      &lt;small&gt;This field is error&lt;/small&gt;
+    &lt;/label&gt;
+
+    &lt;br/&gt;
+
+    &lt;div&gt;
+      &lt;button type=&#34;submit&#34;&gt;Submit&lt;/button&gt;
+      &lt;input class=&#34;btn&#34; type=&#34;submit&#34; value=&#34;Submit with input&#34; /&gt;
+      &lt;button class=&#34;btn-outline&#34;&gt;Reset&lt;/button&gt;
+      &lt;button class=&#34;btn-danger&#34;&gt;Remove&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/form&gt;
+   </pre>
+  </details>
 
   <h2>Select</h2>
+
   <form>
 
 
@@ -199,9 +328,30 @@ pre {
 </label>
 
 
+<br/>
+
+  <details open>
+      <summary>Example Code</summary>
+      <pre>
+&lt;label&gt;
+    Select your favorite cuisine...
+&lt;select name=&#34;favorite-cuisine&#34; aria-label=&#34;Select your favorite cuisine...&#34; required&gt;
+  &lt;option selected disabled value=&#34;&#34;&gt;
+    Select your favorite cuisine...
+  &lt;/option&gt;
+  &lt;option&gt;Italian&lt;/option&gt;
+  &lt;option&gt;Japanese&lt;/option&gt;
+  &lt;option&gt;Indian&lt;/option&gt;
+  &lt;option&gt;Thai&lt;/option&gt;
+  &lt;option&gt;French&lt;/option&gt;
+&lt;/select&gt;
+&lt;/label&gt;
+ </pre>
+  </details>
+
 <h3>Select Multiple</h3>
 
-
+  
 <label>
     Select your favorite snacks...
 <select aria-label="Select your favorite snacks..." multiple size="6">
@@ -214,24 +364,55 @@ pre {
   <option>Chocolate</option>
   <option>Crackers</option>
 </select>
-<label>
+</label>
 
+
+  <br/>
+  <details open>
+      <summary>Example Code</summary>
+      <pre>
+&lt;label&gt;
+    Select your favorite snacks...
+&lt;select aria-label=&#34;Select your favorite snacks...&#34; multiple size=&#34;6&#34;&gt;
+  &lt;option disabled&gt;
+    Select your favorite snacks...
+  &lt;/option&gt;
+  &lt;option&gt;Cheese&lt;/option&gt;
+  &lt;option selected&gt;Fruits&lt;/option&gt;
+  &lt;option selected&gt;Nuts&lt;/option&gt;
+  &lt;option&gt;Chocolate&lt;/option&gt;
+  &lt;option&gt;Crackers&lt;/option&gt;
+&lt;/select&gt;
+&lt;/label&gt;
+ </pre>
+  </details>
 
 <h3>Disabled Select</h3>
 
+<label>Select a meal type...
+  <select name="meal-type" aria-label="Select a meal type..." disabled>
+    <option>Select a meal type...</option>
+    <option>...</option>
+  </select>
+</label>
 
-  <label>Select a meal type...
-<select name="meal-type" aria-label="Select a meal type..." disabled>
-  <option>Select a meal type...</option>
-  <option>...</option>
-</select>
-  </label>
-
+  <br/>
+  <details open>
+      <summary>Example Code</summary>
+      <pre>&lt;label&gt;Select a meal type...
+  &lt;select name=&#34;meal-type&#34; aria-label=&#34;Select a meal type...&#34; disabled&gt;
+    &lt;option&gt;Select a meal type...&lt;/option&gt;
+    &lt;option&gt;...&lt;/option&gt;
+  &lt;/select&gt;
+&lt;/label&gt; </pre>
+  </details>
 
   </form>
 
   <h2>Checkboxes and Radio Buttons</h2>
   <form>
+    
+  
   <label>
     <input type="checkbox" value="1" checked />
     Check me 1
@@ -255,28 +436,77 @@ pre {
     <input type="radio" name="version" value="v3" />
     Version 3
   </label>
+  
+
+  <br/>
+  <details open>
+      <summary>Example Code</summary>
+      <pre>
+  &lt;label&gt;
+    &lt;input type=&#34;checkbox&#34; value=&#34;1&#34; checked /&gt;
+    Check me 1
+  &lt;/label&gt;
+
+  &lt;label&gt;
+    &lt;input type=&#34;checkbox&#34; value=&#34;1&#34; /&gt;
+    Check me 2
+  &lt;/label&gt;
+  &lt;label&gt;
+    &lt;input type=&#34;radio&#34; name=&#34;version&#34; value=&#34;v1&#34; checked /&gt;
+    Version 1
+  &lt;/label&gt;
+
+  &lt;label&gt;
+    &lt;input type=&#34;radio&#34; name=&#34;version&#34; value=&#34;v2&#34; /&gt;
+    Version 2
+  &lt;/label&gt;
+
+  &lt;label&gt;
+    &lt;input type=&#34;radio&#34; name=&#34;version&#34; value=&#34;v3&#34; /&gt;
+    Version 3
+  &lt;/label&gt;
+   </pre>
+  </details>
 
     <hgroup>
       <h3>Switch</h3>
     </hgroup>
-    <p>
+
+    
+
+    
       <label class="switch">
         <input name="terms" type="checkbox" role="switch" />
         I agree to the Terms
       </label>
-    </p>
-    <p>
       <label class="switch">
         <input name="terms" type="checkbox" role="switch" checked />
         I agree to the default checked
       </label>
-    </p>
-    <p>
       <label class="switch">
         <input name="terms" type="checkbox" role="switch" disabled />
         I agree to the default disabled
       </label>
-    </p>
+    
+
+    <br/>
+    <details>
+        <summary>Example Code</summary>
+        <pre>
+      &lt;label class=&#34;switch&#34;&gt;
+        &lt;input name=&#34;terms&#34; type=&#34;checkbox&#34; role=&#34;switch&#34; /&gt;
+        I agree to the Terms
+      &lt;/label&gt;
+      &lt;label class=&#34;switch&#34;&gt;
+        &lt;input name=&#34;terms&#34; type=&#34;checkbox&#34; role=&#34;switch&#34; checked /&gt;
+        I agree to the default checked
+      &lt;/label&gt;
+      &lt;label class=&#34;switch&#34;&gt;
+        &lt;input name=&#34;terms&#34; type=&#34;checkbox&#34; role=&#34;switch&#34; disabled /&gt;
+        I agree to the default disabled
+      &lt;/label&gt;
+     </pre>
+    </details>
   </form>
 
   <hgroup>

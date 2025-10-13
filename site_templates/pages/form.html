@@ -22,6 +22,7 @@ pre {
     <p>form that has field with label</p>
   </hgroup>
 
+  {% set basic_form %}
   <form>
     <h3>Basic form</h3>
     <fieldset>
@@ -91,6 +92,15 @@ pre {
     </p>
     </fieldset>
   </form>
+  {% endset %}
+
+  {{ basic_form }}
+
+  <br/>
+  <details>
+      <summary>Example Code</summary>
+      <pre>{{ basic_form | e}} </pre>
+  </details>
 
   <br />
 
@@ -99,8 +109,9 @@ pre {
     <p>Form validation states, error and valid.</p>
   </hgroup>
 
+  {% set form_state %}
   <form>
-     <label>
+    <label>
       Required Field
       <input id="valid-field" type="text" required value="" />
     </label>
@@ -135,8 +146,19 @@ pre {
       <button class="btn-danger">Remove</button>
     </div>
   </form>
+  {% endset%}
+
+  {{ form_state }}
+
+  <br/>
+
+  <details open>
+      <summary>Example Code</summary>
+      <pre>{{ form_state | e}} </pre>
+  </details>
 
   <h2>Select</h2>
+
   <form>
 {% set select %}
 <label>
@@ -155,6 +177,13 @@ pre {
 {% endset %}
 {{ select }}
 
+<br/>
+
+  <details open>
+      <summary>Example Code</summary>
+      <pre>{{ select | e}} </pre>
+  </details>
+
 <h3>Select Multiple</h3>
 {% set select_multi %}
 <label>
@@ -169,25 +198,36 @@ pre {
   <option>Chocolate</option>
   <option>Crackers</option>
 </select>
-<label>
+</label>
 {% endset %}
-{{ select_multi }}
+  {{ select_multi }}
+
+  <br/>
+  <details open>
+      <summary>Example Code</summary>
+      <pre>{{ select_multi | e}} </pre>
+  </details>
 
 <h3>Disabled Select</h3>
-{% set disabled_select %}
-  <label>Select a meal type...
-<select name="meal-type" aria-label="Select a meal type..." disabled>
-  <option>Select a meal type...</option>
-  <option>...</option>
-</select>
-  </label>
-{% endset%}
+{% set disabled_select %}<label>Select a meal type...
+  <select name="meal-type" aria-label="Select a meal type..." disabled>
+    <option>Select a meal type...</option>
+    <option>...</option>
+  </select>
+</label>{% endset%}
 {{ disabled_select }}
+
+  <br/>
+  <details open>
+      <summary>Example Code</summary>
+      <pre>{{ disabled_select | e}} </pre>
+  </details>
 
   </form>
 
   <h2>Checkboxes and Radio Buttons</h2>
   <form>
+    {% set checkbox %}
   <label>
     <input type="checkbox" value="1" checked />
     Check me 1
@@ -211,28 +251,41 @@ pre {
     <input type="radio" name="version" value="v3" />
     Version 3
   </label>
+  {% endset %}
+  {{ checkbox }}
+
+  <br/>
+  <details open>
+      <summary>Example Code</summary>
+      <pre>{{ checkbox | e}} </pre>
+  </details>
 
     <hgroup>
       <h3>Switch</h3>
     </hgroup>
-    <p>
+
+    {% set toggle %}
       <label class="switch">
         <input name="terms" type="checkbox" role="switch" />
         I agree to the Terms
       </label>
-    </p>
-    <p>
       <label class="switch">
         <input name="terms" type="checkbox" role="switch" checked />
         I agree to the default checked
       </label>
-    </p>
-    <p>
       <label class="switch">
         <input name="terms" type="checkbox" role="switch" disabled />
         I agree to the default disabled
       </label>
-    </p>
+    {% endset %}
+
+    {{ toggle }}
+
+    <br/>
+    <details>
+        <summary>Example Code</summary>
+        <pre>{{ toggle | e}} </pre>
+    </details>
   </form>
 
   <hgroup>
