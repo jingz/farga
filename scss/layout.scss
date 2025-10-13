@@ -49,6 +49,7 @@ $fixed-sidebar-w:  25ch;
 
   &.fixed > *:last-child {
     padding-left: calc($fixed-sidebar-w + 10px);
+    overflow-x: auto;
   }
 
   &.column {

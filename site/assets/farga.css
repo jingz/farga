@@ -795,6 +795,7 @@ table.striped tbody tr:nth-child(odd) {
 }
 .flex-sidebar.fixed > *:last-child {
   padding-left: calc(25ch + 10px);
+  overflow-x: auto;
 }
 .flex-sidebar.column {
   flex-direction: column;
