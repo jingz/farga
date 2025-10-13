@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Farga Documentation</title>
+    <link rel="stylesheet" type="text/css" href="./assets/farga.css">
+
+    <style type="text/css" media="all">
+    
+.layout-demo {
+    .flex-stretch, .flex-sidebar, .flex-golden, .flex-golden-right, .flex-sidebar-right {
+        div {
+            height: 100px;
+            border: 1px dashed var(--secondary-4);
+
+            display: grid;
+            place-items: center;
+        }
+    }
+}
+
+
+    body {
+        pre {
+          font-size: 0.8rem;
+          background-color: var(--dim);
+          border-radius: 5px;
+          padding: 0.8rem;
+          width: 120ch;
+          overflow-x: auto;
+        }
+    }
+    </style>
+
+  </head>
+  <body>
+    <div class="flex-sidebar fixed gap">
+        <nav id="side-menu" class="sidemenu">
+          <p>Side Menu</p>
+          <ul>
+              <li><a href="./index.html">Home</a></li>
+              <li><a href="./color.html">Colors</a></li>
+              <li><a href="./typography.html">Typography</a></li>
+              <li><a href="./navigation.html">Navigation</a></li>
+              <li><a href="./layout.html">Layout</a></li>
+              <li><a href="./button.html">Buttons</a></li>
+              <li><a href="./form.html">Form</a></li>
+              <li><a href="./table.html">Table</a></li>
+          </ul>
+          <details open>
+            <summary>
+              <span>Components</span>
+            </summary>
+            <ul>
+              <li><a href="./accordion.html">Accordion</a></li>
+              <li><a href="./card.html">Card</a></li>
+            </ul>
+          </details>
+        </nav>
+
+        <main>
+            
+<div class="layout-demo">
+  <h1>Layouts</h1>
+
+  
+
+  <hgroup>
+      <h2>Flex</h2>
+      <p>The CSS flexible box layout module defines a CSS box model optimized for user interface design, and the layout of items in one dimension.</p>
+  </hgroup>
+
+  <h3>flex-stretch</h3>
+
+  
+<div class="flex-stretch">
+  <div>DIV-1</div>
+  <div>DIV-2</div>
+  <div>DIV-3</div>
+</div>
+
+  <br/>
+
+  <details open>
+    <summary>Example Code</summary>
+    <pre>
+&lt;div class=&#34;flex-stretch&#34;&gt;
+  &lt;div&gt;DIV-1&lt;/div&gt;
+  &lt;div&gt;DIV-2&lt;/div&gt;
+  &lt;div&gt;DIV-3&lt;/div&gt;
+&lt;/div&gt;</pre>
+  </details>
+
+  
+
+  <h3>flex-stretch with gap</h3>
+  
+<div class="flex-stretch gap">
+  <div>DIV-1</div>
+  <div>DIV-2</div>
+  <div>DIV-3</div>
+</div>
+
+  <br/>
+
+  <details open>
+      <summary>Example Code</summary>
+      <pre>
+&lt;div class=&#34;flex-stretch gap&#34;&gt;
+  &lt;div&gt;DIV-1&lt;/div&gt;
+  &lt;div&gt;DIV-2&lt;/div&gt;
+  &lt;div&gt;DIV-3&lt;/div&gt;
+&lt;/div&gt;</pre>
+  </details>
+
+  <hgroup>
+      <h2>Flex Sidebar</h2>
+      <p> Sidebar layout using flex css layout.  </p>
+  </hgroup>
+
+  
+
+  
+<div class="flex-sidebar gap">
+  <div>DIV-1 fixed</div>
+  <div>DIV-2</div>
+</div>
+  <br/>
+  <details open>
+      <summary>Example Code</summary>
+      <pre>
+&lt;div class=&#34;flex-sidebar gap&#34;&gt;
+  &lt;div&gt;DIV-1 fixed&lt;/div&gt;
+  &lt;div&gt;DIV-2&lt;/div&gt;
+&lt;/div&gt;</pre>
+  </details>
+
+  
+
+  <h3>Flex sidebar right</h3>
+  
+<div class="flex-sidebar-right gap">
+  <div>DIV-1</div>
+  <div>DIV-2 Fixed</div>
+</div>
+  <br/>
+  <details open>
+      <summary>Example Code</summary>
+      <pre>
+&lt;div class=&#34;flex-sidebar-right gap&#34;&gt;
+  &lt;div&gt;DIV-1&lt;/div&gt;
+  &lt;div&gt;DIV-2 Fixed&lt;/div&gt;
+&lt;/div&gt;</pre>
+  </details>
+
+  
+
+  <h3>Flex sidebar row</h3>
+  
+<div class="flex-sidebar column">
+  <div>DIV-1 fixed</div>
+  <div>DIV-2</div>
+</div>
+
+  <br/>
+
+  <details open>
+      <summary>Example Code</summary>
+      <pre>
+&lt;div class=&#34;flex-sidebar column&#34;&gt;
+  &lt;div&gt;DIV-1 fixed&lt;/div&gt;
+  &lt;div&gt;DIV-2&lt;/div&gt;
+&lt;/div&gt;</pre>
+  </details>
+
+  <hgroup>
+      <h2>Flex Golden</h2>
+      <p>Flex golden is a flex layout having 2 child elements which their width are in golden ratio.  </p>
+  </hgroup>
+
+  
+
+  
+<div class="flex-golden gap">
+  <div>DIV-1</div>
+  <div>DIV-2</div>
+</div>
+
+  <br/>
+  <details open>
+      <summary>Example Code</summary>
+      <pre>
+&lt;div class=&#34;flex-golden gap&#34;&gt;
+  &lt;div&gt;DIV-1&lt;/div&gt;
+  &lt;div&gt;DIV-2&lt;/div&gt;
+&lt;/div&gt;</pre>
+  </details>
+
+  
+
+    <h3>Flex golden right</h3>
+  
+<div class="flex-golden-right gap">
+  <div>DIV-1</div>
+  <div>DIV-2</div>
+</div>
+
+  <br/>
+  <details open>
+      <summary>Example Code</summary>
+      <pre>
+&lt;div class=&#34;flex-golden-right gap&#34;&gt;
+  &lt;div&gt;DIV-1&lt;/div&gt;
+  &lt;div&gt;DIV-2&lt;/div&gt;
+&lt;/div&gt;</pre>
+  </details>
+</div>
+
+        </main>
+    </div>
+  </body>
+
+  <script>
+      var filename = window.location.href.toString().split('/').pop();
+      const sideMenuEl = document.querySelector('#side-menu');
+      const links = sideMenuEl.querySelectorAll('a')
+      for ( const link of links ) {
+          if (link.href.split('/').pop() === filename ) {
+              link.parentNode.classList.add('active');
+          }
+      }
+  </script>
+</html>

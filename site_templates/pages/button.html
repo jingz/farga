@@ -4,73 +4,96 @@
 {% endblock %}
 
 {% block content %}
-<h1>Buttons</h1>
-<hr />
 <div>
-    <h2>Links</h2>
-    <a href="#?">This is a link</a>
+  <h1>Link & Buttons</h1>
+
+  <h2>Links</h2>
+  {% set link %}<a href="#?">This is a link</a>{% endset %}
+
+  <p> {{ link }} </p>
+  <details open>
+      <summary>Example Code</summary>
+      <pre>{{ link | e}} </pre>
+  </details>
+
+  <div>
+      <h2>Small Size</h2>
+
+{% set small_buttons %}<p>
+  <button class='btn-small'>Primary</button>
+  <button class='btn-small btn-outline'>Outline</button>
+  <button class='btn-small btn-secondary'>Secondary</button>
+  <button class='btn-small btn-secondary-outline'>Secondary</button>
+  <button class='btn-small btn-danger'>Danger</button>
+  <button class='btn-small btn-danger-outline'>Danger</button>
+</p>{% endset %}
+
+      {{ small_buttons }}
+
+      <br/>
+      <details open>
+          <summary>Example Code</summary>
+          <pre>{{ small_buttons | e}} </pre>
+      </details>
+  </div>
+
+  <div>
+      <h2>Normal Size</h2>
+{% set normal_buttons %}<p>
+  <button>Primary</button>
+  <button class='btn-outline'>Outline</button>
+  <button class='btn-secondary'>Secondary</button>
+  <button class='btn-secondary-outline'>Secondary</button>
+  <button class='btn-danger'>Danger</button>
+  <button class='btn-danger-outline'>Danger</button>
+</p>{% endset %}
+
+      {{ normal_buttons }}
+
+      <br/>
+      <details open>
+         <summary>Example Code</summary>
+        <pre> {{ normal_buttons | e }} </pre>
+      </details>
+  </div>
+  <div>
+      <h2>Large Size</h2>
+{% set large_buttons %}<p>
+  <button class='btn-large'>Primary</button>
+  <button class='btn-large btn-outline'>Outline</button>
+  <button class='btn-large btn-secondary'>Secondary</button>
+  <button class='btn-large btn-secondary-outline'>Secondary</button>
+  <button class='btn-large btn-danger'>Danger</button>
+  <button class='btn-large btn-danger-outline'>Danger</button>
+</p>{% endset %}
+
+      {{ large_buttons }}
+      <br/>
+      <details open>
+         <summary>Example Code</summary>
+      <pre> {{ large_buttons | e }} </pre>
+      </details>
+  </div>
+
+  <div>
+      <h2>Extra Size</h2>
+{% set extra_buttons %}<p>
+  <button class='btn-extra'>Primary</button>
+  <button class='btn-extra btn-outline'>Outline</button>
+  <button class='btn-extra btn-secondary'>Secondary</button>
+  <button class='btn-extra btn-secondary-outline'>Secondary</button>
+  <button class='btn-extra btn-danger'>Danger</button>
+  <button class='btn-extra btn-danger-outline'>Danger</button>
+</p>{% endset %}
+
+      {{ extra_buttons }}
+
+      <br/>
+      <details open>
+         <summary>Example Code</summary>
+      <pre> {{ extra_buttons | e }} </pre>
+      </details>
+  </div>
 </div>
-<hr />
-<div>
 
-    <h2>Small Size</h2>
-    {% set small_buttons %}
-    <button class='btn-small'>Primary</button>
-    <button class='btn-small btn-outline'>Outline</button>
-    <button class='btn-small btn-secondary'>Secondary</button>
-    <button class='btn-small btn-secondary-outline'>Secondary</button>
-    <button class='btn-small btn-danger'>Danger</button>
-    <button class='btn-small btn-danger-outline'>Danger</button>
-    {% endset %}
-
-    {{ small_buttons }}
-    <pre> {{ small_buttons | e}} </pre>
-</div>
-<hr/>
-<div>
-    <h2>Normal Size</h2>
-    {% set normal_buttons %}
-    <button>Primary</button>
-    <button class='btn-outline'>Outline</button>
-    <button class='btn-secondary'>Secondary</button>
-    <button class='btn-secondary-outline'>Secondary</button>
-    <button class='btn-danger'>Danger</button>
-    <button class='btn-danger-outline'>Danger</button>
-    {% endset %}
-
-    {{ normal_buttons }}
-    <pre> {{ normal_buttons | e }} </pre>
-</div>
-
-<hr/>
-<div>
-    <h2>Large Size</h2>
-    {% set large_buttons %}
-    <button class='btn-large'>Primary</button>
-    <button class='btn-large btn-outline'>Outline</button>
-    <button class='btn-large btn-secondary'>Secondary</button>
-    <button class='btn-large btn-secondary-outline'>Secondary</button>
-    <button class='btn-large btn-danger'>Danger</button>
-    <button class='btn-large btn-danger-outline'>Danger</button>
-    {% endset %}
-
-    {{ large_buttons }}
-    <pre> {{ large_buttons | e }} </pre>
-</div>
-
-<hr/>
-<div>
-    <h2>Extra Size</h2>
-    {% set extra_buttons %}
-    <button class='btn-extra'>Primary</button>
-    <button class='btn-extra btn-outline'>Outline</button>
-    <button class='btn-extra btn-secondary'>Secondary</button>
-    <button class='btn-extra btn-secondary-outline'>Secondary</button>
-    <button class='btn-extra btn-danger'>Danger</button>
-    <button class='btn-extra btn-danger-outline'>Danger</button>
-    {% endset %}
-
-    {{ extra_buttons }}
-    <pre> {{ extra_buttons | e }} </pre>
-</div>
 {% endblock%}

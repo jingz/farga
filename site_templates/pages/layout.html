@@ -1,0 +1,143 @@
+{% extends "layout/base.html" %}
+
+{% block inline_style %}
+.layout-demo {
+    .flex-stretch, .flex-sidebar, .flex-golden, .flex-golden-right, .flex-sidebar-right {
+        div {
+            height: 100px;
+            border: 1px dashed var(--secondary-4);
+
+            display: grid;
+            place-items: center;
+        }
+    }
+}
+{% endblock %}
+
+{% block content %}
+<div class="layout-demo">
+  <h1>Layouts</h1>
+
+  {% set basic %}
+<div class="flex-stretch">
+  <div>DIV-1</div>
+  <div>DIV-2</div>
+  <div>DIV-3</div>
+</div>{% endset %}
+
+  <hgroup>
+      <h2>Flex</h2>
+      <p>The CSS flexible box layout module defines a CSS box model optimized for user interface design, and the layout of items in one dimension.</p>
+  </hgroup>
+
+  <h3>flex-stretch</h3>
+
+  {{ basic }}
+
+  <br/>
+
+  <details open>
+    <summary>Example Code</summary>
+    <pre>{{ basic | e }}</pre>
+  </details>
+
+  {% set flex_stretch_with_gap %}
+<div class="flex-stretch gap">
+  <div>DIV-1</div>
+  <div>DIV-2</div>
+  <div>DIV-3</div>
+</div>{% endset %}
+
+  <h3>flex-stretch with gap</h3>
+  {{ flex_stretch_with_gap }}
+
+  <br/>
+
+  <details open>
+      <summary>Example Code</summary>
+      <pre>{{ flex_stretch_with_gap | e }}</pre>
+  </details>
+
+  <hgroup>
+      <h2>Flex Sidebar</h2>
+      <p> Sidebar layout using flex css layout.  </p>
+  </hgroup>
+
+  {% set flex_sidebar %}
+<div class="flex-sidebar gap">
+  <div>DIV-1 fixed</div>
+  <div>DIV-2</div>
+</div>{% endset %}
+
+  {{ flex_sidebar }}
+  <br/>
+  <details open>
+      <summary>Example Code</summary>
+      <pre>{{ flex_sidebar | e }}</pre>
+  </details>
+
+  {% set flex_sidebar_right %}
+<div class="flex-sidebar-right gap">
+  <div>DIV-1</div>
+  <div>DIV-2 Fixed</div>
+</div>{% endset %}
+
+  <h3>Flex sidebar right</h3>
+  {{ flex_sidebar_right }}
+  <br/>
+  <details open>
+      <summary>Example Code</summary>
+      <pre>{{ flex_sidebar_right | e }}</pre>
+  </details>
+
+  {% set flex_sidebar_row %}
+<div class="flex-sidebar column">
+  <div>DIV-1 fixed</div>
+  <div>DIV-2</div>
+</div>{% endset %}
+
+  <h3>Flex sidebar row</h3>
+  {{ flex_sidebar_row }}
+
+  <br/>
+
+  <details open>
+      <summary>Example Code</summary>
+      <pre>{{ flex_sidebar_row | e }}</pre>
+  </details>
+
+  <hgroup>
+      <h2>Flex Golden</h2>
+      <p>Flex golden is a flex layout having 2 child elements which their width are in golden ratio.  </p>
+  </hgroup>
+
+  {% set flex_golden %}
+<div class="flex-golden gap">
+  <div>DIV-1</div>
+  <div>DIV-2</div>
+</div>{% endset %}
+
+  {{ flex_golden }}
+
+  <br/>
+  <details open>
+      <summary>Example Code</summary>
+      <pre>{{ flex_golden | e }}</pre>
+  </details>
+
+  {% set flex_golden_right %}
+<div class="flex-golden-right gap">
+  <div>DIV-1</div>
+  <div>DIV-2</div>
+</div>{% endset %}
+
+    <h3>Flex golden right</h3>
+  {{ flex_golden_right }}
+
+  <br/>
+  <details open>
+      <summary>Example Code</summary>
+      <pre>{{ flex_golden_right | e }}</pre>
+  </details>
+</div>
+{% endblock %}

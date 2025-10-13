@@ -1,0 +1,26 @@
+{% extends "layout/base.html" %}
+
+{% block inline_style %}
+#card-1 {
+    width: 500px;
+}
+{% endblock %}
+
+{% block content %}
+<div>
+  <h1>Card</h1>
+
+  {% set card %}
+  <article>
+      <h2>TODO</h2>
+  </article>
+  {% endset %}
+
+  {{ card }}
+
+  <details open>
+      <summary>Example Code</summary>
+      <pre>{{ card | e }}</pre>
+  </details>
+</div>
+{% endblock %}

@@ -756,6 +756,103 @@ table.striped tbody tr:nth-child(odd) {
   margin: 0;
 }
 
+.flex-stretch {
+  display: flex;
+  align-items: stretch;
+  flex-basis: auto;
+  width: 100%;
+}
+.flex-stretch.gap {
+  gap: var(--fs-1);
+}
+.flex-stretch > * {
+  flex-grow: 1;
+}
+
+.flex-sidebar {
+  display: flex;
+  width: 100%;
+}
+.flex-sidebar.gap {
+  gap: var(--fs-1);
+}
+.flex-sidebar > *:first-child {
+  width: 25ch;
+  flex-shrink: 0;
+}
+.flex-sidebar > *:last-child {
+  flex-grow: 1;
+}
+.flex-sidebar.fixed {
+  overflow-x: hidden;
+}
+.flex-sidebar.fixed > *:first-child {
+  position: fixed;
+  top: 0;
+}
+.flex-sidebar.fixed > *:first-child.full-h {
+  height: 100vh;
+}
+.flex-sidebar.fixed > *:last-child {
+  margin-left: calc(25ch + 10px);
+}
+.flex-sidebar.column {
+  flex-direction: column;
+}
+.flex-sidebar.column > *:first-child {
+  width: auto;
+  height: var(--fs-9);
+  flex-grow: 1;
+}
+.flex-sidebar.column > *:last-child {
+  flex-grow: 1;
+}
+
+.flex-sidebar-right {
+  display: flex;
+  width: 100%;
+}
+.flex-sidebar-right.gap {
+  gap: var(--fs-1);
+}
+.flex-sidebar-right > *:first-child {
+  flex-grow: 1;
+}
+.flex-sidebar-right > *:last-child {
+  width: 25ch;
+  flex-shrink: 0;
+}
+
+.flex-golden {
+  display: flex;
+  width: 100%;
+}
+.flex-golden.gap {
+  gap: var(--fs-1);
+}
+.flex-golden > *:first-child {
+  width: 33%;
+  flex-shrink: 0;
+}
+.flex-golden > *:last-child {
+  flex-grow: 1;
+}
+
+.flex-golden-right {
+  display: flex;
+  width: 100%;
+}
+.flex-golden-right.gap {
+  gap: var(--fs-1);
+}
+.flex-golden-right > *:first-child {
+  flex-grow: 1;
+}
+.flex-golden-right > *:last-child {
+  width: 33%;
+  flex-shrink: 0;
+}
+
 .bg-primary-0 {
   background-color: var(--primary-0);
 }
