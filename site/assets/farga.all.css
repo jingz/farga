@@ -859,4 +859,604 @@ table.striped tbody tr:nth-child(odd) {
   flex-shrink: 0;
 }
 
-/*# sourceMappingURL=farga.css.map */
+.bg-primary-0 {
+  background-color: var(--primary-0);
+}
+
+.bg-primary-1 {
+  background-color: var(--primary-1);
+}
+
+.bg-primary-2 {
+  background-color: var(--primary-2);
+}
+
+.bg-primary-3 {
+  background-color: var(--primary-3);
+}
+
+.bg-primary-4 {
+  background-color: var(--primary-4);
+}
+
+.bg-primary-5 {
+  background-color: var(--primary-5);
+}
+
+.bg-primary-6 {
+  background-color: var(--primary-6);
+}
+
+.bg-primary-7 {
+  background-color: var(--primary-7);
+}
+
+.bg-primary-8 {
+  background-color: var(--primary-8);
+}
+
+.bg-primary-9 {
+  background-color: var(--primary-9);
+}
+
+.bg-secondary-0 {
+  background-color: var(--secondary-0);
+}
+
+.bg-secondary-1 {
+  background-color: var(--secondary-1);
+}
+
+.bg-secondary-2 {
+  background-color: var(--secondary-2);
+}
+
+.bg-secondary-3 {
+  background-color: var(--secondary-3);
+}
+
+.bg-secondary-4 {
+  background-color: var(--secondary-4);
+}
+
+.bg-secondary-5 {
+  background-color: var(--secondary-5);
+}
+
+.bg-secondary-6 {
+  background-color: var(--secondary-6);
+}
+
+.bg-secondary-7 {
+  background-color: var(--secondary-7);
+}
+
+.bg-secondary-8 {
+  background-color: var(--secondary-8);
+}
+
+.bg-secondary-9 {
+  background-color: var(--secondary-9);
+}
+
+.bg-red-0 {
+  background-color: var(--red-0);
+}
+
+.bg-red-1 {
+  background-color: var(--red-1);
+}
+
+.bg-red-2 {
+  background-color: var(--red-2);
+}
+
+.bg-red-3 {
+  background-color: var(--red-3);
+}
+
+.bg-red-4 {
+  background-color: var(--red-4);
+}
+
+.bg-red-5 {
+  background-color: var(--red-5);
+}
+
+.bg-red-6 {
+  background-color: var(--red-6);
+}
+
+.bg-red-7 {
+  background-color: var(--red-7);
+}
+
+.bg-red-8 {
+  background-color: var(--red-8);
+}
+
+.bg-red-9 {
+  background-color: var(--red-9);
+}
+
+.bg-pink-0 {
+  background-color: var(--pink-0);
+}
+
+.bg-pink-1 {
+  background-color: var(--pink-1);
+}
+
+.bg-pink-2 {
+  background-color: var(--pink-2);
+}
+
+.bg-pink-3 {
+  background-color: var(--pink-3);
+}
+
+.bg-pink-4 {
+  background-color: var(--pink-4);
+}
+
+.bg-pink-5 {
+  background-color: var(--pink-5);
+}
+
+.bg-pink-6 {
+  background-color: var(--pink-6);
+}
+
+.bg-pink-7 {
+  background-color: var(--pink-7);
+}
+
+.bg-pink-8 {
+  background-color: var(--pink-8);
+}
+
+.bg-pink-9 {
+  background-color: var(--pink-9);
+}
+
+.bg-grape-0 {
+  background-color: var(--grape-0);
+}
+
+.bg-grape-1 {
+  background-color: var(--grape-1);
+}
+
+.bg-grape-2 {
+  background-color: var(--grape-2);
+}
+
+.bg-grape-3 {
+  background-color: var(--grape-3);
+}
+
+.bg-grape-4 {
+  background-color: var(--grape-4);
+}
+
+.bg-grape-5 {
+  background-color: var(--grape-5);
+}
+
+.bg-grape-6 {
+  background-color: var(--grape-6);
+}
+
+.bg-grape-7 {
+  background-color: var(--grape-7);
+}
+
+.bg-grape-8 {
+  background-color: var(--grape-8);
+}
+
+.bg-grape-9 {
+  background-color: var(--grape-9);
+}
+
+.bg-violet-0 {
+  background-color: var(--violet-0);
+}
+
+.bg-violet-1 {
+  background-color: var(--violet-1);
+}
+
+.bg-violet-2 {
+  background-color: var(--violet-2);
+}
+
+.bg-violet-3 {
+  background-color: var(--violet-3);
+}
+
+.bg-violet-4 {
+  background-color: var(--violet-4);
+}
+
+.bg-violet-5 {
+  background-color: var(--violet-5);
+}
+
+.bg-violet-6 {
+  background-color: var(--violet-6);
+}
+
+.bg-violet-7 {
+  background-color: var(--violet-7);
+}
+
+.bg-violet-8 {
+  background-color: var(--violet-8);
+}
+
+.bg-violet-9 {
+  background-color: var(--violet-9);
+}
+
+.bg-indigo-0 {
+  background-color: var(--indigo-0);
+}
+
+.bg-indigo-1 {
+  background-color: var(--indigo-1);
+}
+
+.bg-indigo-2 {
+  background-color: var(--indigo-2);
+}
+
+.bg-indigo-3 {
+  background-color: var(--indigo-3);
+}
+
+.bg-indigo-4 {
+  background-color: var(--indigo-4);
+}
+
+.bg-indigo-5 {
+  background-color: var(--indigo-5);
+}
+
+.bg-indigo-6 {
+  background-color: var(--indigo-6);
+}
+
+.bg-indigo-7 {
+  background-color: var(--indigo-7);
+}
+
+.bg-indigo-8 {
+  background-color: var(--indigo-8);
+}
+
+.bg-indigo-9 {
+  background-color: var(--indigo-9);
+}
+
+.bg-blue-0 {
+  background-color: var(--blue-0);
+}
+
+.bg-blue-1 {
+  background-color: var(--blue-1);
+}
+
+.bg-blue-2 {
+  background-color: var(--blue-2);
+}
+
+.bg-blue-3 {
+  background-color: var(--blue-3);
+}
+
+.bg-blue-4 {
+  background-color: var(--blue-4);
+}
+
+.bg-blue-5 {
+  background-color: var(--blue-5);
+}
+
+.bg-blue-6 {
+  background-color: var(--blue-6);
+}
+
+.bg-blue-7 {
+  background-color: var(--blue-7);
+}
+
+.bg-blue-8 {
+  background-color: var(--blue-8);
+}
+
+.bg-blue-9 {
+  background-color: var(--blue-9);
+}
+
+.bg-cyan-0 {
+  background-color: var(--cyan-0);
+}
+
+.bg-cyan-1 {
+  background-color: var(--cyan-1);
+}
+
+.bg-cyan-2 {
+  background-color: var(--cyan-2);
+}
+
+.bg-cyan-3 {
+  background-color: var(--cyan-3);
+}
+
+.bg-cyan-4 {
+  background-color: var(--cyan-4);
+}
+
+.bg-cyan-5 {
+  background-color: var(--cyan-5);
+}
+
+.bg-cyan-6 {
+  background-color: var(--cyan-6);
+}
+
+.bg-cyan-7 {
+  background-color: var(--cyan-7);
+}
+
+.bg-cyan-8 {
+  background-color: var(--cyan-8);
+}
+
+.bg-cyan-9 {
+  background-color: var(--cyan-9);
+}
+
+.bg-teal-0 {
+  background-color: var(--teal-0);
+}
+
+.bg-teal-1 {
+  background-color: var(--teal-1);
+}
+
+.bg-teal-2 {
+  background-color: var(--teal-2);
+}
+
+.bg-teal-3 {
+  background-color: var(--teal-3);
+}
+
+.bg-teal-4 {
+  background-color: var(--teal-4);
+}
+
+.bg-teal-5 {
+  background-color: var(--teal-5);
+}
+
+.bg-teal-6 {
+  background-color: var(--teal-6);
+}
+
+.bg-teal-7 {
+  background-color: var(--teal-7);
+}
+
+.bg-teal-8 {
+  background-color: var(--teal-8);
+}
+
+.bg-teal-9 {
+  background-color: var(--teal-9);
+}
+
+.bg-green-0 {
+  background-color: var(--green-0);
+}
+
+.bg-green-1 {
+  background-color: var(--green-1);
+}
+
+.bg-green-2 {
+  background-color: var(--green-2);
+}
+
+.bg-green-3 {
+  background-color: var(--green-3);
+}
+
+.bg-green-4 {
+  background-color: var(--green-4);
+}
+
+.bg-green-5 {
+  background-color: var(--green-5);
+}
+
+.bg-green-6 {
+  background-color: var(--green-6);
+}
+
+.bg-green-7 {
+  background-color: var(--green-7);
+}
+
+.bg-green-8 {
+  background-color: var(--green-8);
+}
+
+.bg-green-9 {
+  background-color: var(--green-9);
+}
+
+.bg-lime-0 {
+  background-color: var(--lime-0);
+}
+
+.bg-lime-1 {
+  background-color: var(--lime-1);
+}
+
+.bg-lime-2 {
+  background-color: var(--lime-2);
+}
+
+.bg-lime-3 {
+  background-color: var(--lime-3);
+}
+
+.bg-lime-4 {
+  background-color: var(--lime-4);
+}
+
+.bg-lime-5 {
+  background-color: var(--lime-5);
+}
+
+.bg-lime-6 {
+  background-color: var(--lime-6);
+}
+
+.bg-lime-7 {
+  background-color: var(--lime-7);
+}
+
+.bg-lime-8 {
+  background-color: var(--lime-8);
+}
+
+.bg-lime-9 {
+  background-color: var(--lime-9);
+}
+
+.bg-yellow-0 {
+  background-color: var(--yellow-0);
+}
+
+.bg-yellow-1 {
+  background-color: var(--yellow-1);
+}
+
+.bg-yellow-2 {
+  background-color: var(--yellow-2);
+}
+
+.bg-yellow-3 {
+  background-color: var(--yellow-3);
+}
+
+.bg-yellow-4 {
+  background-color: var(--yellow-4);
+}
+
+.bg-yellow-5 {
+  background-color: var(--yellow-5);
+}
+
+.bg-yellow-6 {
+  background-color: var(--yellow-6);
+}
+
+.bg-yellow-7 {
+  background-color: var(--yellow-7);
+}
+
+.bg-yellow-8 {
+  background-color: var(--yellow-8);
+}
+
+.bg-yellow-9 {
+  background-color: var(--yellow-9);
+}
+
+.bg-orange-0 {
+  background-color: var(--orange-0);
+}
+
+.bg-orange-1 {
+  background-color: var(--orange-1);
+}
+
+.bg-orange-2 {
+  background-color: var(--orange-2);
+}
+
+.bg-orange-3 {
+  background-color: var(--orange-3);
+}
+
+.bg-orange-4 {
+  background-color: var(--orange-4);
+}
+
+.bg-orange-5 {
+  background-color: var(--orange-5);
+}
+
+.bg-orange-6 {
+  background-color: var(--orange-6);
+}
+
+.bg-orange-7 {
+  background-color: var(--orange-7);
+}
+
+.bg-orange-8 {
+  background-color: var(--orange-8);
+}
+
+.bg-orange-9 {
+  background-color: var(--orange-9);
+}
+
+.bg-grey-0 {
+  background-color: var(--grey-0);
+}
+
+.bg-grey-1 {
+  background-color: var(--grey-1);
+}
+
+.bg-grey-2 {
+  background-color: var(--grey-2);
+}
+
+.bg-grey-3 {
+  background-color: var(--grey-3);
+}
+
+.bg-grey-4 {
+  background-color: var(--grey-4);
+}
+
+.bg-grey-5 {
+  background-color: var(--grey-5);
+}
+
+.bg-grey-6 {
+  background-color: var(--grey-6);
+}
+
+.bg-grey-7 {
+  background-color: var(--grey-7);
+}
+
+.bg-grey-8 {
+  background-color: var(--grey-8);
+}
+
+.bg-grey-9 {
+  background-color: var(--grey-9);
+}
+
+/*# sourceMappingURL=farga.all.css.map */
