@@ -7,8 +7,12 @@ body, div, section, main, p {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--serif-fonts);
   color: var(--text-color-primary);
-  margin: 1rem 0 0.5rem 0;
+  margin: 0.67rem 0 0 0;
   padding: 0;
+
+  & + p {
+    margin-top: 0;
+  }
 }
 
 h1, h2, h3 {
@@ -17,6 +21,7 @@ h1, h2, h3 {
 
 h4, h5, h6 {
   line-height: 1.75;
+  margin-bottom: var(--fs-1);
 }
 
 h1 {

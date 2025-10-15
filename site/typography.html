@@ -27,7 +27,8 @@
   <body>
     <div class="flex-sidebar fixed gap">
         <nav id="side-menu" class="sidemenu">
-          <p>Side Menu</p>
+          <img src="./assets/farga.svg" />
+          <p>Farga Documentation</p>
           <ul>
               <li><a href="./index.html">Home</a></li>
               <li><a href="./color.html">Colors</a></li>
@@ -53,14 +54,18 @@
             
 <div>
   <h1>Typography</h1>
-  <hr/>
 
-  <h2>Font Style Utilities</h2>
-  <p>
-  We mostly use serif and sans-serif fonts for rendering text content.
-  But we can use others fonts when needed.
-  </p>
+  <hgroup>
+    <h2>Font Family</h2>
+    <p>
+      We mostly use serif and sans-serif fonts for rendering text content.
+      But we can use others fonts when needed.
+    </p>
+  </hgroup>
 
+  
+
+  
   <div class="ft-sans-serif">
     <strong>.ft-sans-serif</strong>
     <p class="ft-sans-serif">
@@ -81,6 +86,7 @@
     The quick brown fox jumps over the lazy dog. 1234567890 !@#$%^&*()_+[]{};:'",/?
     </p>
   </div>
+
   <div class="ft-fantasy">
     <strong>.ft-fantasy</strong>
     <p class="ft-fantasy">
@@ -94,16 +100,82 @@
     The quick brown fox jumps over the lazy dog. 1234567890 !@#$%^&*()_+[]{};:'",/?
     </p>
   </div>
+  
 
-  <hr />
+  <details>
+    <summary>Example Code</summary>
+    <pre>
+  &lt;div class=&#34;ft-sans-serif&#34;&gt;
+    &lt;strong&gt;.ft-sans-serif&lt;/strong&gt;
+    &lt;p class=&#34;ft-sans-serif&#34;&gt;
+    The quick brown fox jumps over the lazy dog. 1234567890 !@#$%^&amp;*()_+[]{};:&#39;&#34;,/?
+    &lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&#34;ft-serif&#34;&gt;
+    &lt;strong&gt;.ft-serif&lt;/strong&gt;
+    &lt;p class=&#34;ft-serif&#34;&gt;
+    The quick brown fox jumps over the lazy dog. 1234567890 !@#$%^&amp;*()_+[]{};:&#39;&#34;,/?
+    &lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&#34;ft-mono&#34;&gt;
+    &lt;strong&gt;.ft-mono&lt;/strong&gt;
+    &lt;p&gt;
+    The quick brown fox jumps over the lazy dog. 1234567890 !@#$%^&amp;*()_+[]{};:&#39;&#34;,/?
+    &lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&#34;ft-fantasy&#34;&gt;
+    &lt;strong&gt;.ft-fantasy&lt;/strong&gt;
+    &lt;p class=&#34;ft-fantasy&#34;&gt;
+    The quick brown fox jumps over the lazy dog. 1234567890 !@#$%^&amp;*()_+[]{};:&#39;&#34;,/?
+    &lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div&gt;
+    &lt;strong&gt;.ft-cursive&lt;/strong&gt;
+    &lt;p class=&#34;ft-cursive&#34;&gt;
+    The quick brown fox jumps over the lazy dog. 1234567890 !@#$%^&amp;*()_+[]{};:&#39;&#34;,/?
+    &lt;/p&gt;
+  &lt;/div&gt;
+  </pre>
+  </details>
 
   <h2>Parapraph</h2>
+
+  
+
+  
   <p style="width: 500px;">
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+    nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+    reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+    Excepteur sint occaecat cupidatat non proident,
+    sunt in culpa qui officia deserunt mollit anim id est laborum.
   </p>
+  
 
-  <hr />
+  <details open>
+    <summary>Example Code</summary>
+    <pre>
+  &lt;p style=&#34;width: 500px;&#34;&gt;
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+    nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+    reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+    Excepteur sint occaecat cupidatat non proident,
+    sunt in culpa qui officia deserunt mollit anim id est laborum.
+  &lt;/p&gt;
+  </pre>
+  </details>
 
+  
+
+  
   <div>
     <h1>Heading 1</h1>
     <h2>Heading 2</h2>
@@ -112,19 +184,31 @@
     <h5>Heading 5</h5>
     <h6>Heading 6</h6>
   </div>
+  
 
-  <hr />
+  <details open>
+    <summary>Example Code</summary>
+    <pre>
+  &lt;div&gt;
+    &lt;h1&gt;Heading 1&lt;/h1&gt;
+    &lt;h2&gt;Heading 2&lt;/h2&gt;
+    &lt;h3&gt;Heading 3&lt;/h3&gt;
+    &lt;h4&gt;Heading 4&lt;/h4&gt;
+    &lt;h5&gt;Heading 5&lt;/h5&gt;
+    &lt;h6&gt;Heading 6&lt;/h6&gt;
+  &lt;/div&gt;
+  </pre>
+  </details>
 
-  <div>
-    <hgroup>
-      <h2>Header Group</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-    </hgroup>
-  </div>
-
-  <hr />
+  <hgroup>
+    <h2>Header Group</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+  </hgroup>
 
   <h2>Text Styling</h2>
+  
+
+  
   <div>
     <div><strong>Bold Text</strong></div>
     <div> <i>Italic Text</i> </div>
@@ -142,7 +226,30 @@
       </blockquote>
     </div>
   </div>
+  
 
+  <details open>
+    <summary>Example Code</summary>
+    <pre>
+  &lt;div&gt;
+    &lt;div&gt;&lt;strong&gt;Bold Text&lt;/strong&gt;&lt;/div&gt;
+    &lt;div&gt; &lt;i&gt;Italic Text&lt;/i&gt; &lt;/div&gt;
+    &lt;div&gt; &lt;small&gt;Small Text&lt;/small&gt; &lt;/div&gt;
+    &lt;div&gt; &lt;strike&gt;Strike Text&lt;/strike&gt; &lt;/div&gt;
+    &lt;div&gt; &lt;u&gt;Underline Text&lt;/u&gt; &lt;/div&gt;
+    &lt;div&gt; &lt;mark&gt;Mark Text&lt;/mark&gt; &lt;/div&gt;
+    &lt;div&gt; &lt;code&gt;Code Text&lt;/code&gt; &lt;/div&gt;
+    &lt;div&gt;
+      &lt;blockquote&gt;
+        &lt;p&gt;
+        Shall I compare thee to a summer&#39;s day?&lt;br/&gt;
+        Thou art more lovely and more temperate.
+        &lt;/p&gt;
+      &lt;/blockquote&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  </pre>
+  </details>
 </div>
 
         </main>

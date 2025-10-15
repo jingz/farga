@@ -9,14 +9,16 @@
 {% block content %}
 <div>
   <h1>Typography</h1>
-  <hr/>
 
-  <h2>Font Style Utilities</h2>
-  <p>
-  We mostly use serif and sans-serif fonts for rendering text content.
-  But we can use others fonts when needed.
-  </p>
+  <hgroup>
+    <h2>Font Family</h2>
+    <p>
+      We mostly use serif and sans-serif fonts for rendering text content.
+      But we can use others fonts when needed.
+    </p>
+  </hgroup>
 
+  {% set font_families %}
   <div class="ft-sans-serif">
     <strong>.ft-sans-serif</strong>
     <p class="ft-sans-serif">
@@ -37,6 +39,7 @@
     The quick brown fox jumps over the lazy dog. 1234567890 !@#$%^&*()_+[]{};:'",/?
     </p>
   </div>
+
   <div class="ft-fantasy">
     <strong>.ft-fantasy</strong>
     <p class="ft-fantasy">
@@ -50,16 +53,37 @@
     The quick brown fox jumps over the lazy dog. 1234567890 !@#$%^&*()_+[]{};:'",/?
     </p>
   </div>
+  {% endset %}
 
-  <hr />
+  {{ font_families }}
+
+  <details>
+    <summary>Example Code</summary>
+    <pre>{{ font_families | e }}</pre>
+  </details>
 
   <h2>Parapraph</h2>
+
+  {% set para %}
   <p style="width: 500px;">
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+    nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+    reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+    Excepteur sint occaecat cupidatat non proident,
+    sunt in culpa qui officia deserunt mollit anim id est laborum.
   </p>
+  {% endset %}
 
-  <hr />
+  {{ para }}
 
+  <details open>
+    <summary>Example Code</summary>
+    <pre>{{ para | e }}</pre>
+  </details>
+
+  {% set header %}
   <div>
     <h1>Heading 1</h1>
     <h2>Heading 2</h2>
@@ -68,19 +92,22 @@
     <h5>Heading 5</h5>
     <h6>Heading 6</h6>
   </div>
+  {% endset %}
 
-  <hr />
+  {{ header }}
 
-  <div>
-    <hgroup>
-      <h2>Header Group</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-    </hgroup>
-  </div>
+  <details open>
+    <summary>Example Code</summary>
+    <pre>{{ header | e }}</pre>
+  </details>
 
-  <hr />
+  <hgroup>
+    <h2>Header Group</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+  </hgroup>
 
   <h2>Text Styling</h2>
+  {% set text_styling %}
   <div>
     <div><strong>Bold Text</strong></div>
     <div> <i>Italic Text</i> </div>
@@ -98,6 +125,13 @@
       </blockquote>
     </div>
   </div>
+  {% endset %}
 
+  {{ text_styling }}
+
+  <details open>
+    <summary>Example Code</summary>
+    <pre>{{ text_styling | e }}</pre>
+  </details>
 </div>
 {% endblock %}
