@@ -47,9 +47,8 @@ $fixed-sidebar-w:  25ch;
   }
 
   &.fixed > *:last-child {
-    margin-left: calc($fixed-sidebar-w + 10px);
+    margin-left: calc($fixed-sidebar-w + var(--fs-1));
     flex-grow: 1;
-    flex-shrink: 0;
     overflow-x: auto;
   }
 

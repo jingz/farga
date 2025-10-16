@@ -799,9 +799,8 @@ table.striped tbody tr:nth-child(odd) {
   height: 100vh;
 }
 .flex-sidebar.fixed > *:last-child {
-  margin-left: calc(25ch + 10px);
+  margin-left: calc(25ch + var(--fs-1));
   flex-grow: 1;
-  flex-shrink: 0;
   overflow-x: auto;
 }
 .flex-sidebar.column {
