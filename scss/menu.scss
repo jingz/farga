@@ -22,8 +22,6 @@ nav.sidemenu {
 
     &[open] {
       summary{
-        background-color: var(--bg-summary-open);
-
         &::after {
           content: "–";
         }

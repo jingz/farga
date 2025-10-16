@@ -6,16 +6,6 @@
 
     <style type="text/css" media="all">
     
-.flex {
-    display: flex;
-    flex-direction: column;
-}
-
-pre {
-    padding: 1rem;
-    background-color: var(--dim);
-    font-size: 0.8rem;
-}
 
 
     body {
@@ -142,6 +132,7 @@ pre {
   
 
   <br/>
+
   <details>
       <summary>Example Code</summary>
       <pre>
@@ -218,6 +209,69 @@ pre {
   </details>
 
   <br />
+
+  <hgroup>
+    <h2>Form Inline</h2>
+  </hgroup>
+
+  
+
+  
+  <form>
+    <fieldset class="flex-stretch gap">
+      <p>
+        <label for="username">Username</label>
+        <input type="text" required value="" />
+      </p>
+
+      <p>
+        <label for="password">Password</label>
+        <input type="text" required value="" />
+      </p>
+    </fieldset>
+
+    <fieldset class="flex">
+      <label for="email">Email:</label>
+      <input type="text" required value="" />
+      <input class="btn" type="submit" value="subscribe" />
+    </fieldset>
+
+    <footer>
+      <input class="btn" type="submit" value="login" />
+    </footer>
+  </form>
+  
+
+  <br />
+
+  <details>
+      <summary>Example Code</summary>
+      <pre>
+  &lt;form&gt;
+    &lt;fieldset class=&#34;flex-stretch gap&#34;&gt;
+      &lt;p&gt;
+        &lt;label for=&#34;username&#34;&gt;Username&lt;/label&gt;
+        &lt;input type=&#34;text&#34; required value=&#34;&#34; /&gt;
+      &lt;/p&gt;
+
+      &lt;p&gt;
+        &lt;label for=&#34;password&#34;&gt;Password&lt;/label&gt;
+        &lt;input type=&#34;text&#34; required value=&#34;&#34; /&gt;
+      &lt;/p&gt;
+    &lt;/fieldset&gt;
+
+    &lt;fieldset class=&#34;flex&#34;&gt;
+      &lt;label for=&#34;email&#34;&gt;Email:&lt;/label&gt;
+      &lt;input type=&#34;text&#34; required value=&#34;&#34; /&gt;
+      &lt;input class=&#34;btn&#34; type=&#34;submit&#34; value=&#34;subscribe&#34; /&gt;
+    &lt;/fieldset&gt;
+
+    &lt;footer&gt;
+      &lt;input class=&#34;btn&#34; type=&#34;submit&#34; value=&#34;login&#34; /&gt;
+    &lt;/footer&gt;
+  &lt;/form&gt;
+   </pre>
+  </details>
 
   <hgroup>
     <h2>Form State</h2>
@@ -470,7 +524,7 @@ pre {
   </details>
 
     <hgroup>
-      <h3>Switch</h3>
+      <h2>Switch</h2>
     </hgroup>
 
     

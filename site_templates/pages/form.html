@@ -1,16 +1,6 @@
 {% extends "layout/base.html" %}
 
 {% block inline_style %}
-.flex {
-    display: flex;
-    flex-direction: column;
-}
-
-pre {
-    padding: 1rem;
-    background-color: var(--dim);
-    font-size: 0.8rem;
-}
 {% endblock %}
 
 {% block content %}
@@ -97,12 +87,52 @@ pre {
   {{ basic_form }}
 
   <br/>
+
   <details>
       <summary>Example Code</summary>
       <pre>{{ basic_form | e}} </pre>
   </details>
 
   <br />
+
+  <hgroup>
+    <h2>Form Inline</h2>
+  </hgroup>
+
+  {% set form_inline %}
+  <form>
+    <fieldset class="flex-stretch gap">
+      <p>
+        <label for="username">Username</label>
+        <input type="text" required value="" />
+      </p>
+
+      <p>
+        <label for="password">Password</label>
+        <input type="text" required value="" />
+      </p>
+    </fieldset>
+
+    <fieldset class="flex">
+      <label for="email">Email:</label>
+      <input type="text" required value="" />
+      <input class="btn" type="submit" value="subscribe" />
+    </fieldset>
+
+    <footer>
+      <input class="btn" type="submit" value="login" />
+    </footer>
+  </form>
+  {% endset %}
+
+  {{ form_inline }}
+
+  <br />
+
+  <details>
+      <summary>Example Code</summary>
+      <pre>{{ form_inline | e}} </pre>
+  </details>
 
   <hgroup>
     <h2>Form State</h2>
@@ -261,7 +291,7 @@ pre {
   </details>
 
     <hgroup>
-      <h3>Switch</h3>
+      <h2>Switch</h2>
     </hgroup>
 
     {% set toggle %}

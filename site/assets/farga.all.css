@@ -14,8 +14,8 @@
   /* pixel scales ---------------------------- */
   /* nagative scales */
   --px-n3: 0.25rem;
-  --px-n1: 0.75rem;
-  --px-n2: 0.5rem;
+  --px-n2: 0.75rem;
+  --px-n1: 0.5rem;
   /* positive scales */
   --px-0: 1rem;
   --px-p1: 1.5rem;
@@ -356,9 +356,6 @@ nav.sidemenu p {
   padding: 6px 0px;
   margin: 0 0 -0.25rem 0;
 }
-nav.sidemenu details[open] summary {
-  background-color: var(--bg-summary-open);
-}
 nav.sidemenu details[open] summary::after {
   content: "–";
 }
@@ -607,6 +604,7 @@ input:not([type=range])[aria-invalid=true] + span, input:not([type=range])[aria-
 
 form {
   /* control wrapper */
+  /* bottom most section of the form */
 }
 form p {
   margin: 0 0 0.5rem 0;
@@ -692,6 +690,9 @@ form fieldset legend {
   font-family: var(--serif-fonts);
   margin-left: -0.3rem;
 }
+form footer {
+  padding: var(--fs-1);
+}
 form textarea {
   font-family: var(--sans-serif-fonts);
 }
@@ -763,15 +764,14 @@ table.striped tbody tr:nth-child(odd) {
 
 .flex-stretch {
   display: flex;
-  align-items: stretch;
   flex-basis: auto;
-  width: 100%;
 }
 .flex-stretch.gap {
   gap: var(--fs-1);
 }
 .flex-stretch > * {
   flex-grow: 1;
+  align-self: flex-end;
 }
 
 .flex-sidebar {
@@ -799,7 +799,9 @@ table.striped tbody tr:nth-child(odd) {
   height: 100vh;
 }
 .flex-sidebar.fixed > *:last-child {
-  padding-left: calc(25ch + 10px);
+  margin-left: calc(25ch + 10px);
+  flex-grow: 1;
+  flex-shrink: 0;
   overflow-x: auto;
 }
 .flex-sidebar.column {
@@ -857,6 +859,19 @@ table.striped tbody tr:nth-child(odd) {
 .flex-golden-right > *:last-child {
   width: 33%;
   flex-shrink: 0;
+}
+
+.full-w {
+  width: 100%;
+}
+
+.flex {
+  display: flex;
+  align-items: flex-end;
+  align-content: flex-end;
+}
+.flex * + * {
+  margin-left: 0.3rem;
 }
 
 .bg-primary-0 {

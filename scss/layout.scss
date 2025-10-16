@@ -4,9 +4,7 @@ $fixed-sidebar-w:  25ch;
 
 .flex-stretch {
   display: flex;
-  align-items: stretch;
   flex-basis: auto;
-  width: 100%;
 
   &.gap {
     gap: var(--fs-1);
@@ -14,6 +12,7 @@ $fixed-sidebar-w:  25ch;
 
   & > * {
     flex-grow: 1;
+    align-self: flex-end;
   }
 }
 
@@ -48,7 +47,9 @@ $fixed-sidebar-w:  25ch;
   }
 
   &.fixed > *:last-child {
-    padding-left: calc($fixed-sidebar-w + 10px);
+    margin-left: calc($fixed-sidebar-w + 10px);
+    flex-grow: 1;
+    flex-shrink: 0;
     overflow-x: auto;
   }
 
@@ -118,5 +119,19 @@ $fixed-sidebar-w:  25ch;
   & > *:last-child {
     width: 33%;
     flex-shrink: 0;
+  }
+}
+
+.full-w {
+  width: 100%;
+}
+
+.flex {
+  display: flex;
+  align-items: flex-end;
+  align-content: flex-end;
+
+  * + * {
+    margin-left: 0.3rem;
   }
 }
