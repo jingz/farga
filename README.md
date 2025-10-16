@@ -7,8 +7,7 @@ Farga
 
 CSS Design System
 
-Installation for building
-=====
+## Installation for building
 
 **Install sass builder**
 
