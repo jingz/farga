@@ -5,6 +5,26 @@
   cursor: pointer;
 }
 
+nav.horizontal {
+  display: flex;
+  justify-content: space-between;
+  align-items: space-between;
+  width: 100%;
+
+  ul {
+    display: flex;
+    justify-content: space-between;
+
+    li {
+      list-style: none;
+    }
+
+    li + li {
+      margin-left: 1.6rem;
+    }
+  }
+}
+
 /* side menu */
 nav.sidemenu {
   min-width: 180px;
@@ -248,7 +268,7 @@ nav.pagination {
         border: 1px solid var(--dim);
         border-radius: 5px;
 
-        color: var(--secondary-4);
+        color: var(--primary-4);
         display: block;
 
         &:hover {

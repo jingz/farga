@@ -1,9 +1,6 @@
 {% extends "layout/base.html" %}
 
 {% block inline_style %}
-.flex {
-    display: flex;
-}
 {% endblock %}
 
 {% block content %}
@@ -14,8 +11,9 @@
     <h2>Side Menu</h2>
     <p>The menu that usually reside on the left side of the screen</p>
   </hgroup>
-  <div class="flex">
+  <div>
     {% set sidemenu %}
+    <section style="width: 200px;">
     <nav class="sidemenu">
       <p>General</p>
       <ul>
@@ -43,8 +41,12 @@
           <li><a>Changelog</a></li>
       </ul>
     </nav>
+    </section>
     {% endset %}
+
     {{ sidemenu }}
+
+    <br/>
 
     <details open>
       <summary>Example Code</summary>
@@ -198,5 +200,29 @@
   <pre>
     {{ pagination | e }}
   </pre>
+
+  <h2>Navigation</h2>
+  {% set navigation %}
+  <nav class="horizontal">
+
+    <ul>
+      <li><a href='#'>Home</a></li>
+    </ul>
+
+    <ul>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Service</a></li>
+      <li><a href="#">Products</a></li>
+    </ul>
+  </nav>
+  {% endset %}
+
+  {{ navigation }}
+
+  <br/>
+  <details open>
+      <summary>Example Code</summary>
+      <pre>{{ navigation | e}} </pre>
+  </details>
 </div>
 {% endblock %}

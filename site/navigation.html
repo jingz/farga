@@ -6,9 +6,6 @@
 
     <style type="text/css" media="all">
     
-.flex {
-    display: flex;
-}
 
 
     body {
@@ -72,9 +69,11 @@
     <h2>Side Menu</h2>
     <p>The menu that usually reside on the left side of the screen</p>
   </hgroup>
-  <div class="flex">
+  <div>
     
+
     
+    <section style="width: 200px;">
     <nav class="sidemenu">
       <p>General</p>
       <ul>
@@ -102,11 +101,15 @@
           <li><a>Changelog</a></li>
       </ul>
     </nav>
+    </section>
     
+
+    <br/>
 
     <details open>
       <summary>Example Code</summary>
       <pre>
+    &lt;section style=&#34;width: 200px;&#34;&gt;
     &lt;nav class=&#34;sidemenu&#34;&gt;
       &lt;p&gt;General&lt;/p&gt;
       &lt;ul&gt;
@@ -134,6 +137,7 @@
           &lt;li&gt;&lt;a&gt;Changelog&lt;/a&gt;&lt;/li&gt;
       &lt;/ul&gt;
     &lt;/nav&gt;
+    &lt;/section&gt;
     </pre>
     </details>
   </div>
@@ -377,6 +381,43 @@
    &lt;/nav&gt;
   
   </pre>
+
+  <h2>Navigation</h2>
+  
+
+  
+  <nav class="horizontal">
+
+    <ul>
+      <li><a href='#'>Home</a></li>
+    </ul>
+
+    <ul>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Service</a></li>
+      <li><a href="#">Products</a></li>
+    </ul>
+  </nav>
+  
+
+  <br/>
+  <details open>
+      <summary>Example Code</summary>
+      <pre>
+  &lt;nav class=&#34;horizontal&#34;&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&#39;#&#39;&gt;Home&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&#34;#&#34;&gt;About&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&#34;#&#34;&gt;Service&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&#34;#&#34;&gt;Products&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/nav&gt;
+   </pre>
+  </details>
 </div>
 
         </main>

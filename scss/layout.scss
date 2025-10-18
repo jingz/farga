@@ -33,9 +33,7 @@ $fixed-sidebar-w:  25ch;
     flex-grow: 1;
   }
 
-  &.fixed {
-    overflow-x: hidden;
-  }
+  &.fixed { }
 
   &.fixed > *:first-child{
     position: fixed;
@@ -48,8 +46,7 @@ $fixed-sidebar-w:  25ch;
 
   &.fixed > *:last-child {
     margin-left: calc($fixed-sidebar-w + var(--fs-1));
-    flex-grow: 1;
-    overflow-x: auto;
+    width: calc(100% - $fixed-sidebar-w);
   }
 
   &.column {
