@@ -1,5 +1,14 @@
 {% extends "layout/base.html" %}
 
+{% block inline_style %}
+#features {
+  ul {
+    margin-left: 1rem;
+    li { line-height: 1.5; }
+  }
+}
+{% endblock %}
+
 {% block content %}
 <section>
   <hgroup>
@@ -7,17 +16,18 @@
     <p>Lightweight CSS framework</p>
   </hgroup>
 
-  <section>
+  <section id="features">
     <h2>Features</h2>
     <ul>
       <li>Focus on lightweight yet versatile</li>
+      <li>Design System</li>
       <li>CSS variables</li>
       <li>Responsive</li>
       <li>Light dark mode</li>
       <li>Classless approach first</li>
       <li>Basic admin components</li>
       <li>Web safe fonts first</li>
-      <li>Less animation</li>
+      <li>Less animation yet retain experience</li>
     </ul>
   </section>
 </section>

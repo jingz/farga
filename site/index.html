@@ -7,6 +7,13 @@
 
     <style type="text/css" media="all">
     
+#features {
+  ul {
+    margin-left: 1rem;
+    li { line-height: 1.5; }
+  }
+}
+
 
     body {
         pre {
@@ -24,8 +31,10 @@
   <body>
     <div class="flex-sidebar fixed gap">
         <nav id="side-menu" class="sidemenu">
-           <img width="100" src="./assets/farga.svg" />
-           <p>Farga Documentation</p>
+          <div align="center">
+              <img width="100" src="./assets/farga.svg" />
+          </div>
+          <p>Farga Documentation</p>
           <ul>
               <li><a href="./index.html">Home</a></li>
               <li><a href="./color.html">Colors</a></li>
@@ -81,17 +90,18 @@
     <p>Lightweight CSS framework</p>
   </hgroup>
 
-  <section>
+  <section id="features">
     <h2>Features</h2>
     <ul>
       <li>Focus on lightweight yet versatile</li>
+      <li>Design System</li>
       <li>CSS variables</li>
       <li>Responsive</li>
       <li>Light dark mode</li>
       <li>Classless approach first</li>
       <li>Basic admin components</li>
       <li>Web safe fonts first</li>
-      <li>Less animation</li>
+      <li>Less animation yet retain experience</li>
     </ul>
   </section>
 </section>
