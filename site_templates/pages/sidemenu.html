@@ -1,0 +1,55 @@
+{% extends "layout/base.html" %}
+
+{% block inline_style %}
+{% endblock %}
+
+{% block content %}
+<div>
+  <hgroup>
+    <h1>Side Menu</h1>
+    <p>The menu that usually reside on the left side of the screen</p>
+  </hgroup>
+  <div>
+    {% set sidemenu %}
+    <section style="width: 200px;">
+    <nav class="sidemenu">
+      <p>General</p>
+      <ul>
+          <li><a>Dashboard</a></li>
+          <li class="active"><a>Customers</a></li>
+          <li><a>Entity</a></li>
+          <li><a>Feed</a></li>
+          <li><a>News</a></li>
+      </ul>
+      <details open>
+        <summary>
+          <span>Setting</span>
+        </summary>
+        <ul>
+          <li class="active">Account</li>
+          <li>Preference</li>
+        </ul>
+      </details>
+
+      <p>Documentation</p>
+      <ul>
+          <li><a>Introduction</a></li>
+          <li><a>Get Started</a></li>
+          <li><a>Tutorials</a></li>
+          <li><a>Changelog</a></li>
+      </ul>
+    </nav>
+    </section>
+    {% endset %}
+
+    {{ sidemenu }}
+
+    <br/>
+
+    <details open>
+      <summary>Example Code</summary>
+      <pre>{{ sidemenu | e }}</pre>
+    </details>
+  </div>
+</div>
+{% endblock %}

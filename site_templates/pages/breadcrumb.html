@@ -1,0 +1,28 @@
+{% extends "layout/base.html" %}
+
+{% block inline_style %}
+{% endblock %}
+
+{% block content %}
+<div>
+  <h1>Breadcrumbs</h1>
+
+  {% set breadcrumbs %}
+  <nav class="breadcrumbs">
+    <ul>
+        <li><a>Introduction</a></li>
+        <li><a>Get Started</a></li>
+        <li><a>Tutorials</a></li>
+        <li><a>Changelog</a></li>
+    </ul>
+  </nav>
+  {% endset %}
+
+  {{ breadcrumbs }}
+
+  <pre>
+    {{ breadcrumbs | e }}
+  </pre>
+
+</div>
+{% endblock %}

@@ -78,46 +78,42 @@
             
 <div>
   <hgroup>
-    <h1>Navigation</h1>
-    <p>Basic navigation</p>
+    <h1>Pagination</h1>
+    <p>Basic pagination component</p>
   </hgroup>
 
-  <br />
-  
-
-  
-  <nav class="horizontal">
-
-    <ul>
-      <li><a href='#'>Home</a></li>
-    </ul>
-
-    <ul>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Service</a></li>
-      <li><a href="#">Products</a></li>
-    </ul>
-  </nav>
-  
-
   <br/>
-  <details open>
-      <summary>Example Code</summary>
-      <pre>
-  &lt;nav class=&#34;horizontal&#34;&gt;
+  
 
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&#39;#&#39;&gt;Home&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
+  
+  <nav class="pagination">
+    <ul>
+        <li class="disabled"><a href="#">Previous</a></li>
+        <li class='active'><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><span>...</span></li>
+        <li><a href="#">10</a></li>
+        <li><a href="#">Next</a></li>
+      </ul>
+   </nav>
+  
 
+  <pre>
+    
+  &lt;nav class=&#34;pagination&#34;&gt;
     &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&#34;#&#34;&gt;About&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&#34;#&#34;&gt;Service&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&#34;#&#34;&gt;Products&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/nav&gt;
-   </pre>
-  </details>
+        &lt;li class=&#34;disabled&#34;&gt;&lt;a href=&#34;#&#34;&gt;Previous&lt;/a&gt;&lt;/li&gt;
+        &lt;li class=&#39;active&#39;&gt;&lt;a href=&#34;#&#34;&gt;1&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#&#34;&gt;2&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#&#34;&gt;3&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;span&gt;...&lt;/span&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#&#34;&gt;10&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#&#34;&gt;Next&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+   &lt;/nav&gt;
+  
+  </pre>
 </div>
 
         </main>

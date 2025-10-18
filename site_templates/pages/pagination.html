@@ -1,0 +1,34 @@
+{% extends "layout/base.html" %}
+
+{% block inline_style %}
+{% endblock %}
+
+{% block content %}
+<div>
+  <hgroup>
+    <h1>Pagination</h1>
+    <p>Basic pagination component</p>
+  </hgroup>
+
+  <br/>
+  {% set pagination %}
+  <nav class="pagination">
+    <ul>
+        <li class="disabled"><a href="#">Previous</a></li>
+        <li class='active'><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><span>...</span></li>
+        <li><a href="#">10</a></li>
+        <li><a href="#">Next</a></li>
+      </ul>
+   </nav>
+  {% endset %}
+
+  {{ pagination }}
+
+  <pre>
+    {{ pagination | e }}
+  </pre>
+</div>
+{% endblock %}

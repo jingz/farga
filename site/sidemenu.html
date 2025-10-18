@@ -78,46 +78,81 @@
             
 <div>
   <hgroup>
-    <h1>Navigation</h1>
-    <p>Basic navigation</p>
+    <h1>Side Menu</h1>
+    <p>The menu that usually reside on the left side of the screen</p>
   </hgroup>
+  <div>
+    
 
-  <br />
-  
+    
+    <section style="width: 200px;">
+    <nav class="sidemenu">
+      <p>General</p>
+      <ul>
+          <li><a>Dashboard</a></li>
+          <li class="active"><a>Customers</a></li>
+          <li><a>Entity</a></li>
+          <li><a>Feed</a></li>
+          <li><a>News</a></li>
+      </ul>
+      <details open>
+        <summary>
+          <span>Setting</span>
+        </summary>
+        <ul>
+          <li class="active">Account</li>
+          <li>Preference</li>
+        </ul>
+      </details>
 
-  
-  <nav class="horizontal">
+      <p>Documentation</p>
+      <ul>
+          <li><a>Introduction</a></li>
+          <li><a>Get Started</a></li>
+          <li><a>Tutorials</a></li>
+          <li><a>Changelog</a></li>
+      </ul>
+    </nav>
+    </section>
+    
 
-    <ul>
-      <li><a href='#'>Home</a></li>
-    </ul>
+    <br/>
 
-    <ul>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Service</a></li>
-      <li><a href="#">Products</a></li>
-    </ul>
-  </nav>
-  
-
-  <br/>
-  <details open>
+    <details open>
       <summary>Example Code</summary>
       <pre>
-  &lt;nav class=&#34;horizontal&#34;&gt;
+    &lt;section style=&#34;width: 200px;&#34;&gt;
+    &lt;nav class=&#34;sidemenu&#34;&gt;
+      &lt;p&gt;General&lt;/p&gt;
+      &lt;ul&gt;
+          &lt;li&gt;&lt;a&gt;Dashboard&lt;/a&gt;&lt;/li&gt;
+          &lt;li class=&#34;active&#34;&gt;&lt;a&gt;Customers&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a&gt;Entity&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a&gt;Feed&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a&gt;News&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;details open&gt;
+        &lt;summary&gt;
+          &lt;span&gt;Setting&lt;/span&gt;
+        &lt;/summary&gt;
+        &lt;ul&gt;
+          &lt;li class=&#34;active&#34;&gt;Account&lt;/li&gt;
+          &lt;li&gt;Preference&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/details&gt;
 
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&#39;#&#39;&gt;Home&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&#34;#&#34;&gt;About&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&#34;#&#34;&gt;Service&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&#34;#&#34;&gt;Products&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/nav&gt;
-   </pre>
-  </details>
+      &lt;p&gt;Documentation&lt;/p&gt;
+      &lt;ul&gt;
+          &lt;li&gt;&lt;a&gt;Introduction&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a&gt;Get Started&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a&gt;Tutorials&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a&gt;Changelog&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/nav&gt;
+    &lt;/section&gt;
+    </pre>
+    </details>
+  </div>
 </div>
 
         </main>
