@@ -101,10 +101,19 @@
     <pre>{{ header | e }}</pre>
   </details>
 
+  {% set header_group %}
   <hgroup>
     <h2>Header Group</h2>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
   </hgroup>
+  {% endset %}
+
+  {{ header_group }}
+
+  <details open>
+    <summary>Example Code</summary>
+    <pre>{{ header_group | e }}</pre>
+  </details>
 
   <h2>Text Styling</h2>
   {% set text_styling %}
