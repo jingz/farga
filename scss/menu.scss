@@ -1,11 +1,12 @@
 @use 'base';
+@use 'button';
 
 %menu-link-padding {
   padding: 6px 10px;
   cursor: pointer;
 }
 
-nav.horizontal {
+nav.basic {
   display: flex;
   justify-content: space-between;
   align-items: space-between;
@@ -16,12 +17,48 @@ nav.horizontal {
     justify-content: space-between;
 
     li {
+      padding: button.$btn-padding-large;
+      cursor: pointer;
+      color: var(--color-primary);
+
       list-style: none;
+
+      &:hover {
+        color: var(--color-primary-accent);
+        text-decoration: underline;
+      }
+
+      &.active {
+        color: var(--text-color-primary);
+      }
+
+      a {
+        text-decoration: none;
+        color: var(--text-primary-color);
+      }
+    }
+  }
+
+  details {
+    padding: button.$btn-padding-large;
+
+    summary {
+      list-style: none;
+      cursor: pointer;
+      color: var(--primary);
     }
 
-    li + li {
-      margin-left: 1.6rem;
+    ul {
+      position: absolute;
+      background: white;
+      display: block;
+
+      margin-left: -1rem;
+      margin-top: 0.5rem;
+
+      background-color: var(--bg-primary);
     }
+
   }
 }
 

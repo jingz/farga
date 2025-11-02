@@ -1,19 +1,22 @@
 {% extends "layout/base.html" %}
 
 {% block inline_style %}
+.basic {
+  border: 1px solid var(--grey-1);
+}
 {% endblock %}
 
 {% block content %}
 <div>
   <hgroup>
     <h1>Navigation</h1>
-    <p>Basic navigation</p>
+    <p>Top navigation</p>
   </hgroup>
 
-  <br />
+  <h2>Basic Navigation</h2>
+  <br/>
   {% set navigation %}
-  <nav class="horizontal">
-
+  <nav class="basic">
     <ul>
       <li><a href='#'>Home</a></li>
     </ul>
@@ -23,6 +26,51 @@
       <li><a href="#">Service</a></li>
       <li><a href="#">Products</a></li>
     </ul>
+  </nav>
+  {% endset %}
+
+  {{ navigation }}
+
+  <br/>
+  <details open>
+      <summary>Example Code</summary>
+      <pre>{{ navigation | e}} </pre>
+  </details>
+
+  <h2>Middle Navigation</h2>
+  <br/>
+  {% set navigation %}
+  <nav class="basic">
+    <ul>
+      <li class="active"><a href='#'>Home</a></li>
+      <li><a href='#'>Profile</a></li>
+      <li><a href='#'>Setting</a></li>
+    </ul>
+
+    <ul>
+      <li><a href='#'>View</a></li>
+      <li><a href='#'>Grid</a></li>
+      <li><a href='#'>List</a></li>
+    </ul>
+
+    <div class="flex-stretch">
+    <ul>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Service</a></li>
+      <li><a href="#">Products</a></li>
+    </ul>
+      <details class="dropdown">
+        <summary>
+          Account
+        </summary>
+        <ul>
+          <li><a href="#">Profile</a></li>
+          <li><a href="#">Settings</a></li>
+          <li><a href="#">Security</a></li>
+          <li><a href="#">Logout</a></li>
+        </ul>
+      </details>
+    </div>
   </nav>
   {% endset %}
 

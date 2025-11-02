@@ -236,10 +236,23 @@ $base-font-size: 14px;
     --text-color-dark: var(--grey-9); /* use against shad 0-4 of each color */
     --body-background: white;
 
+    --color-primary: var(--primary-4);
+    --color-primary-dim: var(--primary-1);
+    --color-primary-accent: var(--primary-7);
+    --color-secondary: var(--secondary-4);
+
     --text-color-primary: var(--grey-9);
     --text-color-secondary: white;
     --text-color-muted: var(--grey-5);
     --bg-primary: white;
+
+    /* used for headers and as a background color from some links and the form's submit button */
+    --primary: var(--primary-4);
+    /* constrast against the primary color chosen used when the primary color is being used */
+    --primary-const: var(--primary-1);
+    /* used for the radio inputs and as one of the form-border gradient colors */
+    --accent: var(--secondary-4)
+
     --border-color-primary: var(--grey-4);
     --border-color-muted: var(--grey-1);
     --dim: var(--grey-0);
@@ -259,8 +272,21 @@ $base-font-size: 14px;
     --text-color-secondary: black;
     --text-color-muted: var(--grey-5);
     --bg-primary: black;
+
+    --bg-primary-alt: black;
+
+    /* used for headers and as a background color from some links and the form's submit button */
+    --primary: var(--primary-4);
+    /* constrast against the primary color chosen used when the primary color is being used */
+    --primary-const: var(--primary-1);
+    /* used for the radio inputs and as one of the form-border gradient colors */
+    --accent: var(--secondary-4)
+
+    --color-primary: var(--primary-4);
+
     --border-color-primary: var(--grey-5);
     --border-color-muted: var(--grey-8);
+
     --dim: var(--grey-9);
 
     /* list */

@@ -7,6 +7,9 @@
 
     <style type="text/css" media="all">
     
+.basic {
+  border: 1px solid var(--grey-1);
+}
 
 
     body {
@@ -81,15 +84,15 @@
 <div>
   <hgroup>
     <h1>Navigation</h1>
-    <p>Basic navigation</p>
+    <p>Top navigation</p>
   </hgroup>
 
-  <br />
+  <h2>Basic Navigation</h2>
+  <br/>
   
 
   
-  <nav class="horizontal">
-
+  <nav class="basic">
     <ul>
       <li><a href='#'>Home</a></li>
     </ul>
@@ -106,8 +109,7 @@
   <details open>
       <summary>Example Code</summary>
       <pre>
-  &lt;nav class=&#34;horizontal&#34;&gt;
-
+  &lt;nav class=&#34;basic&#34;&gt;
     &lt;ul&gt;
       &lt;li&gt;&lt;a href=&#39;#&#39;&gt;Home&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
@@ -117,6 +119,84 @@
       &lt;li&gt;&lt;a href=&#34;#&#34;&gt;Service&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&#34;#&#34;&gt;Products&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
+  &lt;/nav&gt;
+   </pre>
+  </details>
+
+  <h2>Middle Navigation</h2>
+  <br/>
+  
+
+  
+  <nav class="basic">
+    <ul>
+      <li class="active"><a href='#'>Home</a></li>
+      <li><a href='#'>Profile</a></li>
+      <li><a href='#'>Setting</a></li>
+    </ul>
+
+    <ul>
+      <li><a href='#'>View</a></li>
+      <li><a href='#'>Grid</a></li>
+      <li><a href='#'>List</a></li>
+    </ul>
+
+    <div class="flex-stretch">
+    <ul>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Service</a></li>
+      <li><a href="#">Products</a></li>
+    </ul>
+      <details class="dropdown">
+        <summary>
+          Account
+        </summary>
+        <ul>
+          <li><a href="#">Profile</a></li>
+          <li><a href="#">Settings</a></li>
+          <li><a href="#">Security</a></li>
+          <li><a href="#">Logout</a></li>
+        </ul>
+      </details>
+    </div>
+  </nav>
+  
+
+  <br/>
+  <details open>
+      <summary>Example Code</summary>
+      <pre>
+  &lt;nav class=&#34;basic&#34;&gt;
+    &lt;ul&gt;
+      &lt;li class=&#34;active&#34;&gt;&lt;a href=&#39;#&#39;&gt;Home&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&#39;#&#39;&gt;Profile&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&#39;#&#39;&gt;Setting&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&#39;#&#39;&gt;View&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&#39;#&#39;&gt;Grid&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&#39;#&#39;&gt;List&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;div class=&#34;flex-stretch&#34;&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&#34;#&#34;&gt;About&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&#34;#&#34;&gt;Service&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&#34;#&#34;&gt;Products&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+      &lt;details class=&#34;dropdown&#34;&gt;
+        &lt;summary&gt;
+          Account
+        &lt;/summary&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&#34;#&#34;&gt;Profile&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&#34;#&#34;&gt;Settings&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&#34;#&#34;&gt;Security&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&#34;#&#34;&gt;Logout&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/details&gt;
+    &lt;/div&gt;
   &lt;/nav&gt;
    </pre>
   </details>
