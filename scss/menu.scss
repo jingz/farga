@@ -49,6 +49,10 @@ nav.basic {
     summary {
       list-style: none;
       color: var(--text-primary-color);
+
+      &::after {
+        content: "\22BB"
+      }
     }
 
     ul {

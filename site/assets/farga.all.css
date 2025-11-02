@@ -468,6 +468,9 @@ nav.basic details summary {
   list-style: none;
   color: var(--text-primary-color);
 }
+nav.basic details summary::after {
+  content: "⊻";
+}
 nav.basic details ul {
   position: absolute;
   background: white;
