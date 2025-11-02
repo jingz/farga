@@ -248,10 +248,6 @@ $base-font-size: 14px;
 
     /* used for headers and as a background color from some links and the form's submit button */
     --primary: var(--primary-4);
-    /* constrast against the primary color chosen used when the primary color is being used */
-    --primary-const: var(--primary-1);
-    /* used for the radio inputs and as one of the form-border gradient colors */
-    --accent: var(--secondary-4)
 
     --border-color-primary: var(--grey-4);
     --border-color-muted: var(--grey-1);
@@ -271,17 +267,12 @@ $base-font-size: 14px;
     --text-color-primary: var(--grey-2);
     --text-color-secondary: black;
     --text-color-muted: var(--grey-5);
-    --bg-primary: black;
 
+    --bg-primary: black;
     --bg-primary-alt: black;
 
     /* used for headers and as a background color from some links and the form's submit button */
     --primary: var(--primary-4);
-    /* constrast against the primary color chosen used when the primary color is being used */
-    --primary-const: var(--primary-1);
-    /* used for the radio inputs and as one of the form-border gradient colors */
-    --accent: var(--secondary-4)
-    --shadow: var(--grey-5);
 
     --color-primary: var(--primary-4);
 

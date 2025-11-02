@@ -6,12 +6,13 @@ table {
   margin: 0.5rem 0;
 
   thead {
-    border-bottom: 2px solid var(--border-color-primary);
+    border-bottom: 2px solid var(--text-color-muted);
 
     th {
       font-family: var(--serif-fonts);
       color: var(--text-color-primary);
       padding: 6px 10px;
+      word-break: auto-phrase;
     }
   }
 
@@ -22,6 +23,7 @@ table {
 
     td {
       padding: 4px 8px;
+      word-break: auto-phrase;
     }
   }
 

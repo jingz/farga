@@ -221,10 +221,6 @@
   --bg-primary: white;
   /* used for headers and as a background color from some links and the form's submit button */
   --primary: var(--primary-4);
-  /* constrast against the primary color chosen used when the primary color is being used */
-  --primary-const: var(--primary-1);
-  /* used for the radio inputs and as one of the form-border gradient colors */
-  --accent: var(--secondary-4)
   --border-color-primary: var(--grey-4);
   --border-color-muted: var(--grey-1);
   --dim: var(--grey-0);
@@ -245,11 +241,6 @@
     --bg-primary-alt: black;
     /* used for headers and as a background color from some links and the form's submit button */
     --primary: var(--primary-4);
-    /* constrast against the primary color chosen used when the primary color is being used */
-    --primary-const: var(--primary-1);
-    /* used for the radio inputs and as one of the form-border gradient colors */
-    --accent: var(--secondary-4)
-    --shadow: var(--grey-5);
     --color-primary: var(--primary-4);
     --border-color-primary: var(--grey-5);
     --border-color-muted: var(--grey-8);
@@ -781,18 +772,20 @@ table {
   margin: 0.5rem 0;
 }
 table thead {
-  border-bottom: 2px solid var(--border-color-primary);
+  border-bottom: 2px solid var(--text-color-muted);
 }
 table thead th {
   font-family: var(--serif-fonts);
   color: var(--text-color-primary);
   padding: 6px 10px;
+  word-break: auto-phrase;
 }
 table tbody tr {
   border-bottom: 1px solid var(--border-color-muted);
 }
 table tbody td {
   padding: 4px 8px;
+  word-break: auto-phrase;
 }
 table tfoot {
   border-top: 2px solid var(--border-color-primary);
@@ -933,6 +926,7 @@ table.striped tbody tr:nth-child(odd) {
   flex-shrink: 0;
 }
 
+/* layout utilities */
 .full-w {
   width: 100%;
 }
@@ -944,6 +938,11 @@ table.striped tbody tr:nth-child(odd) {
 }
 .flex * + * {
   margin-left: 0.3rem;
+}
+
+.overflow-auto {
+  overflow: auto;
+  width: 100%;
 }
 
 /* all css includes utilities */

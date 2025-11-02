@@ -6,9 +6,10 @@
 }
 
 pre {
-font-size: 0.8rem;
-background: var(--dim);
+  font-size: 0.8rem;
+  background: var(--dim);
 }
+
 {% endblock %}
 
 {% block content %}
@@ -118,7 +119,91 @@ background: var(--dim);
     <h2>Horizontal scroll table</h2>
     <p>When number of columns is large.</p>
   </hgroup>
-  <p>TODO</p>
+
+  {% set h_scroll_table %}
+  <div class="overflow-auto">
+  <table>
+        <thead>
+            <tr>
+                <th>Col 1 (ID)</th>
+                <th>Col 2 (Name)</th>
+                <th>Col 3 (Type)</th>
+                <th>Col 4 (Date)</th>
+                <th>Col 5 (Value A)</th>
+                <th>Col 6 (Value B)</th>
+                <th>Col 7 (Status)</th>
+                <th>Col 8 (Region)</th>
+                <th>Col 9 (Dept)</th>
+                <th>Col 10 (Project)</th>
+                <th>Col 11 (Metric 1)</th>
+                <th>Col 12 (Metric 2)</th>
+                <th>Col 13 (Setting X)</th>
+                <th>Col 14 (Setting Y)</th>
+                <th>Col 15 (Flag)</th>
+                <th>Col 16 (Notes)</th>
+                <th>Col 17 (Source)</th>
+                <th>Col 18 (Owner)</th>
+                <th>Col 19 (Link)</th>
+                <th>Col 20 (Action)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1001</td>
+                <td>Alpha Report</td>
+                <td>Primary</td>
+                <td>2025-01-15</td>
+                <td>125.50</td>
+                <td>78.22</td>
+                <td>Complete</td>
+                <td>North</td>
+                <td>Finance</td>
+                <td>Q1-Budget</td>
+                <td>450</td>
+                <td>0.89</td>
+                <td>True</td>
+                <td>False</td>
+                <td>Active</td>
+                <td>Reviewed</td>
+                <td>System A</td>
+                <td>John D.</td>
+                <td><a href="#">View</a></td>
+                <td>Edit</td>
+            </tr>
+            <tr>
+                <td>1002</td>
+                <td>Beta Analysis</td>
+                <td>Secondary</td>
+                <td>2025-02-28</td>
+                <td>99.15</td>
+                <td>51.34</td>
+                <td>Pending</td>
+                <td>South</td>
+                <td>Sales</td>
+                <td>Market-Eval</td>
+                <td>320</td>
+                <td>0.75</td>
+                <td>False</td>
+                <td>True</td>
+                <td>Inactive</td>
+                <td>Needs Data</td>
+                <td>CRM</td>
+                <td>Jane K.</td>
+                <td><a href="#">View</a></td>
+                <td>Delete</td>
+            </tr>
+        </tbody>
+    </table>
+  </div>
+  {% endset %}
+
+  {{ h_scroll_table }}
+
+  <br/>
+  <details open>
+      <summary>Example Code</summary>
+      <pre>{{ h_scroll_table | e}} </pre>
+  </details>
 
   <hgroup>
     <h2>Fixed header table</h2>

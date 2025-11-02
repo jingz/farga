@@ -118,6 +118,8 @@ $fixed-sidebar-w:  25ch;
   }
 }
 
+/* layout utilities */
+
 .full-w {
   width: 100%;
 }
@@ -130,4 +132,9 @@ $fixed-sidebar-w:  25ch;
   * + * {
     margin-left: 0.3rem;
   }
+}
+
+.overflow-auto {
+  overflow: auto;
+  width: 100%;
 }
