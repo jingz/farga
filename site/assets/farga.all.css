@@ -248,6 +248,7 @@
     --primary-const: var(--primary-1);
     /* used for the radio inputs and as one of the form-border gradient colors */
     --accent: var(--secondary-4)
+    --shadow: var(--grey-5);
     --color-primary: var(--primary-4);
     --border-color-primary: var(--grey-5);
     --border-color-muted: var(--grey-8);
