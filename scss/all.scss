@@ -1,3 +1,4 @@
+/* all css includes utilities */
 @use 'base';
 @use 'typography';
 @use 'menu';
@@ -6,4 +7,5 @@
 @use 'table';
 @use 'accordion';
 @use 'layout';
+@use 'card';
 @use 'utilities';

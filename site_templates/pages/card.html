@@ -3,20 +3,24 @@
 {% block inline_style %}
 #card-1 {
     width: 500px;
+    border: 1px solid black;
 }
 {% endblock %}
 
 {% block content %}
 <div>
-  <h1>Card</h1>
+  <h1>Card Component</h1>
 
   {% set card %}
-  <article>
-      <h2>TODO</h2>
+  <article id="card-1" class="card">
+      <h2>Card</h2>
+      <p>This is content of the card.</p>
   </article>
   {% endset %}
 
   {{ card }}
+
+  <br/>
 
   <details open>
       <summary>Example Code</summary>

@@ -1,4 +1,5 @@
 @charset "UTF-8";
+/* all css includes utilities */
 :root {
   /* fonts */
   --sans-serif-fonts: Arial, sans-serif;
@@ -357,6 +358,8 @@ p {
   font-size: 150%;
 }
 
+/* all css includes utilities */
+/* all css includes utilities */
 .accordion details summary {
   padding: 8px 10px;
 }
@@ -649,6 +652,7 @@ nav.pagination ul li a:hover {
   background-color: var(--dim);
 }
 
+/* all css includes utilities */
 input:not([type=range]), select, textarea {
   padding: 6px 10px;
   border: 1px solid var(--text-color-muted);
@@ -764,6 +768,7 @@ form input[type=number], form input[type=tel] {
   font-family: var(--monospace-fonts);
 }
 
+/* all css includes utilities */
 table {
   border: 0;
   border-collapse: collapse;
@@ -790,6 +795,7 @@ table.striped tbody tr:nth-child(odd) {
   background-color: var(--dim);
 }
 
+/* all css includes utilities */
 .accordion details {
   cursor: pointer;
 }
@@ -826,6 +832,7 @@ table.striped tbody tr:nth-child(odd) {
   margin: 0;
 }
 
+/* all css includes utilities */
 .flex-stretch {
   display: flex;
   flex-basis: auto;
@@ -931,6 +938,11 @@ table.striped tbody tr:nth-child(odd) {
 }
 .flex * + * {
   margin-left: 0.3rem;
+}
+
+/* all css includes utilities */
+article.card {
+  padding-left: 1rem;
 }
 
 .bg-primary-0 {
