@@ -771,8 +771,14 @@ table {
   border-collapse: collapse;
   margin: 0.5rem 0;
 }
-table thead {
-  border-bottom: 2px solid var(--text-color-muted);
+table.fixed-header {
+  border-collapse: separate;
+}
+table.fixed-header thead {
+  outline: 1px solid var(--text-color-primary);
+  position: sticky;
+  background-color: var(--bg-primary);
+  top: 1px;
 }
 table thead th {
   font-family: var(--serif-fonts);

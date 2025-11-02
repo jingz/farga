@@ -1,0 +1,61 @@
+{% extends "layout/base.html" %}
+
+{% block inline_style %}
+{% endblock %}
+
+{% block content %}
+<div>
+  <h1>Fixed Header Table</h1>
+
+  {% set fixed_table %}
+  <div style="height: 500px; overflow-y: auto; margin-left: 1rem;">
+        <table class="fixed-header">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Project Name</th>
+                    <th>Status</th>
+                    <th>Due Date</th>
+                    <th>Priority</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>P001</td><td>Website Redesign Q1</td><td>Complete</td><td>2025-01-30</td><td>High</td></tr>
+                <tr><td>P002</td><td>Mobile App Feature X</td><td>In Progress</td><td>2025-03-15</td><td>High</td></tr>
+                <tr><td>P003</td><td>Data Migration Phase 2</td><td>Pending Review</td><td>2025-02-28</td><td>Medium</td></tr>
+                <tr><td>P004</td><td>Marketing Campaign Launch</td><td>On Hold</td><td>2025-04-01</td><td>High</td></tr>
+                <tr><td>P005</td><td>Internal Tool Upgrade</td><td>In Progress</td><td>2025-05-20</td><td>Medium</td></tr>
+                <tr><td>P006</td><td>Vendor Contract Renewal</td><td>Complete</td><td>2025-01-10</td><td>Low</td></tr>
+                <tr><td>P007</td><td>Security Audit 2025</td><td>Pending Start</td><td>2025-06-01</td><td>Critical</td></tr>
+                <tr><td>P008</td><td>Employee Training Module</td><td>In Progress</td><td>2025-03-05</td><td>Medium</td></tr>
+                <tr><td>P009</td><td>Cloud Server Optimization</td><td>Pending Review</td><td>2025-04-10</td><td>High</td></tr>
+                <tr><td>P010</td><td>New Market Research</td><td>Complete</td><td>2025-02-15</td><td>Low</td></tr>
+                <tr><td>P011</td><td>SEO Strategy Update</td><td>In Progress</td><td>2025-03-22</td><td>Medium</td></tr>
+                <tr><td>P012</td><td>Financial Report Automation</td><td>Pending Start</td><td>2025-07-01</td><td>High</td></tr>
+                <tr><td>P013</td><td>Client Onboarding Flow</td><td>In Progress</td><td>2025-04-20</td><td>Medium</td></tr>
+                <tr><td>P014</td><td>Legacy System Decommission</td><td>On Hold</td><td>2025-08-01</td><td>Critical</td></tr>
+                <tr><td>P015</td><td>HR System Integration</td><td>Complete</td><td>2025-01-25</td><td>High</td></tr>
+                <tr><td>P016</td><td>UX/UI Testing Cycle 3</td><td>Pending Review</td><td>2025-05-05</td><td>Medium</td></tr>
+                <tr><td>P017</td><td>Content Library Expansion</td><td>In Progress</td><td>2025-06-15</td><td>Low</td></tr>
+                <tr><td>P018</td><td>Partner Program Relaunch</td><td>Pending Start</td><td>2025-09-01</td><td>Medium</td></tr>
+                <tr><td>P019</td><td>Network Infrastructure Upgrade</td><td>In Progress</td><td>2025-03-30</td><td>Critical</td></tr>
+                <tr><td>P020</td><td>Sales Enablement Tools</td><td>Complete</td><td>2025-02-01</td><td>High</td></tr>
+                <tr><td>P021</td><td>A/B Testing Framework</td><td>Pending Review</td><td>2025-07-20</td><td>Medium</td></tr>
+                <tr><td>P022</td><td>GDPR Compliance Update</td><td>In Progress</td><td>2025-04-15</td><td>Critical</td></tr>
+                <tr><td>P023</td><td>Office Relocation Planning</td><td>On Hold</td><td>2025-10-01</td><td>Low</td></tr>
+                <tr><td>P024</td><td>Customer Feedback System</td><td>Complete</td><td>2025-03-01</td><td>Medium</td></tr>
+                <tr><td>P025</td><td>API Documentation Refactor</td><td>Pending Start</td><td>2025-08-20</td><td>High</td></tr>
+                <tr><td>P026</td><td>Disaster Recovery Plan</td><td>In Progress</td><td>2025-05-10</td><td>Critical</td></tr>
+                <tr><td>P027</td><td>Social Media Strategy 2025</td><td>Pending Review</td><td>2025-06-05</td><td>Low</td></tr>
+                <tr><td>P028</td><td>Subscription Model Update</td><td>In Progress</td><td>2025-04-25</td><td>High</td></tr>
+                <tr><td>P029</td><td>Internal Comms Platform</td><td>Pending Start</td><td>2025-11-01</td><td>Medium</td></tr>
+                <tr><td>P030</td><td>IT Hardware Refresh</td><td>Complete</td><td>2025-03-10</td><td>High</td></tr>
+            </tbody>
+        </table>
+    </div>
+  {% endset %}
+
+  {{ fixed_table }}
+
+</div>
+{% endblock %}

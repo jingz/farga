@@ -5,8 +5,17 @@ table {
   border-collapse: collapse;
   margin: 0.5rem 0;
 
+  &.fixed-header {
+    border-collapse: separate;
+    thead {
+      outline: 1px solid var(--text-color-primary);
+      position: sticky;
+      background-color: var(--bg-primary);
+      top: 1px;
+    }
+  }
+
   thead {
-    border-bottom: 2px solid var(--text-color-muted);
 
     th {
       font-family: var(--serif-fonts);
