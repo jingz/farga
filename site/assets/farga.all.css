@@ -445,23 +445,25 @@ nav.basic ul li {
   list-style: none;
 }
 nav.basic ul li:hover {
-  color: var(--color-primary-accent);
-  text-decoration: underline;
+  background-color: var(--dim);
 }
 nav.basic ul li.active {
   color: var(--text-color-primary);
 }
 nav.basic ul li a {
   text-decoration: none;
-  color: var(--text-primary-color);
+  color: var(--text-color-primary);
 }
 nav.basic details {
   padding: 12px 16px;
+  cursor: pointer;
+}
+nav.basic details:hover {
+  background-color: var(--dim);
 }
 nav.basic details summary {
   list-style: none;
-  cursor: pointer;
-  color: var(--primary);
+  color: var(--text-primary-color);
 }
 nav.basic details ul {
   position: absolute;

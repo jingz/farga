@@ -24,8 +24,7 @@ nav.basic {
       list-style: none;
 
       &:hover {
-        color: var(--color-primary-accent);
-        text-decoration: underline;
+        background-color: var(--dim);
       }
 
       &.active {
@@ -34,18 +33,22 @@ nav.basic {
 
       a {
         text-decoration: none;
-        color: var(--text-primary-color);
+        color: var(--text-color-primary);
       }
     }
   }
 
   details {
     padding: button.$btn-padding-large;
+    cursor: pointer;
+
+    &:hover {
+        background-color: var(--dim);
+    }
 
     summary {
       list-style: none;
-      cursor: pointer;
-      color: var(--primary);
+      color: var(--text-primary-color);
     }
 
     ul {
