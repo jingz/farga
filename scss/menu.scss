@@ -42,6 +42,12 @@ nav.basic {
     padding: button.$btn-padding-large;
     cursor: pointer;
 
+    &[open] {
+      summary::after {
+        content: " \22C0";
+      }
+    }
+
     &:hover {
         background-color: var(--dim);
     }
@@ -51,7 +57,7 @@ nav.basic {
       color: var(--text-primary-color);
 
       &::after {
-        content: "\22BB"
+        content: " \22C1";
       }
     }
 

@@ -461,6 +461,9 @@ nav.basic details {
   padding: 12px 16px;
   cursor: pointer;
 }
+nav.basic details[open] summary::after {
+  content: " ⋀";
+}
 nav.basic details:hover {
   background-color: var(--dim);
 }
@@ -469,7 +472,7 @@ nav.basic details summary {
   color: var(--text-primary-color);
 }
 nav.basic details summary::after {
-  content: "⊻";
+  content: " ⋁";
 }
 nav.basic details ul {
   position: absolute;
