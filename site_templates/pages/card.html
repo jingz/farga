@@ -9,14 +9,16 @@
 
 {% block content %}
 <div>
-  <h1>Card Component</h1>
+  <hgroup>
+  <h1>Card</h1>
+  <p>A Card Component is a versatile UI element that groups related information in a contained, visually distinct block. Cards serve as entry points to more detailed information and are fundamental in modern web design.  </p>
+  </hgroup>
 
   {% set card %}
   <article id="card-1" class="card">
       <h2>Card</h2>
       <p>This is content of the card.</p>
-  </article>
-  {% endset %}
+  </article>{% endset %}
 
   {{ card }}
 
