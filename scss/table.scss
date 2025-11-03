@@ -16,7 +16,7 @@ table {
   }
 
   thead {
-
+    border-bottom: 2px solid var(--border-color-primary);
     th {
       font-family: var(--serif-fonts);
       color: var(--text-color-primary);

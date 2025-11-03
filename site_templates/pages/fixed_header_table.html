@@ -5,10 +5,12 @@
 
 {% block content %}
 <div>
-  <h1>Fixed Header Table</h1>
-
+  <hgroup>
+    <h1>Fixed Header Table</h1>
+    <p>A Fixed Header DataTable is an enhanced HTML table that keeps the header row visible at the top of the viewport while scrolling through large datasets. This provides a better user experience by ensuring column labels remain visible regardless of how far down the user scrolls.</p>
+  </hgroup>
   {% set fixed_table %}
-  <div style="height: 500px; overflow-y: auto; margin-left: 1rem;">
+  <div style="width: fit-content; height: 500px; overflow-y: auto; margin-left: 1rem;">
         <table class="fixed-header">
             <thead>
                 <tr>
