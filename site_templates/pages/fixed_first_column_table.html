@@ -1,0 +1,163 @@
+{% extends "layout/base.html" %}
+
+{% block inline_style %}
+table {
+}
+
+td:first-of-type, th:first-of-type {
+position: absolute;
+  color: red;
+  background-color: var(--bg-primary);
+  width: inherit;
+  height: inherit;
+  padding-right: 0.5rem;
+  border-right: 2px solid var(--text-color-muted);
+  width: var(--first-col-width);
+}
+
+td:first-of-type + td, th:first-of-type + th{
+}
+
+th {
+  padding: 0;
+}
+
+td, th {
+  white-space: nowrap;
+}
+{% endblock %}
+
+{% block content %}
+<div>
+  <hgroup>
+    <h1>Fixed First Column Table</h1>
+  </hgroup>
+  {% set fixed_table %}
+  <div class="overflow-auto" style="width: 500px; overflow-xy: auto; margin-left: 1rem;">
+    <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Region</th>
+                    <th>Status</th>
+                    <th>Date 1</th>
+                    <th>Value A</th>
+                    <th>Value B</th>
+                    <th>Flag X</th>
+                    <th>Flag Y</th>
+                    <th>Metric 1</th>
+                    <th>Metric 2</th>
+                    <th>Metric 3</th>
+                    <th>Source</th>
+                    <th>Owner</th>
+                    <th>Department</th>
+                    <th>Start Time</th>
+                    <th>End Time</th>
+                    <th>Config A</th>
+                    <th>Config B</th>
+                    <th>Notes</th>
+                    <th>Link</th>
+                    <th>Priority</th>
+                    <th>Category</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>R001</td>
+                    <td>Alpha Project</td>
+                    <td>Primary</td>
+                    <td>EMEA</td>
+                    <td>Complete</td>
+                    <td>2025-01-01</td>
+                    <td>100.5</td>
+                    <td>25.3</td>
+                    <td>T</td>
+                    <td>F</td>
+                    <td>45</td>
+                    <td>0.89</td>
+                    <td>12300</td>
+                    <td>System A</td>
+                    <td>John D.</td>
+                    <td>Finance</td>
+                    <td>09:00</td>
+                    <td>17:00</td>
+                    <td>High</td>
+                    <td>Off</td>
+                    <td>Final Review</td>
+                    <td><a href="#">View</a></td>
+                    <td>1</td>
+                    <td>Financial</td>
+                    <td>Edit</td>
+                </tr>
+                <tr>
+                    <td>R002</td>
+                    <td>Beta Analysis</td>
+                    <td>Secondary</td>
+                    <td>APAC</td>
+                    <td>In Progress</td>
+                    <td>2025-02-15</td>
+                    <td>88.9</td>
+                    <td>45.1</td>
+                    <td>F</td>
+                    <td>T</td>
+                    <td>67</td>
+                    <td>0.72</td>
+                    <td>9500</td>
+                    <td>CRM</td>
+                    <td>Jane K.</td>
+                    <td>Sales</td>
+                    <td>10:30</td>
+                    <td>18:30</td>
+                    <td>Low</td>
+                    <td>On</td>
+                    <td>Data Needed</td>
+                    <td><a href="#">Link</a></td>
+                    <td>2</td>
+                    <td>Customer</td>
+                    <td>Delete</td>
+                </tr>
+                <tr>
+                    <td>R003</td>
+                    <td>Gamma Upgrade</td>
+                    <td>System</td>
+                    <td>AMER</td>
+                    <td>Pending</td>
+                    <td>2025-03-20</td>
+                    <td>150.2</td>
+                    <td>12.8</td>
+                    <td>T</td>
+                    <td>T</td>
+                    <td>22</td>
+                    <td>0.99</td>
+                    <td>18000</td>
+                    <td>ERP</td>
+                    <td>Mike S.</td>
+                    <td>IT</td>
+                    <td>08:00</td>
+                    <td>16:00</td>
+                    <td>Medium</td>
+                    <td>Off</td>
+                    <td>Schedule Test</td>
+                    <td><a href="#">Detail</a></td>
+                    <td>3</td>
+                    <td>Technical</td>
+                    <td>Archive</td>
+                </tr>
+            </tbody>
+        </table>
+  </div>
+  {% endset %}
+
+  {{ fixed_table }}
+
+  <h5>Caveat</h5>
+
+  <details open>
+      <summary>Example Code</summary>
+      <pre>{{ fixed_table | e}} </pre>
+  </details>
+</div>
+{% endblock %}

@@ -230,6 +230,8 @@
   --bg-summary-open: var(--grey-0);
   --border-nested-link: var(--grey-3);
   /* ---------------------------------------------- */
+  /* adjust parameters */
+  --first-col-width: 35px; /* width of the first column of freezed column table */
 }
 
 @media (prefers-color-scheme: dark) {
