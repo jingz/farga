@@ -1,7 +1,5 @@
 @use 'base';
 
-$fixed-sidebar-w:  25ch;
-
 .flex-stretch {
   display: flex;
   flex-basis: auto;
@@ -25,7 +23,7 @@ $fixed-sidebar-w:  25ch;
   }
 
   & > *:first-child {
-    width: $fixed-sidebar-w;
+    width: var(--fixed-sidebar-w);
     flex-shrink: 0;
   }
 
@@ -45,8 +43,8 @@ $fixed-sidebar-w:  25ch;
   }
 
   &.fixed > *:last-child {
-    margin-left: calc($fixed-sidebar-w + var(--fs-1));
-    width: calc(100% - $fixed-sidebar-w);
+    margin-left: calc(var(--fixed-sidebar-w) + var(--fs-1));
+    width: calc(100% - var(--fixed-sidebar-w));
   }
 
   &.column {
@@ -77,7 +75,7 @@ $fixed-sidebar-w:  25ch;
   }
 
   & > *:last-child {
-    width: $fixed-sidebar-w;
+    width: var(--fixed-sidebar-w);
     flex-shrink: 0;
   }
 }

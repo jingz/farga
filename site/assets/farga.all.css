@@ -240,6 +240,8 @@
   --danger-color: var(--red-7);
   --bg-danger-color: var(--red-7);
   /* ---------------------------------------------- */
+  /* config variable */
+  --fixed-sidebar-w: 25ch;
 }
 
 body.dark-mode {
@@ -542,6 +544,7 @@ nav.sidemenu details ul {
 nav.sidemenu details ul li {
   border-left: 1px solid var(--border-nested-link);
   align-items: baseline;
+  white-space: nowrap;
 }
 nav.sidemenu details ul li a {
   color: var(--text-color-primary);
@@ -914,7 +917,7 @@ table.striped tbody tr:nth-child(odd) {
   gap: var(--fs-1);
 }
 .flex-sidebar > *:first-child {
-  width: 25ch;
+  width: var(--fixed-sidebar-w);
   flex-shrink: 0;
 }
 .flex-sidebar > *:last-child {
@@ -928,8 +931,8 @@ table.striped tbody tr:nth-child(odd) {
   height: 100vh;
 }
 .flex-sidebar.fixed > *:last-child {
-  margin-left: calc(25ch + var(--fs-1));
-  width: calc(100% - 25ch);
+  margin-left: calc(var(--fixed-sidebar-w) + var(--fs-1));
+  width: calc(100% - var(--fixed-sidebar-w));
 }
 .flex-sidebar.column {
   flex-direction: column;
@@ -954,7 +957,7 @@ table.striped tbody tr:nth-child(odd) {
   flex-grow: 1;
 }
 .flex-sidebar-right > *:last-child {
-  width: 25ch;
+  width: var(--fixed-sidebar-w);
   flex-shrink: 0;
 }
 

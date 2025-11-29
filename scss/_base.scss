@@ -275,6 +275,8 @@ $base-font-size: 14px;
     --bg-danger-color: var(--red-7);
 
     /* ---------------------------------------------- */
+    /* config variable */
+    --fixed-sidebar-w:  25ch;
 }
 
 // @media (prefers-color-scheme: dark) {

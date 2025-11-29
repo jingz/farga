@@ -127,6 +127,7 @@ nav.sidemenu {
 
         border-left: 1px solid var(--border-nested-link);
         align-items: baseline;
+        white-space: nowrap;
 
         a {
           color: var(--text-color-primary);
