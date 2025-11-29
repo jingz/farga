@@ -260,10 +260,16 @@ $base-font-size: 14px;
     --bg-summary-hover: var(--grey-1);
     --bg-summary-open: var(--grey-0);
     --border-nested-link: var(--grey-3);
-    /* ---------------------------------------------- */
 
-    /* adjust parameters */
-    --first-col-width: 35px; /* width of the first column of freezed column table */
+    /* form */
+    --bg-toggle-color: var(--grey-3);
+
+    --success-color: var(--green-7);
+    --bg-success-color: var(--green-7);
+    --danger-color: var(--red-7);
+    --bg-danger-color: var(--red-7);
+
+    /* ---------------------------------------------- */
 }
 
 // @media (prefers-color-scheme: dark) {
@@ -299,7 +305,7 @@ body.dark-mode {
   --text-color-muted: var(--grey-5);
 
   --bg-primary: black;
-  --bg-primary-alt: black;
+  --bg-primary-alt: var(--grey-9);
 
   /* used for headers and as a background color from some links and the form's submit button */
   --primary: var(--primary-4);
@@ -316,6 +322,14 @@ body.dark-mode {
   --bg-summary-hover: var(--grey-8);
   --bg-summary-open: var(--grey-9);
   --border-nested-link: var(--grey-8);
+
+  /* form */
+  --bg-toggle-color: var(--grey-6);
+
+  --success-color: var(--green-5);
+  --bg-success-color: var(--green-7);
+  --danger-color: var(--red-5);
+  --bg-danger-color: var(--red-8);
 }
 
 /* reset */

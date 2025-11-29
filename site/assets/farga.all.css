@@ -230,9 +230,13 @@
   --bg-summary-hover: var(--grey-1);
   --bg-summary-open: var(--grey-0);
   --border-nested-link: var(--grey-3);
+  /* form */
+  --bg-toggle-color: var(--grey-3);
+  --success-color: var(--green-7);
+  --bg-success-color: var(--green-7);
+  --danger-color: var(--red-7);
+  --bg-danger-color: var(--red-7);
   /* ---------------------------------------------- */
-  /* adjust parameters */
-  --first-col-width: 35px; /* width of the first column of freezed column table */
 }
 
 body.dark-mode {
@@ -240,7 +244,7 @@ body.dark-mode {
   --text-color-secondary: black;
   --text-color-muted: var(--grey-5);
   --bg-primary: black;
-  --bg-primary-alt: black;
+  --bg-primary-alt: var(--grey-9);
   /* used for headers and as a background color from some links and the form's submit button */
   --primary: var(--primary-4);
   --color-primary: var(--primary-4);
@@ -252,6 +256,12 @@ body.dark-mode {
   --bg-summary-hover: var(--grey-8);
   --bg-summary-open: var(--grey-9);
   --border-nested-link: var(--grey-8);
+  /* form */
+  --bg-toggle-color: var(--grey-6);
+  --success-color: var(--green-5);
+  --bg-success-color: var(--green-7);
+  --danger-color: var(--red-5);
+  --bg-danger-color: var(--red-8);
 }
 
 /* reset */
@@ -671,19 +681,25 @@ nav.pagination ul li a:hover {
 /* all css includes utilities */
 input:not([type=range]), select, textarea {
   padding: 6px 10px;
-  border: 1px solid var(--text-color-muted);
+  border: 0;
+  border-radius: 5px;
+  color: var(--text-primary-color);
+  background-color: var(--bg-primary-alt);
 }
 input:not([type=range])[aria-invalid=false], select[aria-invalid=false], textarea[aria-invalid=false] {
-  border: 1px solid var(--green-8);
+  border: 1px solid var(--success-color);
 }
 input:not([type=range])[aria-invalid=false] + span, input:not([type=range])[aria-invalid=false] + small, select[aria-invalid=false] + span, select[aria-invalid=false] + small, textarea[aria-invalid=false] + span, textarea[aria-invalid=false] + small {
-  color: var(--green-8);
+  color: var(--success-color);
 }
 input:not([type=range])[aria-invalid=true], select[aria-invalid=true], textarea[aria-invalid=true] {
-  border: 1px solid var(--red-8);
+  border: 1px solid var(--danger-color);
 }
 input:not([type=range])[aria-invalid=true] + span, input:not([type=range])[aria-invalid=true] + small, select[aria-invalid=true] + span, select[aria-invalid=true] + small, textarea[aria-invalid=true] + span, textarea[aria-invalid=true] + small {
-  color: var(--red-8);
+  color: var(--danger-color);
+}
+input:not([type=range]):placeholder, select:placeholder, textarea:placeholder {
+  color: var(--text-color-muted);
 }
 
 form {
@@ -726,10 +742,9 @@ form label.switch {
 }
 form label.switch [type=checkbox] {
   appearance: none;
-  background-color: var(--grey-4);
+  background-color: var(--bg-toggle-color);
   height: 1.25rem;
   width: 2.25rem;
-  border: 1px solid var(--grey-1);
   border-radius: 1.25rem;
   margin-right: 0.5rem;
 }
@@ -748,8 +763,8 @@ form label.switch [type=checkbox]:before {
   transition: margin 0.1s ease-in-out;
 }
 form label.switch [type=checkbox]:checked {
-  background-color: var(--green-7);
-  border-color: var(--green-1);
+  background-color: var(--bg-success-color);
+  border-color: var(--success-color);
   background-image: none;
 }
 form label.switch [type=checkbox]:checked::before {

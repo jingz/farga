@@ -2,22 +2,29 @@
 
 input:not([type="range"]), select, textarea {
   padding: 6px 10px;
-  border: 1px solid var(--text-color-muted);
+  border: 0;
+  border-radius: 5px;
+  color: var(--text-primary-color);
+  background-color: var(--bg-primary-alt);
 
   &[aria-invalid="false"] {
-    border: 1px solid var(--green-8);
+    border: 1px solid var(--success-color);
 
     & + span, & + small {
-      color: var(--green-8);
+      color: var(--success-color);
     }
   }
 
   &[aria-invalid="true"] {
-    border: 1px solid var(--red-8);
+    border: 1px solid var(--danger-color);
 
     & + span, & + small {
-      color: var(--red-8);
+      color: var(--danger-color);
     }
+  }
+
+  &:placeholder {
+    color: var(--text-color-muted);
   }
 }
 
@@ -64,10 +71,9 @@ form {
 
       [type="checkbox"] {
         appearance: none;
-        background-color: var(--grey-4);
+        background-color: var(--bg-toggle-color);
         height: 1.25rem;
         width: 2.25rem;
-        border: 1px solid var(--grey-1);
         border-radius: 1.25rem;
         margin-right: 0.5rem;
 
@@ -88,8 +94,8 @@ form {
         }
 
         &:checked {
-          background-color: var(--green-7);
-          border-color: var(--green-1);
+          background-color: var(--bg-success-color);
+          border-color: var(--success-color);
           background-image: none;
 
           &::before {
