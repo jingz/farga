@@ -7,12 +7,28 @@ table {
 
   &.fixed-header {
     border-collapse: separate;
+
     thead {
       outline: 1px solid var(--text-color-primary);
       position: sticky;
       background-color: var(--bg-primary);
       top: 1px;
     }
+  }
+
+  &.fixed-first-col {
+    td:first-of-type, th:first-of-type {
+      position: sticky;
+      left: 0;
+      background-color: var(--bg-primary-alt);
+      border-right: 2px solid var(--text-color-muted);
+    }
+
+    /* make the table one line row */
+    td, th {
+      white-space: nowrap;
+    }
+
   }
 
   thead {

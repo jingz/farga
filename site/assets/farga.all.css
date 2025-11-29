@@ -6,7 +6,7 @@
   --serif-fonts: Palatino, serif;
   --monospace-fonts: "Lucida Console", "Monaco", monospace;
   --fantasy-fonts: Papyrus,fantasy;
-  --cursive-fonts: "Brush Script MT", cursive;
+  --cursive-fonts: 'Brush Script MT', cursive;
   --base-font-size: $base-font-size;
   --base-line-height: 1.5;
   --base-line-height-head: 1;
@@ -219,6 +219,7 @@
   --text-color-secondary: white;
   --text-color-muted: var(--grey-6);
   --bg-primary: white;
+  --bg-primary-alt: var(--grey-0);
   /* used for headers and as a background color from some links and the form's submit button */
   --primary: var(--primary-4);
   --border-color-primary: var(--grey-4);
@@ -627,7 +628,6 @@ nav.pagination ul li {
   align-items: baseline;
   list-style: none;
   margin-right: 0.2rem;
-  /* for ... */
 }
 nav.pagination ul li.disabled a {
   color: var(--text-color-muted);
@@ -636,6 +636,9 @@ nav.pagination ul li.disabled a {
 }
 nav.pagination ul li.active a {
   background-color: var(--dim);
+}
+nav.pagination ul li {
+  /* for ... */
 }
 nav.pagination ul li span {
   display: block;
@@ -671,7 +674,6 @@ input:not([type=range])[aria-invalid=true] + span, input:not([type=range])[aria-
 
 form {
   /* control wrapper */
-  /* bottom most section of the form */
 }
 form p {
   margin: 0 0 0.5rem 0;
@@ -683,13 +685,15 @@ form label {
   line-height: 1.75;
   font-family: var(--serif-fonts);
   font-size: 0.8rem;
-  /* margin-top of label when its under a status message */
 }
 form label:not(:first-of-type) {
   margin-top: 0.8rem;
 }
 form label:has([type=checkbox]), form label:has([type=radio]) {
   margin-top: 0.25rem;
+}
+form label {
+  /* margin-top of label when its under a status message */
 }
 form label:has(small) + label {
   margin-top: 0.3rem;
@@ -757,6 +761,9 @@ form fieldset legend {
   font-family: var(--serif-fonts);
   margin-left: -0.3rem;
 }
+form {
+  /* bottom most section of the form */
+}
 form footer {
   padding: var(--fs-1);
 }
@@ -781,6 +788,18 @@ table.fixed-header thead {
   position: sticky;
   background-color: var(--bg-primary);
   top: 1px;
+}
+table.fixed-first-col td:first-of-type, table.fixed-first-col th:first-of-type {
+  position: sticky;
+  left: 0;
+  background-color: var(--bg-primary-alt);
+  border-right: 2px solid var(--text-color-muted);
+}
+table.fixed-first-col {
+  /* make the table one line row */
+}
+table.fixed-first-col td, table.fixed-first-col th {
+  white-space: nowrap;
 }
 table thead {
   border-bottom: 2px solid var(--border-color-primary);

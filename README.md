@@ -20,7 +20,7 @@ npm install -g sass
 **Install template engine for static site generation**
 
 ```python
-uv env
+uv venv
 uv pip install jinja2
 ```
 
