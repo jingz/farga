@@ -193,6 +193,7 @@
   --orange-7: hsl(24, 80%, 41%);
   --orange-8: hsl(24, 80%, 32%);
   --orange-9: hsl(24, 80%, 23%);
+  --grey-a: hsl(0, 0%, 96%);
   --grey-0: hsl(0, 0%, 94%);
   --grey-1: hsl(0, 0%, 90%);
   --grey-2: hsl(0, 0%, 86%);
@@ -203,6 +204,8 @@
   --grey-7: hsl(0, 0%, 41%);
   --grey-8: hsl(0, 0%, 32%);
   --grey-9: hsl(0, 0%, 23%);
+  --grey-10: hsl(0, 0%, 18%);
+  --grey-11: hsl(0, 0%, 9%);
   /* ------------------------------------------ */
   /* Theme */
   /* default is light */
@@ -225,7 +228,7 @@
   --border-color-primary: var(--grey-4);
   --border-color-muted: var(--grey-1);
   --dim: var(--grey-0);
-  --bg-list-active: var(--primary-1);
+  --bg-list-active: var(--grey-a);
   --bg-list-hover: var(--grey-1);
   --bg-summary-hover: var(--grey-1);
   --bg-summary-open: var(--grey-0);
@@ -252,7 +255,7 @@ body.dark-mode {
   --border-color-muted: var(--grey-8);
   --dim: var(--grey-9);
   /* list */
-  --bg-list-active: var(--primary-9);
+  --bg-list-active: var(--grey-11);
   --bg-summary-hover: var(--grey-8);
   --bg-summary-open: var(--grey-9);
   --border-nested-link: var(--grey-8);
@@ -555,6 +558,7 @@ nav.sidemenu ul li:hover {
 }
 nav.sidemenu ul li.active {
   background-color: var(--bg-list-active);
+  font-weight: bold;
 }
 nav.sidemenu ul li a {
   color: var(--text-color-primary);
