@@ -30,18 +30,29 @@ button, .btn {
   @extend %primary-button;
 
   &:hover {
-    background-color: var(--primary-7);
+    background-color: var(--primary-6);
+    color: var(--primary-3);
   }
 
   &.btn-secondary {
-      background-color: var(--orange-1);
-      color: var(--orange-8);
+      background-color: var(--secondary-1);
+      color: var(--secondary-8);
+
+      &:hover {
+        color: var(--secondary-7);
+        background-color: var(--secondary-2);
+      }
   }
 
   &.btn-secondary-outline {
       background-color: var(--bg-primary);
-      color: var(--orange-4);
-      border: 1px solid var(--orange-4);
+      color: var(--secondary-4);
+      border: 1px solid var(--secondary-4);
+
+      &:hover {
+        color: var(--secondary-5);
+        border: 1px solid var(--secondary-6);
+      }
   }
 
   &.btn-danger {
@@ -49,6 +60,7 @@ button, .btn {
       color: var(--red-2);
 
       &:hover {
+        color: var(--red-1);
         background-color: var(--red-7);
       }
   }
@@ -57,6 +69,11 @@ button, .btn {
       background-color: var(--bg-primary);
       border: 1px solid var(--red-4);
       color: var(--red-4);
+
+      &:hover {
+        color: var(--red-5);
+        border: 1px solid var(--red-6);
+      }
   }
 
   &.btn-outline {
@@ -65,7 +82,8 @@ button, .btn {
       color: var(--primary-5);
 
       &:hover {
-        border: 1px solid var(--primary-4);
+        color: var(--primary-6);
+        border: 1px solid var(--primary-5);
       }
   }
 

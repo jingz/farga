@@ -235,26 +235,25 @@
   --first-col-width: 35px; /* width of the first column of freezed column table */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text-color-primary: var(--grey-2);
-    --text-color-secondary: black;
-    --text-color-muted: var(--grey-5);
-    --bg-primary: black;
-    --bg-primary-alt: black;
-    /* used for headers and as a background color from some links and the form's submit button */
-    --primary: var(--primary-4);
-    --color-primary: var(--primary-4);
-    --border-color-primary: var(--grey-5);
-    --border-color-muted: var(--grey-8);
-    --dim: var(--grey-9);
-    /* list */
-    --bg-list-active: var(--primary-9);
-    --bg-summary-hover: var(--grey-8);
-    --bg-summary-open: var(--grey-9);
-    --border-nested-link: var(--grey-8);
-  }
+body.dark-mode {
+  --text-color-primary: var(--grey-2);
+  --text-color-secondary: black;
+  --text-color-muted: var(--grey-5);
+  --bg-primary: black;
+  --bg-primary-alt: black;
+  /* used for headers and as a background color from some links and the form's submit button */
+  --primary: var(--primary-4);
+  --color-primary: var(--primary-4);
+  --border-color-primary: var(--grey-5);
+  --border-color-muted: var(--grey-8);
+  --dim: var(--grey-9);
+  /* list */
+  --bg-list-active: var(--primary-9);
+  --bg-summary-hover: var(--grey-8);
+  --bg-summary-open: var(--grey-9);
+  --border-nested-link: var(--grey-8);
 }
+
 /* reset */
 ul {
   margin: 0;
@@ -369,22 +368,32 @@ button, .btn {
 }
 
 button:hover, .btn:hover {
-  background-color: var(--primary-7);
+  background-color: var(--primary-6);
+  color: var(--primary-3);
 }
 button.btn-secondary, .btn.btn-secondary {
-  background-color: var(--orange-1);
-  color: var(--orange-8);
+  background-color: var(--secondary-1);
+  color: var(--secondary-8);
+}
+button.btn-secondary:hover, .btn.btn-secondary:hover {
+  color: var(--secondary-7);
+  background-color: var(--secondary-2);
 }
 button.btn-secondary-outline, .btn.btn-secondary-outline {
   background-color: var(--bg-primary);
-  color: var(--orange-4);
-  border: 1px solid var(--orange-4);
+  color: var(--secondary-4);
+  border: 1px solid var(--secondary-4);
+}
+button.btn-secondary-outline:hover, .btn.btn-secondary-outline:hover {
+  color: var(--secondary-5);
+  border: 1px solid var(--secondary-6);
 }
 button.btn-danger, .btn.btn-danger {
   background-color: var(--red-8);
   color: var(--red-2);
 }
 button.btn-danger:hover, .btn.btn-danger:hover {
+  color: var(--red-1);
   background-color: var(--red-7);
 }
 button.btn-danger-outline, .btn.btn-danger-outline {
@@ -392,13 +401,18 @@ button.btn-danger-outline, .btn.btn-danger-outline {
   border: 1px solid var(--red-4);
   color: var(--red-4);
 }
+button.btn-danger-outline:hover, .btn.btn-danger-outline:hover {
+  color: var(--red-5);
+  border: 1px solid var(--red-6);
+}
 button.btn-outline, .btn.btn-outline {
   background-color: var(--bg-primary);
   border: 1px solid var(--primary-5);
   color: var(--primary-5);
 }
 button.btn-outline:hover, .btn.btn-outline:hover {
-  border: 1px solid var(--primary-4);
+  color: var(--primary-6);
+  border: 1px solid var(--primary-5);
 }
 button.btn-small, .btn.btn-small {
   font-size: 12px;

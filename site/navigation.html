@@ -84,6 +84,14 @@
                       GitHub
                   </a>
               </li>
+              <li>
+                <form id="theme-form">
+                    <label class="switch">
+                        <input id="light-theme" type="checkbox" role="switch" />
+                        Light
+                    </label>
+                </form>
+              </li>
             </ul>
           </details>
         </nav>
@@ -222,7 +230,8 @@
   </body>
 
   <script>
-      var filename = window.location.href.toString().split('/').pop();
+      // set active to recently clicked menu
+      const filename = window.location.href.toString().split('/').pop();
       const sideMenuEl = document.querySelector('#side-menu');
       const links = sideMenuEl.querySelectorAll('a')
       for ( const link of links ) {
@@ -230,5 +239,29 @@
               link.parentNode.classList.add('active');
           }
       }
+
+      function setTheme(isLightTheme) {
+          if (isLightTheme) {
+              document.body.classList.remove('dark-mode')
+          } else {
+              document.body.classList.add('dark-mode')
+          }
+          window.localStorage.setItem('isLightTheme', isLightTheme);
+      }
+
+      // init theme from localStorage
+      const isLightTheme = localStorage.getItem('isLightTheme') == 'true';
+      console.log({ isLightTheme })
+      setTheme(isLightTheme)
+
+      // set theme
+      const lightThemeToggleEl = document.querySelector("#light-theme")
+
+      if (isLightTheme) lightThemeToggleEl.checked = true;
+
+      lightThemeToggleEl.addEventListener('change', function (ev) {
+          const isLightTheme = ev.target.checked;
+          setTheme(isLightTheme)
+      });
   </script>
 </html>
