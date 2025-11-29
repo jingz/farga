@@ -465,11 +465,13 @@ nav.basic {
 nav.basic ul {
   display: flex;
   justify-content: space-between;
+  padding: 12px 16px;
 }
 nav.basic ul li {
-  padding: 12px 16px;
+  padding: 8px 10px;
   cursor: pointer;
   color: var(--color-primary);
+  border-radius: 5px;
   list-style: none;
 }
 nav.basic ul li:hover {
@@ -477,24 +479,27 @@ nav.basic ul li:hover {
 }
 nav.basic ul li.active {
   color: var(--text-color-primary);
+  background-color: var(--primary-0);
 }
 nav.basic ul li a {
   text-decoration: none;
   color: var(--text-color-primary);
 }
+nav.basic ul li + li {
+  margin-left: 0.5rem;
+}
 nav.basic details {
-  padding: 12px 16px;
   cursor: pointer;
 }
 nav.basic details[open] summary::after {
   content: " ⋀";
 }
 nav.basic details:hover {
-  background-color: var(--dim);
+  background-color: var(--bg-primary-atl);
 }
 nav.basic details summary {
   list-style: none;
-  color: var(--text-primary-color);
+  color: var(--text-color-primary);
 }
 nav.basic details summary::after {
   content: " ⋁";
@@ -504,8 +509,12 @@ nav.basic details ul {
   background: white;
   display: block;
   margin-left: -1rem;
-  margin-top: 0.5rem;
+  margin-top: 1.2rem;
+  border: 1px solid var(--bg-primary-alt);
   background-color: var(--bg-primary);
+}
+nav.basic details ul li {
+  margin-left: 0;
 }
 
 /* side menu */

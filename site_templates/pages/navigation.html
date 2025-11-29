@@ -21,7 +21,7 @@
   {% set navigation %}
   <nav class="basic">
     <ul>
-      <li><a href='#'>Home</a></li>
+      <li class="active"><a href='#'>Home</a></li>
     </ul>
 
     <ul>
@@ -64,18 +64,21 @@
       <li><a href="#">About</a></li>
       <li><a href="#">Service</a></li>
       <li><a href="#">Products</a></li>
+      <li>
+          <details class="dropdown">
+            <summary>
+              Account
+            </summary>
+            <ul>
+              <li><a href="#">Profile</a></li>
+              <li><a href="#">Settings</a></li>
+              <li><a href="#">Security</a></li>
+              <li><a href="#">Logout</a></li>
+            </ul>
+          </details>
+      </li>
+
     </ul>
-      <details class="dropdown">
-        <summary>
-          Account
-        </summary>
-        <ul>
-          <li><a href="#">Profile</a></li>
-          <li><a href="#">Settings</a></li>
-          <li><a href="#">Security</a></li>
-          <li><a href="#">Logout</a></li>
-        </ul>
-      </details>
     </div>
   </nav>
   {% endset %}

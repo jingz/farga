@@ -15,11 +15,13 @@ nav.basic {
   ul {
     display: flex;
     justify-content: space-between;
+    padding: button.$btn-padding-large;
 
     li {
-      padding: button.$btn-padding-large;
+      padding: button.$btn-padding;
       cursor: pointer;
       color: var(--color-primary);
+      border-radius: 5px;
 
       list-style: none;
 
@@ -29,6 +31,7 @@ nav.basic {
 
       &.active {
         color: var(--text-color-primary);
+        background-color: var(--primary-0);
       }
 
       a {
@@ -36,10 +39,13 @@ nav.basic {
         color: var(--text-color-primary);
       }
     }
+
+    li + li {
+      margin-left: 0.5rem;
+    }
   }
 
   details {
-    padding: button.$btn-padding-large;
     cursor: pointer;
 
     &[open] {
@@ -49,12 +55,12 @@ nav.basic {
     }
 
     &:hover {
-        background-color: var(--dim);
+        background-color: var(--bg-primary-atl);
     }
 
     summary {
       list-style: none;
-      color: var(--text-primary-color);
+      color: var(--text-color-primary);
 
       &::after {
         content: " \22C1";
@@ -67,9 +73,14 @@ nav.basic {
       display: block;
 
       margin-left: -1rem;
-      margin-top: 0.5rem;
+      margin-top: 1.2rem;
+      border: 1px solid var(--bg-primary-alt);
 
       background-color: var(--bg-primary);
+
+      li {
+        margin-left: 0;
+      }
     }
 
   }

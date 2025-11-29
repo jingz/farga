@@ -118,7 +118,7 @@
   
   <nav class="basic">
     <ul>
-      <li><a href='#'>Home</a></li>
+      <li class="active"><a href='#'>Home</a></li>
     </ul>
 
     <ul>
@@ -135,7 +135,7 @@
       <pre>
   &lt;nav class=&#34;basic&#34;&gt;
     &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&#39;#&#39;&gt;Home&lt;/a&gt;&lt;/li&gt;
+      &lt;li class=&#34;active&#34;&gt;&lt;a href=&#39;#&#39;&gt;Home&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
 
     &lt;ul&gt;
@@ -173,18 +173,21 @@
       <li><a href="#">About</a></li>
       <li><a href="#">Service</a></li>
       <li><a href="#">Products</a></li>
+      <li>
+          <details class="dropdown">
+            <summary>
+              Account
+            </summary>
+            <ul>
+              <li><a href="#">Profile</a></li>
+              <li><a href="#">Settings</a></li>
+              <li><a href="#">Security</a></li>
+              <li><a href="#">Logout</a></li>
+            </ul>
+          </details>
+      </li>
+
     </ul>
-      <details class="dropdown">
-        <summary>
-          Account
-        </summary>
-        <ul>
-          <li><a href="#">Profile</a></li>
-          <li><a href="#">Settings</a></li>
-          <li><a href="#">Security</a></li>
-          <li><a href="#">Logout</a></li>
-        </ul>
-      </details>
     </div>
   </nav>
   
@@ -211,18 +214,21 @@
       &lt;li&gt;&lt;a href=&#34;#&#34;&gt;About&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&#34;#&#34;&gt;Service&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&#34;#&#34;&gt;Products&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;
+          &lt;details class=&#34;dropdown&#34;&gt;
+            &lt;summary&gt;
+              Account
+            &lt;/summary&gt;
+            &lt;ul&gt;
+              &lt;li&gt;&lt;a href=&#34;#&#34;&gt;Profile&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&#34;#&#34;&gt;Settings&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&#34;#&#34;&gt;Security&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&#34;#&#34;&gt;Logout&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/details&gt;
+      &lt;/li&gt;
+
     &lt;/ul&gt;
-      &lt;details class=&#34;dropdown&#34;&gt;
-        &lt;summary&gt;
-          Account
-        &lt;/summary&gt;
-        &lt;ul&gt;
-          &lt;li&gt;&lt;a href=&#34;#&#34;&gt;Profile&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&#34;#&#34;&gt;Settings&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&#34;#&#34;&gt;Security&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&#34;#&#34;&gt;Logout&lt;/a&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/details&gt;
     &lt;/div&gt;
   &lt;/nav&gt;
    </pre>
