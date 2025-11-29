@@ -268,6 +268,7 @@ $base-font-size: 14px;
 
     /* form */
     --bg-toggle-color: var(--grey-3);
+    --bg-input-color: var(--grey-a);
 
     --success-color: var(--green-7);
     --bg-success-color: var(--green-7);
@@ -332,6 +333,7 @@ body.dark-mode {
 
   /* form */
   --bg-toggle-color: var(--grey-6);
+  --bg-input-color: var(--grey-11);
 
   --success-color: var(--green-5);
   --bg-success-color: var(--green-7);

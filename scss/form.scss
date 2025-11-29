@@ -6,7 +6,7 @@ input:not([type="range"]), select, textarea {
   border: 0;
   border-radius: 5px;
   color: var(--text-primary-color);
-  background-color: var(--bg-primary-alt);
+  background-color: var(--bg-input-color);
 
   &[aria-invalid="false"] {
     border: 1px solid var(--success-color);
