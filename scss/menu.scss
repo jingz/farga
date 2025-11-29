@@ -304,7 +304,8 @@ nav.pagination {
 
       &.active {
         a {
-          background-color: var(--dim);
+          background-color: var(--primary-6);
+          color: var(--primary-1);
         }
       }
 
@@ -324,7 +325,8 @@ nav.pagination {
         display: block;
 
         &:hover {
-          background-color: var(--dim);
+          background-color: var(--primary-5);
+          color: var(--primary-0);
         }
       }
     }

@@ -668,7 +668,8 @@ nav.pagination ul li.disabled a {
   pointer-events: none;
 }
 nav.pagination ul li.active a {
-  background-color: var(--dim);
+  background-color: var(--primary-6);
+  color: var(--primary-1);
 }
 nav.pagination ul li {
   /* for ... */
@@ -684,7 +685,8 @@ nav.pagination ul li a {
   display: block;
 }
 nav.pagination ul li a:hover {
-  background-color: var(--dim);
+  background-color: var(--primary-5);
+  color: var(--primary-0);
 }
 
 /* all css includes utilities */
