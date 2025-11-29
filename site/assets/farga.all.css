@@ -370,9 +370,9 @@ p {
   padding: 8px 10px;
 }
 
-button, .btn {
+form input[type=submit], button, .btn {
   background-color: var(--primary-8);
-  color: var(--primary-2);
+  color: var(--primary-1);
   padding: 8px 10px;
   font-size: 14px;
   border: 0px;
@@ -381,16 +381,16 @@ button, .btn {
 }
 
 button:hover, .btn:hover {
-  background-color: var(--primary-6);
-  color: var(--primary-3);
+  background-color: var(--primary-7);
+  color: var(--primary-0);
 }
 button.btn-secondary, .btn.btn-secondary {
-  background-color: var(--secondary-1);
-  color: var(--secondary-8);
+  background-color: var(--secondary-8);
+  color: var(--secondary-1);
 }
 button.btn-secondary:hover, .btn.btn-secondary:hover {
-  color: var(--secondary-7);
-  background-color: var(--secondary-2);
+  color: var(--secondary-0);
+  background-color: var(--secondary-7);
 }
 button.btn-secondary-outline, .btn.btn-secondary-outline {
   background-color: var(--bg-primary);
@@ -403,10 +403,10 @@ button.btn-secondary-outline:hover, .btn.btn-secondary-outline:hover {
 }
 button.btn-danger, .btn.btn-danger {
   background-color: var(--red-8);
-  color: var(--red-2);
+  color: var(--red-1);
 }
 button.btn-danger:hover, .btn.btn-danger:hover {
-  color: var(--red-1);
+  color: var(--red-0);
   background-color: var(--red-7);
 }
 button.btn-danger-outline, .btn.btn-danger-outline {
@@ -806,7 +806,6 @@ form textarea {
 form input[type=number], form input[type=tel] {
   font-family: var(--monospace-fonts);
 }
-
 /* all css includes utilities */
 table {
   border: 0;

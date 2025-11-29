@@ -1,4 +1,5 @@
 @use 'base';
+@use 'button';
 
 input:not([type="range"]), select, textarea {
   padding: 6px 10px;
@@ -141,5 +142,9 @@ form {
 
   input[type=number], input[type=tel] {
     font-family: var(--monospace-fonts);
+  }
+
+  input[type=submit] {
+    @extend %primary-button;
   }
 }
