@@ -1,0 +1,91 @@
+{% extends "layout/base.html" %}
+
+{% block inline_style %}
+{% endblock %}
+
+{% block content %}
+<div>
+  <h1>Form With Layouts</h1>
+
+  <hgroup>
+    <h2>Inline Form</h2>
+    <p>Form that consist of fields which has aside button.</p>
+  </hgroup>
+
+  {% set form_inline %}
+  <form>
+    <fieldset class="flex-stretch gap">
+      <p>
+        <label for="username">Username</label>
+        <input type="text" required value="" />
+      </p>
+
+      <p>
+        <label for="password">Password</label>
+        <input type="text" required value="" />
+      </p>
+    </fieldset>
+
+    <br/>
+
+    <fieldset class="flex">
+      <label for="email">Email:</label>
+      <input type="text" required value="" />
+      <input class="btn btn-small" type="submit" value="Subscribe" />
+    </fieldset>
+  </form>
+  {% endset %}
+
+  {{ form_inline }}
+
+  <br />
+
+  <details>
+    <summary>Example Code</summary>
+    <pre>{{ form_inline | e}} </pre>
+  </details>
+
+  <br />
+
+  <hgroup>
+    <h2>Signin Form</h2>
+  </hgroup>
+
+  {% set signin_form %}
+  <form>
+    <fieldset style="width: 300px;">
+      <p>
+          <h3>Sign in to your account</h3>
+      </p>
+
+      <p>
+        <label for="email">Email:</label>
+        <input type="text" required value="" />
+      </p>
+
+      <div class="flex-btw">
+          <label for="email">Password:</label>
+          <small><a href="#">Forgot Password?</a></small>
+      </div>
+      <p>
+          <input type="text" required value="" />
+      </p>
+      <br/>
+      <p>
+        <input class="btn btn-small" type="submit" value="Sign in" />
+      </p>
+    </fieldset>
+  </form>
+  {% endset %}
+
+  {{ signin_form }}
+
+  <br/>
+
+  <details open>
+    <summary>Example Code</summary>
+    <pre>{{ signin_form | e}} </pre>
+  </details>
+
+</div>
+{% endblock %}

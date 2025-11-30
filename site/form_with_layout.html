@@ -112,41 +112,135 @@
         <main>
             
 <div>
+  <h1>Form With Layouts</h1>
+
   <hgroup>
-    <h1>Pagination</h1>
-    <p>Basic pagination component</p>
+    <h2>Inline Form</h2>
+    <p>Form that consist of fields which has aside button.</p>
   </hgroup>
 
+  
+
+  
+  <form>
+    <fieldset class="flex-stretch gap">
+      <p>
+        <label for="username">Username</label>
+        <input type="text" required value="" />
+      </p>
+
+      <p>
+        <label for="password">Password</label>
+        <input type="text" required value="" />
+      </p>
+    </fieldset>
+
+    <br/>
+
+    <fieldset class="flex">
+      <label for="email">Email:</label>
+      <input type="text" required value="" />
+      <input class="btn btn-small" type="submit" value="Subscribe" />
+    </fieldset>
+  </form>
+  
+
+  <br />
+
+  <details>
+    <summary>Example Code</summary>
+    <pre>
+  &lt;form&gt;
+    &lt;fieldset class=&#34;flex-stretch gap&#34;&gt;
+      &lt;p&gt;
+        &lt;label for=&#34;username&#34;&gt;Username&lt;/label&gt;
+        &lt;input type=&#34;text&#34; required value=&#34;&#34; /&gt;
+      &lt;/p&gt;
+
+      &lt;p&gt;
+        &lt;label for=&#34;password&#34;&gt;Password&lt;/label&gt;
+        &lt;input type=&#34;text&#34; required value=&#34;&#34; /&gt;
+      &lt;/p&gt;
+    &lt;/fieldset&gt;
+
+    &lt;br/&gt;
+
+    &lt;fieldset class=&#34;flex&#34;&gt;
+      &lt;label for=&#34;email&#34;&gt;Email:&lt;/label&gt;
+      &lt;input type=&#34;text&#34; required value=&#34;&#34; /&gt;
+      &lt;input class=&#34;btn btn-small&#34; type=&#34;submit&#34; value=&#34;Subscribe&#34; /&gt;
+    &lt;/fieldset&gt;
+  &lt;/form&gt;
+   </pre>
+  </details>
+
+  <br />
+
+  <hgroup>
+    <h2>Signin Form</h2>
+  </hgroup>
+
+  
+
+  
+  <form>
+    <fieldset style="width: 300px;">
+      <p>
+          <h3>Sign in to your account</h3>
+      </p>
+
+      <p>
+        <label for="email">Email:</label>
+        <input type="text" required value="" />
+      </p>
+
+      <div class="flex-btw">
+          <label for="email">Password:</label>
+          <small><a href="#">Forgot Password?</a></small>
+      </div>
+      <p>
+          <input type="text" required value="" />
+      </p>
+      <br/>
+      <p>
+        <input class="btn btn-small" type="submit" value="Sign in" />
+      </p>
+    </fieldset>
+  </form>
+  
+
   <br/>
-  
 
-  
-  <nav class="pagination">
-    <ul>
-        <li class="disabled"><a href="#">Previous</a></li>
-        <li class='active'><a href="#">1</a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><span>...</span></li>
-        <li><a href="#">10</a></li>
-        <li><a href="#">Next</a></li>
-      </ul>
-   </nav>
+  <details open>
+    <summary>Example Code</summary>
+    <pre>
+  &lt;form&gt;
+    &lt;fieldset style=&#34;width: 300px;&#34;&gt;
+      &lt;p&gt;
+          &lt;h3&gt;Sign in to your account&lt;/h3&gt;
+      &lt;/p&gt;
 
-  <pre>
-    
-  &lt;nav class=&#34;pagination&#34;&gt;
-    &lt;ul&gt;
-        &lt;li class=&#34;disabled&#34;&gt;&lt;a href=&#34;#&#34;&gt;Previous&lt;/a&gt;&lt;/li&gt;
-        &lt;li class=&#39;active&#39;&gt;&lt;a href=&#34;#&#34;&gt;1&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href=&#34;#&#34;&gt;2&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href=&#34;#&#34;&gt;3&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;span&gt;...&lt;/span&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href=&#34;#&#34;&gt;10&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href=&#34;#&#34;&gt;Next&lt;/a&gt;&lt;/li&gt;
-      &lt;/ul&gt;
-   &lt;/nav&gt;
-  </pre>
+      &lt;p&gt;
+        &lt;label for=&#34;email&#34;&gt;Email:&lt;/label&gt;
+        &lt;input type=&#34;text&#34; required value=&#34;&#34; /&gt;
+      &lt;/p&gt;
+
+      &lt;div class=&#34;flex-btw&#34;&gt;
+          &lt;label for=&#34;email&#34;&gt;Password:&lt;/label&gt;
+          &lt;small&gt;&lt;a href=&#34;#&#34;&gt;Forgot Password?&lt;/a&gt;&lt;/small&gt;
+      &lt;/div&gt;
+      &lt;p&gt;
+          &lt;input type=&#34;text&#34; required value=&#34;&#34; /&gt;
+      &lt;/p&gt;
+      &lt;br/&gt;
+      &lt;p&gt;
+        &lt;input class=&#34;btn btn-small&#34; type=&#34;submit&#34; value=&#34;Sign in&#34; /&gt;
+      &lt;/p&gt;
+    &lt;/fieldset&gt;
+  &lt;/form&gt;
+   </pre>
+  </details>
+
 </div>
 
         </main>

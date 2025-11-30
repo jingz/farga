@@ -16,70 +16,70 @@
   <form>
     <h3>Basic form</h3>
     <fieldset>
-      <legend>General Info Form</legend>
-    <p>
-      <label for="username">Username</label>
-      <input id="username" type="text" name="username" placeholder="Text" aria-label="Text">
-    </p>
+        <legend>General Info Form</legend>
+        <p>
+          <label for="username">Username</label>
+          <input id="username" type="text" name="username" placeholder="Text" aria-label="Text">
+        </p>
 
-    <p>
-      <label for="email">Email</label>
-      <input id="email" type="email" name="email" placeholder="Email" aria-label="Email" autocomplete="email">
-    </p>
+        <p>
+          <label for="email">Email</label>
+          <input id="email" type="email" name="email" placeholder="Email" aria-label="Email" autocomplete="email">
+        </p>
 
-    <p>
-      <label for="age">Age</label>
-      <input id="age" type="number" name="number" placeholder="Number" aria-label="Number">
-    </p>
+        <p>
+          <label for="age">Age</label>
+          <input id="age" type="number" name="number" placeholder="Number" aria-label="Number">
+        </p>
 
-    <p>
-      <label for="password">Password</label>
-      <input type="password" name="password" placeholder="Password" aria-label="Password">
-    </p>
+        <p>
+          <label for="password">Password</label>
+          <input type="password" name="password" placeholder="Password" aria-label="Password">
+        </p>
 
-    <p>
-      <label for="mobile">Mobile</label>
-      <input id="mobile" type="tel" name="tel" placeholder="Tel" aria-label="Tel" autocomplete="tel">
-    </p>
+        <p>
+          <label for="mobile">Mobile</label>
+          <input id="mobile" type="tel" name="tel" placeholder="Tel" aria-label="Tel" autocomplete="tel">
+        </p>
 
-    <p>
-      <label for="site">Personal Site</label>
-      <input id="site" type="url" name="url" placeholder="Url" aria-label="Url">
-    </p>
+        <p>
+          <label for="site">Personal Site</label>
+          <input id="site" type="url" name="url" placeholder="Url" aria-label="Url">
+        </p>
 
-    <p>
-      <label for="birthdate">Birth Date</label>
-      <input id="birthdate" type="date" name="date" aria-label="Date">
-    </p>
+        <p>
+          <label for="birthdate">Birth Date</label>
+          <input id="birthdate" type="date" name="date" aria-label="Date">
+        </p>
 
-    <p>
-      <label for="timezone">Timezone</label>
-      <input id="timezone" type="datetime-local" name="datetime-local" aria-label="Datetime local">
-    </p>
+        <p>
+          <label for="timezone">Timezone</label>
+          <input id="timezone" type="datetime-local" name="datetime-local" aria-label="Datetime local">
+        </p>
 
-    <p>
-      <label for="month">Birth Month</label>
-      <input id="month" type="month" name="month" aria-label="Month">
-    </p>
+        <p>
+          <label for="month">Birth Month</label>
+          <input id="month" type="month" name="month" aria-label="Month">
+        </p>
 
-    <p>
-      <label for="birthtime">Birth Time</label>
-      <input id="birthtime" type="time" name="time" aria-label="Time">
-    </p>
+        <p>
+          <label for="birthtime">Birth Time</label>
+          <input id="birthtime" type="time" name="time" aria-label="Time">
+        </p>
 
-    <p>
-      <label for="card"> Card type </label>
-      <select id="card" name="user-card">
-        <option value="visa">Visa</option>
-        <option value="mc">Mastercard</option>
-        <option value="amex">American Express</option>
-      </select>
-    </p>
+        <p>
+          <label for="card"> Card type </label>
+          <select id="card" name="user-card">
+            <option value="visa">Visa</option>
+            <option value="mc">Mastercard</option>
+            <option value="amex">American Express</option>
+          </select>
+        </p>
 
-    <p>
-        <label for="message">Message</label>
-        <textarea>This is message</textarea>
-    </p>
+        <p>
+          <label for="message">Message</label>
+          <textarea>This is message</textarea>
+        </p>
     </fieldset>
   </form>
   {% endset %}
@@ -89,50 +89,11 @@
   <br/>
 
   <details>
-      <summary>Example Code</summary>
-      <pre>{{ basic_form | e}} </pre>
+    <summary>Example Code</summary>
+    <pre>{{ basic_form | e}} </pre>
   </details>
 
   <br />
-
-  <hgroup>
-    <h2>Form Inline</h2>
-  </hgroup>
-
-  {% set form_inline %}
-  <form>
-    <fieldset class="flex-stretch gap">
-      <p>
-        <label for="username">Username</label>
-        <input type="text" required value="" />
-      </p>
-
-      <p>
-        <label for="password">Password</label>
-        <input type="text" required value="" />
-      </p>
-    </fieldset>
-
-    <fieldset class="flex">
-      <label for="email">Email:</label>
-      <input type="text" required value="" />
-      <input class="btn" type="submit" value="subscribe" />
-    </fieldset>
-
-    <footer>
-      <input class="btn" type="submit" value="login" />
-    </footer>
-  </form>
-  {% endset %}
-
-  {{ form_inline }}
-
-  <br />
-
-  <details>
-      <summary>Example Code</summary>
-      <pre>{{ form_inline | e}} </pre>
-  </details>
 
   <hgroup>
     <h2>Form State</h2>

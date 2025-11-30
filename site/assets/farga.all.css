@@ -1013,6 +1013,12 @@ table.striped tbody tr:nth-child(odd) {
 }
 
 /* layout utilities */
+.flex-btw {
+  display: flex;
+  justify-content: space-between;
+  align-items: space-between;
+}
+
 .full-w {
   width: 100%;
 }
