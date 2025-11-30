@@ -346,6 +346,14 @@ p {
   margin: 0.67em 0;
 }
 
+blockquote:before {
+  position: absolute;
+  margin-top: -0.3rem;
+  margin-left: -0.7rem;
+  content: "“";
+  font-size: var(--fs-5);
+}
+
 /* font utilities */
 .ft-sans-serif {
   font-family: var(--sans-serif-fonts);
