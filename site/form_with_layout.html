@@ -23,18 +23,26 @@
     :root {
         --fixed-sidebar-w: 28ch;
     }
+
+    #side-menu {
+        width: 28ch;
+        border-right: 1px solid var(--grey-2);
+        height: 100vh;
+    }
+
+    #main-container {
+        padding: 0 1rem;
+    }
     </style>
 
   </head>
   <body>
     <div class="flex-sidebar fixed gap">
         <nav id="side-menu" class="sidemenu">
-          <div align="center">
-             <h1>
-             <img width="32" src="./assets/olives.png" />
-             Farga
-             </h1>
-          </div>
+          <hgroup class="flex" align="center">
+             <img width="48" src="./assets/olives.png" />
+             <h1> Farga </h1>
+          </hgroup>
           <p>Farga Documentation</p>
           <ul>
               <li><a href="./index.html">Home</a></li>
@@ -63,8 +71,7 @@
             </summary>
             <ul>
               <li><a href="./form.html">Form Basic</a></li>
-              <li><a href="./form_with_layout.html">Form Layout</a></li>
-              <li><a href="./sign_up_form.html">Signup Form</a></li>
+              <li><a href="./form_with_layout.html">Form Layouts</a></li>
             </ul>
           </details>
           <details open>
@@ -108,9 +115,8 @@
             </ul>
           </details>
         </nav>
-
-        <main>
-            
+        <main id="main-container">
+          
 <div>
   <h1>Form With Layouts</h1>
 
