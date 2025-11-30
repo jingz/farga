@@ -1,5 +1,5 @@
 <div align="center">
-  <img width="180px" src="./site/assets/farga.svg" />
+  <img width="180px" src="./site/assets/olives.png" />
 </div>
 
 Farga
