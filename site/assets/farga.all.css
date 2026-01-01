@@ -487,7 +487,7 @@ nav.basic ul li:hover {
 }
 nav.basic ul li.active {
   color: var(--text-color-primary);
-  background-color: var(--primary-0);
+  background-color: var(--bg-primary-alt);
 }
 nav.basic ul li a {
   text-decoration: none;
