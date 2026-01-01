@@ -2,7 +2,7 @@ import os
 from jinja2 import Environment, FileSystemLoader
 
 env = Environment(
-        loader=FileSystemLoader("site_templates"),
+        loader=FileSystemLoader("templates"),
         autoescape=False)
 
 index_html = env.get_template("pages/index.html")
@@ -12,7 +12,7 @@ index_html = env.get_template("pages/index.html")
 # render all the files in the pages
 # and write output corresonding the the file name
 
-directory = os.fsencode("site_templates/pages")
+directory = os.fsencode("templates/pages")
 for file in os.listdir(directory):
     filename = os.fsdecode(file)
     if not filename.endswith("html"):
