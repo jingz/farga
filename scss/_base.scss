@@ -228,6 +228,7 @@ $base-font-size: 14px;
     --grey-9: hsl(0, 0%, 23%);
     --grey-10: hsl(0, 0%, 18%);
     --grey-11: hsl(0, 0%, 9%);
+    --grey-12: hsl(0, 0%, 3%);
 
     /* ------------------------------------------ */
     /* Theme */
@@ -270,10 +271,12 @@ $base-font-size: 14px;
     --bg-toggle-color: var(--grey-3);
     --bg-input-color: var(--grey-a);
 
-    --success-color: var(--green-7);
-    --bg-success-color: var(--green-7);
+    --success-color: var(--green-9);
+    --bg-success-color: var(--green-2);
     --danger-color: var(--red-7);
-    --bg-danger-color: var(--red-7);
+    --bg-danger-color: var(--red-2);
+    --info-color: var(--blue-7);
+    --bg-info-color: var(--blue-2);
 
     /* ---------------------------------------------- */
     /* config variable */
@@ -313,7 +316,7 @@ body.dark-mode {
   --text-color-muted: var(--grey-5);
 
   --bg-primary: black;
-  --bg-primary-alt: var(--grey-9);
+  --bg-primary-alt: var(--grey-10);
 
   /* used for headers and as a background color from some links and the form's submit button */
   --primary: var(--primary-4);
@@ -335,10 +338,14 @@ body.dark-mode {
   --bg-toggle-color: var(--grey-6);
   --bg-input-color: var(--grey-11);
 
-  --success-color: var(--green-5);
-  --bg-success-color: var(--green-7);
-  --danger-color: var(--red-5);
-  --bg-danger-color: var(--red-8);
+  --success-color: var(--green-2);
+  --bg-success-color: var(--green-8);
+  --danger-color: var(--red-2);
+  --bg-danger-color: var(--red-7);
+  --info-color: var(--blue-2);
+  --bg-info-color: var(--blue-7);
+  --disabled-color: var(--grey-5);
+  --bg-disabled-color: var(--grey-10);
 }
 
 /* reset */

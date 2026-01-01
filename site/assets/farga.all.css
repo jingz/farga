@@ -206,6 +206,7 @@
   --grey-9: hsl(0, 0%, 23%);
   --grey-10: hsl(0, 0%, 18%);
   --grey-11: hsl(0, 0%, 9%);
+  --grey-12: hsl(0, 0%, 3%);
   /* ------------------------------------------ */
   /* Theme */
   /* default is light */
@@ -236,10 +237,12 @@
   /* form */
   --bg-toggle-color: var(--grey-3);
   --bg-input-color: var(--grey-a);
-  --success-color: var(--green-7);
-  --bg-success-color: var(--green-7);
+  --success-color: var(--green-9);
+  --bg-success-color: var(--green-2);
   --danger-color: var(--red-7);
-  --bg-danger-color: var(--red-7);
+  --bg-danger-color: var(--red-2);
+  --info-color: var(--blue-7);
+  --bg-info-color: var(--blue-2);
   /* ---------------------------------------------- */
   /* config variable */
   --fixed-sidebar-w: 25ch;
@@ -250,7 +253,7 @@ body.dark-mode {
   --text-color-secondary: black;
   --text-color-muted: var(--grey-5);
   --bg-primary: black;
-  --bg-primary-alt: var(--grey-9);
+  --bg-primary-alt: var(--grey-10);
   /* used for headers and as a background color from some links and the form's submit button */
   --primary: var(--primary-4);
   --color-primary: var(--primary-4);
@@ -265,10 +268,14 @@ body.dark-mode {
   /* form */
   --bg-toggle-color: var(--grey-6);
   --bg-input-color: var(--grey-11);
-  --success-color: var(--green-5);
-  --bg-success-color: var(--green-7);
-  --danger-color: var(--red-5);
-  --bg-danger-color: var(--red-8);
+  --success-color: var(--green-2);
+  --bg-success-color: var(--green-8);
+  --danger-color: var(--red-2);
+  --bg-danger-color: var(--red-7);
+  --info-color: var(--blue-2);
+  --bg-info-color: var(--blue-7);
+  --disabled-color: var(--grey-5);
+  --bg-disabled-color: var(--grey-10);
 }
 
 /* reset */
@@ -1040,6 +1047,31 @@ table.striped tbody tr:nth-child(odd) {
 /* all css includes utilities */
 article.card {
   padding-left: 1rem;
+}
+
+/* all css includes utilities */
+span.badge {
+  font-size: var(--fs-1);
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: var(--bg-primary-alt);
+  cursor: default;
+}
+span.badge.success {
+  color: var(--success-color);
+  background-color: var(--bg-success-color);
+}
+span.badge.danger {
+  color: var(--danger-color);
+  background-color: var(--bg-danger-color);
+}
+span.badge.info {
+  color: var(--info-color);
+  background-color: var(--bg-info-color);
+}
+span.badge.disabled {
+  color: var(--disabled-color);
+  background-color: var(--bg-disabled-color);
 }
 
 .bg-primary-0 {

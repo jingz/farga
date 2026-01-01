@@ -1,0 +1,31 @@
+{% extends "layout/base.html" %}
+
+{% block inline_style %}
+{% endblock %}
+
+{% block content %}
+<div>
+  <hgroup>
+      <h1>Badge Component</h1>
+      <p>A Badge Component is a small, compact UI element that displays a piece of information or status in a visually distinct way. Badges are commonly used to indicate counts, labels, or statuses.</p>
+  </hgroup>
+
+  {% set badge %}
+      <span class="badge">badge text</span>
+      <span class="badge success">active</span>
+      <span class="badge danger">inactive</span>
+      <span class="badge info">info</span>
+      <span class="badge disabled">disabled</span>{% endset %}
+
+  <div>
+      {{ badge }}
+  </div>
+
+  <br/>
+
+  <details open>
+      <summary>Example Code</summary>
+      <pre>{{ badge | e }}</pre>
+  </details>
+</div>
+{% endblock %}

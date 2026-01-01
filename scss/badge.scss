@@ -1,0 +1,29 @@
+@use 'base';
+
+span.badge {
+  font-size: var(--fs-1);
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: var(--bg-primary-alt);
+  cursor: default;
+
+  &.success {
+    color: var(--success-color);
+    background-color: var(--bg-success-color);
+  }
+
+  &.danger {
+    color: var(--danger-color);
+    background-color: var(--bg-danger-color);
+  }
+
+  &.info {
+    color: var(--info-color);
+    background-color: var(--bg-info-color);
+  }
+
+  &.disabled {
+    color: var(--disabled-color);
+    background-color: var(--bg-disabled-color);
+  }
+}
