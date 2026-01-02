@@ -1056,6 +1056,7 @@ span.badge {
   border-radius: 5px;
   background-color: var(--bg-primary-alt);
   cursor: default;
+  white-space: nowrap;
 }
 span.badge.success {
   color: var(--success-color);
