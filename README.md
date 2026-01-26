@@ -2,34 +2,65 @@
   <img width="180px" src="./site/assets/olives.png" />
 </div>
 
-Farga
-====
+# Farga
+**CSS Design System**
 
-CSS Design System
+Farga is a CSS design system that provides a collection of reusable components and patterns to help build consistent, responsive websites and applications.
 
-## Installation for building
+## Overview
 
-**Install sass builder**
+This project combines SCSS preprocessing with static site generation to create a flexible and maintainable design system. The system includes various UI components like buttons, cards, badges, accordions, and more.
 
-```sh
-npm install -g sass
-```
+## Getting Started
 
-[and install uv python](https://docs.astral.sh/uv/#installation)
+### Prerequisites
 
-**Install template engine for static site generation**
+You'll need to install the following tools before building the project:
 
-```python
-uv venv
-uv pip install jinja2
-```
+- **SASS**: A CSS preprocessor that adds features like variables, nesting, and mixins
+- **Python UV**: A fast Python package installer and resolver
 
-**run build**
+### Installation Steps
+
+1. **Install SASS globally**
+   ```bash
+   npm install -g sass
+   ```
+
+2. **Install UV Python package manager**
+   ```bash
+   # Follow installation guide at: https://docs.astral.sh/uv/#installation
+   ```
+
+3. **Set up the Python environment and install dependencies**
+   ```bash
+   # Create a virtual environment
+   uv venv
+   
+   # Install the template engine for static site generation
+   uv pip install jinja2
+   ```
+
+### Building the Project
+
+Once everything is installed, you can build the project:
 
 ```bash
 make build
 ```
 
+This command will process the SCSS files and generate the static site.
+
 ## Project Structure
 
-folder `site` is where the built website files reside
+- **`scss/`**: Contains all the source SCSS files for the design system
+  - `_base.scss`: Base styles and global variables
+  - `button.scss`: Button component styles
+  - `card.scss`: Card component styles
+  - `badge.scss`: Badge component styles
+  - `accordion.scss`: Accordion component styles
+  - `all.scss`: Main file that imports all other SCSS files
+- **`templates/`**: Jinja2 templates for static site generation
+- **`site/`**: Output directory where the built website files are placed
+- **`main.py`**: Python script for static site generation
+- **`Makefile`**: Build automation commands
