@@ -1,3 +1,4 @@
 *.swp
 *.map
 copy.sh
+.env
