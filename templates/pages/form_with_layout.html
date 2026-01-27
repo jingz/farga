@@ -1,8 +1,5 @@
 {% extends "layout/base.html" %}
 
-{% block inline_style %}
-{% endblock %}
-
 {% block content %}
 <div>
   <h1>Form With Layouts</h1>
@@ -52,10 +49,11 @@
   </hgroup>
 
   {% set signin_form %}
+  <div class="form-container" style="width: 300px;">
   <form>
-    <fieldset style="width: 300px;">
+    <fieldset>
       <p>
-          <h3>Sign in to your account</h3>
+        <h3>Sign in to your account</h3>
       </p>
 
       <p>
@@ -64,18 +62,21 @@
       </p>
 
       <div class="flex-btw">
-          <label for="email">Password:</label>
-          <small><a href="#">Forgot Password?</a></small>
+        <label for="email">Password:</label>
+        <small><a href="#">Forgot Password?</a></small>
       </div>
       <p>
-          <input type="text" required value="" />
+        <input type="text" required value="" />
       </p>
+
       <br/>
+
       <p>
         <input class="btn btn-small" type="submit" value="Sign in" />
       </p>
     </fieldset>
   </form>
+  </div>
   {% endset %}
 
   {{ signin_form }}
@@ -85,6 +86,228 @@
   <details open>
     <summary>Example Code</summary>
     <pre>{{ signin_form | e}} </pre>
+  </details>
+
+  <br />
+
+  <hgroup>
+    <h2>Contact Form</h2>
+    <p>A standard contact form for user inquiries.</p>
+  </hgroup>
+
+  {% set contact_form %}
+  <div class="form-container" style="width: 600px;">
+    <form>
+      <fieldset>
+        <legend>Contact Us</legend>
+
+        <p>
+          <label for="contact-name">Full Name</label>
+          <input type="text" id="contact-name" name="name" placeholder="Enter your full name" required />
+        </p>
+
+        <p>
+          <label for="contact-email">Email Address</label>
+          <input type="email" id="contact-email" name="email" placeholder="Enter your email" required />
+        </p>
+
+        <p>
+          <label for="contact-subject">Subject</label>
+          <input type="text" id="contact-subject" name="subject" placeholder="What is this regarding?" required />
+        </p>
+
+        <p>
+          <label for="contact-message">Message</label>
+          <textarea id="contact-message" name="message" rows="5" placeholder="How can we help you?" required></textarea>
+        </p>
+
+        <p>
+          <label>
+            <input type="checkbox" name="newsletter" value="yes" /> Subscribe to newsletter
+          </label>
+        </p>
+
+        <footer class="actions">
+          <button type="submit" class="btn">Send Message</button>
+          <button type="reset" class="btn btn-outline">Clear Form</button>
+        </footer>
+      </fieldset>
+    </form>
+  </div>
+  {% endset %}
+
+  {{ contact_form }}
+
+  <br />
+
+  <details>
+    <summary>Example Code</summary>
+    <pre>{{ contact_form | e}} </pre>
+  </details>
+
+  <br />
+
+  <hgroup>
+    <h2>User Registration Form</h2>
+    <p>A comprehensive form for new user signups.</p>
+  </hgroup>
+
+  {% set registration_form %}
+  <div class="form-container" style="width: 600px;">
+    <form>
+      <fieldset>
+        <legend>Create Your Account</legend>
+
+        <div class="flex-stretch">
+          <p>
+            <label for="first-name">First Name</label>
+            <input type="text" id="first-name" name="firstName" placeholder="First name" required />
+          </p>
+
+          <p>
+            <label for="last-name">Last Name</label>
+            <input type="text" id="last-name" name="lastName" placeholder="Last name" required />
+          </p>
+        </div>
+
+        <p>
+          <label for="reg-email">Email Address</label>
+          <input type="email" id="reg-email" name="email" placeholder="Enter your email" required />
+        </p>
+
+        <p>
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="(123) 456-7890" />
+        </p>
+
+        <p>
+          <label for="dob">Date of Birth</label>
+          <input type="date" id="dob" name="dob" />
+        </p>
+
+        <div class="flex-stretch">
+          <p>
+            <label for="password-reg">Password</label>
+            <input type="password" id="password-reg" name="password" placeholder="Create password" required />
+          </p>
+
+          <p>
+            <label for="confirm-password">Confirm Password</label>
+            <input type="password" id="confirm-password" name="confirmPassword" placeholder="Confirm password" required />
+          </p>
+        </div>
+
+        <p>
+          <label for="country">Country</label>
+          <select id="country" name="country" required>
+            <option value="">Select Country</option>
+            <option value="us">United States</option>
+            <option value="ca">Canada</option>
+            <option value="uk">United Kingdom</option>
+            <option value="au">Australia</option>
+            <option value="de">Germany</option>
+            <option value="fr">France</option>
+            <option value="jp">Japan</option>
+            <option value="other">Other</option>
+          </select>
+        </p>
+
+        <p>
+          <label>
+            <input type="checkbox" name="terms" value="agreed" required /> I agree to the Terms of Service and Privacy Policy
+          </label>
+        </p>
+
+        <p>
+          <label>
+            <input type="checkbox" name="marketing" value="yes" /> Send me marketing emails
+          </label>
+        </p>
+
+        <footer class="actions">
+          <button type="submit" class="btn">Create Account</button>
+          <button type="reset" class="btn btn-outline">Reset Form</button>
+        </footer>
+      </fieldset>
+    </form>
+  </div>
+  {% endset %}
+
+  {{ registration_form }}
+
+  <br />
+
+  <details>
+    <summary>Example Code</summary>
+    <pre>{{ registration_form | e}} </pre>
+  </details>
+
+  <br />
+
+  <hgroup>
+    <h2>Product Search Form</h2>
+    <p>A form for searching products with filters.</p>
+  </hgroup>
+
+  {% set search_form %}
+  <div class="form-container" style="width: 600px;">
+    <form>
+      <fieldset>
+        <legend>Find Products</legend>
+
+        <div class="flex-stretch">
+          <p>
+            <label for="search-query">Search</label>
+            <input type="search" id="search-query" name="query" placeholder="What are you looking for?" />
+          </p>
+
+          <p>
+            <label for="category">Category</label>
+            <select id="category" name="category">
+              <option value="">All Categories</option>
+              <option value="electronics">Electronics</option>
+              <option value="clothing">Clothing</option>
+              <option value="books">Books</option>
+              <option value="home">Home & Garden</option>
+              <option value="sports">Sports</option>
+            </select>
+          </p>
+        </div>
+
+        <div class="flex-stretch">
+          <p>
+            <label for="min-price">Min Price ($)</label>
+            <input type="number" id="min-price" name="minPrice" min="0" step="0.01" placeholder="0.00" />
+          </p>
+
+          <p>
+            <label for="max-price">Max Price ($)</label>
+            <input type="number" id="max-price" name="maxPrice" min="0" step="0.01" placeholder="999.99" />
+          </p>
+        </div>
+
+        <p>
+          <label>
+            <input type="checkbox" name="free-shipping" value="yes" /> Free Shipping Only
+          </label>
+        </p>
+
+        <footer class="actions">
+          <button type="submit" class="btn">Search Products</button>
+          <button type="reset" class="btn btn-outline">Clear Filters</button>
+        </footer>
+      </fieldset>
+    </form>
+  </div>
+  {% endset %}
+
+  {{ search_form }}
+
+  <br />
+
+  <details>
+    <summary>Example Code</summary>
+    <pre>{{ search_form | e}} </pre>
   </details>
 
 </div>

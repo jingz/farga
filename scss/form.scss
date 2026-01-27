@@ -133,7 +133,12 @@ form {
 
   /* bottom most section of the form */
   footer {
-    padding: var(--fs-1);
+    &.actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
   }
 
   textarea {

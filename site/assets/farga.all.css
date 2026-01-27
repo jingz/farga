@@ -828,8 +828,11 @@ form fieldset legend {
 form {
   /* bottom most section of the form */
 }
-form footer {
-  padding: var(--fs-1);
+form footer.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 1rem;
 }
 form textarea {
   font-family: var(--sans-serif-fonts);

@@ -8,7 +8,6 @@
     <style type="text/css" media="all">
     
 
-
     body {
         pre {
           font-size: 0.8rem;
@@ -190,10 +189,11 @@
   
 
   
+  <div class="form-container" style="width: 300px;">
   <form>
-    <fieldset style="width: 300px;">
+    <fieldset>
       <p>
-          <h3>Sign in to your account</h3>
+        <h3>Sign in to your account</h3>
       </p>
 
       <p>
@@ -202,18 +202,21 @@
       </p>
 
       <div class="flex-btw">
-          <label for="email">Password:</label>
-          <small><a href="#">Forgot Password?</a></small>
+        <label for="email">Password:</label>
+        <small><a href="#">Forgot Password?</a></small>
       </div>
       <p>
-          <input type="text" required value="" />
+        <input type="text" required value="" />
       </p>
+
       <br/>
+
       <p>
         <input class="btn btn-small" type="submit" value="Sign in" />
       </p>
     </fieldset>
   </form>
+  </div>
   
 
   <br/>
@@ -221,10 +224,11 @@
   <details open>
     <summary>Example Code</summary>
     <pre>
+  &lt;div class=&#34;form-container&#34; style=&#34;width: 300px;&#34;&gt;
   &lt;form&gt;
-    &lt;fieldset style=&#34;width: 300px;&#34;&gt;
+    &lt;fieldset&gt;
       &lt;p&gt;
-          &lt;h3&gt;Sign in to your account&lt;/h3&gt;
+        &lt;h3&gt;Sign in to your account&lt;/h3&gt;
       &lt;/p&gt;
 
       &lt;p&gt;
@@ -233,18 +237,411 @@
       &lt;/p&gt;
 
       &lt;div class=&#34;flex-btw&#34;&gt;
-          &lt;label for=&#34;email&#34;&gt;Password:&lt;/label&gt;
-          &lt;small&gt;&lt;a href=&#34;#&#34;&gt;Forgot Password?&lt;/a&gt;&lt;/small&gt;
+        &lt;label for=&#34;email&#34;&gt;Password:&lt;/label&gt;
+        &lt;small&gt;&lt;a href=&#34;#&#34;&gt;Forgot Password?&lt;/a&gt;&lt;/small&gt;
       &lt;/div&gt;
       &lt;p&gt;
-          &lt;input type=&#34;text&#34; required value=&#34;&#34; /&gt;
+        &lt;input type=&#34;text&#34; required value=&#34;&#34; /&gt;
       &lt;/p&gt;
+
       &lt;br/&gt;
+
       &lt;p&gt;
         &lt;input class=&#34;btn btn-small&#34; type=&#34;submit&#34; value=&#34;Sign in&#34; /&gt;
       &lt;/p&gt;
     &lt;/fieldset&gt;
   &lt;/form&gt;
+  &lt;/div&gt;
+   </pre>
+  </details>
+
+  <br />
+
+  <hgroup>
+    <h2>Contact Form</h2>
+    <p>A standard contact form for user inquiries.</p>
+  </hgroup>
+
+  
+
+  
+  <div class="form-container" style="width: 600px;">
+    <form>
+      <fieldset>
+        <legend>Contact Us</legend>
+
+        <p>
+          <label for="contact-name">Full Name</label>
+          <input type="text" id="contact-name" name="name" placeholder="Enter your full name" required />
+        </p>
+
+        <p>
+          <label for="contact-email">Email Address</label>
+          <input type="email" id="contact-email" name="email" placeholder="Enter your email" required />
+        </p>
+
+        <p>
+          <label for="contact-subject">Subject</label>
+          <input type="text" id="contact-subject" name="subject" placeholder="What is this regarding?" required />
+        </p>
+
+        <p>
+          <label for="contact-message">Message</label>
+          <textarea id="contact-message" name="message" rows="5" placeholder="How can we help you?" required></textarea>
+        </p>
+
+        <p>
+          <label>
+            <input type="checkbox" name="newsletter" value="yes" /> Subscribe to newsletter
+          </label>
+        </p>
+
+        <footer class="actions">
+          <button type="submit" class="btn">Send Message</button>
+          <button type="reset" class="btn btn-outline">Clear Form</button>
+        </footer>
+      </fieldset>
+    </form>
+  </div>
+  
+
+  <br />
+
+  <details>
+    <summary>Example Code</summary>
+    <pre>
+  &lt;div class=&#34;form-container&#34; style=&#34;width: 600px;&#34;&gt;
+    &lt;form&gt;
+      &lt;fieldset&gt;
+        &lt;legend&gt;Contact Us&lt;/legend&gt;
+
+        &lt;p&gt;
+          &lt;label for=&#34;contact-name&#34;&gt;Full Name&lt;/label&gt;
+          &lt;input type=&#34;text&#34; id=&#34;contact-name&#34; name=&#34;name&#34; placeholder=&#34;Enter your full name&#34; required /&gt;
+        &lt;/p&gt;
+
+        &lt;p&gt;
+          &lt;label for=&#34;contact-email&#34;&gt;Email Address&lt;/label&gt;
+          &lt;input type=&#34;email&#34; id=&#34;contact-email&#34; name=&#34;email&#34; placeholder=&#34;Enter your email&#34; required /&gt;
+        &lt;/p&gt;
+
+        &lt;p&gt;
+          &lt;label for=&#34;contact-subject&#34;&gt;Subject&lt;/label&gt;
+          &lt;input type=&#34;text&#34; id=&#34;contact-subject&#34; name=&#34;subject&#34; placeholder=&#34;What is this regarding?&#34; required /&gt;
+        &lt;/p&gt;
+
+        &lt;p&gt;
+          &lt;label for=&#34;contact-message&#34;&gt;Message&lt;/label&gt;
+          &lt;textarea id=&#34;contact-message&#34; name=&#34;message&#34; rows=&#34;5&#34; placeholder=&#34;How can we help you?&#34; required&gt;&lt;/textarea&gt;
+        &lt;/p&gt;
+
+        &lt;p&gt;
+          &lt;label&gt;
+            &lt;input type=&#34;checkbox&#34; name=&#34;newsletter&#34; value=&#34;yes&#34; /&gt; Subscribe to newsletter
+          &lt;/label&gt;
+        &lt;/p&gt;
+
+        &lt;footer class=&#34;actions&#34;&gt;
+          &lt;button type=&#34;submit&#34; class=&#34;btn&#34;&gt;Send Message&lt;/button&gt;
+          &lt;button type=&#34;reset&#34; class=&#34;btn btn-outline&#34;&gt;Clear Form&lt;/button&gt;
+        &lt;/footer&gt;
+      &lt;/fieldset&gt;
+    &lt;/form&gt;
+  &lt;/div&gt;
+   </pre>
+  </details>
+
+  <br />
+
+  <hgroup>
+    <h2>User Registration Form</h2>
+    <p>A comprehensive form for new user signups.</p>
+  </hgroup>
+
+  
+
+  
+  <div class="form-container" style="width: 600px;">
+    <form>
+      <fieldset>
+        <legend>Create Your Account</legend>
+
+        <div class="flex-stretch">
+          <p>
+            <label for="first-name">First Name</label>
+            <input type="text" id="first-name" name="firstName" placeholder="First name" required />
+          </p>
+
+          <p>
+            <label for="last-name">Last Name</label>
+            <input type="text" id="last-name" name="lastName" placeholder="Last name" required />
+          </p>
+        </div>
+
+        <p>
+          <label for="reg-email">Email Address</label>
+          <input type="email" id="reg-email" name="email" placeholder="Enter your email" required />
+        </p>
+
+        <p>
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="(123) 456-7890" />
+        </p>
+
+        <p>
+          <label for="dob">Date of Birth</label>
+          <input type="date" id="dob" name="dob" />
+        </p>
+
+        <div class="flex-stretch">
+          <p>
+            <label for="password-reg">Password</label>
+            <input type="password" id="password-reg" name="password" placeholder="Create password" required />
+          </p>
+
+          <p>
+            <label for="confirm-password">Confirm Password</label>
+            <input type="password" id="confirm-password" name="confirmPassword" placeholder="Confirm password" required />
+          </p>
+        </div>
+
+        <p>
+          <label for="country">Country</label>
+          <select id="country" name="country" required>
+            <option value="">Select Country</option>
+            <option value="us">United States</option>
+            <option value="ca">Canada</option>
+            <option value="uk">United Kingdom</option>
+            <option value="au">Australia</option>
+            <option value="de">Germany</option>
+            <option value="fr">France</option>
+            <option value="jp">Japan</option>
+            <option value="other">Other</option>
+          </select>
+        </p>
+
+        <p>
+          <label>
+            <input type="checkbox" name="terms" value="agreed" required /> I agree to the Terms of Service and Privacy Policy
+          </label>
+        </p>
+
+        <p>
+          <label>
+            <input type="checkbox" name="marketing" value="yes" /> Send me marketing emails
+          </label>
+        </p>
+
+        <footer class="actions">
+          <button type="submit" class="btn">Create Account</button>
+          <button type="reset" class="btn btn-outline">Reset Form</button>
+        </footer>
+      </fieldset>
+    </form>
+  </div>
+  
+
+  <br />
+
+  <details>
+    <summary>Example Code</summary>
+    <pre>
+  &lt;div class=&#34;form-container&#34; style=&#34;width: 600px;&#34;&gt;
+    &lt;form&gt;
+      &lt;fieldset&gt;
+        &lt;legend&gt;Create Your Account&lt;/legend&gt;
+
+        &lt;div class=&#34;flex-stretch&#34;&gt;
+          &lt;p&gt;
+            &lt;label for=&#34;first-name&#34;&gt;First Name&lt;/label&gt;
+            &lt;input type=&#34;text&#34; id=&#34;first-name&#34; name=&#34;firstName&#34; placeholder=&#34;First name&#34; required /&gt;
+          &lt;/p&gt;
+
+          &lt;p&gt;
+            &lt;label for=&#34;last-name&#34;&gt;Last Name&lt;/label&gt;
+            &lt;input type=&#34;text&#34; id=&#34;last-name&#34; name=&#34;lastName&#34; placeholder=&#34;Last name&#34; required /&gt;
+          &lt;/p&gt;
+        &lt;/div&gt;
+
+        &lt;p&gt;
+          &lt;label for=&#34;reg-email&#34;&gt;Email Address&lt;/label&gt;
+          &lt;input type=&#34;email&#34; id=&#34;reg-email&#34; name=&#34;email&#34; placeholder=&#34;Enter your email&#34; required /&gt;
+        &lt;/p&gt;
+
+        &lt;p&gt;
+          &lt;label for=&#34;phone&#34;&gt;Phone Number&lt;/label&gt;
+          &lt;input type=&#34;tel&#34; id=&#34;phone&#34; name=&#34;phone&#34; placeholder=&#34;(123) 456-7890&#34; /&gt;
+        &lt;/p&gt;
+
+        &lt;p&gt;
+          &lt;label for=&#34;dob&#34;&gt;Date of Birth&lt;/label&gt;
+          &lt;input type=&#34;date&#34; id=&#34;dob&#34; name=&#34;dob&#34; /&gt;
+        &lt;/p&gt;
+
+        &lt;div class=&#34;flex-stretch&#34;&gt;
+          &lt;p&gt;
+            &lt;label for=&#34;password-reg&#34;&gt;Password&lt;/label&gt;
+            &lt;input type=&#34;password&#34; id=&#34;password-reg&#34; name=&#34;password&#34; placeholder=&#34;Create password&#34; required /&gt;
+          &lt;/p&gt;
+
+          &lt;p&gt;
+            &lt;label for=&#34;confirm-password&#34;&gt;Confirm Password&lt;/label&gt;
+            &lt;input type=&#34;password&#34; id=&#34;confirm-password&#34; name=&#34;confirmPassword&#34; placeholder=&#34;Confirm password&#34; required /&gt;
+          &lt;/p&gt;
+        &lt;/div&gt;
+
+        &lt;p&gt;
+          &lt;label for=&#34;country&#34;&gt;Country&lt;/label&gt;
+          &lt;select id=&#34;country&#34; name=&#34;country&#34; required&gt;
+            &lt;option value=&#34;&#34;&gt;Select Country&lt;/option&gt;
+            &lt;option value=&#34;us&#34;&gt;United States&lt;/option&gt;
+            &lt;option value=&#34;ca&#34;&gt;Canada&lt;/option&gt;
+            &lt;option value=&#34;uk&#34;&gt;United Kingdom&lt;/option&gt;
+            &lt;option value=&#34;au&#34;&gt;Australia&lt;/option&gt;
+            &lt;option value=&#34;de&#34;&gt;Germany&lt;/option&gt;
+            &lt;option value=&#34;fr&#34;&gt;France&lt;/option&gt;
+            &lt;option value=&#34;jp&#34;&gt;Japan&lt;/option&gt;
+            &lt;option value=&#34;other&#34;&gt;Other&lt;/option&gt;
+          &lt;/select&gt;
+        &lt;/p&gt;
+
+        &lt;p&gt;
+          &lt;label&gt;
+            &lt;input type=&#34;checkbox&#34; name=&#34;terms&#34; value=&#34;agreed&#34; required /&gt; I agree to the Terms of Service and Privacy Policy
+          &lt;/label&gt;
+        &lt;/p&gt;
+
+        &lt;p&gt;
+          &lt;label&gt;
+            &lt;input type=&#34;checkbox&#34; name=&#34;marketing&#34; value=&#34;yes&#34; /&gt; Send me marketing emails
+          &lt;/label&gt;
+        &lt;/p&gt;
+
+        &lt;footer class=&#34;actions&#34;&gt;
+          &lt;button type=&#34;submit&#34; class=&#34;btn&#34;&gt;Create Account&lt;/button&gt;
+          &lt;button type=&#34;reset&#34; class=&#34;btn btn-outline&#34;&gt;Reset Form&lt;/button&gt;
+        &lt;/footer&gt;
+      &lt;/fieldset&gt;
+    &lt;/form&gt;
+  &lt;/div&gt;
+   </pre>
+  </details>
+
+  <br />
+
+  <hgroup>
+    <h2>Product Search Form</h2>
+    <p>A form for searching products with filters.</p>
+  </hgroup>
+
+  
+
+  
+  <div class="form-container" style="width: 600px;">
+    <form>
+      <fieldset>
+        <legend>Find Products</legend>
+
+        <div class="flex-stretch">
+          <p>
+            <label for="search-query">Search</label>
+            <input type="search" id="search-query" name="query" placeholder="What are you looking for?" />
+          </p>
+
+          <p>
+            <label for="category">Category</label>
+            <select id="category" name="category">
+              <option value="">All Categories</option>
+              <option value="electronics">Electronics</option>
+              <option value="clothing">Clothing</option>
+              <option value="books">Books</option>
+              <option value="home">Home & Garden</option>
+              <option value="sports">Sports</option>
+            </select>
+          </p>
+        </div>
+
+        <div class="flex-stretch">
+          <p>
+            <label for="min-price">Min Price ($)</label>
+            <input type="number" id="min-price" name="minPrice" min="0" step="0.01" placeholder="0.00" />
+          </p>
+
+          <p>
+            <label for="max-price">Max Price ($)</label>
+            <input type="number" id="max-price" name="maxPrice" min="0" step="0.01" placeholder="999.99" />
+          </p>
+        </div>
+
+        <p>
+          <label>
+            <input type="checkbox" name="free-shipping" value="yes" /> Free Shipping Only
+          </label>
+        </p>
+
+        <footer class="actions">
+          <button type="submit" class="btn">Search Products</button>
+          <button type="reset" class="btn btn-outline">Clear Filters</button>
+        </footer>
+      </fieldset>
+    </form>
+  </div>
+  
+
+  <br />
+
+  <details>
+    <summary>Example Code</summary>
+    <pre>
+  &lt;div class=&#34;form-container&#34; style=&#34;width: 600px;&#34;&gt;
+    &lt;form&gt;
+      &lt;fieldset&gt;
+        &lt;legend&gt;Find Products&lt;/legend&gt;
+
+        &lt;div class=&#34;flex-stretch&#34;&gt;
+          &lt;p&gt;
+            &lt;label for=&#34;search-query&#34;&gt;Search&lt;/label&gt;
+            &lt;input type=&#34;search&#34; id=&#34;search-query&#34; name=&#34;query&#34; placeholder=&#34;What are you looking for?&#34; /&gt;
+          &lt;/p&gt;
+
+          &lt;p&gt;
+            &lt;label for=&#34;category&#34;&gt;Category&lt;/label&gt;
+            &lt;select id=&#34;category&#34; name=&#34;category&#34;&gt;
+              &lt;option value=&#34;&#34;&gt;All Categories&lt;/option&gt;
+              &lt;option value=&#34;electronics&#34;&gt;Electronics&lt;/option&gt;
+              &lt;option value=&#34;clothing&#34;&gt;Clothing&lt;/option&gt;
+              &lt;option value=&#34;books&#34;&gt;Books&lt;/option&gt;
+              &lt;option value=&#34;home&#34;&gt;Home &amp; Garden&lt;/option&gt;
+              &lt;option value=&#34;sports&#34;&gt;Sports&lt;/option&gt;
+            &lt;/select&gt;
+          &lt;/p&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&#34;flex-stretch&#34;&gt;
+          &lt;p&gt;
+            &lt;label for=&#34;min-price&#34;&gt;Min Price ($)&lt;/label&gt;
+            &lt;input type=&#34;number&#34; id=&#34;min-price&#34; name=&#34;minPrice&#34; min=&#34;0&#34; step=&#34;0.01&#34; placeholder=&#34;0.00&#34; /&gt;
+          &lt;/p&gt;
+
+          &lt;p&gt;
+            &lt;label for=&#34;max-price&#34;&gt;Max Price ($)&lt;/label&gt;
+            &lt;input type=&#34;number&#34; id=&#34;max-price&#34; name=&#34;maxPrice&#34; min=&#34;0&#34; step=&#34;0.01&#34; placeholder=&#34;999.99&#34; /&gt;
+          &lt;/p&gt;
+        &lt;/div&gt;
+
+        &lt;p&gt;
+          &lt;label&gt;
+            &lt;input type=&#34;checkbox&#34; name=&#34;free-shipping&#34; value=&#34;yes&#34; /&gt; Free Shipping Only
+          &lt;/label&gt;
+        &lt;/p&gt;
+
+        &lt;footer class=&#34;actions&#34;&gt;
+          &lt;button type=&#34;submit&#34; class=&#34;btn&#34;&gt;Search Products&lt;/button&gt;
+          &lt;button type=&#34;reset&#34; class=&#34;btn btn-outline&#34;&gt;Clear Filters&lt;/button&gt;
+        &lt;/footer&gt;
+      &lt;/fieldset&gt;
+    &lt;/form&gt;
+  &lt;/div&gt;
    </pre>
   </details>
 
