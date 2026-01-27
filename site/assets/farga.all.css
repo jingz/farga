@@ -813,9 +813,6 @@ form div {
   display: flex;
   align-items: baseline;
 }
-form div * + * {
-  margin-left: 0.25rem;
-}
 form fieldset {
   border: 1px solid var(--dim);
   border-radius: 5px;
