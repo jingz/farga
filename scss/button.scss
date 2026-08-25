@@ -17,8 +17,8 @@ $btn-padding-large: 12px 16px;
 }
 
 %primary-button {
-  background-color: var(--primary-8);
-  color: var(--primary-1);
+  background-color: var(--primary-6);
+  color: var(--primary-0);
   padding: 8px 10px;
   font-size: base.$base-font-size;
   border: 0px;
@@ -30,7 +30,7 @@ button, .btn {
   @extend %primary-button;
 
   &:hover {
-    background-color: var(--primary-7);
+    background-color: var(--primary-5);
     color: var(--primary-0);
   }
 
