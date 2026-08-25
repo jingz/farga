@@ -123,6 +123,41 @@ a.btn {
   }
 }
 
+a.btn.btn-secondary {
+  &:link,
+  &:visited {
+    color: var(--secondary-1);
+  }
+}
+
+a.btn.btn-secondary-outline {
+  &:link,
+  &:visited {
+    color: var(--secondary-4);
+  }
+}
+
+a.btn.btn-danger {
+  &:link,
+  &:visited {
+    color: var(--red-1);
+  }
+}
+
+a.btn.btn-danger-outline {
+  &:link,
+  &:visited {
+    color: var(--red-4);
+  }
+}
+
+a.btn.btn-outline {
+  &:link,
+  &:visited {
+    color: var(--primary-5);
+  }
+}
+
 a {
   &:link {
     color: var(--violet-8);

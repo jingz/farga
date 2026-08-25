@@ -472,6 +472,26 @@ a.btn:link, a.btn:visited {
   text-decoration: none;
 }
 
+a.btn.btn-secondary:link, a.btn.btn-secondary:visited {
+  color: var(--secondary-1);
+}
+
+a.btn.btn-secondary-outline:link, a.btn.btn-secondary-outline:visited {
+  color: var(--secondary-4);
+}
+
+a.btn.btn-danger:link, a.btn.btn-danger:visited {
+  color: var(--red-1);
+}
+
+a.btn.btn-danger-outline:link, a.btn.btn-danger-outline:visited {
+  color: var(--red-4);
+}
+
+a.btn.btn-outline:link, a.btn.btn-outline:visited {
+  color: var(--primary-5);
+}
+
 a:link {
   color: var(--violet-8);
 }
