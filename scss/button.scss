@@ -87,6 +87,17 @@ button, .btn {
       }
   }
 
+  a {
+    color: inherit;
+    text-decoration: none;
+
+    &:link,
+    &:visited {
+      color: inherit;
+      text-decoration: none;
+    }
+  }
+
   // size
   &.btn-small {
     font-size: 12px;
@@ -101,6 +112,14 @@ button, .btn {
   &.btn-extra {
     font-size: 20px;
     padding: 15px 30px;
+  }
+}
+
+a.btn {
+  &:link,
+  &:visited {
+    color: var(--primary-0);
+    text-decoration: none;
   }
 }
 
