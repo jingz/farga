@@ -1,0 +1,32 @@
+{% extends "layout/base.html" %}
+
+{% block content %}
+<div>
+  <hgroup>
+    <h1>Detail List</h1>
+    <p>A detail list is a key-value UI block for displaying record details in admin or data views.</p>
+  </hgroup>
+
+  {% set detail_list %}
+  <dl class="detail-list">
+    <dt>Email</dt>
+    <dd>user@example.com</dd>
+    <dt>Role</dt>
+    <dd>Admin</dd>
+    <dt>Last login</dt>
+    <dd>2026-08-25 12:30</dd>
+    <dt>Status</dt>
+    <dd>Active</dd>
+  </dl>
+  {% endset %}
+
+  {{ detail_list }}
+
+  <br/>
+
+  <details open>
+    <summary>Example Code</summary>
+    <pre>{{ detail_list | e }}</pre>
+  </details>
+</div>
+{% endblock %}

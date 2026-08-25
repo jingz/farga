@@ -390,8 +390,8 @@ blockquote:before {
 }
 
 form input[type=submit], button, .btn {
-  background-color: var(--primary-8);
-  color: var(--primary-1);
+  background-color: var(--primary-6);
+  color: var(--primary-0);
   padding: 8px 10px;
   font-size: 14px;
   border: 0px;
@@ -400,7 +400,7 @@ form input[type=submit], button, .btn {
 }
 
 button:hover, .btn:hover {
-  background-color: var(--primary-7);
+  background-color: var(--primary-5);
   color: var(--primary-0);
 }
 button.btn-secondary, .btn.btn-secondary {
@@ -837,6 +837,35 @@ form textarea {
 form input[type=number], form input[type=tel] {
   font-family: var(--monospace-fonts);
 }
+.field-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+.field-row > label {
+  flex: 0 0 auto;
+  min-width: 8ch;
+  margin: 0;
+  font-family: var(--serif-fonts);
+  font-size: 0.8rem;
+  color: var(--text-color-primary);
+}
+.field-row > input:not([type=checkbox]):not([type=radio]),
+.field-row > select,
+.field-row > textarea {
+  flex: 1 1 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.field-error {
+  display: block;
+  margin: -0.5rem 0 0.75rem;
+  color: var(--danger-color);
+  font-size: 0.75rem;
+}
+
 /* all css includes utilities */
 table {
   border: 0;
@@ -1073,6 +1102,26 @@ span.badge.info {
 span.badge.disabled {
   color: var(--disabled-color);
   background-color: var(--bg-disabled-color);
+}
+
+/* all css includes utilities */
+.detail-list {
+  display: grid;
+  grid-template-columns: minmax(10rem, 1fr) 2fr;
+  gap: 0.75rem 1.25rem;
+  margin: 0;
+}
+.detail-list dt {
+  margin: 0;
+  font-family: var(--serif-fonts);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-color-muted);
+}
+.detail-list dd {
+  margin: 0;
+  color: var(--text-color-primary);
+  word-break: break-word;
 }
 
 .bg-primary-0 {
