@@ -915,6 +915,14 @@ table thead th {
   padding: 6px 10px;
   word-break: auto-phrase;
 }
+table thead th a {
+  font-family: var(--serif-fonts);
+  text-decoration: none;
+}
+table thead th a:link, table thead th a:visited {
+  color: var(--violet-8);
+  text-decoration: none;
+}
 table tbody tr {
   border-bottom: 1px solid var(--border-color-muted);
 }

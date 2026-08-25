@@ -38,6 +38,17 @@ table {
       color: var(--text-color-primary);
       padding: 6px 10px;
       word-break: auto-phrase;
+
+      a {
+        font-family: var(--serif-fonts);
+        text-decoration: none;
+
+        &:link,
+        &:visited {
+          color: var(--violet-8);
+          text-decoration: none;
+        }
+      }
     }
   }
 
