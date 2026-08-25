@@ -51,6 +51,20 @@ make build
 
 This command will process the SCSS files and generate the static site.
 
+## Detail List
+
+Use `.detail-list` for admin record detail views and any key/value display:
+
+```html
+<dl class="detail-list">
+  <dt>Email</dt>
+  <dd>user@example.com</dd>
+
+  <dt>Active</dt>
+  <dd>Yes</dd>
+</dl>
+```
+
 ## Project Structure
 
 - **`scss/`**: Contains all the source SCSS files for the design system
@@ -59,6 +73,7 @@ This command will process the SCSS files and generate the static site.
   - `card.scss`: Card component styles
   - `badge.scss`: Badge component styles
   - `accordion.scss`: Accordion component styles
+  - `detail.scss`: Detail list component styles for record detail views
   - `all.scss`: Main file that imports all other SCSS files
 - **`templates/`**: Jinja2 templates for static site generation
 - **`site/`**: Output directory where the built website files are placed
