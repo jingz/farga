@@ -2,3 +2,5 @@
 *.map
 copy.sh
 .env
+
+.DS_Store
