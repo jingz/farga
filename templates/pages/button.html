@@ -56,6 +56,26 @@
         <pre>{{ normal_buttons | e}}</pre>
       </details>
   </div>
+
+  <div>
+      <h2>Anchor Buttons</h2>
+{% set anchor_buttons %}<p>
+  <a class='btn' href='#'>Primary</a>
+  <a class='btn btn-outline' href='#'>Outline</a>
+  <a class='btn btn-secondary' href='#'>Secondary</a>
+  <a class='btn btn-secondary-outline' href='#'>Secondary</a>
+  <a class='btn btn-danger' href='#'>Danger</a>
+  <a class='btn btn-danger-outline' href='#'>Danger</a>
+</p>{% endset %}
+
+      {{ anchor_buttons }}
+
+      <br/>
+      <details open>
+        <summary>Example Code</summary>
+        <pre>{{ anchor_buttons | e}}</pre>
+      </details>
+  </div>
   <div>
       <h2>Large Buttons</h2>
 {% set large_buttons %}<p>
