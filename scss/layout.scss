@@ -36,6 +36,8 @@
   &.fixed > *:first-child{
     position: fixed;
     top: 0;
+    z-index: 1;
+    background-color: var(--bg-primary);
 
     &.full-h {
       height: 100vh;

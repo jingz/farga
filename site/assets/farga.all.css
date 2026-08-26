@@ -1024,6 +1024,8 @@ table.striped tbody tr:nth-child(odd) {
 .flex-sidebar.fixed > *:first-child {
   position: fixed;
   top: 0;
+  z-index: 1;
+  background-color: var(--bg-primary);
 }
 .flex-sidebar.fixed > *:first-child.full-h {
   height: 100vh;
