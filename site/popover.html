@@ -7,17 +7,6 @@
 
     <style type="text/css" media="all">
     
-#features {
-  ul {
-    margin-left: 1rem;
-    li { line-height: 1.5; }
-  }
-}
-
-#proj-name {
-  font-size: var(--fs-9);
-  font-weight: 300;
-}
 
 
     body {
@@ -133,28 +122,86 @@
         </nav>
         <main id="main-container">
           
-<section>
+<div>
   <hgroup>
-    <h1 id="proj-name" class="ft-cursive">Farga</h1>
-    <p>Farga – A Lightweight CSS Framework</p>
+    <h1>Popover &amp; Tooltip</h1>
+    <p>Lightweight popovers using the native HTML Popover API and pure CSS tooltips without JavaScript dependencies.</p>
   </hgroup>
 
-  <section id="features">
-    <h2>Features</h2>
-    <ul>
-      <li>Lightweight yet versatile design</li>
-      <li>Comprehensive design system</li>
-      <li>Customizable CSS variables</li>
-      <li>Fully responsive layouts</li>
-      <li>Optimized for fast rendering</li>
-      <li>Light and dark mode support</li>
-      <li>Classless approach by default</li>
-      <li>Essential admin components (Data Table, Form)</li>
-      <li>Web-safe fonts prioritized</li>
-      <li>Minimal animations with excellent user experience</li>
-    </ul>
-  </section>
-</section>
+  <h2>Native Popover</h2>
+  <p>Uses native <code>popover</code> and <code>popovertarget</code> attributes. Dismisses automatically when clicking outside or pressing <kbd>Esc</kbd>.</p>
+
+  
+
+  <div>
+    
+<button type="button" popovertarget="demo-popover">
+  Toggle Popover
+</button>
+
+<div id="demo-popover" popover>
+  <h4>Native Popover</h4>
+  <p>This popover is rendered in the top layer using native HTML attributes.</p>
+  <button type="button" popovertarget="demo-popover" popovertargetaction="hide" class="btn-small">
+    Close
+  </button>
+</div>
+  </div>
+
+  <br/>
+
+  <details open>
+    <summary>Example Code</summary>
+    <pre>
+&lt;button type=&#34;button&#34; popovertarget=&#34;demo-popover&#34;&gt;
+  Toggle Popover
+&lt;/button&gt;
+
+&lt;div id=&#34;demo-popover&#34; popover&gt;
+  &lt;h4&gt;Native Popover&lt;/h4&gt;
+  &lt;p&gt;This popover is rendered in the top layer using native HTML attributes.&lt;/p&gt;
+  &lt;button type=&#34;button&#34; popovertarget=&#34;demo-popover&#34; popovertargetaction=&#34;hide&#34; class=&#34;btn-small&#34;&gt;
+    Close
+  &lt;/button&gt;
+&lt;/div&gt;</pre>
+  </details>
+
+  <br/>
+
+  <h2>CSS Tooltip</h2>
+  <p>Add <code>data-tooltip="text"</code> to any element to display a tooltip on hover or keyboard focus.</p>
+
+  
+
+  <div>
+    
+<div style="display: flex; gap: 1.5rem; align-items: center; margin-top: 1.5rem;">
+  <button type="button" class="btn-secondary" data-tooltip="Save your current progress">
+    Save Changes
+  </button>
+
+  <span data-tooltip="Additional context information">
+    Hover for info
+  </span>
+</div>
+  </div>
+
+  <br/>
+
+  <details open>
+    <summary>Example Code</summary>
+    <pre>
+&lt;div style=&#34;display: flex; gap: 1.5rem; align-items: center; margin-top: 1.5rem;&#34;&gt;
+  &lt;button type=&#34;button&#34; class=&#34;btn-secondary&#34; data-tooltip=&#34;Save your current progress&#34;&gt;
+    Save Changes
+  &lt;/button&gt;
+
+  &lt;span data-tooltip=&#34;Additional context information&#34;&gt;
+    Hover for info
+  &lt;/span&gt;
+&lt;/div&gt;</pre>
+  </details>
+</div>
 
         </main>
     </div>

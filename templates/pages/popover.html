@@ -1,0 +1,67 @@
+{% extends "layout/base.html" %}
+
+{% block inline_style %}
+{% endblock %}
+
+{% block content %}
+<div>
+  <hgroup>
+    <h1>Popover &amp; Tooltip</h1>
+    <p>Lightweight popovers using the native HTML Popover API and pure CSS tooltips without JavaScript dependencies.</p>
+  </hgroup>
+
+  <h2>Native Popover</h2>
+  <p>Uses native <code>popover</code> and <code>popovertarget</code> attributes. Dismisses automatically when clicking outside or pressing <kbd>Esc</kbd>.</p>
+
+  {% set popover_example %}
+<button type="button" popovertarget="demo-popover">
+  Toggle Popover
+</button>
+
+<div id="demo-popover" popover>
+  <h4>Native Popover</h4>
+  <p>This popover is rendered in the top layer using native HTML attributes.</p>
+  <button type="button" popovertarget="demo-popover" popovertargetaction="hide" class="btn-small">
+    Close
+  </button>
+</div>{% endset %}
+
+  <div>
+    {{ popover_example }}
+  </div>
+
+  <br/>
+
+  <details open>
+    <summary>Example Code</summary>
+    <pre>{{ popover_example | e }}</pre>
+  </details>
+
+  <br/>
+
+  <h2>CSS Tooltip</h2>
+  <p>Add <code>data-tooltip="text"</code> to any element to display a tooltip on hover or keyboard focus.</p>
+
+  {% set tooltip_example %}
+<div style="display: flex; gap: 1.5rem; align-items: center; margin-top: 1.5rem;">
+  <button type="button" class="btn-secondary" data-tooltip="Save your current progress">
+    Save Changes
+  </button>
+
+  <span data-tooltip="Additional context information">
+    Hover for info
+  </span>
+</div>{% endset %}
+
+  <div>
+    {{ tooltip_example }}
+  </div>
+
+  <br/>
+
+  <details open>
+    <summary>Example Code</summary>
+    <pre>{{ tooltip_example | e }}</pre>
+  </details>
+</div>
+{% endblock %}

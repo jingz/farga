@@ -7,17 +7,6 @@
 
     <style type="text/css" media="all">
     
-#features {
-  ul {
-    margin-left: 1rem;
-    li { line-height: 1.5; }
-  }
-}
-
-#proj-name {
-  font-size: var(--fs-9);
-  font-weight: 300;
-}
 
 
     body {
@@ -133,28 +122,60 @@
         </nav>
         <main id="main-container">
           
-<section>
+<div>
   <hgroup>
-    <h1 id="proj-name" class="ft-cursive">Farga</h1>
-    <p>Farga – A Lightweight CSS Framework</p>
+    <h1>Dialog / Modal Component</h1>
+    <p>The native HTML <code>&lt;dialog&gt;</code> element provides built-in accessibility, backdrop overlay, and top-layer positioning.</p>
   </hgroup>
 
-  <section id="features">
-    <h2>Features</h2>
-    <ul>
-      <li>Lightweight yet versatile design</li>
-      <li>Comprehensive design system</li>
-      <li>Customizable CSS variables</li>
-      <li>Fully responsive layouts</li>
-      <li>Optimized for fast rendering</li>
-      <li>Light and dark mode support</li>
-      <li>Classless approach by default</li>
-      <li>Essential admin components (Data Table, Form)</li>
-      <li>Web-safe fonts prioritized</li>
-      <li>Minimal animations with excellent user experience</li>
-    </ul>
-  </section>
-</section>
+  <h2>Interactive Example</h2>
+  <p>Click the button below to open the modal. Use the close button or press <kbd>Esc</kbd> to dismiss.</p>
+
+  
+
+  <div>
+    
+<button type="button" onclick="document.getElementById('demo-dialog').showModal()">
+  Open Dialog
+</button>
+
+<dialog id="demo-dialog" role="alertdialog">
+  <header>
+    <h3>Confirm Action</h3>
+  </header>
+  <p>Are you sure you want to proceed with this operation? This action cannot be undone.</p>
+  <footer>
+    <form method="dialog">
+      <button class="btn-outline" value="cancel">Cancel</button>
+      <button class="btn-danger" value="confirm">Confirm</button>
+    </form>
+  </footer>
+</dialog>
+  </div>
+
+  <br/>
+
+  <details open>
+    <summary>Example Code</summary>
+    <pre>
+&lt;button type=&#34;button&#34; onclick=&#34;document.getElementById(&#39;demo-dialog&#39;).showModal()&#34;&gt;
+  Open Dialog
+&lt;/button&gt;
+
+&lt;dialog id=&#34;demo-dialog&#34; role=&#34;alertdialog&#34;&gt;
+  &lt;header&gt;
+    &lt;h3&gt;Confirm Action&lt;/h3&gt;
+  &lt;/header&gt;
+  &lt;p&gt;Are you sure you want to proceed with this operation? This action cannot be undone.&lt;/p&gt;
+  &lt;footer&gt;
+    &lt;form method=&#34;dialog&#34;&gt;
+      &lt;button class=&#34;btn-outline&#34; value=&#34;cancel&#34;&gt;Cancel&lt;/button&gt;
+      &lt;button class=&#34;btn-danger&#34; value=&#34;confirm&#34;&gt;Confirm&lt;/button&gt;
+    &lt;/form&gt;
+  &lt;/footer&gt;
+&lt;/dialog&gt;</pre>
+  </details>
+</div>
 
         </main>
     </div>

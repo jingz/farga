@@ -294,5 +294,30 @@
 
       <pre>{{ input_range | e }}</pre>
   </form>
+
+  <hgroup>
+      <h2>File Input</h2>
+      <p>File upload controls styled with native <code>::file-selector-button</code>.</p>
+  </hgroup>
+  <form>
+    {% set file_input %}
+<label>
+    Upload Document
+    <input type="file" name="document" />
+</label>
+
+<label>
+    Disabled Upload
+    <input type="file" name="disabled-doc" disabled />
+</label>{% endset %}
+
+    {{ file_input }}
+
+    <br/>
+    <details open>
+        <summary>Example Code</summary>
+        <pre>{{ file_input | e }}</pre>
+    </details>
+  </form>
 </div>
 {% endblock %}

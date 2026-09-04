@@ -57,16 +57,16 @@
   --primary-7: hsl(230, 80%, 41%);
   --primary-8: hsl(230, 80%, 32%);
   --primary-9: hsl(230, 80%, 23%);
-  --secondary-0: hsl(24, 80%, 94%);
-  --secondary-1: hsl(24, 80%, 90%);
-  --secondary-2: hsl(24, 80%, 86%);
-  --secondary-3: hsl(24, 80%, 77%);
-  --secondary-4: hsl(24, 80%, 68%);
-  --secondary-5: hsl(24, 80%, 59%);
-  --secondary-6: hsl(24, 80%, 50%);
-  --secondary-7: hsl(24, 80%, 41%);
-  --secondary-8: hsl(24, 80%, 32%);
-  --secondary-9: hsl(24, 80%, 23%);
+  --secondary-0: hsl(188, 80%, 94%);
+  --secondary-1: hsl(188, 80%, 90%);
+  --secondary-2: hsl(188, 80%, 86%);
+  --secondary-3: hsl(188, 80%, 77%);
+  --secondary-4: hsl(188, 80%, 68%);
+  --secondary-5: hsl(188, 80%, 59%);
+  --secondary-6: hsl(188, 80%, 50%);
+  --secondary-7: hsl(188, 80%, 41%);
+  --secondary-8: hsl(188, 80%, 32%);
+  --secondary-9: hsl(188, 80%, 23%);
   /* no-custom generation from  https://hypejunction.github.io/color-wizard/ */
   /* Color suffix 0-4 for dark text agiant white background */
   /* Color suffix 8-9 for white text and being dark text for 0-4 of the same shad */
@@ -243,6 +243,8 @@
   --bg-danger-color: var(--red-2);
   --info-color: var(--blue-7);
   --bg-info-color: var(--blue-2);
+  --warning-color: var(--yellow-9);
+  --bg-warning-color: var(--yellow-2);
   /* ---------------------------------------------- */
   /* config variable */
   --fixed-sidebar-w: 25ch;
@@ -274,6 +276,8 @@ body.dark-mode {
   --bg-danger-color: var(--red-7);
   --info-color: var(--blue-2);
   --bg-info-color: var(--blue-7);
+  --warning-color: var(--yellow-2);
+  --bg-warning-color: var(--yellow-8);
   --disabled-color: var(--grey-5);
   --bg-disabled-color: var(--grey-10);
 }
@@ -389,6 +393,10 @@ blockquote:before {
   padding: 8px 10px;
 }
 
+input[type=file]::file-selector-button {
+  padding: 6px 8px;
+}
+
 form input[type=submit], button, .btn {
   background-color: var(--primary-6);
   color: var(--primary-0);
@@ -421,12 +429,12 @@ button.btn-secondary-outline:hover, .btn.btn-secondary-outline:hover {
   border: 1px solid var(--secondary-6);
 }
 button.btn-danger, .btn.btn-danger {
-  background-color: var(--red-8);
-  color: var(--red-1);
+  background-color: var(--red-7);
+  color: var(--red-0);
 }
 button.btn-danger:hover, .btn.btn-danger:hover {
   color: var(--red-0);
-  background-color: var(--red-7);
+  background-color: var(--red-6);
 }
 button.btn-danger-outline, .btn.btn-danger-outline {
   background-color: var(--bg-primary);
@@ -436,6 +444,23 @@ button.btn-danger-outline, .btn.btn-danger-outline {
 button.btn-danger-outline:hover, .btn.btn-danger-outline:hover {
   color: var(--red-5);
   border: 1px solid var(--red-6);
+}
+button.btn-success, .btn.btn-success {
+  background-color: var(--green-7);
+  color: var(--green-0);
+}
+button.btn-success:hover, .btn.btn-success:hover {
+  color: var(--green-0);
+  background-color: var(--green-8);
+}
+button.btn-success-outline, .btn.btn-success-outline {
+  background-color: var(--bg-primary);
+  border: 1px solid var(--green-7);
+  color: var(--green-7);
+}
+button.btn-success-outline:hover, .btn.btn-success-outline:hover {
+  color: var(--green-8);
+  border: 1px solid var(--green-8);
 }
 button.btn-outline, .btn.btn-outline {
   background-color: var(--bg-primary);
@@ -486,6 +511,14 @@ a.btn.btn-danger:link, a.btn.btn-danger:visited {
 
 a.btn.btn-danger-outline:link, a.btn.btn-danger-outline:visited {
   color: var(--red-4);
+}
+
+a.btn.btn-success:link, a.btn.btn-success:visited {
+  color: var(--green-0);
+}
+
+a.btn.btn-success-outline:link, a.btn.btn-success-outline:visited {
+  color: var(--green-7);
 }
 
 a.btn.btn-outline:link, a.btn.btn-outline:visited {
@@ -870,6 +903,33 @@ form textarea {
 form input[type=number], form input[type=tel] {
   font-family: var(--monospace-fonts);
 }
+input[type=file] {
+  padding: 4px 8px;
+  cursor: pointer;
+  font-size: var(--fs-1);
+}
+input[type=file]::file-selector-button {
+  font-size: var(--fs-1);
+  font-family: inherit;
+  border: 0;
+  border-radius: 4px;
+  background-color: var(--primary-6);
+  color: var(--primary-0);
+  cursor: pointer;
+  margin-right: 0.75rem;
+}
+input[type=file]::file-selector-button:hover {
+  background-color: var(--primary-5);
+}
+input[type=file][disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+input[type=file][disabled]::file-selector-button {
+  cursor: not-allowed;
+  background-color: var(--disabled-color);
+}
+
 .field-row {
   display: flex;
   align-items: center;
@@ -1173,6 +1233,112 @@ span.badge.disabled {
 .detail-list dd:hover,
 .detail-list dt:has(+ dd:hover) {
   background-color: var(--bg-list-hover);
+}
+
+/* all css includes utilities */
+dialog {
+  background-color: var(--bg-primary);
+  color: var(--text-color-primary);
+  border: 1px solid var(--border-color-primary);
+  border-radius: 8px;
+  padding: 1.5rem;
+  max-width: min(90vw, 32rem);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(2px);
+}
+dialog header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+dialog header h1, dialog header h2, dialog header h3, dialog header h4 {
+  margin: 0;
+}
+dialog footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+/* all css includes utilities */
+.alert, [role=alert].alert {
+  padding: 0.75rem 1rem;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  background-color: var(--bg-primary-alt);
+  color: var(--text-color-primary);
+  border-left: 4px solid var(--border-color-primary);
+}
+.alert.info, [role=alert].alert.info {
+  background-color: var(--bg-info-color);
+  color: var(--info-color);
+  border-left-color: var(--info-color);
+}
+.alert.success, [role=alert].alert.success {
+  background-color: var(--bg-success-color);
+  color: var(--success-color);
+  border-left-color: var(--success-color);
+}
+.alert.warning, [role=alert].alert.warning {
+  background-color: var(--bg-warning-color);
+  color: var(--warning-color);
+  border-left-color: var(--warning-color);
+}
+.alert.danger, [role=alert].alert.danger {
+  background-color: var(--bg-danger-color);
+  color: var(--danger-color);
+  border-left-color: var(--danger-color);
+}
+.alert h1, .alert h2, .alert h3, .alert h4, .alert p, [role=alert].alert h1, [role=alert].alert h2, [role=alert].alert h3, [role=alert].alert h4, [role=alert].alert p {
+  margin: 0;
+}
+.alert p + p, [role=alert].alert p + p {
+  margin-top: 0.5rem;
+}
+
+/* all css includes utilities */
+[popover] {
+  background-color: var(--bg-primary);
+  color: var(--text-color-primary);
+  border: 1px solid var(--border-color-primary);
+  border-radius: 6px;
+  padding: 1rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  margin: auto;
+}
+[popover]::backdrop {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+[data-tooltip] {
+  position: relative;
+  cursor: help;
+}
+[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--grey-11);
+  color: var(--grey-0);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: var(--fs-0);
+  line-height: 1.2;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease-in-out;
+  z-index: 100;
+}
+[data-tooltip]:hover::after, [data-tooltip]:focus-visible::after {
+  opacity: 1;
 }
 
 .bg-primary-0 {

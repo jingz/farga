@@ -1,0 +1,47 @@
+{% extends "layout/base.html" %}
+
+{% block inline_style %}
+{% endblock %}
+
+{% block content %}
+<div>
+  <hgroup>
+    <h1>Alert Component</h1>
+    <p>Alerts provide contextual feedback messages for user actions and system status.</p>
+  </hgroup>
+
+  <h2>Alert Variants</h2>
+
+  {% set alert_examples %}
+<div class="alert">
+  <p><strong>Default:</strong> This is a standard neutral alert message.</p>
+</div>
+
+<div class="alert info" role="alert">
+  <p><strong>Info:</strong> A new software update is available for your account.</p>
+</div>
+
+<div class="alert success" role="alert">
+  <p><strong>Success:</strong> Your profile changes have been saved successfully.</p>
+</div>
+
+<div class="alert warning" role="alert">
+  <p><strong>Warning:</strong> Your subscription will expire in 3 days.</p>
+</div>
+
+<div class="alert danger" role="alert">
+  <p><strong>Danger:</strong> There was an error processing your payment request.</p>
+</div>{% endset %}
+
+  <div>
+    {{ alert_examples }}
+  </div>
+
+  <br/>
+
+  <details open>
+    <summary>Example Code</summary>
+    <pre>{{ alert_examples | e }}</pre>
+  </details>
+</div>
+{% endblock %}

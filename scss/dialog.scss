@@ -1,0 +1,34 @@
+@use 'base';
+
+dialog {
+  background-color: var(--bg-primary);
+  color: var(--text-color-primary);
+  border: 1px solid var(--border-color-primary);
+  border-radius: 8px;
+  padding: 1.5rem;
+  max-width: min(90vw, 32rem);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+
+  &::backdrop {
+    background-color: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(2px);
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+
+    h1, h2, h3, h4 {
+      margin: 0;
+    }
+  }
+
+  footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+  }
+}

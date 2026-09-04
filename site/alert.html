@@ -7,17 +7,6 @@
 
     <style type="text/css" media="all">
     
-#features {
-  ul {
-    margin-left: 1rem;
-    li { line-height: 1.5; }
-  }
-}
-
-#proj-name {
-  font-size: var(--fs-9);
-  font-weight: 300;
-}
 
 
     body {
@@ -133,28 +122,65 @@
         </nav>
         <main id="main-container">
           
-<section>
+<div>
   <hgroup>
-    <h1 id="proj-name" class="ft-cursive">Farga</h1>
-    <p>Farga – A Lightweight CSS Framework</p>
+    <h1>Alert Component</h1>
+    <p>Alerts provide contextual feedback messages for user actions and system status.</p>
   </hgroup>
 
-  <section id="features">
-    <h2>Features</h2>
-    <ul>
-      <li>Lightweight yet versatile design</li>
-      <li>Comprehensive design system</li>
-      <li>Customizable CSS variables</li>
-      <li>Fully responsive layouts</li>
-      <li>Optimized for fast rendering</li>
-      <li>Light and dark mode support</li>
-      <li>Classless approach by default</li>
-      <li>Essential admin components (Data Table, Form)</li>
-      <li>Web-safe fonts prioritized</li>
-      <li>Minimal animations with excellent user experience</li>
-    </ul>
-  </section>
-</section>
+  <h2>Alert Variants</h2>
+
+  
+
+  <div>
+    
+<div class="alert">
+  <p><strong>Default:</strong> This is a standard neutral alert message.</p>
+</div>
+
+<div class="alert info" role="alert">
+  <p><strong>Info:</strong> A new software update is available for your account.</p>
+</div>
+
+<div class="alert success" role="alert">
+  <p><strong>Success:</strong> Your profile changes have been saved successfully.</p>
+</div>
+
+<div class="alert warning" role="alert">
+  <p><strong>Warning:</strong> Your subscription will expire in 3 days.</p>
+</div>
+
+<div class="alert danger" role="alert">
+  <p><strong>Danger:</strong> There was an error processing your payment request.</p>
+</div>
+  </div>
+
+  <br/>
+
+  <details open>
+    <summary>Example Code</summary>
+    <pre>
+&lt;div class=&#34;alert&#34;&gt;
+  &lt;p&gt;&lt;strong&gt;Default:&lt;/strong&gt; This is a standard neutral alert message.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;alert info&#34; role=&#34;alert&#34;&gt;
+  &lt;p&gt;&lt;strong&gt;Info:&lt;/strong&gt; A new software update is available for your account.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;alert success&#34; role=&#34;alert&#34;&gt;
+  &lt;p&gt;&lt;strong&gt;Success:&lt;/strong&gt; Your profile changes have been saved successfully.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;alert warning&#34; role=&#34;alert&#34;&gt;
+  &lt;p&gt;&lt;strong&gt;Warning:&lt;/strong&gt; Your subscription will expire in 3 days.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;alert danger&#34; role=&#34;alert&#34;&gt;
+  &lt;p&gt;&lt;strong&gt;Danger:&lt;/strong&gt; There was an error processing your payment request.&lt;/p&gt;
+&lt;/div&gt;</pre>
+  </details>
+</div>
 
         </main>
     </div>

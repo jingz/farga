@@ -153,6 +153,38 @@ form {
   }
 }
 
+input[type="file"] {
+  padding: 4px 8px;
+  cursor: pointer;
+  font-size: var(--fs-1);
+
+  &::file-selector-button {
+    @extend %btn-padding-small;
+    font-size: var(--fs-1);
+    font-family: inherit;
+    border: 0;
+    border-radius: 4px;
+    background-color: var(--primary-6);
+    color: var(--primary-0);
+    cursor: pointer;
+    margin-right: 0.75rem;
+
+    &:hover {
+      background-color: var(--primary-5);
+    }
+  }
+
+  &[disabled] {
+    opacity: 0.6;
+    cursor: not-allowed;
+
+    &::file-selector-button {
+      cursor: not-allowed;
+      background-color: var(--disabled-color);
+    }
+  }
+}
+
 .field-row {
   display: flex;
   align-items: center;

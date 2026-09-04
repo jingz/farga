@@ -1,0 +1,42 @@
+@use 'base';
+
+.alert, [role="alert"].alert {
+  padding: 0.75rem 1rem;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  background-color: var(--bg-primary-alt);
+  color: var(--text-color-primary);
+  border-left: 4px solid var(--border-color-primary);
+
+  &.info {
+    background-color: var(--bg-info-color);
+    color: var(--info-color);
+    border-left-color: var(--info-color);
+  }
+
+  &.success {
+    background-color: var(--bg-success-color);
+    color: var(--success-color);
+    border-left-color: var(--success-color);
+  }
+
+  &.warning {
+    background-color: var(--bg-warning-color);
+    color: var(--warning-color);
+    border-left-color: var(--warning-color);
+  }
+
+  &.danger {
+    background-color: var(--bg-danger-color);
+    color: var(--danger-color);
+    border-left-color: var(--danger-color);
+  }
+
+  h1, h2, h3, h4, p {
+    margin: 0;
+  }
+
+  p + p {
+    margin-top: 0.5rem;
+  }
+}
