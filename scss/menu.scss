@@ -89,6 +89,7 @@ nav.basic {
 /* side menu */
 nav.sidemenu {
   min-width: 180px;
+  overflow-y: auto;
 
   /* menu group name */
   p {
