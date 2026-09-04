@@ -1,0 +1,45 @@
+{% extends "layout/base.html" %}
+
+{% block inline_style %}
+{% endblock %}
+
+{% block content %}
+<div>
+  <hgroup>
+    <h1>Dialog / Modal Component</h1>
+    <p>The native HTML <code>&lt;dialog&gt;</code> element provides built-in accessibility, backdrop overlay, and top-layer positioning.</p>
+  </hgroup>
+
+  <h2>Interactive Example</h2>
+  <p>Click the button below to open the modal. Use the close button or press <kbd>Esc</kbd> to dismiss.</p>
+
+  {% set dialog_example %}
+<button type="button" onclick="document.getElementById('demo-dialog').showModal()">
+  Open Dialog
+</button>
+
+<dialog id="demo-dialog" role="alertdialog">
+  <header>
+    <h3>Confirm Action</h3>
+  </header>
+  <p>Are you sure you want to proceed with this operation? This action cannot be undone.</p>
+  <footer>
+    <form method="dialog">
+      <button class="btn-outline" value="cancel">Cancel</button>
+      <button class="btn-danger" value="confirm">Confirm</button>
+    </form>
+  </footer>
+</dialog>{% endset %}
+
+  <div>
+    {{ dialog_example }}
+  </div>
+
+  <br/>
+
+  <details open>
+    <summary>Example Code</summary>
+    <pre>{{ dialog_example | e }}</pre>
+  </details>
+</div>
+{% endblock %}

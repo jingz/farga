@@ -56,12 +56,12 @@ button, .btn {
   }
 
   &.btn-danger {
-      background-color: var(--red-8);
-      color: var(--red-1);
+      background-color: var(--red-7);
+      color: var(--red-0);
 
       &:hover {
         color: var(--red-0);
-        background-color: var(--red-7);
+        background-color: var(--red-6);
       }
   }
 
@@ -73,6 +73,27 @@ button, .btn {
       &:hover {
         color: var(--red-5);
         border: 1px solid var(--red-6);
+      }
+  }
+
+  &.btn-success {
+      background-color: var(--green-7);
+      color: var(--green-0);
+
+      &:hover {
+        color: var(--green-0);
+        background-color: var(--green-8);
+      }
+  }
+
+  &.btn-success-outline {
+      background-color: var(--bg-primary);
+      border: 1px solid var(--green-7);
+      color: var(--green-7);
+
+      &:hover {
+        color: var(--green-8);
+        border: 1px solid var(--green-8);
       }
   }
 
@@ -148,6 +169,20 @@ a.btn.btn-danger-outline {
   &:link,
   &:visited {
     color: var(--red-4);
+  }
+}
+
+a.btn.btn-success {
+  &:link,
+  &:visited {
+    color: var(--green-0);
+  }
+}
+
+a.btn.btn-success-outline {
+  &:link,
+  &:visited {
+    color: var(--green-7);
   }
 }
 

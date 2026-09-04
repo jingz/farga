@@ -65,16 +65,16 @@ $base-font-size: 14px;
     --primary-8: hsl(230, 80%, 32%);
     --primary-9: hsl(230, 80%, 23%);
 
-    --secondary-0: hsl(24, 80%, 94%);
-    --secondary-1: hsl(24, 80%, 90%);
-    --secondary-2: hsl(24, 80%, 86%);
-    --secondary-3: hsl(24, 80%, 77%);
-    --secondary-4: hsl(24, 80%, 68%);
-    --secondary-5: hsl(24, 80%, 59%);
-    --secondary-6: hsl(24, 80%, 50%);
-    --secondary-7: hsl(24, 80%, 41%);
-    --secondary-8: hsl(24, 80%, 32%);
-    --secondary-9: hsl(24, 80%, 23%);
+    --secondary-0: hsl(188, 80%, 94%);
+    --secondary-1: hsl(188, 80%, 90%);
+    --secondary-2: hsl(188, 80%, 86%);
+    --secondary-3: hsl(188, 80%, 77%);
+    --secondary-4: hsl(188, 80%, 68%);
+    --secondary-5: hsl(188, 80%, 59%);
+    --secondary-6: hsl(188, 80%, 50%);
+    --secondary-7: hsl(188, 80%, 41%);
+    --secondary-8: hsl(188, 80%, 32%);
+    --secondary-9: hsl(188, 80%, 23%);
 
     /* no-custom generation from  https://hypejunction.github.io/color-wizard/ */
     /* Color suffix 0-4 for dark text agiant white background */
@@ -277,6 +277,8 @@ $base-font-size: 14px;
     --bg-danger-color: var(--red-2);
     --info-color: var(--blue-7);
     --bg-info-color: var(--blue-2);
+    --warning-color: var(--yellow-9);
+    --bg-warning-color: var(--yellow-2);
 
     /* ---------------------------------------------- */
     /* config variable */
@@ -344,6 +346,8 @@ body.dark-mode {
   --bg-danger-color: var(--red-7);
   --info-color: var(--blue-2);
   --bg-info-color: var(--blue-7);
+  --warning-color: var(--yellow-2);
+  --bg-warning-color: var(--yellow-8);
   --disabled-color: var(--grey-5);
   --bg-disabled-color: var(--grey-10);
 }
