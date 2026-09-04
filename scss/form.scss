@@ -62,7 +62,8 @@ form {
     }
 
     select, input:not([type="checkbox"]):not([type="radio"]) {
-      width: calc(100% - 1.4rem);
+      width: 100%;
+      box-sizing: border-box;
     }
 
     &.switch {

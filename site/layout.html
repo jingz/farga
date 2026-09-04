@@ -8,7 +8,7 @@
     <style type="text/css" media="all">
     
 .layout-demo {
-    .flex-stretch, .flex-sidebar, .flex-golden, .flex-golden-right, .flex-sidebar-right {
+    .flex-stretch, .flex-sidebar, .flex-golden, .flex-golden-right, .flex-sidebar-right, .grid-auto {
         div {
             height: 100px;
             border: 1px dashed var(--secondary-4);
@@ -285,6 +285,66 @@
 &lt;div class=&#34;flex-golden-right gap&#34;&gt;
   &lt;div&gt;DIV-1&lt;/div&gt;
   &lt;div&gt;DIV-2&lt;/div&gt;
+&lt;/div&gt;</pre>
+  </details>
+
+  <hgroup>
+      <h2>Grid Auto</h2>
+      <p>A responsive CSS grid that automatically fits items into columns without media queries.</p>
+  </hgroup>
+
+  
+
+  
+<div class="grid-auto">
+  <div>Card 1</div>
+  <div>Card 2</div>
+  <div>Card 3</div>
+  <div>Card 4</div>
+</div>
+
+  <br/>
+  <details open>
+      <summary>Example Code</summary>
+      <pre>
+&lt;div class=&#34;grid-auto&#34;&gt;
+  &lt;div&gt;Card 1&lt;/div&gt;
+  &lt;div&gt;Card 2&lt;/div&gt;
+  &lt;div&gt;Card 3&lt;/div&gt;
+  &lt;div&gt;Card 4&lt;/div&gt;
+&lt;/div&gt;</pre>
+  </details>
+
+  <hgroup>
+      <h2>Holy Grail Layout</h2>
+      <p>A classic layout pattern with a header, footer, a fluid center, and two fixed sidebars.</p>
+  </hgroup>
+
+  
+
+  
+<div class="holy-grail" style="min-height: 200px;">
+  <header style="border: 1px dashed var(--secondary-4); padding: 1rem;">Header</header>
+  <main class="gap">
+    <nav style="border: 1px dashed var(--secondary-4); padding: 1rem;">Nav</nav>
+    <article style="border: 1px dashed var(--secondary-4); padding: 1rem;">Main Article</article>
+    <aside style="border: 1px dashed var(--secondary-4); padding: 1rem;">Aside</aside>
+  </main>
+  <footer style="border: 1px dashed var(--secondary-4); padding: 1rem;">Footer</footer>
+</div>
+
+  <br/>
+  <details open>
+      <summary>Example Code</summary>
+      <pre>
+&lt;div class=&#34;holy-grail&#34; style=&#34;min-height: 200px;&#34;&gt;
+  &lt;header style=&#34;border: 1px dashed var(--secondary-4); padding: 1rem;&#34;&gt;Header&lt;/header&gt;
+  &lt;main class=&#34;gap&#34;&gt;
+    &lt;nav style=&#34;border: 1px dashed var(--secondary-4); padding: 1rem;&#34;&gt;Nav&lt;/nav&gt;
+    &lt;article style=&#34;border: 1px dashed var(--secondary-4); padding: 1rem;&#34;&gt;Main Article&lt;/article&gt;
+    &lt;aside style=&#34;border: 1px dashed var(--secondary-4); padding: 1rem;&#34;&gt;Aside&lt;/aside&gt;
+  &lt;/main&gt;
+  &lt;footer style=&#34;border: 1px dashed var(--secondary-4); padding: 1rem;&#34;&gt;Footer&lt;/footer&gt;
 &lt;/div&gt;</pre>
   </details>
 </div>

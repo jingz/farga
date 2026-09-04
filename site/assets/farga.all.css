@@ -229,9 +229,9 @@
   --border-color-primary: var(--grey-4);
   --border-color-muted: var(--grey-1);
   --dim: var(--grey-0);
-  --bg-list-active: var(--grey-a);
-  --bg-list-hover: var(--grey-1);
-  --bg-summary-hover: var(--grey-1);
+  --bg-list-active: var(--primary-1);
+  --bg-list-hover: var(--primary-0);
+  --bg-summary-hover: var(--primary-0);
   --bg-summary-open: var(--grey-0);
   --border-nested-link: var(--grey-3);
   /* form */
@@ -263,8 +263,8 @@ body.dark-mode {
   --border-color-muted: var(--grey-8);
   --dim: var(--grey-9);
   /* list */
-  --bg-list-active: var(--grey-11);
-  --bg-summary-hover: var(--grey-8);
+  --bg-list-active: var(--primary-9);
+  --bg-summary-hover: var(--primary-9);
   --bg-summary-open: var(--grey-9);
   --border-nested-link: var(--grey-8);
   /* form */
@@ -425,8 +425,7 @@ button.btn-secondary-outline, .btn.btn-secondary-outline {
   border: 1px solid var(--secondary-4);
 }
 button.btn-secondary-outline:hover, .btn.btn-secondary-outline:hover {
-  color: var(--secondary-5);
-  border: 1px solid var(--secondary-6);
+  background-color: var(--secondary-0);
 }
 button.btn-danger, .btn.btn-danger {
   background-color: var(--red-7);
@@ -434,7 +433,7 @@ button.btn-danger, .btn.btn-danger {
 }
 button.btn-danger:hover, .btn.btn-danger:hover {
   color: var(--red-0);
-  background-color: var(--red-6);
+  background-color: var(--red-8);
 }
 button.btn-danger-outline, .btn.btn-danger-outline {
   background-color: var(--bg-primary);
@@ -442,8 +441,7 @@ button.btn-danger-outline, .btn.btn-danger-outline {
   color: var(--red-4);
 }
 button.btn-danger-outline:hover, .btn.btn-danger-outline:hover {
-  color: var(--red-5);
-  border: 1px solid var(--red-6);
+  background-color: var(--red-0);
 }
 button.btn-success, .btn.btn-success {
   background-color: var(--green-7);
@@ -459,8 +457,7 @@ button.btn-success-outline, .btn.btn-success-outline {
   color: var(--green-7);
 }
 button.btn-success-outline:hover, .btn.btn-success-outline:hover {
-  color: var(--green-8);
-  border: 1px solid var(--green-8);
+  background-color: var(--green-0);
 }
 button.btn-outline, .btn.btn-outline {
   background-color: var(--bg-primary);
@@ -468,8 +465,7 @@ button.btn-outline, .btn.btn-outline {
   color: var(--primary-5);
 }
 button.btn-outline:hover, .btn.btn-outline:hover {
-  color: var(--primary-6);
-  border: 1px solid var(--primary-5);
+  background-color: var(--primary-0);
 }
 button a, .btn a {
   color: inherit;
@@ -556,11 +552,11 @@ nav.basic ul li {
   list-style: none;
 }
 nav.basic ul li:hover {
-  background-color: var(--dim);
+  background-color: var(--bg-summary-hover);
 }
 nav.basic ul li.active {
   color: var(--text-color-primary);
-  background-color: var(--bg-primary-alt);
+  background-color: var(--bg-list-active);
 }
 nav.basic ul li a {
   text-decoration: none;
@@ -835,7 +831,8 @@ form label small {
   line-height: 0.5;
 }
 form label select, form label input:not([type=checkbox]):not([type=radio]) {
-  width: calc(100% - 1.4rem);
+  width: 100%;
+  box-sizing: border-box;
 }
 form label.switch {
   display: flex;
@@ -1152,7 +1149,50 @@ table.striped tbody tr:nth-child(odd) {
   flex-shrink: 0;
 }
 
+.holy-grail {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  flex-direction: column;
+}
+.holy-grail > header, .holy-grail > footer {
+  flex-shrink: 0;
+}
+.holy-grail > main {
+  display: flex;
+  flex-grow: 1;
+}
+.holy-grail > main.gap {
+  gap: var(--fs-1);
+}
+.holy-grail > main > article {
+  flex-grow: 1;
+}
+.holy-grail > main > nav {
+  width: var(--fixed-sidebar-w);
+  flex-shrink: 0;
+  order: -1;
+}
+.holy-grail > main > aside {
+  width: var(--fixed-sidebar-w);
+  flex-shrink: 0;
+}
+
 /* layout utilities */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--px-0);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.grid-auto {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+  gap: var(--px-0);
+}
+
 .flex-btw {
   display: flex;
   justify-content: space-between;
@@ -1297,6 +1337,7 @@ dialog footer {
 }
 .alert h1, .alert h2, .alert h3, .alert h4, .alert p, [role=alert].alert h1, [role=alert].alert h2, [role=alert].alert h3, [role=alert].alert h4, [role=alert].alert p {
   margin: 0;
+  background-color: transparent;
 }
 .alert p + p, [role=alert].alert p + p {
   margin-top: 0.5rem;
@@ -1311,6 +1352,9 @@ dialog footer {
   padding: 1rem;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
   margin: auto;
+}
+[popover] h1, [popover] h2, [popover] h3, [popover] h4, [popover] h5, [popover] h6 {
+  margin-top: 0;
 }
 [popover]::backdrop {
   background-color: rgba(0, 0, 0, 0.2);

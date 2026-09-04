@@ -259,10 +259,10 @@ $base-font-size: 14px;
     --border-color-muted: var(--grey-1);
     --dim: var(--grey-0);
 
-    --bg-list-active: var(--grey-a);
-    --bg-list-hover: var(--grey-1);
+    --bg-list-active: var(--primary-1);
+    --bg-list-hover: var(--primary-0);
 
-    --bg-summary-hover: var(--grey-1);
+    --bg-summary-hover: var(--primary-0);
     --bg-summary-open: var(--grey-0);
 
     --border-nested-link: var(--grey-3);
@@ -331,8 +331,8 @@ body.dark-mode {
   --dim: var(--grey-9);
 
   /* list */
-  --bg-list-active: var(--grey-11);
-  --bg-summary-hover: var(--grey-8);
+  --bg-list-active: var(--primary-9);
+  --bg-summary-hover: var(--primary-9);
   --bg-summary-open: var(--grey-9);
   --border-nested-link: var(--grey-8);
 

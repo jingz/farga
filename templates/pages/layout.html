@@ -2,7 +2,7 @@
 
 {% block inline_style %}
 .layout-demo {
-    .flex-stretch, .flex-sidebar, .flex-golden, .flex-golden-right, .flex-sidebar-right {
+    .flex-stretch, .flex-sidebar, .flex-golden, .flex-golden-right, .flex-sidebar-right, .grid-auto {
         div {
             height: 100px;
             border: 1px dashed var(--secondary-4);
@@ -138,6 +138,51 @@
   <details open>
       <summary>Example Code</summary>
       <pre>{{ flex_golden_right | e }}</pre>
+  </details>
+
+  <hgroup>
+      <h2>Grid Auto</h2>
+      <p>A responsive CSS grid that automatically fits items into columns without media queries.</p>
+  </hgroup>
+
+  {% set grid_auto %}
+<div class="grid-auto">
+  <div>Card 1</div>
+  <div>Card 2</div>
+  <div>Card 3</div>
+  <div>Card 4</div>
+</div>{% endset %}
+
+  {{ grid_auto }}
+
+  <br/>
+  <details open>
+      <summary>Example Code</summary>
+      <pre>{{ grid_auto | e }}</pre>
+  </details>
+
+  <hgroup>
+      <h2>Holy Grail Layout</h2>
+      <p>A classic layout pattern with a header, footer, a fluid center, and two fixed sidebars.</p>
+  </hgroup>
+
+  {% set holy_grail %}
+<div class="holy-grail" style="min-height: 200px;">
+  <header style="border: 1px dashed var(--secondary-4); padding: 1rem;">Header</header>
+  <main class="gap">
+    <nav style="border: 1px dashed var(--secondary-4); padding: 1rem;">Nav</nav>
+    <article style="border: 1px dashed var(--secondary-4); padding: 1rem;">Main Article</article>
+    <aside style="border: 1px dashed var(--secondary-4); padding: 1rem;">Aside</aside>
+  </main>
+  <footer style="border: 1px dashed var(--secondary-4); padding: 1rem;">Footer</footer>
+</div>{% endset %}
+
+  {{ holy_grail }}
+
+  <br/>
+  <details open>
+      <summary>Example Code</summary>
+      <pre>{{ holy_grail | e }}</pre>
   </details>
 </div>
 {% endblock %}

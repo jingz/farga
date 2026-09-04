@@ -118,7 +118,56 @@
   }
 }
 
+.holy-grail {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  flex-direction: column;
+
+  & > header, & > footer {
+    flex-shrink: 0;
+  }
+
+  & > main {
+    display: flex;
+    flex-grow: 1;
+    
+    &.gap {
+      gap: var(--fs-1);
+    }
+
+    & > article {
+      flex-grow: 1;
+    }
+
+    & > nav {
+      width: var(--fixed-sidebar-w);
+      flex-shrink: 0;
+      order: -1;
+    }
+
+    & > aside {
+      width: var(--fixed-sidebar-w);
+      flex-shrink: 0;
+    }
+  }
+}
+
 /* layout utilities */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--px-0);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.grid-auto {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+  gap: var(--px-0);
+}
+
 .flex-btw {
   display: flex;
   justify-content: space-between;

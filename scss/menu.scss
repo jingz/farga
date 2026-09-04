@@ -26,12 +26,12 @@ nav.basic {
       list-style: none;
 
       &:hover {
-        background-color: var(--dim);
+        background-color: var(--bg-summary-hover);
       }
 
       &.active {
         color: var(--text-color-primary);
-        background-color: var(--bg-primary-alt);
+        background-color: var(--bg-list-active);
       }
 
       a {

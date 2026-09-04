@@ -9,6 +9,10 @@
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
   margin: auto;
 
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+  }
+
   &::backdrop {
     background-color: rgba(0, 0, 0, 0.2);
   }

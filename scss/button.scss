@@ -50,8 +50,7 @@ button, .btn {
       border: 1px solid var(--secondary-4);
 
       &:hover {
-        color: var(--secondary-5);
-        border: 1px solid var(--secondary-6);
+        background-color: var(--secondary-0);
       }
   }
 
@@ -61,7 +60,7 @@ button, .btn {
 
       &:hover {
         color: var(--red-0);
-        background-color: var(--red-6);
+        background-color: var(--red-8);
       }
   }
 
@@ -71,8 +70,7 @@ button, .btn {
       color: var(--red-4);
 
       &:hover {
-        color: var(--red-5);
-        border: 1px solid var(--red-6);
+        background-color: var(--red-0);
       }
   }
 
@@ -92,8 +90,7 @@ button, .btn {
       color: var(--green-7);
 
       &:hover {
-        color: var(--green-8);
-        border: 1px solid var(--green-8);
+        background-color: var(--green-0);
       }
   }
 
@@ -103,8 +100,7 @@ button, .btn {
       color: var(--primary-5);
 
       &:hover {
-        color: var(--primary-6);
-        border: 1px solid var(--primary-5);
+        background-color: var(--primary-0);
       }
   }
 
