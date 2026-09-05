@@ -2,14 +2,15 @@
 
 .detail-list {
   display: grid;
-  grid-template-columns: minmax(10rem, 1fr) 2fr;
-  gap: 0.4rem 0.75rem;
+  grid-template-columns: max-content minmax(0, 1fr);
+  gap: 0.4rem 1rem;
   margin: 0;
 
   dt {
     margin: 0;
-    padding-right: 0.5rem;
-    text-align: right;
+    padding-right: 0;
+    text-align: left;
+    white-space: nowrap;
     font-family: var(--serif-fonts);
     font-size: 0.8rem;
     font-weight: 700;

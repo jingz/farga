@@ -51,6 +51,27 @@ make build
 
 This command will process the SCSS files and generate the static site.
 
+## Avatar
+
+Use `.avatar` for initials or an image. Add `.small` or `.large` when needed:
+
+```html
+<span class="avatar" role="img" aria-label="Jane Doe">JD</span>
+<span class="avatar large"><img src="/avatar.jpg" alt="Jane Doe" /></span>
+```
+
+## Grid Layouts
+
+Use `.grid-auto` for a responsive auto-fit grid, or `.grid-2`, `.grid-3`, and `.grid-4` for fixed column layouts that collapse on small screens:
+
+```html
+<div class="grid-auto">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+</div>
+```
+
 ## Detail List
 
 Use `.detail-list` for admin record detail views and any key/value display:

@@ -1,0 +1,95 @@
+{% extends "layout/base.html" %}
+
+{% block inline_style %}
+.grid-demo > div {
+  min-height: 80px;
+  display: grid;
+  place-items: center;
+  border: 1px dashed var(--secondary-4);
+}
+{% endblock %}
+
+{% block content %}
+<div>
+  <hgroup>
+    <h1>Grid Layouts</h1>
+    <p>Ready-to-use CSS grid layouts for cards, tiles, and page sections.</p>
+  </hgroup>
+
+  <h2>Auto Grid</h2>
+  <p>Columns adapt automatically based on available width. No media queries required.</p>
+
+  {% set grid_auto %}
+<div class="grid-auto grid-demo">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+  <div>4</div>
+  <div>5</div>
+</div>{% endset %}
+
+  {{ grid_auto }}
+
+  <br />
+  <details open>
+    <summary>Example Code</summary>
+    <pre>{{ grid_auto | e }}</pre>
+  </details>
+
+  <h2>Two Columns</h2>
+
+  {% set grid_2 %}
+<div class="grid-2 grid-demo">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+  <div>4</div>
+</div>{% endset %}
+
+  {{ grid_2 }}
+
+  <br />
+  <details open>
+    <summary>Example Code</summary>
+    <pre>{{ grid_2 | e }}</pre>
+  </details>
+
+  <h2>Three Columns</h2>
+
+  {% set grid_3 %}
+<div class="grid-3 grid-demo">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+  <div>4</div>
+  <div>5</div>
+  <div>6</div>
+</div>{% endset %}
+
+  {{ grid_3 }}
+
+  <br />
+  <details open>
+    <summary>Example Code</summary>
+    <pre>{{ grid_3 | e }}</pre>
+  </details>
+
+  <h2>Four Columns</h2>
+
+  {% set grid_4 %}
+<div class="grid-4 grid-demo">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+  <div>4</div>
+</div>{% endset %}
+
+  {{ grid_4 }}
+
+  <br />
+  <details open>
+    <summary>Example Code</summary>
+    <pre>{{ grid_4 | e }}</pre>
+  </details>
+</div>
+{% endblock %}

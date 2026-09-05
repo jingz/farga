@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Farga Documentation</title>
+    <link rel="icon" type="image/x-icon" href="./assets/olives-16px.ico">
+    <link rel="stylesheet" type="text/css" href="./assets/farga.all.css">
+
+    <style type="text/css" media="all">
+
+.grid-demo > div {
+  min-height: 80px;
+  display: grid;
+  place-items: center;
+  border: 1px dashed var(--secondary-4);
+}
+
+
+    body {
+        pre {
+          font-size: 0.8rem;
+          background-color: var(--dim);
+          border-radius: 5px;
+          padding: 0.8rem;
+          width: 120ch;
+          overflow-x: auto;
+        }
+    }
+
+    :root {
+        --fixed-sidebar-w: 28ch;
+    }
+
+    #side-menu {
+        width: 28ch;
+        border-right: 1px solid var(--grey-2);
+        height: 100vh;
+    }
+
+    #main-container {
+        padding: 0 1rem;
+    }
+    </style>
+
+  </head>
+  <body>
+    <div class="flex-sidebar fixed gap">
+        <nav id="side-menu" class="sidemenu">
+          <hgroup class="flex" align="center">
+             <img width="48" src="./assets/olives.png" />
+             <h1> Farga </h1>
+          </hgroup>
+          <p>Farga Documentation</p>
+          <ul>
+              <li><a href="./index.html">Home</a></li>
+              <li><a href="./color.html">Colors</a></li>
+              <li><a href="./typography.html">Typography</a></li>
+          </ul>
+          <details open>
+            <summary>
+              <span>Navigation</span>
+            </summary>
+            <ul>
+              <li><a href="./navigation.html">Basic</a></li>
+              <li><a href="./sidemenu.html">Side menu</a></li>
+              <li><a href="./tab.html">Tab</a></li>
+              <li><a href="./breadcrumb.html">Breadcrumbs</a></li>
+              <li><a href="./pagination.html">Pagination</a></li>
+            </ul>
+          </details>
+          <ul>
+              <li><a href="./layout.html">Layout</a></li>
+              <li><a href="./grid.html">Grid</a></li>
+              <li><a href="./button.html">Buttons</a></li>
+          </ul>
+          <details open>
+            <summary>
+              <span>Form</span>
+            </summary>
+            <ul>
+              <li><a href="./form.html">Form Basic</a></li>
+              <li><a href="./form_with_layout.html">Form Layouts</a></li>
+            </ul>
+          </details>
+          <details open>
+            <summary>
+              <span>Tables</span>
+            </summary>
+            <ul>
+              <li><a href="./table.html">Basic Tables</a></li>
+              <li><a href="./fixed_header_table.html">Fixed Header Table</a></li>
+              <li><a href="./fixed_first_column_table.html">Fixed First Column Table</a></li>
+            </ul>
+          </details>
+          <details open>
+            <summary>
+              <span>Components</span>
+            </summary>
+            <ul>
+              <li><a href="./accordion.html">Accordion</a></li>
+              <li><a href="./card.html">Card</a></li>
+              <li><a href="./badge.html">Badge</a></li>
+              <li><a href="./detail.html">Detail List</a></li>
+              <li><a href="./alert.html">Alert</a></li>
+              <li><a href="./dialog.html">Dialog / Modal</a></li>
+              <li><a href="./popover.html">Popover &amp; Tooltip</a></li>
+            </ul>
+          </details>
+          <details open>
+            <summary>
+              <span>Links</span>
+            </summary>
+            <ul>
+              <li>
+                  <a href="https://jingz.github.io/farga/site/index.html" target="_blank">
+                      <img src="./assets/github-mark.svg" width="14px;" />
+                      GitHub
+                  </a>
+              </li>
+              <li>
+                <form id="theme-form">
+                    <label class="switch">
+                        <input id="light-theme" type="checkbox" role="switch" />
+                        Light
+                    </label>
+                </form>
+              </li>
+            </ul>
+          </details>
+        </nav>
+        <main id="main-container">
+
+<div>
+  <hgroup>
+    <h1>Grid Layouts</h1>
+    <p>Ready-to-use CSS grid layouts for cards, tiles, and page sections.</p>
+  </hgroup>
+
+  <h2>Auto Grid</h2>
+  <p>Columns adapt automatically based on available width. No media queries required.</p>
+
+
+
+
+<div class="grid-auto grid-demo">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+  <div>4</div>
+  <div>5</div>
+</div>
+
+  <br />
+  <details open>
+    <summary>Example Code</summary>
+    <pre>
+&lt;div class=&#34;grid-auto grid-demo&#34;&gt;
+  &lt;div&gt;1&lt;/div&gt;
+  &lt;div&gt;2&lt;/div&gt;
+  &lt;div&gt;3&lt;/div&gt;
+  &lt;div&gt;4&lt;/div&gt;
+  &lt;div&gt;5&lt;/div&gt;
+&lt;/div&gt;</pre>
+  </details>
+
+  <h2>Two Columns</h2>
+
+
+
+
+<div class="grid-2 grid-demo">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+  <div>4</div>
+</div>
+
+  <br />
+  <details open>
+    <summary>Example Code</summary>
+    <pre>
+&lt;div class=&#34;grid-2 grid-demo&#34;&gt;
+  &lt;div&gt;1&lt;/div&gt;
+  &lt;div&gt;2&lt;/div&gt;
+  &lt;div&gt;3&lt;/div&gt;
+  &lt;div&gt;4&lt;/div&gt;
+&lt;/div&gt;</pre>
+  </details>
+
+  <h2>Three Columns</h2>
+
+
+
+
+<div class="grid-3 grid-demo">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+  <div>4</div>
+  <div>5</div>
+  <div>6</div>
+</div>
+
+  <br />
+  <details open>
+    <summary>Example Code</summary>
+    <pre>
+&lt;div class=&#34;grid-3 grid-demo&#34;&gt;
+  &lt;div&gt;1&lt;/div&gt;
+  &lt;div&gt;2&lt;/div&gt;
+  &lt;div&gt;3&lt;/div&gt;
+  &lt;div&gt;4&lt;/div&gt;
+  &lt;div&gt;5&lt;/div&gt;
+  &lt;div&gt;6&lt;/div&gt;
+&lt;/div&gt;</pre>
+  </details>
+
+  <h2>Four Columns</h2>
+
+
+
+
+<div class="grid-4 grid-demo">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+  <div>4</div>
+</div>
+
+  <br />
+  <details open>
+    <summary>Example Code</summary>
+    <pre>
+&lt;div class=&#34;grid-4 grid-demo&#34;&gt;
+  &lt;div&gt;1&lt;/div&gt;
+  &lt;div&gt;2&lt;/div&gt;
+  &lt;div&gt;3&lt;/div&gt;
+  &lt;div&gt;4&lt;/div&gt;
+&lt;/div&gt;</pre>
+  </details>
+</div>
+
+        </main>
+    </div>
+  </body>
+
+  <script>
+      // set active to recently clicked menu
+      const filename = window.location.href.toString().split('/').pop();
+      const sideMenuEl = document.querySelector('#side-menu');
+      const links = sideMenuEl.querySelectorAll('a')
+      for ( const link of links ) {
+          if (link.href.split('/').pop() === filename ) {
+              link.parentNode.classList.add('active');
+          }
+      }
+
+      function setTheme(isLightTheme) {
+          if (isLightTheme) {
+              document.body.classList.remove('dark-mode')
+          } else {
+              document.body.classList.add('dark-mode')
+          }
+          window.localStorage.setItem('isLightTheme', isLightTheme);
+      }
+
+      // init theme from localStorage
+      const isLightTheme = localStorage.getItem('isLightTheme') == 'true';
+      console.log({ isLightTheme })
+      setTheme(isLightTheme)
+
+      // set theme
+      const lightThemeToggleEl = document.querySelector("#light-theme")
+
+      if (isLightTheme) lightThemeToggleEl.checked = true;
+
+      lightThemeToggleEl.addEventListener('change', function (ev) {
+          const isLightTheme = ev.target.checked;
+          setTheme(isLightTheme)
+      });
+  </script>
+</html>
