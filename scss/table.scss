@@ -55,6 +55,10 @@ table {
   tbody {
     tr {
       border-bottom: 1px solid var(--border-color-muted);
+
+      &:hover {
+        background-color: var(--bg-list-hover);
+      }
     }
 
     td {

@@ -1,0 +1,86 @@
+@use 'base';
+
+// CSS-only right-side drawer toggled by a hidden checkbox.
+// Markup:
+//   <div class="drawer">
+//     <input type="checkbox" id="x" class="drawer-toggle" />
+//     <label for="x" class="btn btn-small">Open</label>
+//     <label for="x" class="drawer-backdrop" aria-hidden="true"></label>
+//     <aside class="drawer-panel" role="dialog" aria-label="...">
+//       <header class="drawer-header">...</header>
+//       ...
+//     </aside>
+//   </div>
+
+.drawer {
+  position: relative;
+}
+
+.drawer-toggle {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.drawer-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  width: min(90vw, 24rem);
+  max-width: 100%;
+  padding: var(--px-0);
+  overflow-y: auto;
+  background-color: var(--bg-primary);
+  color: var(--text-color-primary);
+  border-left: 1px solid var(--border-color-primary);
+  box-shadow: -8px 0 24px rgba(0, 0, 0, 0.15);
+  transform: translateX(100%);
+  transition: transform 0.25s ease-in-out;
+}
+
+.drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background-color: rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease-in-out;
+}
+
+.drawer-toggle:checked ~ .drawer-panel {
+  transform: translateX(0);
+}
+
+.drawer-toggle:checked ~ .drawer-backdrop {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--px-n1);
+  margin-bottom: var(--px-0);
+  padding-bottom: var(--px-n1);
+  border-bottom: 1px solid var(--border-color-muted);
+
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+  }
+}
+
+.drawer-close {
+  cursor: pointer;
+  color: var(--text-color-muted);
+  font-size: var(--fs-5);
+  line-height: 1;
+  text-decoration: none;
+
+  &:hover {
+    color: var(--text-color-primary);
+  }
+}

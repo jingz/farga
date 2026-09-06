@@ -6,7 +6,6 @@
     <link rel="stylesheet" type="text/css" href="./assets/farga.all.css">
 
     <style type="text/css" media="all">
-    
 
 
     body {
@@ -123,34 +122,78 @@
           </details>
         </nav>
         <main id="main-container">
-          
+
 <div>
-  <h1>Breadcrumbs</h1>
+  <hgroup>
+    <h1>Drawer Component</h1>
+    <p>A CSS-only right-side drawer toggled by a hidden checkbox. No JavaScript required.</p>
+  </hgroup>
 
-  
+  <h2>Interactive Example</h2>
+  <p>Click the button below to slide the panel in from the right. Close it with the backdrop or the close button.</p>
 
-  
-  <nav class="breadcrumbs">
-    <ul>
-        <li><a>Introduction</a></li>
-        <li><a>Get Started</a></li>
-        <li><a>Tutorials</a></li>
-        <li><a>Changelog</a></li>
-    </ul>
-  </nav>
 
-  <pre>
-    
-  &lt;nav class=&#34;breadcrumbs&#34;&gt;
-    &lt;ul&gt;
-        &lt;li&gt;&lt;a&gt;Introduction&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a&gt;Get Started&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a&gt;Tutorials&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a&gt;Changelog&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/nav&gt;
-  </pre>
 
+
+<div class="drawer">
+  <input type="checkbox" id="demo-drawer" class="drawer-toggle" />
+  <label for="demo-drawer" class="btn btn-small">Open Drawer</label>
+  <label for="demo-drawer" class="drawer-backdrop" aria-hidden="true"></label>
+  <aside class="drawer-panel" role="dialog" aria-label="Demo drawer">
+    <header class="drawer-header">
+      <h3>Filters</h3>
+      <label for="demo-drawer" class="drawer-close" aria-label="Close">&times;</label>
+    </header>
+    <form>
+      <label>Keyword
+        <input type="text" placeholder="Search..." />
+      </label>
+      <label>Status
+        <select>
+          <option>Any</option>
+          <option>Active</option>
+          <option>Inactive</option>
+        </select>
+      </label>
+      <footer class="actions">
+        <button type="submit" class="btn btn-small">Apply</button>
+      </footer>
+    </form>
+  </aside>
+</div>
+
+  <br/>
+
+  <details open>
+    <summary>Example Code</summary>
+    <pre>
+&lt;div class=&#34;drawer&#34;&gt;
+  &lt;input type=&#34;checkbox&#34; id=&#34;demo-drawer&#34; class=&#34;drawer-toggle&#34; /&gt;
+  &lt;label for=&#34;demo-drawer&#34; class=&#34;btn btn-small&#34;&gt;Open Drawer&lt;/label&gt;
+  &lt;label for=&#34;demo-drawer&#34; class=&#34;drawer-backdrop&#34; aria-hidden=&#34;true&#34;&gt;&lt;/label&gt;
+  &lt;aside class=&#34;drawer-panel&#34; role=&#34;dialog&#34; aria-label=&#34;Demo drawer&#34;&gt;
+    &lt;header class=&#34;drawer-header&#34;&gt;
+      &lt;h3&gt;Filters&lt;/h3&gt;
+      &lt;label for=&#34;demo-drawer&#34; class=&#34;drawer-close&#34; aria-label=&#34;Close&#34;&gt;&amp;times;&lt;/label&gt;
+    &lt;/header&gt;
+    &lt;form&gt;
+      &lt;label&gt;Keyword
+        &lt;input type=&#34;text&#34; placeholder=&#34;Search...&#34; /&gt;
+      &lt;/label&gt;
+      &lt;label&gt;Status
+        &lt;select&gt;
+          &lt;option&gt;Any&lt;/option&gt;
+          &lt;option&gt;Active&lt;/option&gt;
+          &lt;option&gt;Inactive&lt;/option&gt;
+        &lt;/select&gt;
+      &lt;/label&gt;
+      &lt;footer class=&#34;actions&#34;&gt;
+        &lt;button type=&#34;submit&#34; class=&#34;btn btn-small&#34;&gt;Apply&lt;/button&gt;
+      &lt;/footer&gt;
+    &lt;/form&gt;
+  &lt;/aside&gt;
+&lt;/div&gt;</pre>
+  </details>
 </div>
 
         </main>

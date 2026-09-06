@@ -1,0 +1,50 @@
+{% extends "layout/base.html" %}
+
+{% block content %}
+<div>
+  <hgroup>
+    <h1>Drawer Component</h1>
+    <p>A CSS-only right-side drawer toggled by a hidden checkbox. No JavaScript required.</p>
+  </hgroup>
+
+  <h2>Interactive Example</h2>
+  <p>Click the button below to slide the panel in from the right. Close it with the backdrop or the close button.</p>
+
+  {% set drawer_example %}
+<div class="drawer">
+  <input type="checkbox" id="demo-drawer" class="drawer-toggle" />
+  <label for="demo-drawer" class="btn btn-small">Open Drawer</label>
+  <label for="demo-drawer" class="drawer-backdrop" aria-hidden="true"></label>
+  <aside class="drawer-panel" role="dialog" aria-label="Demo drawer">
+    <header class="drawer-header">
+      <h3>Filters</h3>
+      <label for="demo-drawer" class="drawer-close" aria-label="Close">&times;</label>
+    </header>
+    <form>
+      <label>Keyword
+        <input type="text" placeholder="Search..." />
+      </label>
+      <label>Status
+        <select>
+          <option>Any</option>
+          <option>Active</option>
+          <option>Inactive</option>
+        </select>
+      </label>
+      <footer class="actions">
+        <button type="submit" class="btn btn-small">Apply</button>
+      </footer>
+    </form>
+  </aside>
+</div>{% endset %}
+
+  {{ drawer_example }}
+
+  <br/>
+
+  <details open>
+    <summary>Example Code</summary>
+    <pre>{{ drawer_example | e }}</pre>
+  </details>
+</div>
+{% endblock %}
