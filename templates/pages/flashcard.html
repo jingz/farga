@@ -1,0 +1,58 @@
+{% extends "layout/base.html" %}
+
+{% block inline_style %}
+.flashcard-demo {
+    max-width: 900px;
+}
+
+.flashcard-demo-grid {
+    align-items: start;
+}
+{% endblock %}
+
+{% block content %}
+<div class="flashcard-demo">
+  <hgroup>
+    <h1>Flashcard</h1>
+    <p>A compact question and answer building block for study content.</p>
+  </hgroup>
+
+  <div class="grid-2 flashcard-demo-grid">
+    {% set question %}
+    <article class="flashcard question">
+      <header>Question</header>
+      <div class="flashcard-body">
+        <div class="flashcard-lines">
+          <p></p>
+          <p></p>
+          <p></p>
+        </div>
+      </div>
+    </article>
+    {% endset %}
+    {{ question }}
+
+    {% set answer %}
+    <article class="flashcard answer">
+      <header>Answer</header>
+      <div class="flashcard-body">
+        <div class="flashcard-lines">
+          <p></p>
+          <p></p>
+          <p></p>
+        </div>
+      </div>
+    </article>
+    {% endset %}
+    {{ answer }}
+  </div>
+
+  <br />
+  <details open>
+    <summary>Example Code</summary>
+    <pre>{{ question | e }}
+
+{{ answer | e }}</pre>
+  </details>
+</div>
+{% endblock %}

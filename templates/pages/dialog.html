@@ -20,13 +20,13 @@
 
 <dialog id="demo-dialog" role="alertdialog">
   <header>
-    <h3>Confirm Action</h3>
+    <h3>Are you absolutely sure?</h3>
   </header>
-  <p>Are you sure you want to proceed with this operation? This action cannot be undone.</p>
+  <p>This action cannot be undone. This will permanently delete your account from our servers.</p>
   <footer>
     <form method="dialog">
-      <button class="btn-outline" value="cancel">Cancel</button>
-      <button class="btn-danger" value="confirm">Confirm</button>
+      <button value="cancel">Cancel</button>
+      <button value="confirm">Continue</button>
     </form>
   </footer>
 </dialog>{% endset %}

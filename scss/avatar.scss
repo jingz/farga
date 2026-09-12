@@ -2,15 +2,14 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 3rem;
-  height: 3rem;
+  width: 2rem;
+  height: 2rem;
   overflow: hidden;
-  border: 2px solid var(--primary-7);
   border-radius: 50%;
   background-color: var(--primary-5);
   color: var(--primary-0);
   font-family: var(--sans-serif-fonts);
-  font-size: var(--fs-3);
+  font-size: var(--fs-2);
   font-weight: 700;
   line-height: 1;
   text-align: center;
@@ -25,13 +24,13 @@
 }
 
 .avatar.small {
-  width: 2rem;
-  height: 2rem;
-  font-size: var(--fs-2);
+  width: 1.5rem;
+  height: 1.5rem;
+  font-size: var(--fs-1);
 }
 
 .avatar.large {
-  width: 5rem;
-  height: 5rem;
-  font-size: var(--fs-6);
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: var(--fs-3);
 }

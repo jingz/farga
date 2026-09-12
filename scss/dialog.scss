@@ -1,34 +1,106 @@
 @use 'base';
 
 dialog {
+  width: calc(100vw - 2rem);
+  max-width: 32rem;
+  box-sizing: border-box;
+  overflow: hidden;
+  padding: 1rem 1rem 0;
   background-color: var(--bg-primary);
-  color: var(--text-color-primary);
-  border: 1px solid var(--border-color-primary);
+  color: #000;
+  border: 1px solid #ccc;
   border-radius: 8px;
-  padding: 1.5rem;
-  max-width: min(90vw, 32rem);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 
   &::backdrop {
-    background-color: rgba(0, 0, 0, 0.45);
+    background-color: rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(2px);
   }
 
   header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin-bottom: 1rem;
+    justify-content: space-between;
+    margin: 0;
 
     h1, h2, h3, h4 {
       margin: 0;
+      color: #000;
+      font-family: var(--sans-serif-fonts);
+      font-size: var(--fs-3);
+      font-weight: 700;
+      line-height: var(--base-line-height);
     }
+  }
+
+  > p {
+    margin: 0.5rem 0 0;
+    color: #737373;
+    line-height: var(--base-line-height);
   }
 
   footer {
     display: flex;
     justify-content: flex-end;
-    gap: 0.5rem;
-    margin-top: 1.5rem;
+    margin: 0.75rem -1rem 0;
+    padding: 1rem;
+    border-top: 1px solid #e5e5e5;
+    background-color: #fafafa;
+
+    form {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    button {
+      border-radius: 0.5rem;
+
+      &:first-child {
+        background-color: var(--bg-primary);
+        border: 1px solid #e5e5e5;
+        color: #000;
+      }
+
+      &:last-child {
+        background-color: #000;
+        color: #fff;
+      }
+
+      &:first-child:hover {
+        background-color: var(--bg-primary-alt);
+      }
+
+      &:last-child:hover {
+        background-color: #222;
+      }
+    }
+  }
+}
+
+body.dark-mode dialog {
+  color: var(--text-color-primary);
+  border-color: var(--border-color-primary);
+
+  header h1, header h2, header h3, header h4 {
+    color: var(--text-color-primary);
+  }
+
+  > p {
+    color: var(--text-color-muted);
+  }
+
+  footer {
+    border-color: var(--border-color-muted);
+    background-color: var(--bg-primary-alt);
+
+    button:first-child {
+      border-color: var(--border-color-muted);
+      color: var(--text-color-primary);
+    }
+
+    button:last-child {
+      background-color: var(--grey-2);
+      color: var(--grey-12);
+    }
   }
 }

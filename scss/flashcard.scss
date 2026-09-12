@@ -1,0 +1,96 @@
+@use 'base';
+
+.flashcard {
+  box-sizing: border-box;
+  overflow: hidden;
+  border: 1px solid var(--grey-3);
+  border-radius: 1rem;
+  background-color: var(--bg-primary);
+  color: var(--text-color-primary);
+
+  & > header,
+  & > summary {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    min-height: 3rem;
+    box-sizing: border-box;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--grey-3);
+    background-color: var(--grey-0);
+    color: var(--text-color-primary);
+    font-family: var(--sans-serif-fonts);
+    font-size: var(--fs-3);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    line-height: 1;
+    text-transform: uppercase;
+
+    &::before {
+      display: block;
+      flex: 0 0 1.25rem;
+      width: 1.25rem;
+      height: 1.25rem;
+      box-sizing: border-box;
+      border: 1px solid var(--grey-4);
+      border-radius: 50%;
+      background-color: var(--bg-primary);
+      content: "";
+    }
+  }
+
+  & > summary {
+    cursor: pointer;
+    list-style: none;
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+  }
+
+  & > .flashcard-body {
+    min-height: 8rem;
+    padding: 1.25rem;
+  }
+
+  &.question > header,
+  &.question > summary {
+    background-color: var(--pink-0);
+  }
+
+  &.answer > header,
+  &.answer > summary {
+    background-color: var(--green-0);
+  }
+}
+
+.flashcard-lines {
+  display: grid;
+  gap: 1rem;
+
+  & > * {
+    min-height: 1rem;
+    margin: 0;
+    border-bottom: 2px solid var(--grey-2);
+  }
+}
+
+body.dark-mode .flashcard {
+  border-color: var(--grey-7);
+
+  & > header,
+  & > summary {
+    border-color: var(--grey-7);
+    background-color: var(--grey-10);
+  }
+
+  &.question > header,
+  &.question > summary {
+    background-color: var(--pink-8);
+  }
+
+  &.answer > header,
+  &.answer > summary {
+    background-color: var(--green-8);
+  }
+}

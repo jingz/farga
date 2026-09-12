@@ -7,6 +7,13 @@
 
     <style type="text/css" media="all">
     
+.flashcard-demo {
+    max-width: 900px;
+}
+
+.flashcard-demo-grid {
+    align-items: start;
+}
 
 
     body {
@@ -125,33 +132,71 @@
         </nav>
         <main id="main-container">
           
-<div>
-  <h1>Breadcrumbs</h1>
+<div class="flashcard-demo">
+  <hgroup>
+    <h1>Flashcard</h1>
+    <p>A compact question and answer building block for study content.</p>
+  </hgroup>
 
-  
-
-  
-  <nav class="breadcrumbs">
-    <ul>
-        <li><a>Introduction</a></li>
-        <li><a>Get Started</a></li>
-        <li><a>Tutorials</a></li>
-        <li><a>Changelog</a></li>
-    </ul>
-  </nav>
-
-  <pre>
+  <div class="grid-2 flashcard-demo-grid">
     
-  &lt;nav class=&#34;breadcrumbs&#34;&gt;
-    &lt;ul&gt;
-        &lt;li&gt;&lt;a&gt;Introduction&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a&gt;Get Started&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a&gt;Tutorials&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a&gt;Changelog&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/nav&gt;
-  </pre>
+    
+    <article class="flashcard question">
+      <header>Question</header>
+      <div class="flashcard-body">
+        <div class="flashcard-lines">
+          <p></p>
+          <p></p>
+          <p></p>
+        </div>
+      </div>
+    </article>
+    
 
+    
+    
+    <article class="flashcard answer">
+      <header>Answer</header>
+      <div class="flashcard-body">
+        <div class="flashcard-lines">
+          <p></p>
+          <p></p>
+          <p></p>
+        </div>
+      </div>
+    </article>
+    
+  </div>
+
+  <br />
+  <details open>
+    <summary>Example Code</summary>
+    <pre>
+    &lt;article class=&#34;flashcard question&#34;&gt;
+      &lt;header&gt;Question&lt;/header&gt;
+      &lt;div class=&#34;flashcard-body&#34;&gt;
+        &lt;div class=&#34;flashcard-lines&#34;&gt;
+          &lt;p&gt;&lt;/p&gt;
+          &lt;p&gt;&lt;/p&gt;
+          &lt;p&gt;&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/article&gt;
+    
+
+
+    &lt;article class=&#34;flashcard answer&#34;&gt;
+      &lt;header&gt;Answer&lt;/header&gt;
+      &lt;div class=&#34;flashcard-body&#34;&gt;
+        &lt;div class=&#34;flashcard-lines&#34;&gt;
+          &lt;p&gt;&lt;/p&gt;
+          &lt;p&gt;&lt;/p&gt;
+          &lt;p&gt;&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/article&gt;
+    </pre>
+  </details>
 </div>
 
         </main>

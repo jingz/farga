@@ -13,24 +13,18 @@
   <h2>Alert Variants</h2>
 
   {% set alert_examples %}
-<div class="alert">
-  <p><strong>Default:</strong> This is a standard neutral alert message.</p>
+<div class="alert success" role="alert">
+  <div>
+    <h3>Payment successful</h3>
+    <p>Your payment of $29.99 has been processed. A receipt has been sent to your email address.</p>
+  </div>
 </div>
 
 <div class="alert info" role="alert">
-  <p><strong>Info:</strong> A new software update is available for your account.</p>
-</div>
-
-<div class="alert success" role="alert">
-  <p><strong>Success:</strong> Your profile changes have been saved successfully.</p>
-</div>
-
-<div class="alert warning" role="alert">
-  <p><strong>Warning:</strong> Your subscription will expire in 3 days.</p>
-</div>
-
-<div class="alert danger" role="alert">
-  <p><strong>Danger:</strong> There was an error processing your payment request.</p>
+  <div>
+    <h3>New feature available</h3>
+    <p>We've added dark mode support. You can enable it in your account settings.</p>
+  </div>
 </div>{% endset %}
 
   <div>

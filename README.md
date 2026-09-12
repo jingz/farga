@@ -60,6 +60,17 @@ Use `.avatar` for initials or an image. Add `.small` or `.large` when needed:
 <span class="avatar large"><img src="/avatar.jpg" alt="Jane Doe" /></span>
 ```
 
+## Flashcard
+
+Use `.flashcard.question` and `.flashcard.answer` for a reusable question/answer card. Add `.flashcard-lines` when the content needs paper-style answer lines:
+
+```html
+<article class="flashcard question">
+  <header>Question</header>
+  <div class="flashcard-body">What does this word mean?</div>
+</article>
+```
+
 ## Grid Layouts
 
 Use `.grid-auto` for a responsive auto-fit grid, or `.grid-2`, `.grid-3`, and `.grid-4` for fixed column layouts that collapse on small screens:

@@ -92,6 +92,7 @@
             <ul>
               <li><a href="./accordion.html">Accordion</a></li>
               <li><a href="./card.html">Card</a></li>
+              <li><a href="./flashcard.html">Flashcard</a></li>
               <li><a href="./badge.html">Badge</a></li>
               <li><a href="./detail.html">Detail List</a></li>
               <li><a href="./alert.html">Alert</a></li>
@@ -136,24 +137,18 @@
 
   <div>
     
-<div class="alert">
-  <p><strong>Default:</strong> This is a standard neutral alert message.</p>
+<div class="alert success" role="alert">
+  <div>
+    <h3>Payment successful</h3>
+    <p>Your payment of $29.99 has been processed. A receipt has been sent to your email address.</p>
+  </div>
 </div>
 
 <div class="alert info" role="alert">
-  <p><strong>Info:</strong> A new software update is available for your account.</p>
-</div>
-
-<div class="alert success" role="alert">
-  <p><strong>Success:</strong> Your profile changes have been saved successfully.</p>
-</div>
-
-<div class="alert warning" role="alert">
-  <p><strong>Warning:</strong> Your subscription will expire in 3 days.</p>
-</div>
-
-<div class="alert danger" role="alert">
-  <p><strong>Danger:</strong> There was an error processing your payment request.</p>
+  <div>
+    <h3>New feature available</h3>
+    <p>We've added dark mode support. You can enable it in your account settings.</p>
+  </div>
 </div>
   </div>
 
@@ -162,24 +157,18 @@
   <details open>
     <summary>Example Code</summary>
     <pre>
-&lt;div class=&#34;alert&#34;&gt;
-  &lt;p&gt;&lt;strong&gt;Default:&lt;/strong&gt; This is a standard neutral alert message.&lt;/p&gt;
+&lt;div class=&#34;alert success&#34; role=&#34;alert&#34;&gt;
+  &lt;div&gt;
+    &lt;h3&gt;Payment successful&lt;/h3&gt;
+    &lt;p&gt;Your payment of $29.99 has been processed. A receipt has been sent to your email address.&lt;/p&gt;
+  &lt;/div&gt;
 &lt;/div&gt;
 
 &lt;div class=&#34;alert info&#34; role=&#34;alert&#34;&gt;
-  &lt;p&gt;&lt;strong&gt;Info:&lt;/strong&gt; A new software update is available for your account.&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;div class=&#34;alert success&#34; role=&#34;alert&#34;&gt;
-  &lt;p&gt;&lt;strong&gt;Success:&lt;/strong&gt; Your profile changes have been saved successfully.&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;div class=&#34;alert warning&#34; role=&#34;alert&#34;&gt;
-  &lt;p&gt;&lt;strong&gt;Warning:&lt;/strong&gt; Your subscription will expire in 3 days.&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;div class=&#34;alert danger&#34; role=&#34;alert&#34;&gt;
-  &lt;p&gt;&lt;strong&gt;Danger:&lt;/strong&gt; There was an error processing your payment request.&lt;/p&gt;
+  &lt;div&gt;
+    &lt;h3&gt;New feature available&lt;/h3&gt;
+    &lt;p&gt;We&#39;ve added dark mode support. You can enable it in your account settings.&lt;/p&gt;
+  &lt;/div&gt;
 &lt;/div&gt;</pre>
   </details>
 </div>

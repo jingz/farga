@@ -3,6 +3,8 @@
 
 .accordion {
   details {
+    min-width: 0;
+    overflow: hidden;
     cursor: pointer;
 
     &:not(:last-child) {
@@ -22,6 +24,8 @@
     summary {
       @extend %btn-padding;
 
+      width: 100%;
+      box-sizing: border-box;
       list-style: none;
 
       &::after {
@@ -34,11 +38,20 @@
       }
 
       & + * {
+        max-width: calc(100% - 0.625rem);
         margin: 0 0 10px 10px;
+        box-sizing: border-box;
+        overflow-wrap: anywhere;
       }
 
       & + ul {
+        max-width: calc(100% - 1.3rem);
         margin-left: 1.3rem;
+        padding-left: 1.25rem;
+
+        li {
+          overflow-wrap: anywhere;
+        }
       }
     }
 

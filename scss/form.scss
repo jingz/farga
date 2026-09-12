@@ -29,6 +29,29 @@ input:not([type="range"]), select, textarea {
   }
 }
 
+select {
+  appearance: none;
+  width: 8rem;
+  height: 2rem;
+  box-sizing: border-box;
+  padding: 0 2rem 0 0.625rem;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  background-color: var(--bg-primary);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23737373' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6l6 -6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.5rem center;
+  background-size: 1.125rem;
+  color: #000;
+  font-family: var(--sans-serif-fonts);
+  font-size: var(--fs-3);
+}
+
+body.dark-mode select {
+  border-color: var(--border-color-primary);
+  color: var(--text-color-primary);
+}
+
 form {
   /* control wrapper */
   p {
