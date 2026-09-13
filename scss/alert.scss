@@ -31,6 +31,20 @@
     line-height: 1;
   }
 
+  &.success {
+    border-color: var(--success-color);
+    background-color: var(--bg-success-color);
+    color: var(--success-color);
+
+    h1, h2, h3, h4 {
+      color: var(--success-color);
+    }
+
+    p {
+      color: var(--success-color);
+    }
+  }
+
   &.success::before {
     content: "✓";
     font-size: var(--fs-1);

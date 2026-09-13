@@ -1578,6 +1578,17 @@ body.dark-mode dialog footer button:last-child {
   font-weight: 400;
   line-height: 1;
 }
+.alert.success, [role=alert].alert.success {
+  border-color: var(--success-color);
+  background-color: var(--bg-success-color);
+  color: var(--success-color);
+}
+.alert.success h1, .alert.success h2, .alert.success h3, .alert.success h4, [role=alert].alert.success h1, [role=alert].alert.success h2, [role=alert].alert.success h3, [role=alert].alert.success h4 {
+  color: var(--success-color);
+}
+.alert.success p, [role=alert].alert.success p {
+  color: var(--success-color);
+}
 .alert.success::before, [role=alert].alert.success::before {
   content: "✓";
   font-size: var(--fs-1);
