@@ -47,32 +47,33 @@
   --fs-11: 72px;
   /* ------------------------------------------*/
   /* colors */
-  --primary-0: hsl(230, 80%, 95%);
-  --primary-1: hsl(230, 80%, 91%);
-  --primary-2: hsl(230, 80%, 87%);
-  --primary-3: hsl(230, 80%, 79%);
-  --primary-4: hsl(230, 80%, 72%); /* default primary */
-  --primary-5: hsl(230, 80%, 59%);
-  --primary-6: hsl(230, 80%, 50%);
-  --primary-7: hsl(230, 80%, 41%);
-  --primary-8: hsl(230, 80%, 32%);
-  --primary-9: hsl(230, 80%, 23%);
-  --secondary-0: hsl(188, 80%, 94%);
-  --secondary-1: hsl(188, 80%, 90%);
-  --secondary-2: hsl(188, 80%, 86%);
-  --secondary-3: hsl(188, 80%, 77%);
-  --secondary-4: hsl(188, 80%, 68%);
-  --secondary-5: hsl(188, 80%, 59%);
-  --secondary-6: hsl(188, 80%, 50%);
-  --secondary-7: hsl(188, 80%, 41%);
-  --secondary-8: hsl(188, 80%, 32%);
-  --secondary-9: hsl(188, 80%, 23%);
-  /* no-custom generation from  https://hypejunction.github.io/color-wizard/ */
-  /* Color suffix 0-4 for dark text agiant white background */
-  /* Color suffix 8-9 for white text and being dark text for 0-4 of the same shad */
-  /* Removing color shad 5-6-7 since contrast ratio */
-  /* System colors are red (error), green (success), blue (info) */
-  /* Grey is neutral color */
+  /* Primary: muted slate blue; secondary: muted teal.
+   * Shades: 0-2 surfaces, 3-5 borders, 6-7 actions, 8-9 text/dark surfaces.
+   */
+  --primary-0: hsl(215, 55%, 96%);
+  --primary-1: hsl(215, 55%, 92%);
+  --primary-2: hsl(215, 55%, 86%);
+  --primary-3: hsl(215, 55%, 78%);
+  --primary-4: hsl(215, 55%, 70%);
+  --primary-5: hsl(215, 55%, 59%);
+  --primary-6: hsl(215, 55%, 50%);
+  --primary-7: hsl(215, 55%, 41%);
+  --primary-8: hsl(215, 55%, 32%);
+  --primary-9: hsl(215, 55%, 23%);
+  --secondary-0: hsl(170, 48%, 96%);
+  --secondary-1: hsl(170, 48%, 92%);
+  --secondary-2: hsl(170, 48%, 86%);
+  --secondary-3: hsl(170, 48%, 77%);
+  --secondary-4: hsl(170, 48%, 68%);
+  --secondary-5: hsl(170, 48%, 59%);
+  --secondary-6: hsl(170, 48%, 50%);
+  --secondary-7: hsl(170, 48%, 41%);
+  --secondary-8: hsl(170, 48%, 32%);
+  --secondary-9: hsl(170, 48%, 23%);
+  /* Palette generated with https://hypejunction.github.io/color-wizard/.
+   * 0-4: light surfaces; 5-7: transition shades; 8-9: dark surfaces.
+   * System colors: red (error), green (success), blue (info); grey is neutral.
+   */
   --red-0: hsl(0, 80%, 94%);
   --red-1: hsl(0, 80%, 90%);
   --red-2: hsl(0, 80%, 86%);
@@ -215,17 +216,22 @@
   /*--text-color-dark: #0c1b6a; /* use against shad 0-4 of each color */
   --text-color-dark: var(--grey-9); /* use against shad 0-4 of each color */
   --body-background: white;
-  --color-primary: var(--primary-4);
+  /* semantic roles: use these instead of guessing a shade in components */
+  --color-primary: var(--primary-7);
   --color-primary-dim: var(--primary-1);
-  --color-primary-accent: var(--primary-7);
-  --color-secondary: var(--secondary-4);
+  --color-primary-accent: var(--primary-8);
+  --color-secondary: var(--secondary-8);
+  --color-secondary-accent: var(--secondary-9);
   --text-color-primary: var(--grey-9);
   --text-color-secondary: white;
   --text-color-muted: var(--grey-6);
   --bg-primary: white;
   --bg-primary-alt: var(--grey-0);
-  /* used for headers and as a background color from some links and the form's submit button */
-  --primary: var(--primary-4);
+  /* action colors */
+  --primary: var(--primary-7);
+  --primary-hover: var(--primary-8);
+  --secondary: var(--secondary-8);
+  --secondary-hover: var(--secondary-9);
   --border-color-primary: var(--grey-4);
   --border-color-muted: var(--grey-1);
   --dim: var(--grey-0);
@@ -256,14 +262,17 @@ body.dark-mode {
   --text-color-muted: var(--grey-5);
   --bg-primary: black;
   --bg-primary-alt: var(--grey-10);
-  /* used for headers and as a background color from some links and the form's submit button */
-  --primary: var(--primary-4);
-  --color-primary: var(--primary-4);
+  --color-primary: var(--primary-3);
+  --color-primary-dim: var(--primary-9);
+  --color-primary-accent: var(--primary-2);
+  --color-secondary: var(--secondary-3);
+  --color-secondary-accent: var(--secondary-2);
   --border-color-primary: var(--grey-5);
   --border-color-muted: var(--grey-8);
   --dim: var(--grey-9);
   /* list */
   --bg-list-active: var(--primary-9);
+  --bg-list-hover: var(--primary-9);
   --bg-summary-hover: var(--primary-9);
   --bg-summary-open: var(--grey-9);
   --border-nested-link: var(--grey-8);
@@ -401,7 +410,7 @@ input[type=file]::file-selector-button {
 }
 
 form input[type=submit], button, .btn {
-  background-color: var(--primary-6);
+  background-color: var(--primary);
   color: var(--primary-0);
   padding: 8px 10px;
   font-size: 14px;
@@ -412,28 +421,28 @@ form input[type=submit], button, .btn {
 }
 
 button:hover, .btn:hover {
-  background-color: var(--primary-5);
+  background-color: var(--primary-hover);
   color: var(--primary-0);
 }
 button:focus-visible, .btn:focus-visible {
-  outline: 2px solid var(--primary-6);
+  outline: 2px solid var(--color-primary);
   outline-offset: 2px;
 }
 button.btn-secondary, .btn.btn-secondary {
-  background-color: var(--secondary-8);
-  color: var(--secondary-1);
+  background-color: var(--secondary);
+  color: var(--secondary-0);
 }
 button.btn-secondary:hover, .btn.btn-secondary:hover {
   color: var(--secondary-0);
-  background-color: var(--secondary-7);
+  background-color: var(--secondary-hover);
 }
 button.btn-secondary-outline, .btn.btn-secondary-outline {
   background-color: var(--bg-primary);
-  color: var(--secondary-4);
-  border: 1px solid var(--secondary-4);
+  color: var(--color-secondary);
+  border: 1px solid var(--color-secondary);
 }
 button.btn-secondary-outline:hover, .btn.btn-secondary-outline:hover {
-  background-color: var(--secondary-0);
+  background-color: var(--bg-primary-alt);
 }
 button.btn-danger, .btn.btn-danger {
   background-color: var(--red-7);
@@ -469,11 +478,11 @@ button.btn-success-outline:hover, .btn.btn-success-outline:hover {
 }
 button.btn-outline, .btn.btn-outline {
   background-color: var(--bg-primary);
-  border: 1px solid var(--primary-5);
-  color: var(--primary-5);
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
 }
 button.btn-outline:hover, .btn.btn-outline:hover {
-  background-color: var(--primary-0);
+  background-color: var(--bg-list-hover);
 }
 button a, .btn a {
   color: inherit;
@@ -502,11 +511,11 @@ a.btn:link, a.btn:visited {
 }
 
 a.btn.btn-secondary:link, a.btn.btn-secondary:visited {
-  color: var(--secondary-1);
+  color: var(--secondary-0);
 }
 
 a.btn.btn-secondary-outline:link, a.btn.btn-secondary-outline:visited {
-  color: var(--secondary-4);
+  color: var(--color-secondary);
 }
 
 a.btn.btn-danger:link, a.btn.btn-danger:visited {
@@ -526,7 +535,7 @@ a.btn.btn-success-outline:link, a.btn.btn-success-outline:visited {
 }
 
 a.btn.btn-outline:link, a.btn.btn-outline:visited {
-  color: var(--primary-5);
+  color: var(--color-primary);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -536,10 +545,10 @@ a.btn.btn-outline:link, a.btn.btn-outline:visited {
   }
 }
 a:link {
-  color: var(--violet-8);
+  color: var(--color-primary);
 }
 a:visited {
-  color: var(--grape-8);
+  color: var(--color-primary-accent);
 }
 
 nav.pagination ul li a, nav.pagination ul li span, nav.breadcrumbs ul li a, nav.tab.tab-radio label, nav.tab ul li a, nav.sidemenu ul li a, nav.sidemenu details ul li, nav.sidemenu details summary {
@@ -586,7 +595,7 @@ nav.basic details[open] summary::after {
   content: " ⋀";
 }
 nav.basic details:hover {
-  background-color: var(--bg-primary-atl);
+  background-color: var(--bg-primary-alt);
 }
 nav.basic details summary {
   list-style: none;
@@ -685,7 +694,7 @@ nav.tab ul li {
 }
 nav.tab ul li.active {
   border-bottom: 0;
-  border-bottom: 2px solid var(--primary-4);
+  border-bottom: 2px solid var(--color-primary);
 }
 nav.tab ul li a {
   display: block;
@@ -704,7 +713,7 @@ nav.tab.tab-radio input[type=radio] {
   display: none;
 }
 nav.tab.tab-radio input[type=radio]:checked + label {
-  border-bottom: 2px solid var(--primary-4);
+  border-bottom: 2px solid var(--color-primary);
 }
 nav.tab.tab-radio input[type=radio]:checked + label + section {
   display: block;
@@ -747,7 +756,7 @@ nav.breadcrumbs ul li:last-child a:hover {
   pointer-events: none;
 }
 nav.breadcrumbs ul li a {
-  color: var(--primary-4);
+  color: var(--color-primary);
   display: block;
 }
 nav.breadcrumbs ul li a:hover {
@@ -769,8 +778,8 @@ nav.pagination ul li.disabled a {
   pointer-events: none;
 }
 nav.pagination ul li.active a {
-  background-color: var(--primary-6);
-  color: var(--primary-1);
+  background-color: var(--primary);
+  color: var(--primary-0);
 }
 nav.pagination ul li {
   /* for ... */
@@ -782,11 +791,11 @@ nav.pagination ul li a {
   text-decoration: none;
   border: 1px solid var(--dim);
   border-radius: 5px;
-  color: var(--primary-4);
+  color: var(--color-primary);
   display: block;
 }
 nav.pagination ul li a:hover {
-  background-color: var(--primary-5);
+  background-color: var(--primary-hover);
   color: var(--primary-0);
 }
 
@@ -948,13 +957,13 @@ input[type=file]::file-selector-button {
   font-family: inherit;
   border: 0;
   border-radius: 4px;
-  background-color: var(--primary-6);
+  background-color: var(--primary);
   color: var(--primary-0);
   cursor: pointer;
   margin-right: 0.75rem;
 }
 input[type=file]::file-selector-button:hover {
-  background-color: var(--primary-5);
+  background-color: var(--primary-hover);
 }
 input[type=file][disabled] {
   opacity: 0.6;
@@ -1035,7 +1044,7 @@ table thead th a {
   text-decoration: none;
 }
 table thead th a:link, table thead th a:visited {
-  color: var(--violet-8);
+  color: var(--color-primary);
   text-decoration: none;
 }
 table tbody tr {
@@ -1334,7 +1343,7 @@ article.card {
   display: none;
 }
 .flashcard > summary:focus-visible {
-  outline: 2px solid var(--primary-6);
+  outline: 2px solid var(--color-primary);
   outline-offset: -2px;
 }
 .flashcard > .flashcard-body {
@@ -1410,7 +1419,7 @@ span.badge.disabled {
   height: 2rem;
   overflow: hidden;
   border-radius: 50%;
-  background-color: var(--primary-5);
+  background-color: var(--primary);
   color: var(--primary-0);
   font-family: var(--sans-serif-fonts);
   font-size: var(--fs-2);

@@ -55,7 +55,7 @@ nav.basic {
     }
 
     &:hover {
-        background-color: var(--bg-primary-atl);
+        background-color: var(--bg-primary-alt);
     }
 
     summary {
@@ -194,7 +194,7 @@ nav.tab {
 
       &.active {
         border-bottom: 0;
-        border-bottom: 2px solid var(--primary-4);
+        border-bottom: 2px solid var(--color-primary);
       }
 
       a {
@@ -219,7 +219,7 @@ nav.tab {
       display: none;
 
       &:checked + label {
-        border-bottom: 2px solid var(--primary-4);
+        border-bottom: 2px solid var(--color-primary);
       }
 
       &:checked + label + section {
@@ -285,7 +285,7 @@ nav.breadcrumbs {
       a {
         @extend %menu-link-padding;
 
-        color: var(--primary-4);
+        color: var(--color-primary);
         display: block;
 
         &:hover {
@@ -316,8 +316,8 @@ nav.pagination {
 
       &.active {
         a {
-          background-color: var(--primary-6);
-          color: var(--primary-1);
+          background-color: var(--primary);
+          color: var(--primary-0);
         }
       }
 
@@ -333,11 +333,11 @@ nav.pagination {
         border: 1px solid var(--dim);
         border-radius: 5px;
 
-        color: var(--primary-4);
+        color: var(--color-primary);
         display: block;
 
         &:hover {
-          background-color: var(--primary-5);
+          background-color: var(--primary-hover);
           color: var(--primary-0);
         }
       }
