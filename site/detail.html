@@ -60,9 +60,16 @@
               <li><a href="./pagination.html">Pagination</a></li>
             </ul>
           </details>
-          <ul>
-              <li><a href="./layout.html">Layout</a></li>
+          <details open>
+            <summary>
+              <span>Layout</span>
+            </summary>
+            <ul>
+              <li><a href="./layout.html">Flex</a></li>
               <li><a href="./grid.html">Grid</a></li>
+            </ul>
+          </details>
+          <ul>
               <li><a href="./button.html">Buttons</a></li>
           </ul>
           <details open>
@@ -176,6 +183,7 @@
       for ( const link of links ) {
           if (link.href.split('/').pop() === filename ) {
               link.parentNode.classList.add('active');
+              link.closest('details')?.setAttribute('open', '');
           }
       }
 
