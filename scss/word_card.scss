@@ -3,10 +3,10 @@
 // Word / definition detail card. Used for vocabulary results and daily words.
 
 .word-card {
-  border: 1px solid var(--grey-2);
-  border-radius: 10px;
+  border: 1px solid var(--border-color-muted);
+  border-radius: 0.75rem;
   background-color: var(--bg-primary);
-  padding: 1.25rem;
+  padding: var(--px-p1);
 
   header {
     display: flex;
@@ -34,9 +34,9 @@
   }
 
   .word-card-definition {
+    margin: 0 0 var(--px-p1);
     font-size: var(--fs-4);
     line-height: 1.65;
-    margin: 0 0 1rem;
   }
 
   .word-card-translation {
@@ -70,4 +70,8 @@
       line-height: 1.5;
     }
   }
+}
+
+body.dark-mode .word-card {
+  border-color: var(--border-color-primary);
 }

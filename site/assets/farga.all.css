@@ -402,14 +402,19 @@ form input[type=submit], button, .btn {
   color: var(--primary-0);
   padding: 8px 10px;
   font-size: 14px;
-  border: 0px;
+  border: 0;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 0.5rem;
+  transition: background-color 150ms ease-in-out, border-color 150ms ease-in-out, color 150ms ease-in-out;
 }
 
 button:hover, .btn:hover {
   background-color: var(--primary-5);
   color: var(--primary-0);
+}
+button:focus-visible, .btn:focus-visible {
+  outline: 2px solid var(--primary-6);
+  outline-offset: 2px;
 }
 button.btn-secondary, .btn.btn-secondary {
   background-color: var(--secondary-8);
@@ -521,6 +526,12 @@ a.btn.btn-outline:link, a.btn.btn-outline:visited {
   color: var(--primary-5);
 }
 
+@media (prefers-reduced-motion: reduce) {
+  button,
+  .btn {
+    transition: none;
+  }
+}
 a:link {
   color: var(--violet-8);
 }
@@ -1290,8 +1301,8 @@ article.card {
 .flashcard {
   box-sizing: border-box;
   overflow: hidden;
-  border: 1px solid var(--grey-3);
-  border-radius: 1rem;
+  border: 1px solid var(--border-color-muted);
+  border-radius: 0.75rem;
   background-color: var(--bg-primary);
   color: var(--text-color-primary);
 }
@@ -1299,29 +1310,18 @@ article.card {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  min-height: 3rem;
+  min-height: 3.25rem;
   box-sizing: border-box;
-  padding: 0.75rem 1rem;
-  border-bottom: 1px solid var(--grey-3);
-  background-color: var(--grey-0);
+  padding: 0.875rem 1.25rem;
+  border-bottom: 1px solid var(--border-color-muted);
+  background-color: var(--bg-primary-alt);
   color: var(--text-color-primary);
   font-family: var(--sans-serif-fonts);
   font-size: var(--fs-3);
   font-weight: 700;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.02em;
   line-height: 1;
   text-transform: uppercase;
-}
-.flashcard > header::before, .flashcard > summary::before {
-  display: block;
-  flex: 0 0 1.25rem;
-  width: 1.25rem;
-  height: 1.25rem;
-  box-sizing: border-box;
-  border: 1px solid var(--grey-4);
-  border-radius: 50%;
-  background-color: var(--bg-primary);
-  content: "";
 }
 .flashcard > summary {
   cursor: pointer;
@@ -1330,39 +1330,47 @@ article.card {
 .flashcard > summary::-webkit-details-marker {
   display: none;
 }
+.flashcard > summary:focus-visible {
+  outline: 2px solid var(--primary-6);
+  outline-offset: -2px;
+}
 .flashcard > .flashcard-body {
   min-height: 8rem;
-  padding: 1.25rem;
+  padding: var(--px-p1);
 }
 .flashcard.question > header, .flashcard.question > summary {
-  background-color: var(--pink-0);
+  border-bottom-color: var(--primary-2);
+  background-color: var(--primary-0);
 }
 .flashcard.answer > header, .flashcard.answer > summary {
-  background-color: var(--green-0);
+  border-bottom-color: var(--secondary-2);
+  background-color: var(--secondary-0);
 }
 
 .flashcard-lines {
   display: grid;
-  gap: 1rem;
+  gap: var(--px-0);
 }
 .flashcard-lines > * {
-  min-height: 1rem;
+  min-height: var(--px-p1);
   margin: 0;
-  border-bottom: 2px solid var(--grey-2);
+  border-bottom: 1px solid var(--border-color-muted);
 }
 
 body.dark-mode .flashcard {
-  border-color: var(--grey-7);
+  border-color: var(--border-color-primary);
 }
 body.dark-mode .flashcard > header, body.dark-mode .flashcard > summary {
-  border-color: var(--grey-7);
-  background-color: var(--grey-10);
+  border-color: var(--border-color-muted);
+  background-color: var(--bg-primary-alt);
 }
 body.dark-mode .flashcard.question > header, body.dark-mode .flashcard.question > summary {
-  background-color: var(--pink-8);
+  border-bottom-color: var(--primary-7);
+  background-color: var(--primary-9);
 }
 body.dark-mode .flashcard.answer > header, body.dark-mode .flashcard.answer > summary {
-  background-color: var(--green-8);
+  border-bottom-color: var(--secondary-7);
+  background-color: var(--secondary-9);
 }
 
 /* all css includes utilities */
@@ -1749,10 +1757,10 @@ body.dark-mode .alert p {
 
 /* all css includes utilities */
 .word-card {
-  border: 1px solid var(--grey-2);
-  border-radius: 10px;
+  border: 1px solid var(--border-color-muted);
+  border-radius: 0.75rem;
   background-color: var(--bg-primary);
-  padding: 1.25rem;
+  padding: var(--px-p1);
 }
 .word-card header {
   display: flex;
@@ -1776,9 +1784,9 @@ body.dark-mode .alert p {
   margin-bottom: 0.75rem;
 }
 .word-card .word-card-definition {
+  margin: 0 0 var(--px-p1);
   font-size: var(--fs-4);
   line-height: 1.65;
-  margin: 0 0 1rem;
 }
 .word-card .word-card-translation {
   color: var(--text-color-muted);
@@ -1805,6 +1813,10 @@ body.dark-mode .alert p {
 .word-card .word-card-section li {
   margin: 0.2rem 0;
   line-height: 1.5;
+}
+
+body.dark-mode .word-card {
+  border-color: var(--border-color-primary);
 }
 
 .bg-primary-0 {

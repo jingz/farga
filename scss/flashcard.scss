@@ -3,8 +3,8 @@
 .flashcard {
   box-sizing: border-box;
   overflow: hidden;
-  border: 1px solid var(--grey-3);
-  border-radius: 1rem;
+  border: 1px solid var(--border-color-muted);
+  border-radius: 0.75rem;
   background-color: var(--bg-primary);
   color: var(--text-color-primary);
 
@@ -13,30 +13,18 @@
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    min-height: 3rem;
+    min-height: 3.25rem;
     box-sizing: border-box;
-    padding: 0.75rem 1rem;
-    border-bottom: 1px solid var(--grey-3);
-    background-color: var(--grey-0);
+    padding: 0.875rem 1.25rem;
+    border-bottom: 1px solid var(--border-color-muted);
+    background-color: var(--bg-primary-alt);
     color: var(--text-color-primary);
     font-family: var(--sans-serif-fonts);
     font-size: var(--fs-3);
     font-weight: 700;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.02em;
     line-height: 1;
     text-transform: uppercase;
-
-    &::before {
-      display: block;
-      flex: 0 0 1.25rem;
-      width: 1.25rem;
-      height: 1.25rem;
-      box-sizing: border-box;
-      border: 1px solid var(--grey-4);
-      border-radius: 50%;
-      background-color: var(--bg-primary);
-      content: "";
-    }
   }
 
   & > summary {
@@ -46,51 +34,60 @@
     &::-webkit-details-marker {
       display: none;
     }
+
+    &:focus-visible {
+      outline: 2px solid var(--primary-6);
+      outline-offset: -2px;
+    }
   }
 
   & > .flashcard-body {
     min-height: 8rem;
-    padding: 1.25rem;
+    padding: var(--px-p1);
   }
 
   &.question > header,
   &.question > summary {
-    background-color: var(--pink-0);
+    border-bottom-color: var(--primary-2);
+    background-color: var(--primary-0);
   }
 
   &.answer > header,
   &.answer > summary {
-    background-color: var(--green-0);
+    border-bottom-color: var(--secondary-2);
+    background-color: var(--secondary-0);
   }
 }
 
 .flashcard-lines {
   display: grid;
-  gap: 1rem;
+  gap: var(--px-0);
 
   & > * {
-    min-height: 1rem;
+    min-height: var(--px-p1);
     margin: 0;
-    border-bottom: 2px solid var(--grey-2);
+    border-bottom: 1px solid var(--border-color-muted);
   }
 }
 
 body.dark-mode .flashcard {
-  border-color: var(--grey-7);
+  border-color: var(--border-color-primary);
 
   & > header,
   & > summary {
-    border-color: var(--grey-7);
-    background-color: var(--grey-10);
+    border-color: var(--border-color-muted);
+    background-color: var(--bg-primary-alt);
   }
 
   &.question > header,
   &.question > summary {
-    background-color: var(--pink-8);
+    border-bottom-color: var(--primary-7);
+    background-color: var(--primary-9);
   }
 
   &.answer > header,
   &.answer > summary {
-    background-color: var(--green-8);
+    border-bottom-color: var(--secondary-7);
+    background-color: var(--secondary-9);
   }
 }

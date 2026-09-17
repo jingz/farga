@@ -21,9 +21,12 @@ $btn-padding-large: 12px 16px;
   color: var(--primary-0);
   padding: 8px 10px;
   font-size: base.$base-font-size;
-  border: 0px;
+  border: 0;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 0.5rem;
+  transition: background-color 150ms ease-in-out,
+              border-color 150ms ease-in-out,
+              color 150ms ease-in-out;
 }
 
 button, .btn {
@@ -32,6 +35,11 @@ button, .btn {
   &:hover {
     background-color: var(--primary-5);
     color: var(--primary-0);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--primary-6);
+    outline-offset: 2px;
   }
 
   &.btn-secondary {
@@ -186,6 +194,13 @@ a.btn.btn-outline {
   &:link,
   &:visited {
     color: var(--primary-5);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  button,
+  .btn {
+    transition: none;
   }
 }
 
