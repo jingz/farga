@@ -504,6 +504,21 @@ button.btn-extra, .btn.btn-extra {
   font-size: 20px;
   padding: 15px 30px;
 }
+button, .btn {
+  /* Square button for a single icon; pair with aria-label for a name. */
+}
+button.btn-icon, .btn.btn-icon {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+}
+button.btn-icon svg, .btn.btn-icon svg {
+  display: block;
+}
 
 a.btn:link, a.btn:visited {
   color: var(--primary-0);
@@ -1608,6 +1623,17 @@ body.dark-mode dialog footer button:last-child {
 }
 .alert.success p, [role=alert].alert.success p {
   color: var(--success-color);
+}
+.alert.warning, [role=alert].alert.warning {
+  border-color: var(--warning-color);
+  background-color: var(--bg-warning-color);
+  color: var(--warning-color);
+}
+.alert.warning h1, .alert.warning h2, .alert.warning h3, .alert.warning h4, [role=alert].alert.warning h1, [role=alert].alert.warning h2, [role=alert].alert.warning h3, [role=alert].alert.warning h4 {
+  color: var(--warning-color);
+}
+.alert.warning p, [role=alert].alert.warning p {
+  color: var(--warning-color);
 }
 .alert.success::before, [role=alert].alert.success::before {
   content: "✓";

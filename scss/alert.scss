@@ -45,6 +45,20 @@
     }
   }
 
+  &.warning {
+    border-color: var(--warning-color);
+    background-color: var(--bg-warning-color);
+    color: var(--warning-color);
+
+    h1, h2, h3, h4 {
+      color: var(--warning-color);
+    }
+
+    p {
+      color: var(--warning-color);
+    }
+  }
+
   &.success::before {
     content: "✓";
     font-size: var(--fs-1);

@@ -138,6 +138,21 @@ button, .btn {
     font-size: 20px;
     padding: 15px 30px;
   }
+
+  /* Square button for a single icon; pair with aria-label for a name. */
+  &.btn-icon {
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0;
+
+    svg {
+      display: block;
+    }
+  }
 }
 
 a.btn {
