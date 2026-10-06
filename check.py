@@ -214,7 +214,9 @@ LITERAL_COLOUR = re.compile(r"#[0-9a-fA-F]{3,8}\b|rgba?\(")
 
 def check_system_rules():
     for path in sorted(SCSS.glob("*.scss")):
-        if path.name == "_base.scss":
+        # token partials are where literal colours belong; everything else must
+        # name a token
+        if path.name.startswith("_"):
             continue
         for number, line in enumerate(path.read_text().splitlines(), 1):
             radius = re.search(r"border-radius:\s*([^;]+)", line)

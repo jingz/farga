@@ -12,8 +12,8 @@ built, extended and shipped.
 
 | Artifact | Contents | Raw | gzip -9 | brotli -q11 |
 |---|---|---|---|---|
-| `site/assets/farga.css` | core components — the file consumers take | 37.4 kB | 7.5 kB | 6.3 kB |
-| `site/assets/farga.all.css` | core plus the opt-in utility classes | 60.8 kB | 12.9 kB | 10.3 kB |
+| `site/assets/farga.css` | core components — the file consumers take | 35.8 kB | 7.2 kB | 6.2 kB |
+| `site/assets/farga.all.css` | core plus the opt-in utility classes and the rest of the palette | 62.1 kB | 13.2 kB | 10.6 kB |
 
 `farga.css` is minified by the build (`sass --style=compressed`), so it has no separate
 minification step; `farga.all.css` is deliberately left readable. Compression is the
@@ -126,8 +126,10 @@ so it has to stand alone:
 .
 ├── scss/                     # SCSS sources; one component per file
 │   ├── _base.scss            # tokens: colours, spacing, type, radius, shadow, themes
+│   ├── _palette.scss         # the eight hues only the utilities use — all.scss, not core
+│   ├── reset.scss            # the reset and global rules (focus ring, reduced motion)
 │   ├── main.scss             # entry point → site/assets/farga.css (core)
-│   ├── all.scss              # entry point → site/assets/farga.all.css (core + utilities)
+│   ├── all.scss              # entry point → site/assets/farga.all.css (core + utilities + palette)
 │   └── *.scss                # components, named after what they style
 ├── templates/
 │   ├── layout/base.html      # doc shell: nav tree, section rhythm, theme script
@@ -145,11 +147,16 @@ registered with `@use` in **both** `main.scss` and `all.scss`, a demo page in
 
 **Where things belong**
 
-- Tokens — every colour, radius, shadow, spacing value and theme override — live in
-  `_base.scss` and nowhere else. A literal colour outside that file fails the gate.
+- Tokens — every colour, radius, shadow, spacing value and theme override — live in the token
+  partials (`_base.scss`, `_palette.scss`) and nowhere else. A literal colour in a component file
+  fails the gate.
+- A hue belongs in `_palette.scss` while nothing but `utilities.scss` references it, and moves back
+  into `_base.scss` the moment a component needs it — the core bundle should not carry a colour
+  picker it does not use.
 - Geometry comes from the tokens: `--radius` / `--radius-lg` for corners, `--shadow-1..5` for
   elevation, `--px-*` for space, `--fs-*` for type, `--control-h` for the minimum height of a
-  control. Picking a number that is not on a scale is the mistake this gate exists to catch.
+  control, and `--form-w` / `--form-w-narrow` / `--form-w-wide` for form columns. Picking a number
+  that is not on a scale is the mistake this gate exists to catch.
 - Component-internal padding for buttons and menu rows is its own documented scale, in pixels,
   and is intentionally not the `--px-*` spacing scale.
 - Demo markup must be the real thing: a doc page teaches by being copied, so what is shown
@@ -184,7 +191,7 @@ definition of "ready to commit". It is a linter, not a substitute for looking at
 - `border-radius` must be `var(--radius)`, `var(--radius-lg)`, `50%`, `1.25rem`, `0` or
   `inherit` — one radius per tier, so a control never disagrees with the control beside it
 - no literal `box-shadow`; elevation comes from `--shadow-*`
-- no literal colour outside `_base.scss`
+- no literal colour outside a token partial (`_*.scss`)
 
 If a rule is wrong, fix `check.py` — do not weaken it silently and do not add a component to
 an allow-list to make it pass.

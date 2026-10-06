@@ -18,9 +18,9 @@ $btn-padding-large: 12px 16px;
 
 %primary-button {
   background-color: var(--primary);
-  color: var(--primary-0);
+  color: var(--text-on-primary);
   padding: 8px 10px;
-  font-size: base.$base-font-size;
+  font-size: var(--fs-2);
   /* form controls do not inherit line-height from the UA `font` shorthand */
   line-height: var(--base-line-height);
   min-height: var(--control-h);
@@ -37,15 +37,15 @@ button, .btn {
 
   &:hover {
     background-color: var(--primary-hover);
-    color: var(--primary-0);
+    color: var(--text-on-primary);
   }
 
   &.btn-secondary {
       background-color: var(--secondary);
-      color: var(--secondary-0);
+      color: var(--text-on-secondary);
 
       &:hover {
-        color: var(--secondary-0);
+        color: var(--text-on-secondary);
         background-color: var(--secondary-hover);
       }
   }
@@ -61,12 +61,12 @@ button, .btn {
   }
 
   &.btn-danger {
-      background-color: var(--red-7);
-      color: var(--red-0);
+      background-color: var(--danger);
+      color: var(--text-on-danger);
 
       &:hover {
-        color: var(--red-0);
-        background-color: var(--red-8);
+        color: var(--text-on-danger);
+        background-color: var(--danger-hover);
       }
   }
 
@@ -81,17 +81,15 @@ button, .btn {
   }
 
   /* The green ramp at 80% saturation is bright at equal HSL lightness, so
-   * green-7 (41%) under a green-0 label measures only 2.40:1. Green-9 is the
-   * one shade that clears 4.5:1 without changing the label, and it is used
-   * directly rather than via --success-color so it stays fixed across themes. */
+   * green-7 (41%) under a green-0 label measures only 2.40:1. --success is the
+   * one shade that clears 4.5:1 without changing the label. */
   &.btn-success {
-      background-color: var(--green-9);
-      color: var(--green-0);
+      background-color: var(--success);
+      color: var(--text-on-success);
 
       &:hover {
-        color: var(--green-0);
-        /* no darker ramp shade exists, so darken the fill itself */
-        background-color: color-mix(in oklab, var(--green-9) 85%, black);
+        color: var(--text-on-success);
+        background-color: var(--success-hover);
       }
   }
 
@@ -161,7 +159,7 @@ button, .btn {
 a.btn {
   &:link,
   &:visited {
-    color: var(--primary-0);
+    color: var(--text-on-primary);
     text-decoration: none;
   }
 }
@@ -169,7 +167,7 @@ a.btn {
 a.btn.btn-secondary {
   &:link,
   &:visited {
-    color: var(--secondary-0);
+    color: var(--text-on-secondary);
   }
 }
 
@@ -183,7 +181,7 @@ a.btn.btn-secondary-outline {
 a.btn.btn-danger {
   &:link,
   &:visited {
-    color: var(--red-1);
+    color: var(--text-on-danger);
   }
 }
 
@@ -197,7 +195,7 @@ a.btn.btn-danger-outline {
 a.btn.btn-success {
   &:link,
   &:visited {
-    color: var(--green-0);
+    color: var(--text-on-success);
   }
 }
 

@@ -1,0 +1,25 @@
+// Reset and global rules.
+// *
+// * Outside _base.scss on purpose: that file is the token layer, and check.py
+// * exempts token partials from the radius, shadow and colour rules. Global rules
+// * belong somewhere the gate can see them.
+
+/* reset */
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+/* One visible focus ring for every interactive element, at zero specificity so
+ * components can override it. Never remove it without a replacement. */
+:where(a, button, summary, input, select, textarea, [tabindex]):focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}

@@ -1,5 +1,7 @@
 /* all css includes utilities */
 @use 'base';
+@use 'reset';
+@use 'palette';
 @use 'typography';
 @use 'menu';
 @use 'button';

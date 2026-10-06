@@ -29,4 +29,4 @@ Farga declares `Arial, sans-serif` for UI and `Palatino, serif` for headings, an
 
 Do not stretch every input to 100% of its container. A field sized for what it expects — a birth year that fits four characters, a ZIP, a country code — reads faster and signals what to type before the user starts.
 
-In Farga, `form label input { width: 100% }` and `select` fill their container by default, so size a field with the layout (`.field-row`, a grid column, a narrower wrapper) rather than inline styles. `form.html` in the docs shows the grid approach.
+In Farga, `form label input { width: 100% }` and `select` fill their container by default, so size a field with the layout rather than inline styles. Three column widths ship for that: `.form-narrow` (24rem) for a two-field form like a sign-in, `.form` (36rem) for a standard form, and `.form-wide` (48rem) for a row of controls. A 576px email field is the stretched input this section is about, and a 63px button in the corner of a wide column reads as an afterthought. `form.html` and `form_with_layout.html` in the docs show the three.

@@ -1,13 +1,20 @@
 ---
 name: web-ui-design
-description: Design, build and evaluate accessible, responsive web UI. Use when setting spacing, typography, colour, button sizing, shadows or imagery, writing inclusive copy, structuring HTML/ARIA, sizing touch and voice targets, or running a WCAG 2.2 audit and triaging the findings.
+description: Design, build and evaluate accessible, responsive web UI. Use when setting spacing, typography, colour, button sizing, shadows or imagery, choosing the right control, writing inclusive copy, structuring HTML/ARIA, sizing touch and voice targets, or running a WCAG 2.2 audit and triaging the findings.
 ---
 
 # Web UI Design & Accessibility
 
-Visual hierarchy (*Refactoring UI*) and accessible frontend engineering (WCAG 2.2, WAI-ARIA) are the same job: hierarchy tells a sighted user where to look, semantics tell everyone else what they are looking at. Apply both together.
+Visual hierarchy (*Refactoring UI*), interface conventions (*101 UX Principles*) and
+accessible frontend engineering (WCAG 2.2, WAI-ARIA) are the same job: hierarchy tells a
+sighted user where to look, conventions tell them what to expect, and semantics tell everyone
+else what they are looking at. Apply all three together.
 
 Read the reference for the topic before writing markup, styling or a test plan.
+
+**Conventions**
+
+- `references/101-ux-principles.md` — the convention checks: affordances, control choice, undo versus confirmation, feeds versus pagination, modal restraint, terminology, defaults, dark patterns.
 
 **Building blocks**
 
@@ -41,7 +48,9 @@ For the longer *Refactoring UI* treatment, read the `refactoring-ui` skill if it
 
 1. **Hierarchy, emphasis and buttons**
    - **Feature first**: design the screen's actual feature or workflow, not a generic canvas or header/footer shell filled in afterwards.
-   - **Action weight**: one prominent primary action per view. Secondary actions use muted fills or outlines, tertiary actions are text links, and destructive actions stay low-emphasis until an explicit confirmation step.
+   - **Action weight**: one prominent primary action per view. Secondary actions use muted fills or outlines, tertiary actions are text links, and destructive actions stay low-emphasis: a reversible one gets an undo, an irreversible one a confirmation that names what happens (#21).
+   - **The whole button is the target** (#13, #15): the box is clickable, not just the label, and it shows a pointer cursor and a pressed state.
+   - **Conventions before invention** (#2, #16, #98): match the mechanic users already know; invent only where the product is genuinely different, and say why in the commit.
    - **De-emphasize rather than over-emphasize**: make the loud thing quieter before making the important thing louder.
    - **Button padding is not proportional**: never scale padding off the font size in `em`. Bigger buttons take proportionally more generous padding (20px font → `15px 30px`), smaller ones disproportionately tighter (12px font → `6px 8px`). Use Farga's tiers — `.btn-small` 12px, base 14px, `.btn-large` 16px, `.btn-extra` 20px — and don't re-derive padding.
    - **One shape per group**: all tiers share a border radius and height tier; only fill and border change.
@@ -50,6 +59,7 @@ For the longer *Refactoring UI* treatment, read the `refactoring-ui` skill if it
    - Start with generous white space and condense deliberately; dense is a choice for data-dense screens, not a default.
    - Space *around* a group must exceed the space *within* it, or the grouping reads as a guess. In forms, a label sits closer to its input than to the next field.
    - Constrain containers to the width the content needs; give long-form text a `ch` measure rather than letting it fill a wide container.
+   - **Bounded content paginates, open-ended feeds scroll** (#23, #24), and a modal is for a blocking decision only — never for filtering or a notification (#97). See `references/101-ux-principles.md`.
 
 3. **Typography**
    - One type scale, no off-scale sizes. Two weights: 400/500 for body, 600/700 for emphasis. Never below 400 in UI text.
@@ -68,19 +78,23 @@ For the longer *Refactoring UI* treatment, read the `refactoring-ui` skill if it
    - **Forms**: keep format expectations (e.g. `MM/DD/YYYY`) in a visible label or helper text wired up with `aria-describedby` — never hide required guidance in placeholder text only.
    - **Content in CSS is not content**: a glyph or string from `::before`/`::after` is not dependably announced. Keep the meaning in text and the pseudo-element decorative.
    - **Images**: name the action, not the picture, and never bake copy into a bitmap.
+   - **The right control for the job** (#20, #54): native input types, radios or a segmented control for a few fixed options, a native `<select>` for a long or growing list.
 
 6. **Multi-input and scannable interfaces**
    - **Labels with action intent**: avoid "Click Here" and bare "Submit". Use "Save your work" or "Submit your order" — screen reader and voice-control users hear the label out of context.
    - **Voice commands**: every control needs a concise, unique, predictable visible label matching its accessible name, so iOS Voice Control and Android Voice Access can target it unambiguously.
    - **Touch targets**: 44×44 CSS px (WCAG 2.5.5, AAA); 24×24 CSS px is the AA floor (SC 2.5.8), and undersized targets pass only when a 24px circle centred on each intersects no other target's circle.
+   - **Obvious, easy or possible** (#99): classify the interaction before deciding where it lives. Everything on screen is noise; everything hidden is undiscoverable.
 
 7. **Content and media**
    - Front-load the point in sentences and headings; keep paragraphs to 4–5 sentences; headings are structure, never emphasis.
    - Links and buttons name their destination or action — never "click here" or a bare URL.
    - Multimedia needs captions that include meaningful non-speech audio, a transcript for audio-only, and audio description when the visuals carry information the dialogue does not.
    - PascalCase hashtags (`#AccessibleDesign`), one emoji at most, and no copy baked into raster images.
+   - **Terminology** (#90, #91): "Sign in" and "Sign out" rather than "Log in", and keep creating an account separate from signing in to one.
 
 8. **Verify, then triage**
    - Automated checkers catch the mechanical third (alt, contrast, missing labels, duplicate ids). Use them as a linter, never as proof.
    - The accessibility tree, a keyboard-only pass, and one real screen reader catch the rest. An overlay is not a fix.
    - Give every finding a severity — blocker, high, medium, low — and triage against the real page, not the report. Process detail in `references/evaluation-and-prioritization.md`.
+   - **No dark patterns** (#101): hidden costs, fake urgency and opt-out ladders are defects, not trade-offs. So is a default that serves the product rather than the user (#96).

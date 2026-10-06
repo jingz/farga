@@ -8,6 +8,13 @@
   max-width: var(--form-w);
 }
 
+/* For a form with two or three short fields. An email address does not need a
+ * 576px input, and a 63px button in the corner of a wide column reads as an
+ * afterthought next to the primary action it is. */
+.form-narrow {
+  max-width: var(--form-w-narrow);
+}
+
 /* For a row of two or three controls, which need more room than one column. */
 .form-wide {
   max-width: var(--form-w-wide);
@@ -144,7 +151,7 @@ form {
         height: 1.25rem;
         min-height: 0;
         padding: 0;
-        border: 1px solid var(--grey-4);
+        border: 1px solid var(--border-control);
         border-radius: 1.25rem;
         background-color: var(--bg-toggle-color);
         cursor: pointer;
@@ -227,6 +234,12 @@ form {
     }
   }
 
+  /* Nothing after an actions row is glued to it. A form footer that ends the
+   * form is unaffected; the rule exists for the links and notes that follow. */
+  footer.actions + * {
+    margin-top: var(--px-n2);
+  }
+
   textarea {
     font-family: var(--sans-serif-fonts);
   }
@@ -252,7 +265,7 @@ input[type="file"] {
     border: 0;
     border-radius: var(--radius);
     background-color: var(--primary);
-    color: var(--primary-0);
+    color: var(--text-on-primary);
     cursor: pointer;
     margin-right: 0.75rem;
 

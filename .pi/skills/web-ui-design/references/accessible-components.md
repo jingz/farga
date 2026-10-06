@@ -30,6 +30,20 @@ The 5 rules of ARIA (W3C WAI-ARIA):
 4. **Never put `aria-hidden="true"` or `role="presentation"` on a focusable element.**
 5. **Every interactive element must expose an accessible name** — via visible text, `aria-label`, or `aria-labelledby`.
 
+## Form labels
+
+Required state is carried by the `required` attribute, which assistive tech reports; the asterisk is
+added by CSS and is decoration. It has to be, because there is no selector for "the label whose
+target is required" — so the marker follows the label's *shape*:
+
+- a **wrapping** label (`<label>Email <input required></label>`) picks the marker up from `required`
+- a **sibling** label (`<label for="x">` beside `<input id="x" required>`) needs `class="required"`
+- a form where *every* field is required should carry neither: two asterisks in a two-field sign-in is
+  noise. Say it once, or say nothing and let the browser report the miss.
+
+Errors and hints belong to the control through `aria-describedby`, not to the layout — see the form
+page in the docs for the summary-plus-message pattern.
+
 ## Data tables
 
 - Give every table clear `<th>` headers with `scope="col"` or `scope="row"`.

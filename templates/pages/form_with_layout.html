@@ -293,21 +293,27 @@
     <div class="pattern">
       <hgroup>
         <h3>Required, hint and error together</h3>
-        <p>The asterisk is decorative — <code>required</code> is what assistive tech reports — and the hint and the error differ by more than colour: one explains, the other says what went wrong.</p>
+        <p>
+          The asterisk is decorative — <code>required</code> is what assistive tech reports — and it depends on the
+          label's shape, because CSS cannot follow a <code>for</code> attribute. The hint and the error differ by more
+          than colour: one explains, the other says what went wrong.
+        </p>
       </hgroup>
 
       {% set p_anatomy %}
       <form class="form">
         <p>
-          <label for="anatomy-email">Email <small class="field-hint">required</small></label>
-          <input id="anatomy-email" name="email" type="email" required aria-describedby="anatomy-email-hint">
-          <small id="anatomy-email-hint" class="field-hint">We send a confirmation link.</small>
+          <label>
+            Email
+            <input name="email" type="email" autocomplete="email" required aria-describedby="anatomy-email-hint">
+          </label>
+          <small id="anatomy-email-hint" class="field-hint">A wrapping label picks the marker up from <code>required</code>. We send a confirmation link.</small>
         </p>
 
         <p>
-          <label for="anatomy-phone">Phone</label>
-          <input id="anatomy-phone" name="phone" type="tel" autocomplete="tel" aria-invalid="false" aria-describedby="anatomy-phone-hint">
-          <small id="anatomy-phone-hint" class="field-hint">Looks good.</small>
+          <label for="anatomy-phone" class="required">Phone</label>
+          <input id="anatomy-phone" name="phone" type="tel" autocomplete="tel" aria-describedby="anatomy-phone-hint">
+          <small id="anatomy-phone-hint" class="field-hint">A sibling label needs <code>class="required"</code>: there is no selector for the label whose target is required.</small>
         </p>
       </form>
       {% endset %}
@@ -330,11 +336,11 @@
     <div class="pattern">
       <hgroup>
         <h3>Sign in</h3>
-        <p>Two fields, one primary action, and the recovery link below the form instead of competing with it. The passwords get <code>autocomplete="current-password"</code> so a password manager can fill them.</p>
+        <p>Two fields in a column narrow enough for them, the recovery link in the actions row so it sits on the same line as the button instead of floating under it, and the joining path kept available without competing with the primary action. <code>autocomplete</code> is what lets a password manager fill both fields.</p>
       </hgroup>
 
       {% set signin_form %}
-      <form class="form">
+      <form class="form form-narrow">
         <p>
           <label for="signin-email">Email</label>
           <input id="signin-email" name="email" type="email" autocomplete="email" required>
@@ -346,10 +352,11 @@
         </p>
 
         <footer class="actions">
+          <a href="#">Forgot your password?</a>
           <button type="submit">Sign in</button>
         </footer>
 
-        <p><a href="#">Forgot your password?</a></p>
+        <p>New to Farga? <a href="#">Create an account</a></p>
       </form>
       {% endset %}
 

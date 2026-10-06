@@ -3,11 +3,10 @@
 :root {
   /* fonts */
   --sans-serif-fonts: Arial, sans-serif;
-  --serif-fonts: Palatino, serif;
+  --serif-fonts: Palatino, 'Palatino Linotype', 'Book Antiqua', Georgia, serif;
   --monospace-fonts: "Lucida Console", "Monaco", monospace;
   --fantasy-fonts: Papyrus,fantasy;
   --cursive-fonts: 'Brush Script MT', cursive;
-  --base-font-size: 14px;
   --base-line-height: 1.5;
   --base-line-height-head: 1;
   --base-line-height-small: 1.75;
@@ -33,18 +32,18 @@
   --px-p12: 48rem;
   /* ------------------------------------------*/
   /* fonts scales */
-  --fs-0: 10px;
-  --fs-1: 12px;
-  --fs-2: 14px;
-  --fs-3: 16px;
-  --fs-4: 18px;
-  --fs-5: 20px;
-  --fs-6: 24px;
-  --fs-7: 30px;
-  --fs-8: 36px;
-  --fs-9: 48px;
-  --fs-10: 60px;
-  --fs-11: 72px;
+  --fs-0: 0.625rem;
+  --fs-1: 0.75rem;
+  --fs-2: 0.875rem;
+  --fs-3: 1rem;
+  --fs-4: 1.125rem;
+  --fs-5: 1.25rem;
+  --fs-6: 1.5rem;
+  --fs-7: 1.875rem;
+  --fs-8: 2.25rem;
+  --fs-9: 3rem;
+  --fs-10: 3.75rem;
+  --fs-11: 4.5rem;
   /* ------------------------------------------*/
   /* colors */
   /* Primary: muted slate blue; secondary: muted teal.
@@ -84,46 +83,6 @@
   --red-7: hsl(0, 80%, 41%);
   --red-8: hsl(0, 80%, 32%);
   --red-9: hsl(0, 80%, 23%);
-  --pink-0: hsl(339, 80%, 94%);
-  --pink-1: hsl(339, 80%, 90%);
-  --pink-2: hsl(339, 80%, 86%);
-  --pink-3: hsl(339, 80%, 77%);
-  --pink-4: hsl(339, 80%, 68%);
-  --pink-5: hsl(339, 80%, 59%);
-  --pink-6: hsl(339, 80%, 50%);
-  --pink-7: hsl(339, 80%, 41%);
-  --pink-8: hsl(339, 80%, 32%);
-  --pink-9: hsl(339, 80%, 23%);
-  --grape-0: hsl(288, 80%, 94%);
-  --grape-1: hsl(288, 80%, 90%);
-  --grape-2: hsl(288, 80%, 86%);
-  --grape-3: hsl(288, 80%, 77%);
-  --grape-4: hsl(288, 80%, 68%);
-  --grape-5: hsl(288, 80%, 59%);
-  --grape-6: hsl(288, 80%, 50%);
-  --grape-7: hsl(288, 80%, 41%);
-  --grape-8: hsl(288, 80%, 32%);
-  --grape-9: hsl(288, 80%, 23%);
-  --violet-0: hsl(255, 80%, 94%);
-  --violet-1: hsl(255, 80%, 90%);
-  --violet-2: hsl(255, 80%, 86%);
-  --violet-3: hsl(255, 80%, 77%);
-  --violet-4: hsl(255, 80%, 68%);
-  --violet-5: hsl(255, 80%, 59%);
-  --violet-6: hsl(255, 80%, 50%);
-  --violet-7: hsl(255, 80%, 41%);
-  --violet-8: hsl(255, 80%, 32%);
-  --violet-9: hsl(255, 80%, 23%);
-  --indigo-0: hsl(230, 80%, 95%);
-  --indigo-1: hsl(230, 80%, 91%);
-  --indigo-2: hsl(230, 80%, 87%);
-  --indigo-3: hsl(230, 80%, 79%);
-  --indigo-4: hsl(230, 80%, 72%);
-  --indigo-5: hsl(230, 80%, 59%);
-  --indigo-6: hsl(230, 80%, 50%);
-  --indigo-7: hsl(230, 80%, 41%);
-  --indigo-8: hsl(230, 80%, 32%);
-  --indigo-9: hsl(230, 80%, 23%);
   --blue-0: hsl(208, 80%, 94%);
   --blue-1: hsl(208, 80%, 90%);
   --blue-2: hsl(208, 80%, 86%);
@@ -134,26 +93,6 @@
   --blue-7: hsl(208, 80%, 41%);
   --blue-8: hsl(208, 80%, 32%);
   --blue-9: hsl(208, 80%, 23%);
-  --cyan-0: hsl(188, 80%, 94%);
-  --cyan-1: hsl(188, 80%, 90%);
-  --cyan-2: hsl(188, 80%, 86%);
-  --cyan-3: hsl(188, 80%, 77%);
-  --cyan-4: hsl(188, 80%, 68%);
-  --cyan-5: hsl(188, 80%, 59%);
-  --cyan-6: hsl(188, 80%, 50%);
-  --cyan-7: hsl(188, 80%, 41%);
-  --cyan-8: hsl(188, 80%, 32%);
-  --cyan-9: hsl(188, 80%, 23%);
-  --teal-0: hsl(162, 80%, 94%);
-  --teal-1: hsl(162, 80%, 90%);
-  --teal-2: hsl(162, 80%, 86%);
-  --teal-3: hsl(162, 80%, 77%);
-  --teal-4: hsl(162, 80%, 68%);
-  --teal-5: hsl(162, 80%, 59%);
-  --teal-6: hsl(162, 80%, 50%);
-  --teal-7: hsl(162, 80%, 41%);
-  --teal-8: hsl(162, 80%, 32%);
-  --teal-9: hsl(162, 80%, 23%);
   --green-0: hsl(131, 80%, 94%);
   --green-1: hsl(131, 80%, 90%);
   --green-2: hsl(131, 80%, 86%);
@@ -164,16 +103,6 @@
   --green-7: hsl(131, 80%, 41%);
   --green-8: hsl(131, 80%, 32%);
   --green-9: hsl(131, 80%, 23%);
-  --lime-0: hsl(85, 80%, 94%);
-  --lime-1: hsl(85, 80%, 90%);
-  --lime-2: hsl(85, 80%, 86%);
-  --lime-3: hsl(85, 80%, 77%);
-  --lime-4: hsl(85, 80%, 68%);
-  --lime-5: hsl(85, 80%, 59%);
-  --lime-6: hsl(85, 80%, 50%);
-  --lime-7: hsl(85, 80%, 41%);
-  --lime-8: hsl(85, 80%, 32%);
-  --lime-9: hsl(85, 80%, 23%);
   --yellow-0: hsl(39, 80%, 94%);
   --yellow-1: hsl(39, 80%, 90%);
   --yellow-2: hsl(39, 80%, 86%);
@@ -184,30 +113,20 @@
   --yellow-7: hsl(39, 80%, 41%);
   --yellow-8: hsl(39, 80%, 32%);
   --yellow-9: hsl(39, 80%, 23%);
-  --orange-0: hsl(24, 80%, 94%);
-  --orange-1: hsl(24, 80%, 90%);
-  --orange-2: hsl(24, 80%, 86%);
-  --orange-3: hsl(24, 80%, 77%);
-  --orange-4: hsl(24, 80%, 68%);
-  --orange-5: hsl(24, 80%, 59%);
-  --orange-6: hsl(24, 80%, 50%);
-  --orange-7: hsl(24, 80%, 41%);
-  --orange-8: hsl(24, 80%, 32%);
-  --orange-9: hsl(24, 80%, 23%);
-  --grey-a: hsl(0, 0%, 96%);
-  --grey-0: hsl(0, 0%, 94%);
-  --grey-1: hsl(0, 0%, 90%);
-  --grey-2: hsl(0, 0%, 86%);
-  --grey-3: hsl(0, 0%, 77%);
-  --grey-4: hsl(0, 0%, 68%);
-  --grey-5: hsl(0, 0%, 59%);
-  --grey-6: hsl(0, 0%, 50%);
-  --grey-7: hsl(0, 0%, 41%);
-  --grey-8: hsl(0, 0%, 32%);
-  --grey-9: hsl(0, 0%, 23%);
-  --grey-10: hsl(0, 0%, 18%);
-  --grey-11: hsl(0, 0%, 9%);
-  --grey-12: hsl(0, 0%, 3%);
+  --grey-a: hsl(215, 12%, 96%);
+  --grey-0: hsl(215, 12%, 94%);
+  --grey-1: hsl(215, 12%, 90%);
+  --grey-2: hsl(215, 12%, 86%);
+  --grey-3: hsl(215, 12%, 77%);
+  --grey-4: hsl(215, 12%, 68%);
+  --grey-5: hsl(215, 12%, 59%);
+  --grey-6: hsl(215, 12%, 50%);
+  --grey-7: hsl(215, 12%, 41%);
+  --grey-8: hsl(215, 12%, 32%);
+  --grey-9: hsl(215, 12%, 23%);
+  --grey-10: hsl(215, 12%, 18%);
+  --grey-11: hsl(215, 12%, 9%);
+  --grey-12: hsl(215, 12%, 3%);
   /* ------------------------------------------ */
   /* Theme */
   /* default is light */
@@ -256,6 +175,20 @@
   --bg-info-color: var(--blue-2);
   --warning-color: var(--yellow-9);
   --bg-warning-color: var(--yellow-2);
+  /* Filled controls: the bare name is the fill, -hover the hover fill, and
+   * --text-on-* the label that sits on it. -color stays the text/on-tint role. */
+  --danger: var(--red-7);
+  --danger-hover: var(--red-8);
+  --success: var(--green-9);
+  --success-hover: color-mix(in oklab, var(--green-9) 85%, black);
+  --text-on-primary: var(--primary-0);
+  --text-on-secondary: var(--secondary-0);
+  --text-on-danger: var(--red-0);
+  --text-on-success: var(--green-0);
+  /* Surfaces and borders outside the ramp roles */
+  --bg-tooltip: var(--grey-11);
+  --text-on-tooltip: var(--grey-0);
+  --border-control: var(--grey-4);
   --disabled-color: var(--grey-7);
   --bg-disabled-color: var(--grey-1);
   /* ---------------------------------------------- */
@@ -263,6 +196,8 @@
   --fixed-sidebar-w: 25ch;
   /* Width of a form column. See .form in form.scss. */
   --form-w: 36rem;
+  /* A two-field form — sign in, two-factor, newsletter — does not need 36rem. */
+  --form-w-narrow: 24rem;
   /* A row of two or three controls needs a wider column than one field per row. */
   --form-w-wide: 48rem;
   /* Minimum height of a button, input or menu row.
@@ -341,6 +276,89 @@ ul {
     animation-duration: 0.01ms !important;
   }
 }
+:root {
+  --pink-0: hsl(339, 80%, 94%);
+  --pink-1: hsl(339, 80%, 90%);
+  --pink-2: hsl(339, 80%, 86%);
+  --pink-3: hsl(339, 80%, 77%);
+  --pink-4: hsl(339, 80%, 68%);
+  --pink-5: hsl(339, 80%, 59%);
+  --pink-6: hsl(339, 80%, 50%);
+  --pink-7: hsl(339, 80%, 41%);
+  --pink-8: hsl(339, 80%, 32%);
+  --pink-9: hsl(339, 80%, 23%);
+  --grape-0: hsl(288, 80%, 94%);
+  --grape-1: hsl(288, 80%, 90%);
+  --grape-2: hsl(288, 80%, 86%);
+  --grape-3: hsl(288, 80%, 77%);
+  --grape-4: hsl(288, 80%, 68%);
+  --grape-5: hsl(288, 80%, 59%);
+  --grape-6: hsl(288, 80%, 50%);
+  --grape-7: hsl(288, 80%, 41%);
+  --grape-8: hsl(288, 80%, 32%);
+  --grape-9: hsl(288, 80%, 23%);
+  --violet-0: hsl(255, 80%, 94%);
+  --violet-1: hsl(255, 80%, 90%);
+  --violet-2: hsl(255, 80%, 86%);
+  --violet-3: hsl(255, 80%, 77%);
+  --violet-4: hsl(255, 80%, 68%);
+  --violet-5: hsl(255, 80%, 59%);
+  --violet-6: hsl(255, 80%, 50%);
+  --violet-7: hsl(255, 80%, 41%);
+  --violet-8: hsl(255, 80%, 32%);
+  --violet-9: hsl(255, 80%, 23%);
+  --indigo-0: hsl(230, 80%, 95%);
+  --indigo-1: hsl(230, 80%, 91%);
+  --indigo-2: hsl(230, 80%, 87%);
+  --indigo-3: hsl(230, 80%, 79%);
+  --indigo-4: hsl(230, 80%, 72%);
+  --indigo-5: hsl(230, 80%, 59%);
+  --indigo-6: hsl(230, 80%, 50%);
+  --indigo-7: hsl(230, 80%, 41%);
+  --indigo-8: hsl(230, 80%, 32%);
+  --indigo-9: hsl(230, 80%, 23%);
+  --cyan-0: hsl(188, 80%, 94%);
+  --cyan-1: hsl(188, 80%, 90%);
+  --cyan-2: hsl(188, 80%, 86%);
+  --cyan-3: hsl(188, 80%, 77%);
+  --cyan-4: hsl(188, 80%, 68%);
+  --cyan-5: hsl(188, 80%, 59%);
+  --cyan-6: hsl(188, 80%, 50%);
+  --cyan-7: hsl(188, 80%, 41%);
+  --cyan-8: hsl(188, 80%, 32%);
+  --cyan-9: hsl(188, 80%, 23%);
+  --teal-0: hsl(162, 80%, 94%);
+  --teal-1: hsl(162, 80%, 90%);
+  --teal-2: hsl(162, 80%, 86%);
+  --teal-3: hsl(162, 80%, 77%);
+  --teal-4: hsl(162, 80%, 68%);
+  --teal-5: hsl(162, 80%, 59%);
+  --teal-6: hsl(162, 80%, 50%);
+  --teal-7: hsl(162, 80%, 41%);
+  --teal-8: hsl(162, 80%, 32%);
+  --teal-9: hsl(162, 80%, 23%);
+  --lime-0: hsl(85, 80%, 94%);
+  --lime-1: hsl(85, 80%, 90%);
+  --lime-2: hsl(85, 80%, 86%);
+  --lime-3: hsl(85, 80%, 77%);
+  --lime-4: hsl(85, 80%, 68%);
+  --lime-5: hsl(85, 80%, 59%);
+  --lime-6: hsl(85, 80%, 50%);
+  --lime-7: hsl(85, 80%, 41%);
+  --lime-8: hsl(85, 80%, 32%);
+  --lime-9: hsl(85, 80%, 23%);
+  --orange-0: hsl(24, 80%, 94%);
+  --orange-1: hsl(24, 80%, 90%);
+  --orange-2: hsl(24, 80%, 86%);
+  --orange-3: hsl(24, 80%, 77%);
+  --orange-4: hsl(24, 80%, 68%);
+  --orange-5: hsl(24, 80%, 59%);
+  --orange-6: hsl(24, 80%, 50%);
+  --orange-7: hsl(24, 80%, 41%);
+  --orange-8: hsl(24, 80%, 32%);
+  --orange-9: hsl(24, 80%, 23%);
+}
+
 body, div, section, main, p {
   font-size: var(--fs-2);
   color: var(--text-color-primary);
@@ -457,9 +475,9 @@ input[type=file]::file-selector-button {
 
 form input[type=submit], button, .btn {
   background-color: var(--primary);
-  color: var(--primary-0);
+  color: var(--text-on-primary);
   padding: 8px 10px;
-  font-size: 14px;
+  font-size: var(--fs-2);
   /* form controls do not inherit line-height from the UA `font` shorthand */
   line-height: var(--base-line-height);
   min-height: var(--control-h);
@@ -471,14 +489,14 @@ form input[type=submit], button, .btn {
 
 button:hover, .btn:hover {
   background-color: var(--primary-hover);
-  color: var(--primary-0);
+  color: var(--text-on-primary);
 }
 button.btn-secondary, .btn.btn-secondary {
   background-color: var(--secondary);
-  color: var(--secondary-0);
+  color: var(--text-on-secondary);
 }
 button.btn-secondary:hover, .btn.btn-secondary:hover {
-  color: var(--secondary-0);
+  color: var(--text-on-secondary);
   background-color: var(--secondary-hover);
 }
 button.btn-secondary-outline, .btn.btn-secondary-outline {
@@ -490,12 +508,12 @@ button.btn-secondary-outline:hover, .btn.btn-secondary-outline:hover {
   background-color: var(--bg-primary-alt);
 }
 button.btn-danger, .btn.btn-danger {
-  background-color: var(--red-7);
-  color: var(--red-0);
+  background-color: var(--danger);
+  color: var(--text-on-danger);
 }
 button.btn-danger:hover, .btn.btn-danger:hover {
-  color: var(--red-0);
-  background-color: var(--red-8);
+  color: var(--text-on-danger);
+  background-color: var(--danger-hover);
 }
 button.btn-danger-outline, .btn.btn-danger-outline {
   background-color: var(--bg-primary);
@@ -507,18 +525,16 @@ button.btn-danger-outline:hover, .btn.btn-danger-outline:hover {
 }
 button, .btn {
   /* The green ramp at 80% saturation is bright at equal HSL lightness, so
-   * green-7 (41%) under a green-0 label measures only 2.40:1. Green-9 is the
-   * one shade that clears 4.5:1 without changing the label, and it is used
-   * directly rather than via --success-color so it stays fixed across themes. */
+   * green-7 (41%) under a green-0 label measures only 2.40:1. --success is the
+   * one shade that clears 4.5:1 without changing the label. */
 }
 button.btn-success, .btn.btn-success {
-  background-color: var(--green-9);
-  color: var(--green-0);
+  background-color: var(--success);
+  color: var(--text-on-success);
 }
 button.btn-success:hover, .btn.btn-success:hover {
-  color: var(--green-0);
-  /* no darker ramp shade exists, so darken the fill itself */
-  background-color: color-mix(in oklab, var(--green-9) 85%, black);
+  color: var(--text-on-success);
+  background-color: var(--success-hover);
 }
 button.btn-success-outline, .btn.btn-success-outline {
   background-color: var(--bg-primary);
@@ -573,12 +589,12 @@ button.btn-icon svg, .btn.btn-icon svg {
 }
 
 a.btn:link, a.btn:visited {
-  color: var(--primary-0);
+  color: var(--text-on-primary);
   text-decoration: none;
 }
 
 a.btn.btn-secondary:link, a.btn.btn-secondary:visited {
-  color: var(--secondary-0);
+  color: var(--text-on-secondary);
 }
 
 a.btn.btn-secondary-outline:link, a.btn.btn-secondary-outline:visited {
@@ -586,7 +602,7 @@ a.btn.btn-secondary-outline:link, a.btn.btn-secondary-outline:visited {
 }
 
 a.btn.btn-danger:link, a.btn.btn-danger:visited {
-  color: var(--red-1);
+  color: var(--text-on-danger);
 }
 
 a.btn.btn-danger-outline:link, a.btn.btn-danger-outline:visited {
@@ -594,7 +610,7 @@ a.btn.btn-danger-outline:link, a.btn.btn-danger-outline:visited {
 }
 
 a.btn.btn-success:link, a.btn.btn-success:visited {
-  color: var(--green-0);
+  color: var(--text-on-success);
 }
 
 a.btn.btn-success-outline:link, a.btn.btn-success-outline:visited {
@@ -905,7 +921,7 @@ nav.pagination ul li.disabled a, nav.pagination ul li.disabled span {
 }
 nav.pagination ul li.active a {
   background-color: var(--primary);
-  color: var(--primary-0);
+  color: var(--text-on-primary);
 }
 nav.pagination ul li {
   /* for ... */
@@ -924,7 +940,7 @@ nav.pagination ul li a {
 }
 nav.pagination ul li a:hover {
   background-color: var(--primary-hover);
-  color: var(--primary-0);
+  color: var(--text-on-primary);
 }
 
 /* all css includes utilities */
@@ -933,6 +949,13 @@ nav.pagination ul li a:hover {
  * Forms are centred by their page, not by this class. */
 .form {
   max-width: var(--form-w);
+}
+
+/* For a form with two or three short fields. An email address does not need a
+ * 576px input, and a 63px button in the corner of a wide column reads as an
+ * afterthought next to the primary action it is. */
+.form-narrow {
+  max-width: var(--form-w-narrow);
 }
 
 /* For a row of two or three controls, which need more room than one column. */
@@ -1067,7 +1090,7 @@ form label.switch [type=checkbox] {
   height: 1.25rem;
   min-height: 0;
   padding: 0;
-  border: 1px solid var(--grey-4);
+  border: 1px solid var(--border-control);
   border-radius: 1.25rem;
   background-color: var(--bg-toggle-color);
   cursor: pointer;
@@ -1136,6 +1159,13 @@ form footer.actions {
   gap: 0.5rem;
   margin-top: 1rem;
 }
+form {
+  /* Nothing after an actions row is glued to it. A form footer that ends the
+   * form is unaffected; the rule exists for the links and notes that follow. */
+}
+form footer.actions + * {
+  margin-top: var(--px-n2);
+}
 form textarea {
   font-family: var(--sans-serif-fonts);
 }
@@ -1153,7 +1183,7 @@ input[type=file]::file-selector-button {
   border: 0;
   border-radius: var(--radius);
   background-color: var(--primary);
-  color: var(--primary-0);
+  color: var(--text-on-primary);
   cursor: pointer;
   margin-right: 0.75rem;
 }
@@ -1600,7 +1630,7 @@ span.badge.disabled {
   overflow: hidden;
   border-radius: 50%;
   background-color: var(--primary);
-  color: var(--primary-0);
+  color: var(--text-on-primary);
   font-family: var(--sans-serif-fonts);
   font-size: var(--fs-2);
   font-weight: 700;
@@ -1839,8 +1869,8 @@ dialog footer {
   bottom: calc(100% + 6px);
   left: 50%;
   transform: translateX(-50%);
-  background-color: var(--grey-11);
-  color: var(--grey-0);
+  background-color: var(--bg-tooltip);
+  color: var(--text-on-tooltip);
   padding: 4px 8px;
   border-radius: var(--radius);
   font-size: var(--fs-0);

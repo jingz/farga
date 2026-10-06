@@ -28,8 +28,8 @@
     bottom: calc(100% + 6px);
     left: 50%;
     transform: translateX(-50%);
-    background-color: var(--grey-11);
-    color: var(--grey-0);
+    background-color: var(--bg-tooltip);
+    color: var(--text-on-tooltip);
     padding: 4px 8px;
     border-radius: var(--radius);
     font-size: var(--fs-0);
