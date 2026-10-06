@@ -4,9 +4,9 @@
   background-color: var(--bg-primary);
   color: var(--text-color-primary);
   border: 1px solid var(--border-color-primary);
-  border-radius: 6px;
+  border-radius: var(--radius-lg);
   padding: 1rem;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--shadow-4);
   margin: auto;
 
   h1, h2, h3, h4, h5, h6 {
@@ -14,7 +14,7 @@
   }
 
   &::backdrop {
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: var(--backdrop);
   }
 }
 
@@ -31,10 +31,14 @@
     background-color: var(--grey-11);
     color: var(--grey-0);
     padding: 4px 8px;
-    border-radius: 4px;
+    border-radius: var(--radius);
     font-size: var(--fs-0);
     line-height: 1.2;
-    white-space: nowrap;
+    /* wrap instead of overflowing narrow viewports */
+    width: max-content;
+    max-width: min(90vw, 20rem);
+    white-space: normal;
+    text-align: center;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.15s ease-in-out;

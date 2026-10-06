@@ -1,12 +1,30 @@
 @use 'base';
 @use 'button';
 
-input:not([type="range"]), select, textarea {
+/* The form column: one field per row at a readable measure, wide enough for a
+ * two-up row, narrow enough that a field never stretches across a screen.
+ * Forms are centred by their page, not by this class. */
+.form {
+  max-width: var(--form-w);
+}
+
+/* For a row of two or three controls, which need more room than one column. */
+.form-wide {
+  max-width: var(--form-w-wide);
+}
+
+/* Text-entry controls only. Checkboxes and radios are excluded deliberately:
+ * they render natively, so padding, a grey fill and --control-h would stretch
+ * them into a box that no longer lines up with its label. */
+input:not([type="range"]):not([type="checkbox"]):not([type="radio"]), select, textarea {
   padding: 6px 10px;
-  border: 0;
-  border-radius: 5px;
-  color: var(--text-primary-color);
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  color: var(--text-color-primary);
   background-color: var(--bg-input-color);
+  line-height: var(--base-line-height);
+  min-height: var(--control-h);
+  box-sizing: border-box;
 
   &[aria-invalid="false"] {
     border: 1px solid var(--success-color);
@@ -24,32 +42,37 @@ input:not([type="range"]), select, textarea {
     }
   }
 
-  &:placeholder {
+  &::placeholder {
     color: var(--text-color-muted);
   }
 }
 
+/* Checkbox and radio: keep the native rendering, only size and align it.
+ * margin: 0 clears the UA's 3px/4px offset, which the label's gap replaces. */
+input[type="checkbox"],
+input[type="radio"] {
+  flex: 0 0 auto;
+  width: 1rem;
+  height: 1rem;
+  margin: 0;
+  accent-color: var(--primary);
+  cursor: pointer;
+
+  &[disabled] {
+    cursor: not-allowed;
+  }
+}
+
+/* The shared input rule above supplies padding, border, radius and colors.
+ * Only the chevron is added here. */
 select {
   appearance: none;
-  width: 8rem;
-  height: 2rem;
-  box-sizing: border-box;
-  padding: 0 2rem 0 0.625rem;
-  border: 1px solid #e5e5e5;
-  border-radius: 8px;
-  background-color: var(--bg-primary);
+  padding-right: 2rem;
+  cursor: pointer;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23737373' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6l6 -6'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 0.5rem center;
   background-size: 1.125rem;
-  color: #000;
-  font-family: var(--sans-serif-fonts);
-  font-size: var(--fs-3);
-}
-
-body.dark-mode select {
-  border-color: var(--border-color-primary);
-  color: var(--text-color-primary);
 }
 
 form {
@@ -67,15 +90,27 @@ form {
     font-size: 0.8rem;
 
     &:not(:first-of-type) {
-      margin-top: 0.8rem;
+      margin-top: 0.75rem;
     }
 
+    /* a label that wraps a checkbox or radio: centre the control on the text
+     * line instead of letting it baseline-align with 12.8px serif text */
     &:has([type="checkbox"]), &:has([type="radio"]) {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
       margin-top: 0.25rem;
     }
 
     /* margin-top of label when its under a status message */
-    &:has(small) + label { margin-top: 0.3rem; }
+    &:has(small) + label { margin-top: 0.25rem; }
+
+    /* required marker after the label text, so it is never read as part of the name */
+    &:has([required])::after,
+    &.required::after {
+      content: " *";
+      color: var(--danger-color);
+    }
 
     &:has([aria-invalid="false"]) {}
 
@@ -89,68 +124,93 @@ form {
       box-sizing: border-box;
     }
 
+    /* Switch: a checkbox drawn as a track and knob.
+     * The generic input rule above (padding, min-height, radius, colours) is
+     * reset first, otherwise min-height beats the track height. */
     &.switch {
-      display: flex;
+      display: inline-flex;
       align-items: center;
+      gap: 0.5rem;
+      min-height: var(--control-h);
       color: var(--text-color-primary);
+      cursor: pointer;
 
       [type="checkbox"] {
         appearance: none;
-        background-color: var(--bg-toggle-color);
-        height: 1.25rem;
+        flex: 0 0 auto;
+        position: relative;
+        box-sizing: border-box;
         width: 2.25rem;
+        height: 1.25rem;
+        min-height: 0;
+        padding: 0;
+        border: 1px solid var(--grey-4);
         border-radius: 1.25rem;
-        margin-right: 0.5rem;
+        background-color: var(--bg-toggle-color);
+        cursor: pointer;
+        transition: background-color 0.15s ease-in-out,
+                    border-color 0.15s ease-in-out;
 
-        &:not([aria-invalid]) {
-          border-color: var(--grey-4);
-        }
-
-        &:before {
-          display: block;
-          aspect-ratio: 1;
-          margin-left: -0.4rem;
-          margin-top: -0.13rem;
-          height: 150%;
+        /* knob: 1rem on a 2.25rem track, so 100% is exactly the travel */
+        &::before {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 1px;
+          width: 1rem;
+          height: 1rem;
           border-radius: 50%;
           background-color: var(--bg-primary);
-          content: "";
-          transition: margin 0.1s ease-in-out;
+          box-shadow: var(--shadow-1);
+          transform: translate(0, -50%);
+          transition: transform 0.15s ease-in-out;
         }
 
         &:checked {
-          background-color: var(--bg-success-color);
           border-color: var(--success-color);
-          background-image: none;
+          background-color: var(--success-color);
 
           &::before {
-            margin-inline-start: 0.6rem;
+            transform: translate(100%, -50%);
           }
         }
 
         &[disabled] {
-          background-color: var(--dim);
-          border-color: var(--dim);
+          border-color: var(--disabled-color);
+          background-color: var(--bg-disabled-color);
+          cursor: not-allowed;
+
+          &::before {
+            background-color: var(--disabled-color);
+            box-shadow: none;
+          }
         }
       }
     }
   }
 
-  div {
-    display: flex;
-    align-items: baseline;
-    * + * {
+  /* A grid inside a form: its cells are spacing containers rather than fields,
+   * so the form's field margin does not apply to them. */
+  .grid-2, .grid-3, .grid-4 {
+    > p {
+      margin: 0;
     }
   }
 
   fieldset {
     border: 1px solid var(--dim);
-    border-radius: 5px;
+    border-radius: var(--radius);
+
+    /* two groups need visibly more space between them than the fields inside
+     * them, or the grouping reads as a guess */
+    & + fieldset {
+      margin-top: var(--px-p1);
+    }
 
     legend {
       font-weight: 700;
       font-family: var(--serif-fonts);
-      margin-left: -0.3rem;
+      margin-left: -0.25rem;
     }
   }
 
@@ -158,6 +218,9 @@ form {
   footer {
     &.actions {
       display: flex;
+      /* centre, not stretch: a text link beside a button must not sit at the
+       * top of the row */
+      align-items: center;
       justify-content: flex-end;
       gap: 0.5rem;
       margin-top: 1rem;
@@ -187,7 +250,7 @@ input[type="file"] {
     font-size: var(--fs-1);
     font-family: inherit;
     border: 0;
-    border-radius: 4px;
+    border-radius: var(--radius);
     background-color: var(--primary);
     color: var(--primary-0);
     cursor: pointer;
@@ -238,4 +301,12 @@ input[type="file"] {
   margin: -0.5rem 0 0.75rem;
   color: var(--danger-color);
   font-size: 0.75rem;
+}
+
+/* Helper text under a control, referenced with aria-describedby. */
+.field-hint {
+  display: block;
+  margin-top: 0.25rem;
+  color: var(--text-color-muted);
+  font-size: var(--fs-1);
 }

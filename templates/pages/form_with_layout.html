@@ -1,314 +1,516 @@
 {% extends "layout/base.html" %}
 
+{% block inline_style %}
+/* One wrapper per demo so the patterns keep an even rhythm down the page. */
+.pattern + .pattern {
+    margin-top: 2.5rem;
+}
+
+.pattern > details {
+    margin-top: 1rem;
+}
+{% endblock %}
+
 {% block content %}
 <div>
-  <h1>Form With Layouts</h1>
-
   <hgroup>
-    <h2>Inline Form</h2>
-    <p>A form layout where fields are arranged horizontally with an adjacent button.</p>
+    <h1>Form With Layouts</h1>
+    <p>
+      Six ways to arrange fields, then four forms assembled from them. Every demo is a real
+      <code>&lt;form&gt;</code> inside <code>.form</code>, which caps the column at 36rem — so pressing
+      <kbd>Enter</kbd> submits it, and in these docs that reloads the page with a query string.
+    </p>
   </hgroup>
 
-  {% set form_inline %}
-  <form>
-    <fieldset class="flex-stretch gap">
-      <p>
-        <label for="username">Username</label>
-        <input type="text" required value="" />
-      </p>
+  <section>
+    <hgroup>
+      <h2>Layout patterns</h2>
+      <p>Farga styles a form from its elements, so a layout is a choice of wrapper around the field, not a class on the control.</p>
+    </hgroup>
 
-      <p>
-        <label for="password">Password</label>
-        <input type="text" required value="" />
-      </p>
-    </fieldset>
+    <div class="pattern">
+      <hgroup>
+        <h3>Stacked — the default</h3>
+        <p>One field per row, label above the control. Use it unless there is a reason not to: it survives long labels, long values, translation, and a 320px screen.</p>
+      </hgroup>
 
-    <br/>
-
-    <fieldset class="flex">
-      <label for="email">Email:</label>
-      <input type="text" required value="" />
-      <input class="btn btn-small" type="submit" value="Subscribe" />
-    </fieldset>
-  </form>
-  {% endset %}
-
-  {{ form_inline }}
-
-  <br />
-
-  <details>
-    <summary>Example Code</summary>
-    <pre>{{ form_inline | e}} </pre>
-  </details>
-
-  <br />
-
-  <hgroup>
-    <h2>Signin Form</h2>
-  </hgroup>
-
-  {% set signin_form %}
-  <div class="form-container" style="width: 300px;">
-  <form>
-    <fieldset>
-      <p>
-        <h3>Sign in to your account</h3>
-      </p>
-
-      <p>
-        <label for="email">Email:</label>
-        <input type="text" required value="" />
-      </p>
-
-      <div class="flex-btw">
-        <label for="email">Password:</label>
-        <small><a href="#">Forgot Password?</a></small>
-      </div>
-      <p>
-        <input type="text" required value="" />
-      </p>
-
-      <br/>
-
-      <p>
-        <input class="btn btn-small" type="submit" value="Sign in" />
-      </p>
-    </fieldset>
-  </form>
-  </div>
-  {% endset %}
-
-  {{ signin_form }}
-
-  <br/>
-
-  <details open>
-    <summary>Example Code</summary>
-    <pre>{{ signin_form | e}} </pre>
-  </details>
-
-  <br />
-
-  <hgroup>
-    <h2>Contact Form</h2>
-    <p>A standard contact form for user inquiries.</p>
-  </hgroup>
-
-  {% set contact_form %}
-  <div class="form-container" style="width: 600px;">
-    <form>
-      <fieldset>
-        <legend>Contact Us</legend>
-
+      {% set p_stacked %}
+      <form class="form">
         <p>
-          <label for="contact-name">Full Name</label>
-          <input type="text" id="contact-name" name="name" placeholder="Enter your full name" required />
+          <label for="stack-name">Full name</label>
+          <input id="stack-name" name="name" type="text" autocomplete="name">
         </p>
 
         <p>
-          <label for="contact-email">Email Address</label>
-          <input type="email" id="contact-email" name="email" placeholder="Enter your email" required />
+          <label for="stack-email">Email</label>
+          <input id="stack-email" name="email" type="email" autocomplete="email" aria-describedby="stack-email-hint">
+          <small id="stack-email-hint" class="field-hint">Only used for the receipt.</small>
         </p>
+      </form>
+      {% endset %}
 
-        <p>
-          <label for="contact-subject">Subject</label>
-          <input type="text" id="contact-subject" name="subject" placeholder="What is this regarding?" required />
-        </p>
+      {{ p_stacked }}
 
-        <p>
-          <label for="contact-message">Message</label>
-          <textarea id="contact-message" name="message" rows="5" placeholder="How can we help you?" required></textarea>
-        </p>
+      <details>
+        <summary>Example code</summary>
+        <pre>{{ p_stacked | e }}</pre>
+      </details>
+    </div>
 
-        <p>
-          <label>
-            <input type="checkbox" name="newsletter" value="yes" /> Subscribe to newsletter
-          </label>
-        </p>
+    <div class="pattern">
+      <hgroup>
+        <h3>Two-up row</h3>
+        <p>For two short values that belong together and are read together. Both columns are the same width, so keep long values out of it — a URL beside a quantity makes the URL unreadable.</p>
+      </hgroup>
 
-        <footer class="actions">
-          <button type="submit" class="btn">Send Message</button>
-          <button type="reset" class="btn btn-outline">Clear Form</button>
-        </footer>
-      </fieldset>
-    </form>
-  </div>
-  {% endset %}
-
-  {{ contact_form }}
-
-  <br />
-
-  <details>
-    <summary>Example Code</summary>
-    <pre>{{ contact_form | e}} </pre>
-  </details>
-
-  <br />
-
-  <hgroup>
-    <h2>User Registration Form</h2>
-    <p>A comprehensive form for new user signups.</p>
-  </hgroup>
-
-  {% set registration_form %}
-  <div class="form-container" style="width: 600px;">
-    <form>
-      <fieldset>
-        <legend>Create Your Account</legend>
-
-        <div class="flex-stretch gap">
+      {% set p_two_up %}
+      <form class="form">
+        <div class="grid-2">
           <p>
-            <label for="first-name">First Name</label>
-            <input type="text" id="first-name" name="firstName" placeholder="First name" required />
+            <label for="two-first">First name</label>
+            <input id="two-first" name="first" type="text" autocomplete="given-name">
           </p>
 
           <p>
-            <label for="last-name">Last Name</label>
-            <input type="text" id="last-name" name="lastName" placeholder="Last name" required />
+            <label for="two-last">Last name</label>
+            <input id="two-last" name="last" type="text" autocomplete="family-name">
           </p>
         </div>
+      </form>
+      {% endset %}
 
-        <p>
-          <label for="reg-email">Email Address</label>
-          <input type="email" id="reg-email" name="email" placeholder="Enter your email" required />
-        </p>
+      {{ p_two_up }}
 
-        <p>
-          <label for="phone">Phone Number</label>
-          <input type="tel" id="phone" name="phone" placeholder="(123) 456-7890" />
-        </p>
+      <details>
+        <summary>Example code</summary>
+        <pre>{{ p_two_up | e }}</pre>
+      </details>
+    </div>
 
-        <p>
-          <label for="dob">Date of Birth</label>
-          <input type="date" id="dob" name="dob" />
-        </p>
+    <div class="pattern">
+      <hgroup>
+        <h3>Label-left row</h3>
+        <p>Compact, for settings screens and short labels. The label column is a fixed minimum width, and a hint would land in the control column where it loses its owner — so this pattern is for fields that need no explanation.</p>
+      </hgroup>
 
-        <div class="flex-stretch gap">
-          <p>
-            <label for="password-reg">Password</label>
-            <input type="password" id="password-reg" name="password" placeholder="Create password" required />
-          </p>
-
-          <p>
-            <label for="confirm-password">Confirm Password</label>
-            <input type="password" id="confirm-password" name="confirmPassword" placeholder="Confirm password" required />
-          </p>
+      {% set p_rows %}
+      <form class="form">
+        <div class="field-row">
+          <label for="row-name">Name</label>
+          <input id="row-name" name="name" type="text" autocomplete="name">
         </div>
 
-        <p>
-          <label for="country">Country</label>
-          <select id="country" name="country" required>
-            <option value="">Select Country</option>
-            <option value="us">United States</option>
-            <option value="ca">Canada</option>
-            <option value="uk">United Kingdom</option>
-            <option value="au">Australia</option>
-            <option value="de">Germany</option>
-            <option value="fr">France</option>
-            <option value="jp">Japan</option>
-            <option value="other">Other</option>
+        <div class="field-row">
+          <label for="row-timezone">Timezone</label>
+          <select id="row-timezone" name="timezone">
+            <option>Asia/Bangkok</option>
+            <option>Europe/London</option>
+            <option>America/New_York</option>
           </select>
-        </p>
+        </div>
+      </form>
+      {% endset %}
 
-        <p>
-          <label>
-            <input type="checkbox" name="terms" value="agreed" required /> I agree to the Terms of Service and Privacy Policy
-          </label>
-        </p>
+      {{ p_rows }}
 
-        <p>
-          <label>
-            <input type="checkbox" name="marketing" value="yes" /> Send me marketing emails
+      <details>
+        <summary>Example code</summary>
+        <pre>{{ p_rows | e }}</pre>
+      </details>
+    </div>
+
+    <div class="pattern">
+      <hgroup>
+        <h3>Row of fields</h3>
+        <p>For two or three controls of similar weight that are submitted together — a filter bar, a subscribe bar. Items divide the row equally, so do not use it when one field needs noticeably more room than the others.</p>
+      </hgroup>
+
+      {% set p_inline %}
+      <form class="form-wide">
+        <div class="flex-stretch gap">
+          <p>
+            <label for="inline-email">Email</label>
+            <input id="inline-email" name="email" type="email" autocomplete="email">
+          </p>
+
+          <p>
+            <label for="inline-topic">Topic</label>
+            <select id="inline-topic" name="topic">
+              <option>Product news</option>
+              <option>Release notes</option>
+              <option>Both</option>
+            </select>
+          </p>
+
+          <p>
+            <button type="submit" class="btn">Subscribe</button>
+          </p>
+        </div>
+      </form>
+      {% endset %}
+
+      {{ p_inline }}
+
+      <details>
+        <summary>Example code</summary>
+        <pre>{{ p_inline | e }}</pre>
+      </details>
+    </div>
+
+    <div class="pattern">
+      <hgroup>
+        <h3>Sectioned form</h3>
+        <p>When a form stops being one topic, cut it into <code>&lt;fieldset&gt;</code> groups named by a <code>&lt;legend&gt;</code>. The gap between groups has to be visibly wider than the gap between fields, or the sections read as one long column.</p>
+      </hgroup>
+
+      {% set p_sectioned %}
+      <form class="form">
+        <fieldset>
+          <legend>Account</legend>
+          <p>
+            <label for="sec-email">Email</label>
+            <input id="sec-email" name="email" type="email" autocomplete="email" required>
+          </p>
+
+          <p>
+            <label for="sec-password">Password</label>
+            <input id="sec-password" name="password" type="password" autocomplete="new-password" required aria-describedby="sec-password-hint">
+            <small id="sec-password-hint" class="field-hint">At least 12 characters.</small>
+          </p>
+        </fieldset>
+
+        <fieldset>
+          <legend>Email preferences</legend>
+          <label class="switch">
+            <input type="checkbox" name="weekly-digest" role="switch" checked />
+            Weekly digest
           </label>
+          <label class="switch">
+            <input type="checkbox" name="product-news" role="switch" />
+            Product news
+          </label>
+        </fieldset>
+      </form>
+      {% endset %}
+
+      {{ p_sectioned }}
+
+      <details>
+        <summary>Example code</summary>
+        <pre>{{ p_sectioned | e }}</pre>
+      </details>
+    </div>
+
+    <div class="pattern">
+      <hgroup>
+        <h3>Actions</h3>
+        <p>Primary action last, so it is the one the eye lands on when reading the form downwards. Secondary actions sit to its left as an outline. There is no Reset: clearing a filled form throws away the user's work, which needs a confirmation step rather than a button beside Save.</p>
+      </hgroup>
+
+      {% set p_actions %}
+      <form class="form">
+        <p>
+          <label for="actions-name">Display name</label>
+          <input id="actions-name" name="display-name" type="text" value="jane_doe" autocomplete="nickname">
         </p>
 
         <footer class="actions">
-          <button type="submit" class="btn">Create Account</button>
-          <button type="reset" class="btn btn-outline">Reset Form</button>
+          <button type="button" class="btn-outline">Cancel</button>
+          <button type="submit">Save changes</button>
         </footer>
-      </fieldset>
-    </form>
-  </div>
-  {% endset %}
+      </form>
+      {% endset %}
 
-  {{ registration_form }}
+      {{ p_actions }}
 
-  <br />
+      <details>
+        <summary>Example code</summary>
+        <pre>{{ p_actions | e }}</pre>
+      </details>
+    </div>
+  </section>
 
-  <details>
-    <summary>Example Code</summary>
-    <pre>{{ registration_form | e}} </pre>
-  </details>
+  <section>
+    <hgroup>
+      <h2>Field anatomy and errors</h2>
+      <p>
+        A field is a label, a control, and — when it needs one — a message that belongs to the control through
+        <code>aria-describedby</code>. Required controls are marked by the <code>required</code> attribute alone: the
+        asterisk comes from CSS, so it never carries the meaning on its own.
+      </p>
+    </hgroup>
 
-  <br />
+    <div class="pattern">
+      <hgroup>
+        <h3>Summary when validation fails</h3>
+        <p>Name the problem at the top of the form, link each item straight to its control, and let the alert announce itself with <code>role="alert"</code>. The messages below the fields repeat the detail for anyone who arrives there directly.</p>
+      </hgroup>
 
-  <hgroup>
-    <h2>Product Search Form</h2>
-    <p>A form for searching products with filters.</p>
-  </hgroup>
+      {% set p_errors %}
+      <form class="form">
+        <div class="alert danger" role="alert">
+          <div>
+            <h3>2 fields need attention</h3>
+            <ul>
+              <li><a href="#err-email">Email address is not complete</a></li>
+              <li><a href="#err-postcode">Postcode is required</a></li>
+            </ul>
+          </div>
+        </div>
 
-  {% set search_form %}
-  <div class="form-container" style="width: 600px;">
-    <form>
-      <fieldset>
-        <legend>Find Products</legend>
+        <p>
+          <label for="err-name">Display name</label>
+          <input id="err-name" name="display-name" type="text" value="jane_doe" autocomplete="nickname">
+          <small class="field-hint">Shown on your profile.</small>
+        </p>
 
-        <div class="flex-stretch gap">
+        <p>
+          <label for="err-email">Email address</label>
+          <input id="err-email" name="email" type="email" value="jane@" aria-invalid="true" aria-describedby="err-email-message">
+          <small id="err-email-message" class="field-hint">Enter a complete address, like jane@example.com.</small>
+        </p>
+
+        <p>
+          <label for="err-postcode">Postcode</label>
+          <input id="err-postcode" name="postcode" type="text" aria-invalid="true" aria-describedby="err-postcode-message" autocomplete="postal-code">
+          <small id="err-postcode-message" class="field-hint">Postcode is required.</small>
+        </p>
+
+        <footer class="actions">
+          <button type="submit">Save changes</button>
+        </footer>
+      </form>
+      {% endset %}
+
+      {{ p_errors }}
+
+      <details>
+        <summary>Example code</summary>
+        <pre>{{ p_errors | e }}</pre>
+      </details>
+    </div>
+
+    <div class="pattern">
+      <hgroup>
+        <h3>Required, hint and error together</h3>
+        <p>The asterisk is decorative — <code>required</code> is what assistive tech reports — and the hint and the error differ by more than colour: one explains, the other says what went wrong.</p>
+      </hgroup>
+
+      {% set p_anatomy %}
+      <form class="form">
+        <p>
+          <label for="anatomy-email">Email <small class="field-hint">required</small></label>
+          <input id="anatomy-email" name="email" type="email" required aria-describedby="anatomy-email-hint">
+          <small id="anatomy-email-hint" class="field-hint">We send a confirmation link.</small>
+        </p>
+
+        <p>
+          <label for="anatomy-phone">Phone</label>
+          <input id="anatomy-phone" name="phone" type="tel" autocomplete="tel" aria-invalid="false" aria-describedby="anatomy-phone-hint">
+          <small id="anatomy-phone-hint" class="field-hint">Looks good.</small>
+        </p>
+      </form>
+      {% endset %}
+
+      {{ p_anatomy }}
+
+      <details>
+        <summary>Example code</summary>
+        <pre>{{ p_anatomy | e }}</pre>
+      </details>
+    </div>
+  </section>
+
+  <section>
+    <hgroup>
+      <h2>Composed examples</h2>
+      <p>Four forms built from the patterns above, with the copy and the attributes a real screen would carry.</p>
+    </hgroup>
+
+    <div class="pattern">
+      <hgroup>
+        <h3>Sign in</h3>
+        <p>Two fields, one primary action, and the recovery link below the form instead of competing with it. The passwords get <code>autocomplete="current-password"</code> so a password manager can fill them.</p>
+      </hgroup>
+
+      {% set signin_form %}
+      <form class="form">
+        <p>
+          <label for="signin-email">Email</label>
+          <input id="signin-email" name="email" type="email" autocomplete="email" required>
+        </p>
+
+        <p>
+          <label for="signin-password">Password</label>
+          <input id="signin-password" name="password" type="password" autocomplete="current-password" required>
+        </p>
+
+        <footer class="actions">
+          <button type="submit">Sign in</button>
+        </footer>
+
+        <p><a href="#">Forgot your password?</a></p>
+      </form>
+      {% endset %}
+
+      {{ signin_form }}
+
+      <details>
+        <summary>Example code</summary>
+        <pre>{{ signin_form | e }}</pre>
+      </details>
+    </div>
+
+    <div class="pattern">
+      <hgroup>
+        <h3>Contact</h3>
+        <p>Stacked fields, a hint where the format matters, and the consent checkbox inside the same group as the rest of the message.</p>
+      </hgroup>
+
+      {% set contact_form %}
+      <form class="form">
+        <fieldset>
+          <legend>Contact us</legend>
+
+          <p>
+            <label for="contact-name">Full name</label>
+            <input id="contact-name" name="name" type="text" autocomplete="name" required>
+          </p>
+
+          <p>
+            <label for="contact-email">Email</label>
+            <input id="contact-email" name="email" type="email" autocomplete="email" required>
+          </p>
+
+          <p>
+            <label for="contact-message">Message</label>
+            <textarea id="contact-message" name="message" rows="5" required aria-describedby="contact-message-hint"></textarea>
+            <small id="contact-message-hint" class="field-hint">The order number helps us answer faster.</small>
+          </p>
+
+          <label>
+            <input type="checkbox" name="consent" value="yes" required />
+            You can email me about this request
+          </label>
+        </fieldset>
+
+        <footer class="actions">
+          <button type="submit">Send message</button>
+        </footer>
+      </form>
+      {% endset %}
+
+      {{ contact_form }}
+
+      <details>
+        <summary>Example code</summary>
+        <pre>{{ contact_form | e }}</pre>
+      </details>
+    </div>
+
+    <div class="pattern">
+      <hgroup>
+        <h3>Create account</h3>
+        <p>A two-up row for the name, sections for account and preferences, and <code>new-password</code> so the browser offers to generate one rather than filling an old one.</p>
+      </hgroup>
+
+      {% set registration_form %}
+      <form class="form">
+        <fieldset>
+          <legend>Your account</legend>
+
+          <div class="grid-2">
+            <p>
+              <label for="reg-first">First name</label>
+              <input id="reg-first" name="first-name" type="text" autocomplete="given-name" required>
+            </p>
+
+            <p>
+              <label for="reg-last">Last name</label>
+              <input id="reg-last" name="last-name" type="text" autocomplete="family-name" required>
+            </p>
+          </div>
+
+          <p>
+            <label for="reg-email">Email</label>
+            <input id="reg-email" name="email" type="email" autocomplete="email" required>
+          </p>
+
+          <p>
+            <label for="reg-password">Password</label>
+            <input id="reg-password" name="password" type="password" autocomplete="new-password" required aria-describedby="reg-password-hint">
+            <small id="reg-password-hint" class="field-hint">At least 12 characters.</small>
+          </p>
+        </fieldset>
+
+        <fieldset>
+          <legend>Preferences</legend>
+
+          <label class="switch">
+            <input type="checkbox" name="weekly-digest" role="switch" checked />
+            Weekly digest
+          </label>
+
+          <label>
+            <input type="checkbox" name="terms" value="agreed" required />
+            I agree to the terms of service
+          </label>
+        </fieldset>
+
+        <footer class="actions">
+          <button type="button" class="btn-outline">Cancel</button>
+          <button type="submit">Create account</button>
+        </footer>
+      </form>
+      {% endset %}
+
+      {{ registration_form }}
+
+      <details>
+        <summary>Example code</summary>
+        <pre>{{ registration_form | e }}</pre>
+      </details>
+    </div>
+
+    <div class="pattern">
+      <hgroup>
+        <h3>Product search</h3>
+        <p>Two filters in a two-up row, an actions row to run it, and clearing the filters as a tertiary link. A search bar is not one row of controls — the query carries the search, the category only narrows it, and stacking the labels keeps them readable at any width.</p>
+      </hgroup>
+
+      {% set search_form %}
+      <form class="form-wide">
+        <div class="grid-2">
           <p>
             <label for="search-query">Search</label>
-            <input type="search" id="search-query" name="query" placeholder="What are you looking for?" />
+            <input id="search-query" name="query" type="search" placeholder="Try &ldquo;adaptive learning&rdquo;">
           </p>
 
           <p>
-            <label for="category">Category</label>
-            <select id="category" name="category">
-              <option value="">All Categories</option>
+            <label for="search-category">Category</label>
+            <select id="search-category" name="category">
+              <option value="">All categories</option>
               <option value="electronics">Electronics</option>
               <option value="clothing">Clothing</option>
               <option value="books">Books</option>
-              <option value="home">Home & Garden</option>
-              <option value="sports">Sports</option>
             </select>
           </p>
         </div>
 
-        <div class="flex-stretch gap">
-          <p>
-            <label for="min-price">Min Price ($)</label>
-            <input type="number" id="min-price" name="minPrice" min="0" step="0.01" placeholder="0.00" />
-          </p>
-
-          <p>
-            <label for="max-price">Max Price ($)</label>
-            <input type="number" id="max-price" name="maxPrice" min="0" step="0.01" placeholder="999.99" />
-          </p>
-        </div>
-
-        <p>
-          <label>
-            <input type="checkbox" name="free-shipping" value="yes" /> Free Shipping Only
-          </label>
-        </p>
-
         <footer class="actions">
-          <button type="submit" class="btn">Search Products</button>
-          <button type="reset" class="btn btn-outline">Clear Filters</button>
+          <a href="#">Clear filters</a>
+          <button type="submit">Search products</button>
         </footer>
-      </fieldset>
-    </form>
-  </div>
-  {% endset %}
+      </form>
+      {% endset %}
 
-  {{ search_form }}
+      {{ search_form }}
 
-  <br />
-
-  <details>
-    <summary>Example Code</summary>
-    <pre>{{ search_form | e}} </pre>
-  </details>
-
+      <details>
+        <summary>Example code</summary>
+        <pre>{{ search_form | e }}</pre>
+      </details>
+    </div>
+  </section>
 </div>
 {% endblock %}

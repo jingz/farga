@@ -7,14 +7,13 @@ dialog {
   overflow: hidden;
   padding: 1rem 1rem 0;
   background-color: var(--bg-primary);
-  color: #000;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  color: var(--text-color-primary);
+  border: 1px solid var(--border-color-primary);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-5);
 
   &::backdrop {
-    background-color: rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(2px);
+    background-color: var(--backdrop);
   }
 
   header {
@@ -25,7 +24,6 @@ dialog {
 
     h1, h2, h3, h4 {
       margin: 0;
-      color: #000;
       font-family: var(--sans-serif-fonts);
       font-size: var(--fs-3);
       font-weight: 700;
@@ -35,7 +33,7 @@ dialog {
 
   > p {
     margin: 0.5rem 0 0;
-    color: #737373;
+    color: var(--text-color-muted);
     line-height: var(--base-line-height);
   }
 
@@ -44,63 +42,16 @@ dialog {
     justify-content: flex-end;
     margin: 0.75rem -1rem 0;
     padding: 1rem;
-    border-top: 1px solid #e5e5e5;
-    background-color: #fafafa;
+    border-top: 1px solid var(--border-color-muted);
+    background-color: var(--bg-primary-alt);
 
     form {
       display: flex;
       gap: 0.5rem;
     }
 
-    button {
-      border-radius: 0.5rem;
-
-      &:first-child {
-        background-color: var(--bg-primary);
-        border: 1px solid #e5e5e5;
-        color: #000;
-      }
-
-      &:last-child {
-        background-color: #000;
-        color: #fff;
-      }
-
-      &:first-child:hover {
-        background-color: var(--bg-primary-alt);
-      }
-
-      &:last-child:hover {
-        background-color: #222;
-      }
-    }
-  }
-}
-
-body.dark-mode dialog {
-  color: var(--text-color-primary);
-  border-color: var(--border-color-primary);
-
-  header h1, header h2, header h3, header h4 {
-    color: var(--text-color-primary);
-  }
-
-  > p {
-    color: var(--text-color-muted);
-  }
-
-  footer {
-    border-color: var(--border-color-muted);
-    background-color: var(--bg-primary-alt);
-
-    button:first-child {
-      border-color: var(--border-color-muted);
-      color: var(--text-color-primary);
-    }
-
-    button:last-child {
-      background-color: var(--grey-2);
-      color: var(--grey-12);
-    }
+    /* Footer buttons carry their own intent: the secondary action is a
+     * .btn-outline. Nothing is styled by DOM position, so reordering the
+     * buttons cannot flip which one looks primary. */
   }
 }

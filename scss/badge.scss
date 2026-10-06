@@ -3,7 +3,7 @@
 span.badge {
   font-size: var(--fs-1);
   padding: 5px 10px;
-  border-radius: 5px;
+  border-radius: var(--radius);
   background-color: var(--bg-primary-alt);
   cursor: default;
   white-space: nowrap;

@@ -21,7 +21,7 @@
 <div id="demo-popover" popover>
   <h4>Native Popover</h4>
   <p>This popover is rendered in the top layer using native HTML attributes.</p>
-  <button type="button" popovertarget="demo-popover" popovertargetaction="hide" class="btn-small">
+  <button type="button" popovertarget="demo-popover" popovertargetaction="hide" class="btn btn-small">
     Close
   </button>
 </div>{% endset %}
@@ -40,7 +40,7 @@
   <br/>
 
   <h2>CSS Tooltip</h2>
-  <p>Add <code>data-tooltip="text"</code> to any element to display a tooltip on hover or keyboard focus.</p>
+  <p>Add <code>data-tooltip="text"</code> to a focusable element to display a tooltip on hover or keyboard focus. Put anything the user must act on in real text: a CSS pseudo-element is not a dependable accessible description.</p>
 
   {% set tooltip_example %}
 <div style="display: flex; gap: 1.5rem; align-items: center; margin-top: 1.5rem;">
@@ -48,9 +48,9 @@
     Save Changes
   </button>
 
-  <span data-tooltip="Additional context information">
-    Hover for info
-  </span>
+  <a href="#" data-tooltip="Additional context information">
+    Hover or focus for info
+  </a>
 </div>{% endset %}
 
   <div>

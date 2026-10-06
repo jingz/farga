@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>Farga Documentation</title>
     <link rel="icon" type="image/x-icon" href="./assets/olives-16px.ico">
@@ -8,14 +8,16 @@
     <style type="text/css" media="all">
     
 
-
     body {
         pre {
           font-size: 0.8rem;
           background-color: var(--dim);
-          border-radius: 5px;
+          border-radius: var(--radius);
           padding: 0.8rem;
-          width: 120ch;
+          /* max-width, not width: an explicit 120ch box cannot shrink and drags
+           * its container wider than a 320px viewport */
+          max-width: 100%;
+          box-sizing: border-box;
           overflow-x: auto;
         }
     }
@@ -27,11 +29,31 @@
     #side-menu {
         width: 28ch;
         border-right: 1px solid var(--grey-2);
-        height: 100vh;
+        height: 100dvh;
     }
 
     #main-container {
         padding: 0 1rem;
+    }
+
+    /* Page rhythm for pages built as <section> blocks: the sections space
+     * themselves, so no <br> spacers between demos. */
+    #main-container > div > section + section {
+        margin-top: 3rem;
+    }
+
+    #main-container > div > section > hgroup {
+        margin-bottom: 1.25rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid var(--border-color-muted);
+    }
+
+    #main-container > div > section > hgroup p {
+        max-width: 65ch;
+    }
+
+    #main-container > div > section > details {
+        margin-top: 1rem;
     }
     </style>
 
@@ -39,8 +61,8 @@
   <body>
     <div class="flex-sidebar fixed gap">
         <nav id="side-menu" class="sidemenu">
-          <hgroup class="flex" align="center">
-             <img width="48" src="./assets/olives.png" />
+          <hgroup class="flex items-center">
+             <img width="48" src="./assets/olives.png" alt="" />
              <h1> Farga </h1>
           </hgroup>
           <p>Farga Documentation</p>
@@ -49,7 +71,7 @@
               <li><a href="./color.html">Colors</a></li>
               <li><a href="./typography.html">Typography</a></li>
           </ul>
-          <details open>
+          <details>
             <summary>
               <span>Navigation</span>
             </summary>
@@ -61,7 +83,7 @@
               <li><a href="./pagination.html">Pagination</a></li>
             </ul>
           </details>
-          <details open>
+          <details>
             <summary>
               <span>Layout</span>
             </summary>
@@ -73,16 +95,16 @@
           <ul>
               <li><a href="./button.html">Buttons</a></li>
           </ul>
-          <details open>
+          <details>
             <summary>
               <span>Form</span>
             </summary>
             <ul>
-              <li><a href="./form.html">Form Basic</a></li>
+              <li><a href="./form.html">Form Controls</a></li>
               <li><a href="./form_with_layout.html">Form Layouts</a></li>
             </ul>
           </details>
-          <details open>
+          <details>
             <summary>
               <span>Tables</span>
             </summary>
@@ -92,16 +114,16 @@
               <li><a href="./fixed_first_column_table.html">Fixed First Column Table</a></li>
             </ul>
           </details>
-          <details open>
+          <details>
             <summary>
               <span>Components</span>
             </summary>
             <ul>
               <li><a href="./accordion.html">Accordion</a></li>
               <li><a href="./card.html">Card</a></li>
-              <li><a href="./flashcard.html">Flashcard</a></li>
               <li><a href="./badge.html">Badge</a></li>
               <li><a href="./detail.html">Detail List</a></li>
+              <li><a href="./empty_state.html">Empty state</a></li>
               <li><a href="./alert.html">Alert</a></li>
               <li><a href="./dialog.html">Dialog / Modal</a></li>
               <li><a href="./popover.html">Popover &amp; Tooltip</a></li>
@@ -115,7 +137,7 @@
             <ul>
               <li>
                   <a href="https://jingz.github.io/farga/site/index.html" target="_blank">
-                      <img src="./assets/github-mark.svg" width="14px;" />
+                      <img src="./assets/github-mark.svg" alt="" width="14" />
                       GitHub
                   </a>
               </li>
@@ -133,511 +155,556 @@
         <main id="main-container">
           
 <div>
-  <h1>Form</h1>
-
   <hgroup>
-    <h2>Normal Form</h2>
-    <p>A standard form with labeled input fields.</p>
+    <h1>Form</h1>
+    <p>
+      Every control the form styles cover, one section per family. A field is a <code>&lt;label&gt;</code>,
+      the control, and optionally a <code>.field-hint</code> linked with <code>aria-describedby</code> —
+      a placeholder never stands in for a label. Inputs are styled by their element type, so no class is needed.
+    </p>
   </hgroup>
 
-  
-
-  
-  <form>
-    <h3>Basic form</h3>
-    <fieldset>
-        <legend>General Info Form</legend>
-        <p>
-          <label for="username">Username</label>
-          <input id="username" type="text" name="username" placeholder="Text" aria-label="Text">
-        </p>
-
-        <p>
-          <label for="email">Email</label>
-          <input id="email" type="email" name="email" placeholder="Email" aria-label="Email" autocomplete="email">
-        </p>
-
-        <p>
-          <label for="age">Age</label>
-          <input id="age" type="number" name="number" placeholder="Number" aria-label="Number">
-        </p>
-
-        <p>
-          <label for="password">Password</label>
-          <input type="password" name="password" placeholder="Password" aria-label="Password">
-        </p>
-
-        <p>
-          <label for="mobile">Mobile</label>
-          <input id="mobile" type="tel" name="tel" placeholder="Tel" aria-label="Tel" autocomplete="tel">
-        </p>
-
-        <p>
-          <label for="site">Personal Site</label>
-          <input id="site" type="url" name="url" placeholder="Url" aria-label="Url">
-        </p>
-
-        <p>
-          <label for="birthdate">Birth Date</label>
-          <input id="birthdate" type="date" name="date" aria-label="Date">
-        </p>
-
-        <p>
-          <label for="timezone">Timezone</label>
-          <input id="timezone" type="datetime-local" name="datetime-local" aria-label="Datetime local">
-        </p>
-
-        <p>
-          <label for="month">Birth Month</label>
-          <input id="month" type="month" name="month" aria-label="Month">
-        </p>
-
-        <p>
-          <label for="birthtime">Birth Time</label>
-          <input id="birthtime" type="time" name="time" aria-label="Time">
-        </p>
-
-        <p>
-          <label for="card"> Card type </label>
-          <select id="card" name="user-card">
-            <option value="visa">Visa</option>
-            <option value="mc">Mastercard</option>
-            <option value="amex">American Express</option>
-          </select>
-        </p>
-
-        <p>
-          <label for="message">Message</label>
-          <textarea>This is message</textarea>
-        </p>
-    </fieldset>
-  </form>
-  
-
-  <br/>
-
-  <details>
-    <summary>Example Code</summary>
-    <pre>
-  &lt;form&gt;
-    &lt;h3&gt;Basic form&lt;/h3&gt;
-    &lt;fieldset&gt;
-        &lt;legend&gt;General Info Form&lt;/legend&gt;
-        &lt;p&gt;
-          &lt;label for=&#34;username&#34;&gt;Username&lt;/label&gt;
-          &lt;input id=&#34;username&#34; type=&#34;text&#34; name=&#34;username&#34; placeholder=&#34;Text&#34; aria-label=&#34;Text&#34;&gt;
-        &lt;/p&gt;
-
-        &lt;p&gt;
-          &lt;label for=&#34;email&#34;&gt;Email&lt;/label&gt;
-          &lt;input id=&#34;email&#34; type=&#34;email&#34; name=&#34;email&#34; placeholder=&#34;Email&#34; aria-label=&#34;Email&#34; autocomplete=&#34;email&#34;&gt;
-        &lt;/p&gt;
-
-        &lt;p&gt;
-          &lt;label for=&#34;age&#34;&gt;Age&lt;/label&gt;
-          &lt;input id=&#34;age&#34; type=&#34;number&#34; name=&#34;number&#34; placeholder=&#34;Number&#34; aria-label=&#34;Number&#34;&gt;
-        &lt;/p&gt;
-
-        &lt;p&gt;
-          &lt;label for=&#34;password&#34;&gt;Password&lt;/label&gt;
-          &lt;input type=&#34;password&#34; name=&#34;password&#34; placeholder=&#34;Password&#34; aria-label=&#34;Password&#34;&gt;
-        &lt;/p&gt;
-
-        &lt;p&gt;
-          &lt;label for=&#34;mobile&#34;&gt;Mobile&lt;/label&gt;
-          &lt;input id=&#34;mobile&#34; type=&#34;tel&#34; name=&#34;tel&#34; placeholder=&#34;Tel&#34; aria-label=&#34;Tel&#34; autocomplete=&#34;tel&#34;&gt;
-        &lt;/p&gt;
-
-        &lt;p&gt;
-          &lt;label for=&#34;site&#34;&gt;Personal Site&lt;/label&gt;
-          &lt;input id=&#34;site&#34; type=&#34;url&#34; name=&#34;url&#34; placeholder=&#34;Url&#34; aria-label=&#34;Url&#34;&gt;
-        &lt;/p&gt;
-
-        &lt;p&gt;
-          &lt;label for=&#34;birthdate&#34;&gt;Birth Date&lt;/label&gt;
-          &lt;input id=&#34;birthdate&#34; type=&#34;date&#34; name=&#34;date&#34; aria-label=&#34;Date&#34;&gt;
-        &lt;/p&gt;
-
-        &lt;p&gt;
-          &lt;label for=&#34;timezone&#34;&gt;Timezone&lt;/label&gt;
-          &lt;input id=&#34;timezone&#34; type=&#34;datetime-local&#34; name=&#34;datetime-local&#34; aria-label=&#34;Datetime local&#34;&gt;
-        &lt;/p&gt;
-
-        &lt;p&gt;
-          &lt;label for=&#34;month&#34;&gt;Birth Month&lt;/label&gt;
-          &lt;input id=&#34;month&#34; type=&#34;month&#34; name=&#34;month&#34; aria-label=&#34;Month&#34;&gt;
-        &lt;/p&gt;
-
-        &lt;p&gt;
-          &lt;label for=&#34;birthtime&#34;&gt;Birth Time&lt;/label&gt;
-          &lt;input id=&#34;birthtime&#34; type=&#34;time&#34; name=&#34;time&#34; aria-label=&#34;Time&#34;&gt;
-        &lt;/p&gt;
-
-        &lt;p&gt;
-          &lt;label for=&#34;card&#34;&gt; Card type &lt;/label&gt;
-          &lt;select id=&#34;card&#34; name=&#34;user-card&#34;&gt;
-            &lt;option value=&#34;visa&#34;&gt;Visa&lt;/option&gt;
-            &lt;option value=&#34;mc&#34;&gt;Mastercard&lt;/option&gt;
-            &lt;option value=&#34;amex&#34;&gt;American Express&lt;/option&gt;
-          &lt;/select&gt;
-        &lt;/p&gt;
-
-        &lt;p&gt;
-          &lt;label for=&#34;message&#34;&gt;Message&lt;/label&gt;
-          &lt;textarea&gt;This is message&lt;/textarea&gt;
-        &lt;/p&gt;
-    &lt;/fieldset&gt;
-  &lt;/form&gt;
-   </pre>
-  </details>
-
-  <br />
-
-  <hgroup>
-    <h2>Form State</h2>
-    <p>Different form validation states: error and valid.</p>
-  </hgroup>
-
-  
-
-  
-  <form>
-    <label>
-      Required Field
-      <input id="valid-field" type="text" required value="" />
-    </label>
-
-    <label>
-      Valid Field
-      <input id="valid-field" class="valid" type="text" value="valid value" />
-    </label>
-
-    <label>
-      Valid Select
-      <select aria-invalid="false" name="user-card">
-        <option value="visa">Visa</option>
-        <option value="mc">Mastercard</option>
-        <option value="amex">American Express</option>
-      </select>
-      <small>Valid card!</small>
-    </label>
-
-    <label>
-      Error Field
-      <input id="error-field" aria-invalid="true" type="text" value="error value" />
-      <small>This field is error</small>
-    </label>
-
-    <br/>
-
-    <div>
-      <button type="submit">Submit</button>
-      <input class="btn" type="submit" value="Submit with input" />
-      <button class="btn-outline">Reset</button>
-      <button class="btn-danger">Remove</button>
-    </div>
-  </form>
-  
-
-  <br/>
-
-  <details open>
-      <summary>Example Code</summary>
-      <pre>
-  &lt;form&gt;
-    &lt;label&gt;
-      Required Field
-      &lt;input id=&#34;valid-field&#34; type=&#34;text&#34; required value=&#34;&#34; /&gt;
-    &lt;/label&gt;
-
-    &lt;label&gt;
-      Valid Field
-      &lt;input id=&#34;valid-field&#34; class=&#34;valid&#34; type=&#34;text&#34; value=&#34;valid value&#34; /&gt;
-    &lt;/label&gt;
-
-    &lt;label&gt;
-      Valid Select
-      &lt;select aria-invalid=&#34;false&#34; name=&#34;user-card&#34;&gt;
-        &lt;option value=&#34;visa&#34;&gt;Visa&lt;/option&gt;
-        &lt;option value=&#34;mc&#34;&gt;Mastercard&lt;/option&gt;
-        &lt;option value=&#34;amex&#34;&gt;American Express&lt;/option&gt;
-      &lt;/select&gt;
-      &lt;small&gt;Valid card!&lt;/small&gt;
-    &lt;/label&gt;
-
-    &lt;label&gt;
-      Error Field
-      &lt;input id=&#34;error-field&#34; aria-invalid=&#34;true&#34; type=&#34;text&#34; value=&#34;error value&#34; /&gt;
-      &lt;small&gt;This field is error&lt;/small&gt;
-    &lt;/label&gt;
-
-    &lt;br/&gt;
-
-    &lt;div&gt;
-      &lt;button type=&#34;submit&#34;&gt;Submit&lt;/button&gt;
-      &lt;input class=&#34;btn&#34; type=&#34;submit&#34; value=&#34;Submit with input&#34; /&gt;
-      &lt;button class=&#34;btn-outline&#34;&gt;Reset&lt;/button&gt;
-      &lt;button class=&#34;btn-danger&#34;&gt;Remove&lt;/button&gt;
-    &lt;/div&gt;
-  &lt;/form&gt;
-   </pre>
-  </details>
-
-  <h2>Select</h2>
-
-  <form>
-
-
-<label>
-    Select your favorite cuisine...
-<select name="favorite-cuisine" aria-label="Select your favorite cuisine..." required>
-  <option selected disabled value="">
-    Select your favorite cuisine...
-  </option>
-  <option>Italian</option>
-  <option>Japanese</option>
-  <option>Indian</option>
-  <option>Thai</option>
-  <option>French</option>
-</select>
-</label>
-
-
-<br/>
-
-  <details open>
-      <summary>Example Code</summary>
-      <pre>
-&lt;label&gt;
-    Select your favorite cuisine...
-&lt;select name=&#34;favorite-cuisine&#34; aria-label=&#34;Select your favorite cuisine...&#34; required&gt;
-  &lt;option selected disabled value=&#34;&#34;&gt;
-    Select your favorite cuisine...
-  &lt;/option&gt;
-  &lt;option&gt;Italian&lt;/option&gt;
-  &lt;option&gt;Japanese&lt;/option&gt;
-  &lt;option&gt;Indian&lt;/option&gt;
-  &lt;option&gt;Thai&lt;/option&gt;
-  &lt;option&gt;French&lt;/option&gt;
-&lt;/select&gt;
-&lt;/label&gt;
- </pre>
-  </details>
-
-<h3>Select Multiple</h3>
-
-  
-<label>
-    Select your favorite snacks...
-<select aria-label="Select your favorite snacks..." multiple size="6">
-  <option disabled>
-    Select your favorite snacks...
-  </option>
-  <option>Cheese</option>
-  <option selected>Fruits</option>
-  <option selected>Nuts</option>
-  <option>Chocolate</option>
-  <option>Crackers</option>
-</select>
-</label>
-
-
-  <br/>
-  <details open>
-      <summary>Example Code</summary>
-      <pre>
-&lt;label&gt;
-    Select your favorite snacks...
-&lt;select aria-label=&#34;Select your favorite snacks...&#34; multiple size=&#34;6&#34;&gt;
-  &lt;option disabled&gt;
-    Select your favorite snacks...
-  &lt;/option&gt;
-  &lt;option&gt;Cheese&lt;/option&gt;
-  &lt;option selected&gt;Fruits&lt;/option&gt;
-  &lt;option selected&gt;Nuts&lt;/option&gt;
-  &lt;option&gt;Chocolate&lt;/option&gt;
-  &lt;option&gt;Crackers&lt;/option&gt;
-&lt;/select&gt;
-&lt;/label&gt;
- </pre>
-  </details>
-
-<h3>Disabled Select</h3>
-
-<label>Select a meal type...
-  <select name="meal-type" aria-label="Select a meal type..." disabled>
-    <option>Select a meal type...</option>
-    <option>...</option>
-  </select>
-</label>
-
-  <br/>
-  <details open>
-      <summary>Example Code</summary>
-      <pre>&lt;label&gt;Select a meal type...
-  &lt;select name=&#34;meal-type&#34; aria-label=&#34;Select a meal type...&#34; disabled&gt;
-    &lt;option&gt;Select a meal type...&lt;/option&gt;
-    &lt;option&gt;...&lt;/option&gt;
-  &lt;/select&gt;
-&lt;/label&gt; </pre>
-  </details>
-
-  </form>
-
-  <h2>Checkboxes and Radio Buttons</h2>
-  <form>
-    
-  
-  <label>
-    <input type="checkbox" value="1" checked />
-    Check me 1
-  </label>
-
-  <label>
-    <input type="checkbox" value="1" />
-    Check me 2
-  </label>
-  <label>
-    <input type="radio" name="version" value="v1" checked />
-    Version 1
-  </label>
-
-  <label>
-    <input type="radio" name="version" value="v2" />
-    Version 2
-  </label>
-
-  <label>
-    <input type="radio" name="version" value="v3" />
-    Version 3
-  </label>
-  
-
-  <br/>
-  <details open>
-      <summary>Example Code</summary>
-      <pre>
-  &lt;label&gt;
-    &lt;input type=&#34;checkbox&#34; value=&#34;1&#34; checked /&gt;
-    Check me 1
-  &lt;/label&gt;
-
-  &lt;label&gt;
-    &lt;input type=&#34;checkbox&#34; value=&#34;1&#34; /&gt;
-    Check me 2
-  &lt;/label&gt;
-  &lt;label&gt;
-    &lt;input type=&#34;radio&#34; name=&#34;version&#34; value=&#34;v1&#34; checked /&gt;
-    Version 1
-  &lt;/label&gt;
-
-  &lt;label&gt;
-    &lt;input type=&#34;radio&#34; name=&#34;version&#34; value=&#34;v2&#34; /&gt;
-    Version 2
-  &lt;/label&gt;
-
-  &lt;label&gt;
-    &lt;input type=&#34;radio&#34; name=&#34;version&#34; value=&#34;v3&#34; /&gt;
-    Version 3
-  &lt;/label&gt;
-   </pre>
-  </details>
-
+  <section>
     <hgroup>
-      <h2>Switch</h2>
+      <h2>Text inputs</h2>
+      <p>Placeholders show an example value, not the field name.</p>
     </hgroup>
 
     
 
     
-      <label class="switch">
-        <input name="terms" type="checkbox" role="switch" />
-        I agree to the Terms
-      </label>
-      <label class="switch">
-        <input name="terms" type="checkbox" role="switch" checked />
-        I agree to the default checked
-      </label>
-      <label class="switch">
-        <input name="terms" type="checkbox" role="switch" disabled />
-        I agree to the default disabled
-      </label>
+    <form>
+      <div class="grid-2">
+        <p>
+          <label for="username">Username</label>
+          <input id="username" type="text" name="username" placeholder="jane_doe">
+        </p>
+
+        <p>
+          <label for="email">Email</label>
+          <input id="email" type="email" name="email" placeholder="jane@example.com" autocomplete="email">
+        </p>
+
+        <p>
+          <label for="password">Password</label>
+          <input id="password" type="password" name="password" autocomplete="current-password">
+        </p>
+
+        <p>
+          <label for="age">Age</label>
+          <input id="age" type="number" name="age" placeholder="42">
+        </p>
+
+        <p>
+          <label for="mobile">Mobile</label>
+          <input id="mobile" type="tel" name="tel" placeholder="+1 555 0100" autocomplete="tel">
+        </p>
+
+        <p>
+          <label for="site">Personal site</label>
+          <input id="site" type="url" name="url" placeholder="https://example.com">
+        </p>
+      </div>
+    </form>
     
 
-    <br/>
     <details>
-        <summary>Example Code</summary>
-        <pre>
-      &lt;label class=&#34;switch&#34;&gt;
-        &lt;input name=&#34;terms&#34; type=&#34;checkbox&#34; role=&#34;switch&#34; /&gt;
-        I agree to the Terms
-      &lt;/label&gt;
-      &lt;label class=&#34;switch&#34;&gt;
-        &lt;input name=&#34;terms&#34; type=&#34;checkbox&#34; role=&#34;switch&#34; checked /&gt;
-        I agree to the default checked
-      &lt;/label&gt;
-      &lt;label class=&#34;switch&#34;&gt;
-        &lt;input name=&#34;terms&#34; type=&#34;checkbox&#34; role=&#34;switch&#34; disabled /&gt;
-        I agree to the default disabled
-      &lt;/label&gt;
-     </pre>
-    </details>
-  </form>
-
-  <hgroup>
-      <h2>Range</h2>
-  </hgroup>
-  <form>
-
-
-      
-<label>
-    Brightness
-    <input type="range" min="0" max="100" />
-</label>
-
-
+      <summary>Example code</summary>
       <pre>
-&lt;label&gt;
-    Brightness
-    &lt;input type=&#34;range&#34; min=&#34;0&#34; max=&#34;100&#34; /&gt;
-&lt;/label&gt;
-</pre>
-  </form>
+    &lt;form&gt;
+      &lt;div class=&#34;grid-2&#34;&gt;
+        &lt;p&gt;
+          &lt;label for=&#34;username&#34;&gt;Username&lt;/label&gt;
+          &lt;input id=&#34;username&#34; type=&#34;text&#34; name=&#34;username&#34; placeholder=&#34;jane_doe&#34;&gt;
+        &lt;/p&gt;
 
-  <hgroup>
-      <h2>File Input</h2>
-      <p>File upload controls styled with native <code>::file-selector-button</code>.</p>
-  </hgroup>
-  <form>
-    
+        &lt;p&gt;
+          &lt;label for=&#34;email&#34;&gt;Email&lt;/label&gt;
+          &lt;input id=&#34;email&#34; type=&#34;email&#34; name=&#34;email&#34; placeholder=&#34;jane@example.com&#34; autocomplete=&#34;email&#34;&gt;
+        &lt;/p&gt;
 
-    
-<label>
-    Upload Document
-    <input type="file" name="document" />
-</label>
+        &lt;p&gt;
+          &lt;label for=&#34;password&#34;&gt;Password&lt;/label&gt;
+          &lt;input id=&#34;password&#34; type=&#34;password&#34; name=&#34;password&#34; autocomplete=&#34;current-password&#34;&gt;
+        &lt;/p&gt;
 
-<label>
-    Disabled Upload
-    <input type="file" name="disabled-doc" disabled />
-</label>
+        &lt;p&gt;
+          &lt;label for=&#34;age&#34;&gt;Age&lt;/label&gt;
+          &lt;input id=&#34;age&#34; type=&#34;number&#34; name=&#34;age&#34; placeholder=&#34;42&#34;&gt;
+        &lt;/p&gt;
 
-    <br/>
-    <details open>
-        <summary>Example Code</summary>
-        <pre>
-&lt;label&gt;
-    Upload Document
-    &lt;input type=&#34;file&#34; name=&#34;document&#34; /&gt;
-&lt;/label&gt;
+        &lt;p&gt;
+          &lt;label for=&#34;mobile&#34;&gt;Mobile&lt;/label&gt;
+          &lt;input id=&#34;mobile&#34; type=&#34;tel&#34; name=&#34;tel&#34; placeholder=&#34;+1 555 0100&#34; autocomplete=&#34;tel&#34;&gt;
+        &lt;/p&gt;
 
-&lt;label&gt;
-    Disabled Upload
-    &lt;input type=&#34;file&#34; name=&#34;disabled-doc&#34; disabled /&gt;
-&lt;/label&gt;</pre>
+        &lt;p&gt;
+          &lt;label for=&#34;site&#34;&gt;Personal site&lt;/label&gt;
+          &lt;input id=&#34;site&#34; type=&#34;url&#34; name=&#34;url&#34; placeholder=&#34;https://example.com&#34;&gt;
+        &lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/form&gt;
+    </pre>
     </details>
-  </form>
+  </section>
+
+  <section>
+    <hgroup>
+      <h2>Dates and times</h2>
+      <p>Format expectations belong in helper text, not in the placeholder: a placeholder disappears as soon as typing starts.</p>
+    </hgroup>
+
+    
+
+    
+    <form>
+      <div class="grid-2">
+        <p>
+          <label for="birthdate">Birth date</label>
+          <input id="birthdate" type="date" name="date" aria-describedby="birthdate-hint">
+          <small id="birthdate-hint" class="field-hint">Format: MM/DD/YYYY</small>
+        </p>
+
+        <p>
+          <label for="birthtime">Birth time</label>
+          <input id="birthtime" type="time" name="time">
+        </p>
+
+        <p>
+          <label for="month">Birth month</label>
+          <input id="month" type="month" name="month">
+        </p>
+
+        <p>
+          <label for="timezone">Timezone</label>
+          <input id="timezone" type="datetime-local" name="datetime-local">
+        </p>
+      </div>
+    </form>
+    
+
+    <details>
+      <summary>Example code</summary>
+      <pre>
+    &lt;form&gt;
+      &lt;div class=&#34;grid-2&#34;&gt;
+        &lt;p&gt;
+          &lt;label for=&#34;birthdate&#34;&gt;Birth date&lt;/label&gt;
+          &lt;input id=&#34;birthdate&#34; type=&#34;date&#34; name=&#34;date&#34; aria-describedby=&#34;birthdate-hint&#34;&gt;
+          &lt;small id=&#34;birthdate-hint&#34; class=&#34;field-hint&#34;&gt;Format: MM/DD/YYYY&lt;/small&gt;
+        &lt;/p&gt;
+
+        &lt;p&gt;
+          &lt;label for=&#34;birthtime&#34;&gt;Birth time&lt;/label&gt;
+          &lt;input id=&#34;birthtime&#34; type=&#34;time&#34; name=&#34;time&#34;&gt;
+        &lt;/p&gt;
+
+        &lt;p&gt;
+          &lt;label for=&#34;month&#34;&gt;Birth month&lt;/label&gt;
+          &lt;input id=&#34;month&#34; type=&#34;month&#34; name=&#34;month&#34;&gt;
+        &lt;/p&gt;
+
+        &lt;p&gt;
+          &lt;label for=&#34;timezone&#34;&gt;Timezone&lt;/label&gt;
+          &lt;input id=&#34;timezone&#34; type=&#34;datetime-local&#34; name=&#34;datetime-local&#34;&gt;
+        &lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/form&gt;
+    </pre>
+    </details>
+  </section>
+
+  <section>
+    <hgroup>
+      <h2>Select</h2>
+      <p>A single value with a prompt option, a multiple selection, and a disabled control. The chevron is drawn in CSS, so the native arrow is hidden.</p>
+    </hgroup>
+
+    
+
+    
+    <form>
+      <p>
+        <label for="cuisine">Cuisine</label>
+        <select id="cuisine" name="cuisine" required>
+          <option selected disabled value="">Choose a cuisine</option>
+          <option>Italian</option>
+          <option>Japanese</option>
+          <option>Indian</option>
+          <option>Thai</option>
+          <option>French</option>
+        </select>
+      </p>
+
+      <p>
+        <label for="snacks">Snacks</label>
+        <select id="snacks" name="snacks" multiple size="6" aria-describedby="snacks-hint">
+          <option selected>Fruits</option>
+          <option selected>Nuts</option>
+          <option>Cheese</option>
+          <option>Chocolate</option>
+          <option>Crackers</option>
+        </select>
+        <small id="snacks-hint" class="field-hint">Hold Cmd or Ctrl to pick more than one.</small>
+      </p>
+
+      <p>
+        <label for="meal-type">Meal type</label>
+        <select id="meal-type" name="meal-type" disabled>
+          <option>Breakfast</option>
+          <option>Lunch</option>
+          <option>Dinner</option>
+        </select>
+      </p>
+    </form>
+    
+
+    <details>
+      <summary>Example code</summary>
+      <pre>
+    &lt;form&gt;
+      &lt;p&gt;
+        &lt;label for=&#34;cuisine&#34;&gt;Cuisine&lt;/label&gt;
+        &lt;select id=&#34;cuisine&#34; name=&#34;cuisine&#34; required&gt;
+          &lt;option selected disabled value=&#34;&#34;&gt;Choose a cuisine&lt;/option&gt;
+          &lt;option&gt;Italian&lt;/option&gt;
+          &lt;option&gt;Japanese&lt;/option&gt;
+          &lt;option&gt;Indian&lt;/option&gt;
+          &lt;option&gt;Thai&lt;/option&gt;
+          &lt;option&gt;French&lt;/option&gt;
+        &lt;/select&gt;
+      &lt;/p&gt;
+
+      &lt;p&gt;
+        &lt;label for=&#34;snacks&#34;&gt;Snacks&lt;/label&gt;
+        &lt;select id=&#34;snacks&#34; name=&#34;snacks&#34; multiple size=&#34;6&#34; aria-describedby=&#34;snacks-hint&#34;&gt;
+          &lt;option selected&gt;Fruits&lt;/option&gt;
+          &lt;option selected&gt;Nuts&lt;/option&gt;
+          &lt;option&gt;Cheese&lt;/option&gt;
+          &lt;option&gt;Chocolate&lt;/option&gt;
+          &lt;option&gt;Crackers&lt;/option&gt;
+        &lt;/select&gt;
+        &lt;small id=&#34;snacks-hint&#34; class=&#34;field-hint&#34;&gt;Hold Cmd or Ctrl to pick more than one.&lt;/small&gt;
+      &lt;/p&gt;
+
+      &lt;p&gt;
+        &lt;label for=&#34;meal-type&#34;&gt;Meal type&lt;/label&gt;
+        &lt;select id=&#34;meal-type&#34; name=&#34;meal-type&#34; disabled&gt;
+          &lt;option&gt;Breakfast&lt;/option&gt;
+          &lt;option&gt;Lunch&lt;/option&gt;
+          &lt;option&gt;Dinner&lt;/option&gt;
+        &lt;/select&gt;
+      &lt;/p&gt;
+    &lt;/form&gt;
+    </pre>
+    </details>
+  </section>
+
+  <section>
+    <hgroup>
+      <h2>Textarea</h2>
+      <p>Multi-line text. Resizing stays available.</p>
+    </hgroup>
+
+    
+
+    
+    <form>
+      <p>
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="4" placeholder="Anything else we should know?"></textarea>
+      </p>
+    </form>
+    
+
+    <details>
+      <summary>Example code</summary>
+      <pre>
+    &lt;form&gt;
+      &lt;p&gt;
+        &lt;label for=&#34;message&#34;&gt;Message&lt;/label&gt;
+        &lt;textarea id=&#34;message&#34; name=&#34;message&#34; rows=&#34;4&#34; placeholder=&#34;Anything else we should know?&#34;&gt;&lt;/textarea&gt;
+      &lt;/p&gt;
+    &lt;/form&gt;
+    </pre>
+    </details>
+  </section>
+
+  <section>
+    <hgroup>
+      <h2>Checkbox and radio</h2>
+      <p>Both keep their native rendering and take their checked colour from the palette. Group related controls in a <code>&lt;fieldset&gt;</code> with a <code>&lt;legend&gt;</code>, and give each option its own label.</p>
+    </hgroup>
+
+    
+
+    
+    <form>
+      <fieldset>
+        <legend>Notifications</legend>
+        <label>
+          <input type="checkbox" name="weekly-digest" value="1" checked />
+          Weekly digest
+        </label>
+        <label>
+          <input type="checkbox" name="product-news" value="1" />
+          Product news
+        </label>
+        <label>
+          <input type="checkbox" name="partner-offers" value="1" disabled />
+          Partner offers (unavailable)
+        </label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Plan</legend>
+        <label>
+          <input type="radio" name="plan" value="free" checked />
+          Free
+        </label>
+        <label>
+          <input type="radio" name="plan" value="plus" />
+          Plus
+        </label>
+        <label>
+          <input type="radio" name="plan" value="pro" />
+          Pro
+        </label>
+      </fieldset>
+    </form>
+    
+
+    <details>
+      <summary>Example code</summary>
+      <pre>
+    &lt;form&gt;
+      &lt;fieldset&gt;
+        &lt;legend&gt;Notifications&lt;/legend&gt;
+        &lt;label&gt;
+          &lt;input type=&#34;checkbox&#34; name=&#34;weekly-digest&#34; value=&#34;1&#34; checked /&gt;
+          Weekly digest
+        &lt;/label&gt;
+        &lt;label&gt;
+          &lt;input type=&#34;checkbox&#34; name=&#34;product-news&#34; value=&#34;1&#34; /&gt;
+          Product news
+        &lt;/label&gt;
+        &lt;label&gt;
+          &lt;input type=&#34;checkbox&#34; name=&#34;partner-offers&#34; value=&#34;1&#34; disabled /&gt;
+          Partner offers (unavailable)
+        &lt;/label&gt;
+      &lt;/fieldset&gt;
+
+      &lt;fieldset&gt;
+        &lt;legend&gt;Plan&lt;/legend&gt;
+        &lt;label&gt;
+          &lt;input type=&#34;radio&#34; name=&#34;plan&#34; value=&#34;free&#34; checked /&gt;
+          Free
+        &lt;/label&gt;
+        &lt;label&gt;
+          &lt;input type=&#34;radio&#34; name=&#34;plan&#34; value=&#34;plus&#34; /&gt;
+          Plus
+        &lt;/label&gt;
+        &lt;label&gt;
+          &lt;input type=&#34;radio&#34; name=&#34;plan&#34; value=&#34;pro&#34; /&gt;
+          Pro
+        &lt;/label&gt;
+      &lt;/fieldset&gt;
+    &lt;/form&gt;
+    </pre>
+    </details>
+  </section>
+
+  <section>
+    <hgroup>
+      <h2>Switch</h2>
+      <p>A checkbox drawn as a track and knob: same form value, an on/off reading. The whole label is the hit area.</p>
+    </hgroup>
+
+    
+
+    
+    <form>
+      <label class="switch">
+        <input type="checkbox" name="weekly-digest" role="switch" checked />
+        Email me the weekly digest
+      </label>
+
+      <label class="switch">
+        <input type="checkbox" name="sync" role="switch" />
+        Sync progress across devices
+      </label>
+
+      <label class="switch">
+        <input type="checkbox" name="beta" role="switch" disabled />
+        Beta features (admin only)
+      </label>
+    </form>
+    
+
+    <details>
+      <summary>Example code</summary>
+      <pre>
+    &lt;form&gt;
+      &lt;label class=&#34;switch&#34;&gt;
+        &lt;input type=&#34;checkbox&#34; name=&#34;weekly-digest&#34; role=&#34;switch&#34; checked /&gt;
+        Email me the weekly digest
+      &lt;/label&gt;
+
+      &lt;label class=&#34;switch&#34;&gt;
+        &lt;input type=&#34;checkbox&#34; name=&#34;sync&#34; role=&#34;switch&#34; /&gt;
+        Sync progress across devices
+      &lt;/label&gt;
+
+      &lt;label class=&#34;switch&#34;&gt;
+        &lt;input type=&#34;checkbox&#34; name=&#34;beta&#34; role=&#34;switch&#34; disabled /&gt;
+        Beta features (admin only)
+      &lt;/label&gt;
+    &lt;/form&gt;
+    </pre>
+    </details>
+  </section>
+
+  <section>
+    <hgroup>
+      <h2>Range and file inputs</h2>
+      <p>Both keep their native appearance; only sizing and the file button are themed.</p>
+    </hgroup>
+
+    
+
+    
+    <form>
+      <p>
+        <label for="brightness">Brightness</label>
+        <input id="brightness" type="range" name="brightness" min="0" max="100">
+      </p>
+
+      <p>
+        <label for="document">Upload a document</label>
+        <input id="document" type="file" name="document">
+      </p>
+
+      <p>
+        <label for="disabled-document">Disabled upload</label>
+        <input id="disabled-document" type="file" name="disabled-document" disabled>
+      </p>
+    </form>
+    
+
+    <details>
+      <summary>Example code</summary>
+      <pre>
+    &lt;form&gt;
+      &lt;p&gt;
+        &lt;label for=&#34;brightness&#34;&gt;Brightness&lt;/label&gt;
+        &lt;input id=&#34;brightness&#34; type=&#34;range&#34; name=&#34;brightness&#34; min=&#34;0&#34; max=&#34;100&#34;&gt;
+      &lt;/p&gt;
+
+      &lt;p&gt;
+        &lt;label for=&#34;document&#34;&gt;Upload a document&lt;/label&gt;
+        &lt;input id=&#34;document&#34; type=&#34;file&#34; name=&#34;document&#34;&gt;
+      &lt;/p&gt;
+
+      &lt;p&gt;
+        &lt;label for=&#34;disabled-document&#34;&gt;Disabled upload&lt;/label&gt;
+        &lt;input id=&#34;disabled-document&#34; type=&#34;file&#34; name=&#34;disabled-document&#34; disabled&gt;
+      &lt;/p&gt;
+    &lt;/form&gt;
+    </pre>
+    </details>
+  </section>
+
+  <section>
+    <hgroup>
+      <h2>Validation states and actions</h2>
+      <p>
+        <code>aria-invalid="true"</code> marks a rejected field and <code>aria-invalid="false"</code> a valid one;
+        the message that follows inherits the same colour. A required control is marked with <code>*</code> from the
+        <code>required</code> attribute alone.
+      </p>
+    </hgroup>
+
+    
+
+    
+    <form>
+      <div class="grid-2">
+        <p>
+          <label for="required-field">Display name</label>
+          <input id="required-field" type="text" name="display-name" required value="">
+        </p>
+
+        <p>
+          <label for="valid-field">Username</label>
+          <input id="valid-field" type="text" name="username" aria-invalid="false" value="jane_doe">
+          <small class="field-hint">Available.</small>
+        </p>
+
+        <p>
+          <label for="valid-select">Card type</label>
+          <select id="valid-select" name="user-card" aria-invalid="false">
+            <option value="visa">Visa</option>
+            <option value="mc">Mastercard</option>
+            <option value="amex">American Express</option>
+          </select>
+          <small class="field-hint">We accept this card.</small>
+        </p>
+
+        <p>
+          <label for="error-field">Email</label>
+          <input id="error-field" type="email" name="email" value="jane@" aria-invalid="true" aria-describedby="error-field-message">
+          <small id="error-field-message" class="field-hint">Enter a complete email address.</small>
+        </p>
+      </div>
+
+      <footer class="actions">
+        <button type="button" class="btn-outline">Cancel</button>
+        <button type="submit">Save changes</button>
+      </footer>
+    </form>
+    
+
+    <details>
+      <summary>Example code</summary>
+      <pre>
+    &lt;form&gt;
+      &lt;div class=&#34;grid-2&#34;&gt;
+        &lt;p&gt;
+          &lt;label for=&#34;required-field&#34;&gt;Display name&lt;/label&gt;
+          &lt;input id=&#34;required-field&#34; type=&#34;text&#34; name=&#34;display-name&#34; required value=&#34;&#34;&gt;
+        &lt;/p&gt;
+
+        &lt;p&gt;
+          &lt;label for=&#34;valid-field&#34;&gt;Username&lt;/label&gt;
+          &lt;input id=&#34;valid-field&#34; type=&#34;text&#34; name=&#34;username&#34; aria-invalid=&#34;false&#34; value=&#34;jane_doe&#34;&gt;
+          &lt;small class=&#34;field-hint&#34;&gt;Available.&lt;/small&gt;
+        &lt;/p&gt;
+
+        &lt;p&gt;
+          &lt;label for=&#34;valid-select&#34;&gt;Card type&lt;/label&gt;
+          &lt;select id=&#34;valid-select&#34; name=&#34;user-card&#34; aria-invalid=&#34;false&#34;&gt;
+            &lt;option value=&#34;visa&#34;&gt;Visa&lt;/option&gt;
+            &lt;option value=&#34;mc&#34;&gt;Mastercard&lt;/option&gt;
+            &lt;option value=&#34;amex&#34;&gt;American Express&lt;/option&gt;
+          &lt;/select&gt;
+          &lt;small class=&#34;field-hint&#34;&gt;We accept this card.&lt;/small&gt;
+        &lt;/p&gt;
+
+        &lt;p&gt;
+          &lt;label for=&#34;error-field&#34;&gt;Email&lt;/label&gt;
+          &lt;input id=&#34;error-field&#34; type=&#34;email&#34; name=&#34;email&#34; value=&#34;jane@&#34; aria-invalid=&#34;true&#34; aria-describedby=&#34;error-field-message&#34;&gt;
+          &lt;small id=&#34;error-field-message&#34; class=&#34;field-hint&#34;&gt;Enter a complete email address.&lt;/small&gt;
+        &lt;/p&gt;
+      &lt;/div&gt;
+
+      &lt;footer class=&#34;actions&#34;&gt;
+        &lt;button type=&#34;button&#34; class=&#34;btn-outline&#34;&gt;Cancel&lt;/button&gt;
+        &lt;button type=&#34;submit&#34;&gt;Save changes&lt;/button&gt;
+      &lt;/footer&gt;
+    &lt;/form&gt;
+    </pre>
+    </details>
+  </section>
 </div>
 
         </main>
@@ -665,9 +732,12 @@
           window.localStorage.setItem('isLightTheme', isLightTheme);
       }
 
-      // init theme from localStorage
-      const isLightTheme = localStorage.getItem('isLightTheme') == 'true';
-      console.log({ isLightTheme })
+      // init theme from localStorage, falling back to the OS preference.
+      // Absent storage means first visit, which should not default to dark.
+      const storedTheme = localStorage.getItem('isLightTheme');
+      const isLightTheme = storedTheme === null
+          ? !window.matchMedia('(prefers-color-scheme: dark)').matches
+          : storedTheme === 'true';
       setTheme(isLightTheme)
 
       // set theme

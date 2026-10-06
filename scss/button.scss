@@ -21,9 +21,12 @@ $btn-padding-large: 12px 16px;
   color: var(--primary-0);
   padding: 8px 10px;
   font-size: base.$base-font-size;
+  /* form controls do not inherit line-height from the UA `font` shorthand */
+  line-height: var(--base-line-height);
+  min-height: var(--control-h);
   border: 0;
   cursor: pointer;
-  border-radius: 0.5rem;
+  border-radius: var(--radius);
   transition: background-color 150ms ease-in-out,
               border-color 150ms ease-in-out,
               color 150ms ease-in-out;
@@ -35,11 +38,6 @@ button, .btn {
   &:hover {
     background-color: var(--primary-hover);
     color: var(--primary-0);
-  }
-
-  &:focus-visible {
-    outline: 2px solid var(--color-primary);
-    outline-offset: 2px;
   }
 
   &.btn-secondary {
@@ -74,31 +72,36 @@ button, .btn {
 
   &.btn-danger-outline {
       background-color: var(--bg-primary);
-      border: 1px solid var(--red-4);
-      color: var(--red-4);
+      border: 1px solid var(--danger-color);
+      color: var(--danger-color);
 
       &:hover {
-        background-color: var(--red-0);
+        background-color: var(--bg-danger-color);
       }
   }
 
+  /* The green ramp at 80% saturation is bright at equal HSL lightness, so
+   * green-7 (41%) under a green-0 label measures only 2.40:1. Green-9 is the
+   * one shade that clears 4.5:1 without changing the label, and it is used
+   * directly rather than via --success-color so it stays fixed across themes. */
   &.btn-success {
-      background-color: var(--green-7);
+      background-color: var(--green-9);
       color: var(--green-0);
 
       &:hover {
         color: var(--green-0);
-        background-color: var(--green-8);
+        /* no darker ramp shade exists, so darken the fill itself */
+        background-color: color-mix(in oklab, var(--green-9) 85%, black);
       }
   }
 
   &.btn-success-outline {
       background-color: var(--bg-primary);
-      border: 1px solid var(--green-7);
-      color: var(--green-7);
+      border: 1px solid var(--success-color);
+      color: var(--success-color);
 
       &:hover {
-        background-color: var(--green-0);
+        background-color: var(--bg-success-color);
       }
   }
 
@@ -187,7 +190,7 @@ a.btn.btn-danger {
 a.btn.btn-danger-outline {
   &:link,
   &:visited {
-    color: var(--red-4);
+    color: var(--danger-color);
   }
 }
 
@@ -201,7 +204,7 @@ a.btn.btn-success {
 a.btn.btn-success-outline {
   &:link,
   &:visited {
-    color: var(--green-7);
+    color: var(--success-color);
   }
 }
 
@@ -209,13 +212,6 @@ a.btn.btn-outline {
   &:link,
   &:visited {
     color: var(--color-primary);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  button,
-  .btn {
-    transition: none;
   }
 }
 

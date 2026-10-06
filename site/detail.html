@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>Farga Documentation</title>
     <link rel="icon" type="image/x-icon" href="./assets/olives-16px.ico">
@@ -12,9 +12,12 @@
         pre {
           font-size: 0.8rem;
           background-color: var(--dim);
-          border-radius: 5px;
+          border-radius: var(--radius);
           padding: 0.8rem;
-          width: 120ch;
+          /* max-width, not width: an explicit 120ch box cannot shrink and drags
+           * its container wider than a 320px viewport */
+          max-width: 100%;
+          box-sizing: border-box;
           overflow-x: auto;
         }
     }
@@ -26,11 +29,31 @@
     #side-menu {
         width: 28ch;
         border-right: 1px solid var(--grey-2);
-        height: 100vh;
+        height: 100dvh;
     }
 
     #main-container {
         padding: 0 1rem;
+    }
+
+    /* Page rhythm for pages built as <section> blocks: the sections space
+     * themselves, so no <br> spacers between demos. */
+    #main-container > div > section + section {
+        margin-top: 3rem;
+    }
+
+    #main-container > div > section > hgroup {
+        margin-bottom: 1.25rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid var(--border-color-muted);
+    }
+
+    #main-container > div > section > hgroup p {
+        max-width: 65ch;
+    }
+
+    #main-container > div > section > details {
+        margin-top: 1rem;
     }
     </style>
 
@@ -38,8 +61,8 @@
   <body>
     <div class="flex-sidebar fixed gap">
         <nav id="side-menu" class="sidemenu">
-          <hgroup class="flex" align="center">
-             <img width="48" src="./assets/olives.png" />
+          <hgroup class="flex items-center">
+             <img width="48" src="./assets/olives.png" alt="" />
              <h1> Farga </h1>
           </hgroup>
           <p>Farga Documentation</p>
@@ -48,7 +71,7 @@
               <li><a href="./color.html">Colors</a></li>
               <li><a href="./typography.html">Typography</a></li>
           </ul>
-          <details open>
+          <details>
             <summary>
               <span>Navigation</span>
             </summary>
@@ -60,7 +83,7 @@
               <li><a href="./pagination.html">Pagination</a></li>
             </ul>
           </details>
-          <details open>
+          <details>
             <summary>
               <span>Layout</span>
             </summary>
@@ -72,16 +95,16 @@
           <ul>
               <li><a href="./button.html">Buttons</a></li>
           </ul>
-          <details open>
+          <details>
             <summary>
               <span>Form</span>
             </summary>
             <ul>
-              <li><a href="./form.html">Form Basic</a></li>
+              <li><a href="./form.html">Form Controls</a></li>
               <li><a href="./form_with_layout.html">Form Layouts</a></li>
             </ul>
           </details>
-          <details open>
+          <details>
             <summary>
               <span>Tables</span>
             </summary>
@@ -91,16 +114,16 @@
               <li><a href="./fixed_first_column_table.html">Fixed First Column Table</a></li>
             </ul>
           </details>
-          <details open>
+          <details>
             <summary>
               <span>Components</span>
             </summary>
             <ul>
               <li><a href="./accordion.html">Accordion</a></li>
               <li><a href="./card.html">Card</a></li>
-              <li><a href="./flashcard.html">Flashcard</a></li>
               <li><a href="./badge.html">Badge</a></li>
               <li><a href="./detail.html">Detail List</a></li>
+              <li><a href="./empty_state.html">Empty state</a></li>
               <li><a href="./alert.html">Alert</a></li>
               <li><a href="./dialog.html">Dialog / Modal</a></li>
               <li><a href="./popover.html">Popover &amp; Tooltip</a></li>
@@ -114,7 +137,7 @@
             <ul>
               <li>
                   <a href="https://jingz.github.io/farga/site/index.html" target="_blank">
-                      <img src="./assets/github-mark.svg" width="14px;" />
+                      <img src="./assets/github-mark.svg" alt="" width="14" />
                       GitHub
                   </a>
               </li>
@@ -196,9 +219,12 @@
           window.localStorage.setItem('isLightTheme', isLightTheme);
       }
 
-      // init theme from localStorage
-      const isLightTheme = localStorage.getItem('isLightTheme') == 'true';
-      console.log({ isLightTheme })
+      // init theme from localStorage, falling back to the OS preference.
+      // Absent storage means first visit, which should not default to dark.
+      const storedTheme = localStorage.getItem('isLightTheme');
+      const isLightTheme = storedTheme === null
+          ? !window.matchMedia('(prefers-color-scheme: dark)').matches
+          : storedTheme === 'true';
       setTheme(isLightTheme)
 
       // set theme

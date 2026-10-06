@@ -162,3 +162,13 @@
 .bg-grey-7 { background-color: var(--grey-7); }
 .bg-grey-8 { background-color: var(--grey-8); }
 .bg-grey-9 { background-color: var(--grey-9); }
+
+/* text alignment: use these instead of the deprecated align attribute */
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+
+/* cross-axis alignment for .flex and friends, which default to flex-end */
+.items-start { align-items: flex-start; }
+.items-center { align-items: center; }
+.items-baseline { align-items: baseline; }

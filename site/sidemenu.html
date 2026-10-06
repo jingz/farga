@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>Farga Documentation</title>
     <link rel="icon" type="image/x-icon" href="./assets/olives-16px.ico">
@@ -13,9 +13,12 @@
         pre {
           font-size: 0.8rem;
           background-color: var(--dim);
-          border-radius: 5px;
+          border-radius: var(--radius);
           padding: 0.8rem;
-          width: 120ch;
+          /* max-width, not width: an explicit 120ch box cannot shrink and drags
+           * its container wider than a 320px viewport */
+          max-width: 100%;
+          box-sizing: border-box;
           overflow-x: auto;
         }
     }
@@ -27,11 +30,31 @@
     #side-menu {
         width: 28ch;
         border-right: 1px solid var(--grey-2);
-        height: 100vh;
+        height: 100dvh;
     }
 
     #main-container {
         padding: 0 1rem;
+    }
+
+    /* Page rhythm for pages built as <section> blocks: the sections space
+     * themselves, so no <br> spacers between demos. */
+    #main-container > div > section + section {
+        margin-top: 3rem;
+    }
+
+    #main-container > div > section > hgroup {
+        margin-bottom: 1.25rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid var(--border-color-muted);
+    }
+
+    #main-container > div > section > hgroup p {
+        max-width: 65ch;
+    }
+
+    #main-container > div > section > details {
+        margin-top: 1rem;
     }
     </style>
 
@@ -39,8 +62,8 @@
   <body>
     <div class="flex-sidebar fixed gap">
         <nav id="side-menu" class="sidemenu">
-          <hgroup class="flex" align="center">
-             <img width="48" src="./assets/olives.png" />
+          <hgroup class="flex items-center">
+             <img width="48" src="./assets/olives.png" alt="" />
              <h1> Farga </h1>
           </hgroup>
           <p>Farga Documentation</p>
@@ -49,7 +72,7 @@
               <li><a href="./color.html">Colors</a></li>
               <li><a href="./typography.html">Typography</a></li>
           </ul>
-          <details open>
+          <details>
             <summary>
               <span>Navigation</span>
             </summary>
@@ -61,7 +84,7 @@
               <li><a href="./pagination.html">Pagination</a></li>
             </ul>
           </details>
-          <details open>
+          <details>
             <summary>
               <span>Layout</span>
             </summary>
@@ -73,16 +96,16 @@
           <ul>
               <li><a href="./button.html">Buttons</a></li>
           </ul>
-          <details open>
+          <details>
             <summary>
               <span>Form</span>
             </summary>
             <ul>
-              <li><a href="./form.html">Form Basic</a></li>
+              <li><a href="./form.html">Form Controls</a></li>
               <li><a href="./form_with_layout.html">Form Layouts</a></li>
             </ul>
           </details>
-          <details open>
+          <details>
             <summary>
               <span>Tables</span>
             </summary>
@@ -92,16 +115,16 @@
               <li><a href="./fixed_first_column_table.html">Fixed First Column Table</a></li>
             </ul>
           </details>
-          <details open>
+          <details>
             <summary>
               <span>Components</span>
             </summary>
             <ul>
               <li><a href="./accordion.html">Accordion</a></li>
               <li><a href="./card.html">Card</a></li>
-              <li><a href="./flashcard.html">Flashcard</a></li>
               <li><a href="./badge.html">Badge</a></li>
               <li><a href="./detail.html">Detail List</a></li>
+              <li><a href="./empty_state.html">Empty state</a></li>
               <li><a href="./alert.html">Alert</a></li>
               <li><a href="./dialog.html">Dialog / Modal</a></li>
               <li><a href="./popover.html">Popover &amp; Tooltip</a></li>
@@ -115,7 +138,7 @@
             <ul>
               <li>
                   <a href="https://jingz.github.io/farga/site/index.html" target="_blank">
-                      <img src="./assets/github-mark.svg" width="14px;" />
+                      <img src="./assets/github-mark.svg" alt="" width="14" />
                       GitHub
                   </a>
               </li>
@@ -141,32 +164,32 @@
     
 
     
-    <section style="width: 200px;">
+    <section style="max-width: 200px;">
     <nav class="sidemenu">
       <p>General</p>
       <ul>
-          <li><a>Dashboard</a></li>
-          <li class="active"><a>Customers</a></li>
-          <li><a>Entity</a></li>
-          <li><a>Feed</a></li>
-          <li><a>News</a></li>
+          <li><a href="#">Dashboard</a></li>
+          <li class="active" aria-current="page"><a href="#">Customers</a></li>
+          <li><a href="#">Entity</a></li>
+          <li><a href="#">Feed</a></li>
+          <li><a href="#">News</a></li>
       </ul>
       <details open>
         <summary>
           <span>Setting</span>
         </summary>
         <ul>
-          <li class="active">Account</li>
+          <li class="active" aria-current="page"><a href="#">Account</a></li>
           <li>Preference</li>
         </ul>
       </details>
 
       <p>Documentation</p>
       <ul>
-          <li><a>Introduction</a></li>
-          <li><a>Get Started</a></li>
-          <li><a>Tutorials</a></li>
-          <li><a>Changelog</a></li>
+          <li><a href="#">Introduction</a></li>
+          <li><a href="#">Get Started</a></li>
+          <li><a href="#">Tutorials</a></li>
+          <li><a href="#">Changelog</a></li>
       </ul>
     </nav>
     </section>
@@ -176,32 +199,32 @@
     <details open>
       <summary>Example Code</summary>
       <pre>
-    &lt;section style=&#34;width: 200px;&#34;&gt;
+    &lt;section style=&#34;max-width: 200px;&#34;&gt;
     &lt;nav class=&#34;sidemenu&#34;&gt;
       &lt;p&gt;General&lt;/p&gt;
       &lt;ul&gt;
-          &lt;li&gt;&lt;a&gt;Dashboard&lt;/a&gt;&lt;/li&gt;
-          &lt;li class=&#34;active&#34;&gt;&lt;a&gt;Customers&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a&gt;Entity&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a&gt;Feed&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a&gt;News&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&#34;#&#34;&gt;Dashboard&lt;/a&gt;&lt;/li&gt;
+          &lt;li class=&#34;active&#34; aria-current=&#34;page&#34;&gt;&lt;a href=&#34;#&#34;&gt;Customers&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&#34;#&#34;&gt;Entity&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&#34;#&#34;&gt;Feed&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&#34;#&#34;&gt;News&lt;/a&gt;&lt;/li&gt;
       &lt;/ul&gt;
       &lt;details open&gt;
         &lt;summary&gt;
           &lt;span&gt;Setting&lt;/span&gt;
         &lt;/summary&gt;
         &lt;ul&gt;
-          &lt;li class=&#34;active&#34;&gt;Account&lt;/li&gt;
+          &lt;li class=&#34;active&#34; aria-current=&#34;page&#34;&gt;&lt;a href=&#34;#&#34;&gt;Account&lt;/a&gt;&lt;/li&gt;
           &lt;li&gt;Preference&lt;/li&gt;
         &lt;/ul&gt;
       &lt;/details&gt;
 
       &lt;p&gt;Documentation&lt;/p&gt;
       &lt;ul&gt;
-          &lt;li&gt;&lt;a&gt;Introduction&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a&gt;Get Started&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a&gt;Tutorials&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a&gt;Changelog&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&#34;#&#34;&gt;Introduction&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&#34;#&#34;&gt;Get Started&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&#34;#&#34;&gt;Tutorials&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&#34;#&#34;&gt;Changelog&lt;/a&gt;&lt;/li&gt;
       &lt;/ul&gt;
     &lt;/nav&gt;
     &lt;/section&gt;
@@ -235,9 +258,12 @@
           window.localStorage.setItem('isLightTheme', isLightTheme);
       }
 
-      // init theme from localStorage
-      const isLightTheme = localStorage.getItem('isLightTheme') == 'true';
-      console.log({ isLightTheme })
+      // init theme from localStorage, falling back to the OS preference.
+      // Absent storage means first visit, which should not default to dark.
+      const storedTheme = localStorage.getItem('isLightTheme');
+      const isLightTheme = storedTheme === null
+          ? !window.matchMedia('(prefers-color-scheme: dark)').matches
+          : storedTheme === 'true';
       setTheme(isLightTheme)
 
       // set theme

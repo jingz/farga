@@ -40,7 +40,7 @@
     background-color: var(--bg-primary);
 
     &.full-h {
-      height: 100vh;
+      height: 100dvh;
     }
   }
 
@@ -121,7 +121,7 @@
 .holy-grail {
   display: flex;
   width: 100%;
-  min-height: 100vh;
+  min-height: 100dvh;
   flex-direction: column;
 
   & > header, & > footer {
@@ -195,10 +195,56 @@
   }
 }
 
+/* Below this width a fixed-width sidebar cannot sit beside content. Stack
+ * everything that assumes a wide row, or the page scrolls in two dimensions
+ * at the 320px SC 1.4.10 tests at. */
+@media (max-width: 720px) {
+  .flex-sidebar,
+  .flex-sidebar-right,
+  .flex-golden,
+  .flex-golden-right,
+  .holy-grail > main {
+    flex-direction: column;
+  }
+
+  .flex-sidebar > *,
+  .flex-sidebar-right > *,
+  .flex-golden > *,
+  .flex-golden-right > *,
+  .holy-grail > main > nav,
+  .holy-grail > main > aside {
+    /* min-width: 0 or a wide child (a code block, a long table) sets the flex
+     * item's min-content width and pushes the page sideways */
+    min-width: 0;
+    width: auto;
+    flex-grow: 1;
+    flex-shrink: 1;
+  }
+
+  /* a pinned sidebar has to rejoin the flow before it can stack */
+  .flex-sidebar.fixed > *:first-child {
+    position: static;
+    height: auto;
+  }
+
+  .flex-sidebar.fixed > *:last-child {
+    margin-left: 0;
+    /* auto, not 100%: a 100% content width ignores the item's own padding and
+     * makes it wider than the container */
+    width: auto;
+  }
+
+  /* rows of items that cannot shrink have to wrap on a narrow screen */
+  .flex-stretch,
+  .flex,
+  nav.basic ul {
+    flex-wrap: wrap;
+  }
+}
+
 .flex-btw {
   display: flex;
   justify-content: space-between;
-  align-items: space-between;
 }
 
 .full-w {
@@ -211,11 +257,17 @@
   align-content: flex-end;
 
   * + * {
-    margin-left: 0.3rem;
+    margin-left: 0.25rem;
   }
 }
 
 .overflow-auto {
   overflow: auto;
   width: 100%;
+}
+
+/* Measure constraint for long-form reading. Keep prose near 65 characters per
+ * line regardless of how wide the container is. */
+.prose {
+  max-width: 65ch;
 }

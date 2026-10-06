@@ -6,14 +6,15 @@
 {% block content %}
 <div>
   <h1>Breadcrumbs</h1>
+  <p>The last item is the current page: it is a <code>&lt;span aria-current="page"&gt;</code>, not a link, so it is neither announced as clickable nor reachable by <kbd>Tab</kbd>.</p>
 
   {% set breadcrumbs %}
-  <nav class="breadcrumbs">
+  <nav class="breadcrumbs" aria-label="Breadcrumb">
     <ul>
-        <li><a>Introduction</a></li>
-        <li><a>Get Started</a></li>
-        <li><a>Tutorials</a></li>
-        <li><a>Changelog</a></li>
+        <li><a href="#">Introduction</a></li>
+        <li><a href="#">Get Started</a></li>
+        <li><a href="#">Tutorials</a></li>
+        <li><span aria-current="page">Changelog</span></li>
     </ul>
   </nav>{% endset %}
 

@@ -60,17 +60,6 @@ Use `.avatar` for initials or an image. Add `.small` or `.large` when needed:
 <span class="avatar large"><img src="/avatar.jpg" alt="Jane Doe" /></span>
 ```
 
-## Flashcard
-
-Use `.flashcard.question` and `.flashcard.answer` for a reusable question/answer card. Add `.flashcard-lines` when the content needs paper-style answer lines:
-
-```html
-<article class="flashcard question">
-  <header>Question</header>
-  <div class="flashcard-body">What does this word mean?</div>
-</article>
-```
-
 ## Grid Layouts
 
 Use `.grid-auto` for a responsive auto-fit grid, or `.grid-2`, `.grid-3`, and `.grid-4` for fixed column layouts that collapse on small screens:
@@ -103,6 +92,7 @@ Use `.detail-list` for admin record detail views and any key/value display:
   - `_base.scss`: Base styles and global variables
   - `button.scss`: Button component styles
   - `card.scss`: Card component styles
+  - `empty_state.scss`: Empty state component styles
   - `badge.scss`: Badge component styles
   - `accordion.scss`: Accordion component styles
   - `detail.scss`: Detail list component styles for record detail views

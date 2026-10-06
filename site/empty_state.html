@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>Farga Documentation</title>
     <link rel="icon" type="image/x-icon" href="./assets/olives-16px.ico">
@@ -7,22 +7,17 @@
 
     <style type="text/css" media="all">
     
-.flashcard-demo {
-    max-width: 900px;
-}
-
-.flashcard-demo-grid {
-    align-items: start;
-}
-
 
     body {
         pre {
           font-size: 0.8rem;
           background-color: var(--dim);
-          border-radius: 5px;
+          border-radius: var(--radius);
           padding: 0.8rem;
-          width: 120ch;
+          /* max-width, not width: an explicit 120ch box cannot shrink and drags
+           * its container wider than a 320px viewport */
+          max-width: 100%;
+          box-sizing: border-box;
           overflow-x: auto;
         }
     }
@@ -34,11 +29,31 @@
     #side-menu {
         width: 28ch;
         border-right: 1px solid var(--grey-2);
-        height: 100vh;
+        height: 100dvh;
     }
 
     #main-container {
         padding: 0 1rem;
+    }
+
+    /* Page rhythm for pages built as <section> blocks: the sections space
+     * themselves, so no <br> spacers between demos. */
+    #main-container > div > section + section {
+        margin-top: 3rem;
+    }
+
+    #main-container > div > section > hgroup {
+        margin-bottom: 1.25rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid var(--border-color-muted);
+    }
+
+    #main-container > div > section > hgroup p {
+        max-width: 65ch;
+    }
+
+    #main-container > div > section > details {
+        margin-top: 1rem;
     }
     </style>
 
@@ -46,8 +61,8 @@
   <body>
     <div class="flex-sidebar fixed gap">
         <nav id="side-menu" class="sidemenu">
-          <hgroup class="flex" align="center">
-             <img width="48" src="./assets/olives.png" />
+          <hgroup class="flex items-center">
+             <img width="48" src="./assets/olives.png" alt="" />
              <h1> Farga </h1>
           </hgroup>
           <p>Farga Documentation</p>
@@ -56,7 +71,7 @@
               <li><a href="./color.html">Colors</a></li>
               <li><a href="./typography.html">Typography</a></li>
           </ul>
-          <details open>
+          <details>
             <summary>
               <span>Navigation</span>
             </summary>
@@ -68,7 +83,7 @@
               <li><a href="./pagination.html">Pagination</a></li>
             </ul>
           </details>
-          <details open>
+          <details>
             <summary>
               <span>Layout</span>
             </summary>
@@ -80,16 +95,16 @@
           <ul>
               <li><a href="./button.html">Buttons</a></li>
           </ul>
-          <details open>
+          <details>
             <summary>
               <span>Form</span>
             </summary>
             <ul>
-              <li><a href="./form.html">Form Basic</a></li>
+              <li><a href="./form.html">Form Controls</a></li>
               <li><a href="./form_with_layout.html">Form Layouts</a></li>
             </ul>
           </details>
-          <details open>
+          <details>
             <summary>
               <span>Tables</span>
             </summary>
@@ -99,16 +114,16 @@
               <li><a href="./fixed_first_column_table.html">Fixed First Column Table</a></li>
             </ul>
           </details>
-          <details open>
+          <details>
             <summary>
               <span>Components</span>
             </summary>
             <ul>
               <li><a href="./accordion.html">Accordion</a></li>
               <li><a href="./card.html">Card</a></li>
-              <li><a href="./flashcard.html">Flashcard</a></li>
               <li><a href="./badge.html">Badge</a></li>
               <li><a href="./detail.html">Detail List</a></li>
+              <li><a href="./empty_state.html">Empty state</a></li>
               <li><a href="./alert.html">Alert</a></li>
               <li><a href="./dialog.html">Dialog / Modal</a></li>
               <li><a href="./popover.html">Popover &amp; Tooltip</a></li>
@@ -122,7 +137,7 @@
             <ul>
               <li>
                   <a href="https://jingz.github.io/farga/site/index.html" target="_blank">
-                      <img src="./assets/github-mark.svg" width="14px;" />
+                      <img src="./assets/github-mark.svg" alt="" width="14" />
                       GitHub
                   </a>
               </li>
@@ -139,70 +154,70 @@
         </nav>
         <main id="main-container">
           
-<div class="flashcard-demo">
+<div>
   <hgroup>
-    <h1>Flashcard</h1>
-    <p>A compact question and answer building block for study content.</p>
+    <h1>Empty State</h1>
+    <p>Shown when a list, table, search or inbox has nothing to display. A blank surface tells the user nothing: name what would appear here and offer the action that creates it.</p>
   </hgroup>
 
-  <div class="grid-2 flashcard-demo-grid">
-    
-    
-    <article class="flashcard question">
-      <header>Question</header>
-      <div class="flashcard-body">
-        <div class="flashcard-lines">
-          <p></p>
-          <p></p>
-          <p></p>
-        </div>
-      </div>
-    </article>
-    
+  <h2>Basic</h2>
 
-    
-    
-    <article class="flashcard answer">
-      <header>Answer</header>
-      <div class="flashcard-body">
-        <div class="flashcard-lines">
-          <p></p>
-          <p></p>
-          <p></p>
-        </div>
-      </div>
-    </article>
-    
-  </div>
+  
 
-  <br />
+  
+<div class="empty-state">
+  <h3>No saved words yet</h3>
+  <p>Words you save while reading will show up here, newest first.</p>
+  <a class="btn btn-small" href="#">Browse today's words</a>
+</div>
+
+  <br/>
+
   <details open>
     <summary>Example Code</summary>
     <pre>
-    &lt;article class=&#34;flashcard question&#34;&gt;
-      &lt;header&gt;Question&lt;/header&gt;
-      &lt;div class=&#34;flashcard-body&#34;&gt;
-        &lt;div class=&#34;flashcard-lines&#34;&gt;
-          &lt;p&gt;&lt;/p&gt;
-          &lt;p&gt;&lt;/p&gt;
-          &lt;p&gt;&lt;/p&gt;
-        &lt;/div&gt;
-      &lt;/div&gt;
-    &lt;/article&gt;
-    
+&lt;div class=&#34;empty-state&#34;&gt;
+  &lt;h3&gt;No saved words yet&lt;/h3&gt;
+  &lt;p&gt;Words you save while reading will show up here, newest first.&lt;/p&gt;
+  &lt;a class=&#34;btn btn-small&#34; href=&#34;#&#34;&gt;Browse today&#39;s words&lt;/a&gt;
+&lt;/div&gt;</pre>
+  </details>
 
+  <h2>With Icon</h2>
 
-    &lt;article class=&#34;flashcard answer&#34;&gt;
-      &lt;header&gt;Answer&lt;/header&gt;
-      &lt;div class=&#34;flashcard-body&#34;&gt;
-        &lt;div class=&#34;flashcard-lines&#34;&gt;
-          &lt;p&gt;&lt;/p&gt;
-          &lt;p&gt;&lt;/p&gt;
-          &lt;p&gt;&lt;/p&gt;
-        &lt;/div&gt;
-      &lt;/div&gt;
-    &lt;/article&gt;
-    </pre>
+  
+
+  
+<div class="empty-state">
+  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M3 6h18" />
+    <path d="M19 6v14a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-14" />
+    <path d="M8 6v-2a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v2" />
+    <path d="M10 11v6" />
+    <path d="M14 11v6" />
+  </svg>
+  <h3>No results for "quixotic"</h3>
+  <p>Check the spelling, or search a shorter form of the word.</p>
+  <a class="btn btn-small btn-outline" href="#">Clear filters</a>
+</div>
+
+  <br/>
+
+  <details open>
+    <summary>Example Code</summary>
+    <pre>
+&lt;div class=&#34;empty-state&#34;&gt;
+  &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; width=&#34;40&#34; height=&#34;40&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-width=&#34;1.5&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; aria-hidden=&#34;true&#34;&gt;
+    &lt;path d=&#34;M3 6h18&#34; /&gt;
+    &lt;path d=&#34;M19 6v14a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-14&#34; /&gt;
+    &lt;path d=&#34;M8 6v-2a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v2&#34; /&gt;
+    &lt;path d=&#34;M10 11v6&#34; /&gt;
+    &lt;path d=&#34;M14 11v6&#34; /&gt;
+  &lt;/svg&gt;
+  &lt;h3&gt;No results for &#34;quixotic&#34;&lt;/h3&gt;
+  &lt;p&gt;Check the spelling, or search a shorter form of the word.&lt;/p&gt;
+  &lt;a class=&#34;btn btn-small btn-outline&#34; href=&#34;#&#34;&gt;Clear filters&lt;/a&gt;
+&lt;/div&gt;</pre>
   </details>
 </div>
 
@@ -231,9 +246,12 @@
           window.localStorage.setItem('isLightTheme', isLightTheme);
       }
 
-      // init theme from localStorage
-      const isLightTheme = localStorage.getItem('isLightTheme') == 'true';
-      console.log({ isLightTheme })
+      // init theme from localStorage, falling back to the OS preference.
+      // Absent storage means first visit, which should not default to dark.
+      const storedTheme = localStorage.getItem('isLightTheme');
+      const isLightTheme = storedTheme === null
+          ? !window.matchMedia('(prefers-color-scheme: dark)').matches
+          : storedTheme === 'true';
       setTheme(isLightTheme)
 
       // set theme

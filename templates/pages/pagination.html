@@ -7,15 +7,15 @@
 <div>
   <hgroup>
     <h1>Pagination</h1>
-    <p>A basic pagination component for navigating through multiple pages</p>
+    <p>A basic pagination component for navigating through multiple pages. Unavailable pages are <code>&lt;span aria-disabled="true"&gt;</code> rather than dead links.</p>
   </hgroup>
 
   <br/>
   {% set pagination %}
-  <nav class="pagination">
+  <nav class="pagination" aria-label="Pagination">
     <ul>
-        <li class="disabled"><a href="#">Previous</a></li>
-        <li class='active'><a href="#">1</a></li>
+        <li class="disabled"><span aria-disabled="true">Previous</span></li>
+        <li class='active' aria-current="page"><a href="#">1</a></li>
         <li><a href="#">2</a></li>
         <li><a href="#">3</a></li>
         <li><span>...</span></li>

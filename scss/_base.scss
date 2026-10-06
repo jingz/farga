@@ -8,7 +8,7 @@ $base-font-size: 14px;
     --fantasy-fonts: Papyrus,fantasy;
     --cursive-fonts: 'Brush Script MT', cursive;
 
-    --base-font-size: $base-font-size;
+    --base-font-size: #{$base-font-size};
     --base-line-height: 1.5;
     --base-line-height-head: 1;
     --base-line-height-small: 1.75;
@@ -250,7 +250,9 @@ $base-font-size: 14px;
 
     --text-color-primary: var(--grey-9);
     --text-color-secondary: white;
-    --text-color-muted: var(--grey-6);
+    /* grey-7, not grey-6: grey-6 measured 3.98:1 on white, under the 4.5:1 text
+     * floor. Still clearly lighter than --text-color-primary (11.26:1). */
+    --text-color-muted: var(--grey-7);
 
     --bg-primary: white;
     --bg-primary-alt: var(--grey-0);
@@ -274,21 +276,51 @@ $base-font-size: 14px;
     --border-nested-link: var(--grey-3);
 
     /* form */
-    --bg-toggle-color: var(--grey-3);
+    /* grey-6 clears 3:1 against both the page and the knob; grey-5 measured 2.94:1 */
+    --bg-toggle-color: var(--grey-6);
     --bg-input-color: var(--grey-a);
 
     --success-color: var(--green-9);
     --bg-success-color: var(--green-2);
-    --danger-color: var(--red-7);
+    /* red-8 and blue-8, not red-7/blue-7: the 7 shades measure 4.04:1 and 3.74:1
+     * on their own tint backgrounds, below the 4.5:1 text floor. */
+    --danger-color: var(--red-8);
     --bg-danger-color: var(--red-2);
-    --info-color: var(--blue-7);
+    --info-color: var(--blue-8);
     --bg-info-color: var(--blue-2);
     --warning-color: var(--yellow-9);
     --bg-warning-color: var(--yellow-2);
+    --disabled-color: var(--grey-7);
+    --bg-disabled-color: var(--grey-1);
 
     /* ---------------------------------------------- */
     /* config variable */
     --fixed-sidebar-w:  25ch;
+    /* Width of a form column. See .form in form.scss. */
+    --form-w: 36rem;
+    /* A row of two or three controls needs a wider column than one field per row. */
+    --form-w-wide: 48rem;
+    /* Minimum height of a button, input or menu row.
+     * 2rem clears the 24px WCAG 2.2 target minimum; raise to 2.75rem for the 44px AAA target. */
+    --control-h: 2rem;
+
+    /* One radius per tier. Controls sit next to each other in every form, so
+     * inputs and buttons must not disagree. Pill shapes (switch track, avatar,
+     * alert dot) stay their own thing. */
+    --radius: 0.5rem;      /* buttons, inputs, badges, nav rows, tooltips */
+    --radius-lg: 0.75rem;  /* cards, panels, dialogs, popovers, alerts */
+
+    /* One overhead light source, five depths, tinted with the brand hue rather
+     * than flat black. --shadow-panel is elevation 5 cast left by a side panel. */
+    --shadow-1: 0 1px 3px rgba(35, 61, 95, 0.12);
+    --shadow-2: 0 4px 6px rgba(35, 61, 95, 0.12);
+    --shadow-3: 0 5px 15px rgba(35, 61, 95, 0.15);
+    --shadow-4: 0 10px 24px rgba(35, 61, 95, 0.15);
+    --shadow-5: 0 15px 35px rgba(35, 61, 95, 0.18);
+    --shadow-panel: -8px 0 24px rgba(35, 61, 95, 0.15);
+
+    /* One scrim behind every modal surface. */
+    --backdrop: rgba(0, 0, 0, 0.35);
 }
 
 body.dark-mode {
@@ -322,13 +354,15 @@ body.dark-mode {
   --bg-input-color: var(--grey-11);
 
   --success-color: var(--green-2);
-  --bg-success-color: var(--green-8);
+  /* darker tints than light mode: green-2 on green-8 was 3.35:1, red-2 on red-7
+   * 4.04:1, blue-2 on blue-7 3.74:1, yellow-2 on yellow-8 4.09:1 — all under 4.5:1 */
+  --bg-success-color: var(--green-9);
   --danger-color: var(--red-2);
-  --bg-danger-color: var(--red-7);
+  --bg-danger-color: var(--red-8);
   --info-color: var(--blue-2);
-  --bg-info-color: var(--blue-7);
+  --bg-info-color: var(--blue-8);
   --warning-color: var(--yellow-2);
-  --bg-warning-color: var(--yellow-8);
+  --bg-warning-color: var(--yellow-9);
   --disabled-color: var(--grey-5);
   --bg-disabled-color: var(--grey-10);
 }
@@ -337,4 +371,18 @@ body.dark-mode {
 ul {
   margin: 0;
   padding: 0;
+}
+
+/* One visible focus ring for every interactive element, at zero specificity so
+ * components can override it. Never remove it without a replacement. */
+:where(a, button, summary, input, select, textarea, [tabindex]):focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
 }

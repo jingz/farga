@@ -1,0 +1,64 @@
+{
+  "name": "Web UI Tokens",
+  "note": "Defaults for projects with no existing token system. Project tokens always take precedence: Farga ships its own spacing (--px-*), type (--fs-*), button and --control-h values in scss/, so use those rather than these numbers.",
+  "spacingScale": {
+    "note": "4px-grid steps. Farga's --px-* is a 1.5x progression instead; use whichever the project has, never both.",
+    "1": "0.25rem",
+    "2": "0.5rem",
+    "3": "0.75rem",
+    "4": "1rem",
+    "6": "1.5rem",
+    "8": "2rem",
+    "12": "3rem"
+  },
+  "typography": {
+    "fontFamilies": {
+      "ui": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
+      "note": "Check the fallback as carefully as the first family: a font that is missing on the user's platform silently drops the intended voice."
+    },
+    "fontWeights": { "normal": 400, "bold": 700 },
+    "scale": {
+      "xs": "0.75rem",
+      "sm": "0.875rem",
+      "base": "1rem",
+      "lg": "1.125rem",
+      "xl": "1.25rem",
+      "2xl": "1.5rem",
+      "3xl": "1.875rem"
+    },
+    "measure": "65ch",
+    "minBodySize": "14px"
+  },
+  "buttons": {
+    "note": "Tiers matching Farga's classes. minHeight is the pointer target floor, not the visual height: the derived height comes from font size plus vertical padding. To reach 44px, grow the hit area rather than distorting the padding ratio.",
+    "xs": { "class": ".btn-small", "fontSize": "12px", "paddingY": "6px", "paddingX": "8px", "derivedHeight": "24px", "minHeight": "24px" },
+    "sm": { "class": ".btn", "fontSize": "14px", "paddingY": "8px", "paddingX": "10px", "derivedHeight": "30px", "minHeight": "24px" },
+    "md": { "class": ".btn-large", "fontSize": "16px", "paddingY": "12px", "paddingX": "16px", "derivedHeight": "40px", "minHeight": "24px" },
+    "lg": { "class": ".btn-extra", "fontSize": "20px", "paddingY": "15px", "paddingX": "30px", "derivedHeight": "50px", "minHeight": "44px" }
+  },
+  "elevation": {
+    "note": "One overhead light source: raised surfaces cast down, recessed wells are lit on the bottom inner edge with an inset shadow. Farga has no scale yet (dialog, drawer and popover each carry a different shadow).",
+    "1": "0 1px 3px rgba(0, 0, 0, 0.2)",
+    "2": "0 4px 6px rgba(0, 0, 0, 0.2)",
+    "3": "0 5px 15px rgba(0, 0, 0, 0.2)",
+    "4": "0 10px 24px rgba(0, 0, 0, 0.2)",
+    "5": "0 15px 35px rgba(0, 0, 0, 0.2)",
+    "layered": "0 10px 20px rgba(0, 0, 0, 0.15), 0 3px 6px rgba(0, 0, 0, 0.10)",
+    "flatSolid": "0 3px 0 rgba(0, 0, 0, 0.15)",
+    "recessedWell": "inset 0 -2px 0 hsla(0, 0%, 100%, 0.15)"
+  },
+  "touchTargets": {
+    "minSizeAA": "24px",
+    "spacingExceptionCircleAA": "24px",
+    "minSizeAAA": "44px",
+    "note": "AA passes on size alone at 24x24, or on spacing: a 24px-diameter circle centred on the target must not intersect another target's circle, which works out to 4px of clear space around a 16px control."
+  },
+  "contrastRatios": {
+    "text": "4.5:1",
+    "largeText": "3.0:1",
+    "componentOrState": "3.0:1",
+    "thinStrokeUnder3px": "4.5:1",
+    "thickStroke3pxAndAbove": "3.0:1",
+    "focusIndicator": "3.0:1"
+  }
+}

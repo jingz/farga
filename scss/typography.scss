@@ -5,6 +5,8 @@ body, div, section, main, p {
 
 body {
   background-color: var(--bg-primary);
+  /* inherited line height keeps control and menu-row heights deterministic */
+  line-height: var(--base-line-height);
 }
 
 h1, h2, h3, h4, h5, h6 {

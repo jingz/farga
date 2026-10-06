@@ -1,323 +1,351 @@
 {% extends "layout/base.html" %}
 
-{% block inline_style %}
-{% endblock %}
-
 {% block content %}
 <div>
-  <h1>Form</h1>
-
   <hgroup>
-    <h2>Normal Form</h2>
-    <p>A standard form with labeled input fields.</p>
+    <h1>Form</h1>
+    <p>
+      Every control the form styles cover, one section per family. A field is a <code>&lt;label&gt;</code>,
+      the control, and optionally a <code>.field-hint</code> linked with <code>aria-describedby</code> —
+      a placeholder never stands in for a label. Inputs are styled by their element type, so no class is needed.
+    </p>
   </hgroup>
 
-  {% set basic_form %}
-  <form>
-    <h3>Basic form</h3>
-    <fieldset>
-        <legend>General Info Form</legend>
+  <section>
+    <hgroup>
+      <h2>Text inputs</h2>
+      <p>Placeholders show an example value, not the field name.</p>
+    </hgroup>
+
+    {% set text_inputs %}
+    <form>
+      <div class="grid-2">
         <p>
           <label for="username">Username</label>
-          <input id="username" type="text" name="username" placeholder="Text" aria-label="Text">
+          <input id="username" type="text" name="username" placeholder="jane_doe">
         </p>
 
         <p>
           <label for="email">Email</label>
-          <input id="email" type="email" name="email" placeholder="Email" aria-label="Email" autocomplete="email">
-        </p>
-
-        <p>
-          <label for="age">Age</label>
-          <input id="age" type="number" name="number" placeholder="Number" aria-label="Number">
+          <input id="email" type="email" name="email" placeholder="jane@example.com" autocomplete="email">
         </p>
 
         <p>
           <label for="password">Password</label>
-          <input type="password" name="password" placeholder="Password" aria-label="Password">
+          <input id="password" type="password" name="password" autocomplete="current-password">
+        </p>
+
+        <p>
+          <label for="age">Age</label>
+          <input id="age" type="number" name="age" placeholder="42">
         </p>
 
         <p>
           <label for="mobile">Mobile</label>
-          <input id="mobile" type="tel" name="tel" placeholder="Tel" aria-label="Tel" autocomplete="tel">
+          <input id="mobile" type="tel" name="tel" placeholder="+1 555 0100" autocomplete="tel">
         </p>
 
         <p>
-          <label for="site">Personal Site</label>
-          <input id="site" type="url" name="url" placeholder="Url" aria-label="Url">
+          <label for="site">Personal site</label>
+          <input id="site" type="url" name="url" placeholder="https://example.com">
+        </p>
+      </div>
+    </form>
+    {% endset %}
+
+    {{ text_inputs }}
+
+    <details>
+      <summary>Example code</summary>
+      <pre>{{ text_inputs | e }}</pre>
+    </details>
+  </section>
+
+  <section>
+    <hgroup>
+      <h2>Dates and times</h2>
+      <p>Format expectations belong in helper text, not in the placeholder: a placeholder disappears as soon as typing starts.</p>
+    </hgroup>
+
+    {% set date_inputs %}
+    <form>
+      <div class="grid-2">
+        <p>
+          <label for="birthdate">Birth date</label>
+          <input id="birthdate" type="date" name="date" aria-describedby="birthdate-hint">
+          <small id="birthdate-hint" class="field-hint">Format: MM/DD/YYYY</small>
         </p>
 
         <p>
-          <label for="birthdate">Birth Date</label>
-          <input id="birthdate" type="date" name="date" aria-label="Date">
+          <label for="birthtime">Birth time</label>
+          <input id="birthtime" type="time" name="time">
+        </p>
+
+        <p>
+          <label for="month">Birth month</label>
+          <input id="month" type="month" name="month">
         </p>
 
         <p>
           <label for="timezone">Timezone</label>
-          <input id="timezone" type="datetime-local" name="datetime-local" aria-label="Datetime local">
+          <input id="timezone" type="datetime-local" name="datetime-local">
+        </p>
+      </div>
+    </form>
+    {% endset %}
+
+    {{ date_inputs }}
+
+    <details>
+      <summary>Example code</summary>
+      <pre>{{ date_inputs | e }}</pre>
+    </details>
+  </section>
+
+  <section>
+    <hgroup>
+      <h2>Select</h2>
+      <p>A single value with a prompt option, a multiple selection, and a disabled control. The chevron is drawn in CSS, so the native arrow is hidden.</p>
+    </hgroup>
+
+    {% set select_inputs %}
+    <form>
+      <p>
+        <label for="cuisine">Cuisine</label>
+        <select id="cuisine" name="cuisine" required>
+          <option selected disabled value="">Choose a cuisine</option>
+          <option>Italian</option>
+          <option>Japanese</option>
+          <option>Indian</option>
+          <option>Thai</option>
+          <option>French</option>
+        </select>
+      </p>
+
+      <p>
+        <label for="snacks">Snacks</label>
+        <select id="snacks" name="snacks" multiple size="6" aria-describedby="snacks-hint">
+          <option selected>Fruits</option>
+          <option selected>Nuts</option>
+          <option>Cheese</option>
+          <option>Chocolate</option>
+          <option>Crackers</option>
+        </select>
+        <small id="snacks-hint" class="field-hint">Hold Cmd or Ctrl to pick more than one.</small>
+      </p>
+
+      <p>
+        <label for="meal-type">Meal type</label>
+        <select id="meal-type" name="meal-type" disabled>
+          <option>Breakfast</option>
+          <option>Lunch</option>
+          <option>Dinner</option>
+        </select>
+      </p>
+    </form>
+    {% endset %}
+
+    {{ select_inputs }}
+
+    <details>
+      <summary>Example code</summary>
+      <pre>{{ select_inputs | e }}</pre>
+    </details>
+  </section>
+
+  <section>
+    <hgroup>
+      <h2>Textarea</h2>
+      <p>Multi-line text. Resizing stays available.</p>
+    </hgroup>
+
+    {% set textarea_input %}
+    <form>
+      <p>
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="4" placeholder="Anything else we should know?"></textarea>
+      </p>
+    </form>
+    {% endset %}
+
+    {{ textarea_input }}
+
+    <details>
+      <summary>Example code</summary>
+      <pre>{{ textarea_input | e }}</pre>
+    </details>
+  </section>
+
+  <section>
+    <hgroup>
+      <h2>Checkbox and radio</h2>
+      <p>Both keep their native rendering and take their checked colour from the palette. Group related controls in a <code>&lt;fieldset&gt;</code> with a <code>&lt;legend&gt;</code>, and give each option its own label.</p>
+    </hgroup>
+
+    {% set choice_inputs %}
+    <form>
+      <fieldset>
+        <legend>Notifications</legend>
+        <label>
+          <input type="checkbox" name="weekly-digest" value="1" checked />
+          Weekly digest
+        </label>
+        <label>
+          <input type="checkbox" name="product-news" value="1" />
+          Product news
+        </label>
+        <label>
+          <input type="checkbox" name="partner-offers" value="1" disabled />
+          Partner offers (unavailable)
+        </label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Plan</legend>
+        <label>
+          <input type="radio" name="plan" value="free" checked />
+          Free
+        </label>
+        <label>
+          <input type="radio" name="plan" value="plus" />
+          Plus
+        </label>
+        <label>
+          <input type="radio" name="plan" value="pro" />
+          Pro
+        </label>
+      </fieldset>
+    </form>
+    {% endset %}
+
+    {{ choice_inputs }}
+
+    <details>
+      <summary>Example code</summary>
+      <pre>{{ choice_inputs | e }}</pre>
+    </details>
+  </section>
+
+  <section>
+    <hgroup>
+      <h2>Switch</h2>
+      <p>A checkbox drawn as a track and knob: same form value, an on/off reading. The whole label is the hit area.</p>
+    </hgroup>
+
+    {% set switch_inputs %}
+    <form>
+      <label class="switch">
+        <input type="checkbox" name="weekly-digest" role="switch" checked />
+        Email me the weekly digest
+      </label>
+
+      <label class="switch">
+        <input type="checkbox" name="sync" role="switch" />
+        Sync progress across devices
+      </label>
+
+      <label class="switch">
+        <input type="checkbox" name="beta" role="switch" disabled />
+        Beta features (admin only)
+      </label>
+    </form>
+    {% endset %}
+
+    {{ switch_inputs }}
+
+    <details>
+      <summary>Example code</summary>
+      <pre>{{ switch_inputs | e }}</pre>
+    </details>
+  </section>
+
+  <section>
+    <hgroup>
+      <h2>Range and file inputs</h2>
+      <p>Both keep their native appearance; only sizing and the file button are themed.</p>
+    </hgroup>
+
+    {% set media_inputs %}
+    <form>
+      <p>
+        <label for="brightness">Brightness</label>
+        <input id="brightness" type="range" name="brightness" min="0" max="100">
+      </p>
+
+      <p>
+        <label for="document">Upload a document</label>
+        <input id="document" type="file" name="document">
+      </p>
+
+      <p>
+        <label for="disabled-document">Disabled upload</label>
+        <input id="disabled-document" type="file" name="disabled-document" disabled>
+      </p>
+    </form>
+    {% endset %}
+
+    {{ media_inputs }}
+
+    <details>
+      <summary>Example code</summary>
+      <pre>{{ media_inputs | e }}</pre>
+    </details>
+  </section>
+
+  <section>
+    <hgroup>
+      <h2>Validation states and actions</h2>
+      <p>
+        <code>aria-invalid="true"</code> marks a rejected field and <code>aria-invalid="false"</code> a valid one;
+        the message that follows inherits the same colour. A required control is marked with <code>*</code> from the
+        <code>required</code> attribute alone.
+      </p>
+    </hgroup>
+
+    {% set form_state %}
+    <form>
+      <div class="grid-2">
+        <p>
+          <label for="required-field">Display name</label>
+          <input id="required-field" type="text" name="display-name" required value="">
         </p>
 
         <p>
-          <label for="month">Birth Month</label>
-          <input id="month" type="month" name="month" aria-label="Month">
+          <label for="valid-field">Username</label>
+          <input id="valid-field" type="text" name="username" aria-invalid="false" value="jane_doe">
+          <small class="field-hint">Available.</small>
         </p>
 
         <p>
-          <label for="birthtime">Birth Time</label>
-          <input id="birthtime" type="time" name="time" aria-label="Time">
-        </p>
-
-        <p>
-          <label for="card"> Card type </label>
-          <select id="card" name="user-card">
+          <label for="valid-select">Card type</label>
+          <select id="valid-select" name="user-card" aria-invalid="false">
             <option value="visa">Visa</option>
             <option value="mc">Mastercard</option>
             <option value="amex">American Express</option>
           </select>
+          <small class="field-hint">We accept this card.</small>
         </p>
 
         <p>
-          <label for="message">Message</label>
-          <textarea>This is message</textarea>
+          <label for="error-field">Email</label>
+          <input id="error-field" type="email" name="email" value="jane@" aria-invalid="true" aria-describedby="error-field-message">
+          <small id="error-field-message" class="field-hint">Enter a complete email address.</small>
         </p>
-    </fieldset>
-  </form>
-  {% endset %}
+      </div>
 
-  {{ basic_form }}
-
-  <br/>
-
-  <details>
-    <summary>Example Code</summary>
-    <pre>{{ basic_form | e}} </pre>
-  </details>
-
-  <br />
-
-  <hgroup>
-    <h2>Form State</h2>
-    <p>Different form validation states: error and valid.</p>
-  </hgroup>
-
-  {% set form_state %}
-  <form>
-    <label>
-      Required Field
-      <input id="valid-field" type="text" required value="" />
-    </label>
-
-    <label>
-      Valid Field
-      <input id="valid-field" class="valid" type="text" value="valid value" />
-    </label>
-
-    <label>
-      Valid Select
-      <select aria-invalid="false" name="user-card">
-        <option value="visa">Visa</option>
-        <option value="mc">Mastercard</option>
-        <option value="amex">American Express</option>
-      </select>
-      <small>Valid card!</small>
-    </label>
-
-    <label>
-      Error Field
-      <input id="error-field" aria-invalid="true" type="text" value="error value" />
-      <small>This field is error</small>
-    </label>
-
-    <br/>
-
-    <div>
-      <button type="submit">Submit</button>
-      <input class="btn" type="submit" value="Submit with input" />
-      <button class="btn-outline">Reset</button>
-      <button class="btn-danger">Remove</button>
-    </div>
-  </form>
-  {% endset%}
-
-  {{ form_state }}
-
-  <br/>
-
-  <details open>
-      <summary>Example Code</summary>
-      <pre>{{ form_state | e}} </pre>
-  </details>
-
-  <h2>Select</h2>
-
-  <form>
-{% set select %}
-<label>
-    Select your favorite cuisine...
-<select name="favorite-cuisine" aria-label="Select your favorite cuisine..." required>
-  <option selected disabled value="">
-    Select your favorite cuisine...
-  </option>
-  <option>Italian</option>
-  <option>Japanese</option>
-  <option>Indian</option>
-  <option>Thai</option>
-  <option>French</option>
-</select>
-</label>
-{% endset %}
-{{ select }}
-
-<br/>
-
-  <details open>
-      <summary>Example Code</summary>
-      <pre>{{ select | e}} </pre>
-  </details>
-
-<h3>Select Multiple</h3>
-{% set select_multi %}
-<label>
-    Select your favorite snacks...
-<select aria-label="Select your favorite snacks..." multiple size="6">
-  <option disabled>
-    Select your favorite snacks...
-  </option>
-  <option>Cheese</option>
-  <option selected>Fruits</option>
-  <option selected>Nuts</option>
-  <option>Chocolate</option>
-  <option>Crackers</option>
-</select>
-</label>
-{% endset %}
-  {{ select_multi }}
-
-  <br/>
-  <details open>
-      <summary>Example Code</summary>
-      <pre>{{ select_multi | e}} </pre>
-  </details>
-
-<h3>Disabled Select</h3>
-{% set disabled_select %}<label>Select a meal type...
-  <select name="meal-type" aria-label="Select a meal type..." disabled>
-    <option>Select a meal type...</option>
-    <option>...</option>
-  </select>
-</label>{% endset%}
-{{ disabled_select }}
-
-  <br/>
-  <details open>
-      <summary>Example Code</summary>
-      <pre>{{ disabled_select | e}} </pre>
-  </details>
-
-  </form>
-
-  <h2>Checkboxes and Radio Buttons</h2>
-  <form>
-    {% set checkbox %}
-  <label>
-    <input type="checkbox" value="1" checked />
-    Check me 1
-  </label>
-
-  <label>
-    <input type="checkbox" value="1" />
-    Check me 2
-  </label>
-  <label>
-    <input type="radio" name="version" value="v1" checked />
-    Version 1
-  </label>
-
-  <label>
-    <input type="radio" name="version" value="v2" />
-    Version 2
-  </label>
-
-  <label>
-    <input type="radio" name="version" value="v3" />
-    Version 3
-  </label>
-  {% endset %}
-  {{ checkbox }}
-
-  <br/>
-  <details open>
-      <summary>Example Code</summary>
-      <pre>{{ checkbox | e}} </pre>
-  </details>
-
-    <hgroup>
-      <h2>Switch</h2>
-    </hgroup>
-
-    {% set toggle %}
-      <label class="switch">
-        <input name="terms" type="checkbox" role="switch" />
-        I agree to the Terms
-      </label>
-      <label class="switch">
-        <input name="terms" type="checkbox" role="switch" checked />
-        I agree to the default checked
-      </label>
-      <label class="switch">
-        <input name="terms" type="checkbox" role="switch" disabled />
-        I agree to the default disabled
-      </label>
+      <footer class="actions">
+        <button type="button" class="btn-outline">Cancel</button>
+        <button type="submit">Save changes</button>
+      </footer>
+    </form>
     {% endset %}
 
-    {{ toggle }}
+    {{ form_state }}
 
-    <br/>
     <details>
-        <summary>Example Code</summary>
-        <pre>{{ toggle | e}} </pre>
+      <summary>Example code</summary>
+      <pre>{{ form_state | e }}</pre>
     </details>
-  </form>
-
-  <hgroup>
-      <h2>Range</h2>
-  </hgroup>
-  <form>
-{% set input_range %}
-<label>
-    Brightness
-    <input type="range" min="0" max="100" />
-</label>
-{% endset %}
-
-      {{ input_range }}
-
-      <pre>{{ input_range | e }}</pre>
-  </form>
-
-  <hgroup>
-      <h2>File Input</h2>
-      <p>File upload controls styled with native <code>::file-selector-button</code>.</p>
-  </hgroup>
-  <form>
-    {% set file_input %}
-<label>
-    Upload Document
-    <input type="file" name="document" />
-</label>
-
-<label>
-    Disabled Upload
-    <input type="file" name="disabled-doc" disabled />
-</label>{% endset %}
-
-    {{ file_input }}
-
-    <br/>
-    <details open>
-        <summary>Example Code</summary>
-        <pre>{{ file_input | e }}</pre>
-    </details>
-  </form>
+  </section>
 </div>
 {% endblock %}

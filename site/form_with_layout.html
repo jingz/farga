@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>Farga Documentation</title>
     <link rel="icon" type="image/x-icon" href="./assets/olives-16px.ico">
@@ -7,14 +7,26 @@
 
     <style type="text/css" media="all">
     
+/* One wrapper per demo so the patterns keep an even rhythm down the page. */
+.pattern + .pattern {
+    margin-top: 2.5rem;
+}
+
+.pattern > details {
+    margin-top: 1rem;
+}
+
 
     body {
         pre {
           font-size: 0.8rem;
           background-color: var(--dim);
-          border-radius: 5px;
+          border-radius: var(--radius);
           padding: 0.8rem;
-          width: 120ch;
+          /* max-width, not width: an explicit 120ch box cannot shrink and drags
+           * its container wider than a 320px viewport */
+          max-width: 100%;
+          box-sizing: border-box;
           overflow-x: auto;
         }
     }
@@ -26,11 +38,31 @@
     #side-menu {
         width: 28ch;
         border-right: 1px solid var(--grey-2);
-        height: 100vh;
+        height: 100dvh;
     }
 
     #main-container {
         padding: 0 1rem;
+    }
+
+    /* Page rhythm for pages built as <section> blocks: the sections space
+     * themselves, so no <br> spacers between demos. */
+    #main-container > div > section + section {
+        margin-top: 3rem;
+    }
+
+    #main-container > div > section > hgroup {
+        margin-bottom: 1.25rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid var(--border-color-muted);
+    }
+
+    #main-container > div > section > hgroup p {
+        max-width: 65ch;
+    }
+
+    #main-container > div > section > details {
+        margin-top: 1rem;
     }
     </style>
 
@@ -38,8 +70,8 @@
   <body>
     <div class="flex-sidebar fixed gap">
         <nav id="side-menu" class="sidemenu">
-          <hgroup class="flex" align="center">
-             <img width="48" src="./assets/olives.png" />
+          <hgroup class="flex items-center">
+             <img width="48" src="./assets/olives.png" alt="" />
              <h1> Farga </h1>
           </hgroup>
           <p>Farga Documentation</p>
@@ -48,7 +80,7 @@
               <li><a href="./color.html">Colors</a></li>
               <li><a href="./typography.html">Typography</a></li>
           </ul>
-          <details open>
+          <details>
             <summary>
               <span>Navigation</span>
             </summary>
@@ -60,7 +92,7 @@
               <li><a href="./pagination.html">Pagination</a></li>
             </ul>
           </details>
-          <details open>
+          <details>
             <summary>
               <span>Layout</span>
             </summary>
@@ -72,16 +104,16 @@
           <ul>
               <li><a href="./button.html">Buttons</a></li>
           </ul>
-          <details open>
+          <details>
             <summary>
               <span>Form</span>
             </summary>
             <ul>
-              <li><a href="./form.html">Form Basic</a></li>
+              <li><a href="./form.html">Form Controls</a></li>
               <li><a href="./form_with_layout.html">Form Layouts</a></li>
             </ul>
           </details>
-          <details open>
+          <details>
             <summary>
               <span>Tables</span>
             </summary>
@@ -91,16 +123,16 @@
               <li><a href="./fixed_first_column_table.html">Fixed First Column Table</a></li>
             </ul>
           </details>
-          <details open>
+          <details>
             <summary>
               <span>Components</span>
             </summary>
             <ul>
               <li><a href="./accordion.html">Accordion</a></li>
               <li><a href="./card.html">Card</a></li>
-              <li><a href="./flashcard.html">Flashcard</a></li>
               <li><a href="./badge.html">Badge</a></li>
               <li><a href="./detail.html">Detail List</a></li>
+              <li><a href="./empty_state.html">Empty state</a></li>
               <li><a href="./alert.html">Alert</a></li>
               <li><a href="./dialog.html">Dialog / Modal</a></li>
               <li><a href="./popover.html">Popover &amp; Tooltip</a></li>
@@ -114,7 +146,7 @@
             <ul>
               <li>
                   <a href="https://jingz.github.io/farga/site/index.html" target="_blank">
-                      <img src="./assets/github-mark.svg" width="14px;" />
+                      <img src="./assets/github-mark.svg" alt="" width="14" />
                       GitHub
                   </a>
               </li>
@@ -132,533 +164,779 @@
         <main id="main-container">
           
 <div>
-  <h1>Form With Layouts</h1>
-
   <hgroup>
-    <h2>Inline Form</h2>
-    <p>A form layout where fields are arranged horizontally with an adjacent button.</p>
+    <h1>Form With Layouts</h1>
+    <p>
+      Six ways to arrange fields, then four forms assembled from them. Every demo is a real
+      <code>&lt;form&gt;</code> inside <code>.form</code>, which caps the column at 36rem — so pressing
+      <kbd>Enter</kbd> submits it, and in these docs that reloads the page with a query string.
+    </p>
   </hgroup>
 
-  
+  <section>
+    <hgroup>
+      <h2>Layout patterns</h2>
+      <p>Farga styles a form from its elements, so a layout is a choice of wrapper around the field, not a class on the control.</p>
+    </hgroup>
 
-  
-  <form>
-    <fieldset class="flex-stretch gap">
-      <p>
-        <label for="username">Username</label>
-        <input type="text" required value="" />
-      </p>
+    <div class="pattern">
+      <hgroup>
+        <h3>Stacked — the default</h3>
+        <p>One field per row, label above the control. Use it unless there is a reason not to: it survives long labels, long values, translation, and a 320px screen.</p>
+      </hgroup>
 
-      <p>
-        <label for="password">Password</label>
-        <input type="text" required value="" />
-      </p>
-    </fieldset>
+      
 
-    <br/>
-
-    <fieldset class="flex">
-      <label for="email">Email:</label>
-      <input type="text" required value="" />
-      <input class="btn btn-small" type="submit" value="Subscribe" />
-    </fieldset>
-  </form>
-  
-
-  <br />
-
-  <details>
-    <summary>Example Code</summary>
-    <pre>
-  &lt;form&gt;
-    &lt;fieldset class=&#34;flex-stretch gap&#34;&gt;
-      &lt;p&gt;
-        &lt;label for=&#34;username&#34;&gt;Username&lt;/label&gt;
-        &lt;input type=&#34;text&#34; required value=&#34;&#34; /&gt;
-      &lt;/p&gt;
-
-      &lt;p&gt;
-        &lt;label for=&#34;password&#34;&gt;Password&lt;/label&gt;
-        &lt;input type=&#34;text&#34; required value=&#34;&#34; /&gt;
-      &lt;/p&gt;
-    &lt;/fieldset&gt;
-
-    &lt;br/&gt;
-
-    &lt;fieldset class=&#34;flex&#34;&gt;
-      &lt;label for=&#34;email&#34;&gt;Email:&lt;/label&gt;
-      &lt;input type=&#34;text&#34; required value=&#34;&#34; /&gt;
-      &lt;input class=&#34;btn btn-small&#34; type=&#34;submit&#34; value=&#34;Subscribe&#34; /&gt;
-    &lt;/fieldset&gt;
-  &lt;/form&gt;
-   </pre>
-  </details>
-
-  <br />
-
-  <hgroup>
-    <h2>Signin Form</h2>
-  </hgroup>
-
-  
-
-  
-  <div class="form-container" style="width: 300px;">
-  <form>
-    <fieldset>
-      <p>
-        <h3>Sign in to your account</h3>
-      </p>
-
-      <p>
-        <label for="email">Email:</label>
-        <input type="text" required value="" />
-      </p>
-
-      <div class="flex-btw">
-        <label for="email">Password:</label>
-        <small><a href="#">Forgot Password?</a></small>
-      </div>
-      <p>
-        <input type="text" required value="" />
-      </p>
-
-      <br/>
-
-      <p>
-        <input class="btn btn-small" type="submit" value="Sign in" />
-      </p>
-    </fieldset>
-  </form>
-  </div>
-  
-
-  <br/>
-
-  <details open>
-    <summary>Example Code</summary>
-    <pre>
-  &lt;div class=&#34;form-container&#34; style=&#34;width: 300px;&#34;&gt;
-  &lt;form&gt;
-    &lt;fieldset&gt;
-      &lt;p&gt;
-        &lt;h3&gt;Sign in to your account&lt;/h3&gt;
-      &lt;/p&gt;
-
-      &lt;p&gt;
-        &lt;label for=&#34;email&#34;&gt;Email:&lt;/label&gt;
-        &lt;input type=&#34;text&#34; required value=&#34;&#34; /&gt;
-      &lt;/p&gt;
-
-      &lt;div class=&#34;flex-btw&#34;&gt;
-        &lt;label for=&#34;email&#34;&gt;Password:&lt;/label&gt;
-        &lt;small&gt;&lt;a href=&#34;#&#34;&gt;Forgot Password?&lt;/a&gt;&lt;/small&gt;
-      &lt;/div&gt;
-      &lt;p&gt;
-        &lt;input type=&#34;text&#34; required value=&#34;&#34; /&gt;
-      &lt;/p&gt;
-
-      &lt;br/&gt;
-
-      &lt;p&gt;
-        &lt;input class=&#34;btn btn-small&#34; type=&#34;submit&#34; value=&#34;Sign in&#34; /&gt;
-      &lt;/p&gt;
-    &lt;/fieldset&gt;
-  &lt;/form&gt;
-  &lt;/div&gt;
-   </pre>
-  </details>
-
-  <br />
-
-  <hgroup>
-    <h2>Contact Form</h2>
-    <p>A standard contact form for user inquiries.</p>
-  </hgroup>
-
-  
-
-  
-  <div class="form-container" style="width: 600px;">
-    <form>
-      <fieldset>
-        <legend>Contact Us</legend>
-
+      
+      <form class="form">
         <p>
-          <label for="contact-name">Full Name</label>
-          <input type="text" id="contact-name" name="name" placeholder="Enter your full name" required />
+          <label for="stack-name">Full name</label>
+          <input id="stack-name" name="name" type="text" autocomplete="name">
         </p>
 
         <p>
-          <label for="contact-email">Email Address</label>
-          <input type="email" id="contact-email" name="email" placeholder="Enter your email" required />
+          <label for="stack-email">Email</label>
+          <input id="stack-email" name="email" type="email" autocomplete="email" aria-describedby="stack-email-hint">
+          <small id="stack-email-hint" class="field-hint">Only used for the receipt.</small>
         </p>
+      </form>
+      
 
-        <p>
-          <label for="contact-subject">Subject</label>
-          <input type="text" id="contact-subject" name="subject" placeholder="What is this regarding?" required />
-        </p>
-
-        <p>
-          <label for="contact-message">Message</label>
-          <textarea id="contact-message" name="message" rows="5" placeholder="How can we help you?" required></textarea>
-        </p>
-
-        <p>
-          <label>
-            <input type="checkbox" name="newsletter" value="yes" /> Subscribe to newsletter
-          </label>
-        </p>
-
-        <footer class="actions">
-          <button type="submit" class="btn">Send Message</button>
-          <button type="reset" class="btn btn-outline">Clear Form</button>
-        </footer>
-      </fieldset>
-    </form>
-  </div>
-  
-
-  <br />
-
-  <details>
-    <summary>Example Code</summary>
-    <pre>
-  &lt;div class=&#34;form-container&#34; style=&#34;width: 600px;&#34;&gt;
-    &lt;form&gt;
-      &lt;fieldset&gt;
-        &lt;legend&gt;Contact Us&lt;/legend&gt;
-
+      <details>
+        <summary>Example code</summary>
+        <pre>
+      &lt;form class=&#34;form&#34;&gt;
         &lt;p&gt;
-          &lt;label for=&#34;contact-name&#34;&gt;Full Name&lt;/label&gt;
-          &lt;input type=&#34;text&#34; id=&#34;contact-name&#34; name=&#34;name&#34; placeholder=&#34;Enter your full name&#34; required /&gt;
+          &lt;label for=&#34;stack-name&#34;&gt;Full name&lt;/label&gt;
+          &lt;input id=&#34;stack-name&#34; name=&#34;name&#34; type=&#34;text&#34; autocomplete=&#34;name&#34;&gt;
         &lt;/p&gt;
 
         &lt;p&gt;
-          &lt;label for=&#34;contact-email&#34;&gt;Email Address&lt;/label&gt;
-          &lt;input type=&#34;email&#34; id=&#34;contact-email&#34; name=&#34;email&#34; placeholder=&#34;Enter your email&#34; required /&gt;
+          &lt;label for=&#34;stack-email&#34;&gt;Email&lt;/label&gt;
+          &lt;input id=&#34;stack-email&#34; name=&#34;email&#34; type=&#34;email&#34; autocomplete=&#34;email&#34; aria-describedby=&#34;stack-email-hint&#34;&gt;
+          &lt;small id=&#34;stack-email-hint&#34; class=&#34;field-hint&#34;&gt;Only used for the receipt.&lt;/small&gt;
         &lt;/p&gt;
+      &lt;/form&gt;
+      </pre>
+      </details>
+    </div>
 
-        &lt;p&gt;
-          &lt;label for=&#34;contact-subject&#34;&gt;Subject&lt;/label&gt;
-          &lt;input type=&#34;text&#34; id=&#34;contact-subject&#34; name=&#34;subject&#34; placeholder=&#34;What is this regarding?&#34; required /&gt;
-        &lt;/p&gt;
+    <div class="pattern">
+      <hgroup>
+        <h3>Two-up row</h3>
+        <p>For two short values that belong together and are read together. Both columns are the same width, so keep long values out of it — a URL beside a quantity makes the URL unreadable.</p>
+      </hgroup>
 
-        &lt;p&gt;
-          &lt;label for=&#34;contact-message&#34;&gt;Message&lt;/label&gt;
-          &lt;textarea id=&#34;contact-message&#34; name=&#34;message&#34; rows=&#34;5&#34; placeholder=&#34;How can we help you?&#34; required&gt;&lt;/textarea&gt;
-        &lt;/p&gt;
+      
 
-        &lt;p&gt;
-          &lt;label&gt;
-            &lt;input type=&#34;checkbox&#34; name=&#34;newsletter&#34; value=&#34;yes&#34; /&gt; Subscribe to newsletter
-          &lt;/label&gt;
-        &lt;/p&gt;
-
-        &lt;footer class=&#34;actions&#34;&gt;
-          &lt;button type=&#34;submit&#34; class=&#34;btn&#34;&gt;Send Message&lt;/button&gt;
-          &lt;button type=&#34;reset&#34; class=&#34;btn btn-outline&#34;&gt;Clear Form&lt;/button&gt;
-        &lt;/footer&gt;
-      &lt;/fieldset&gt;
-    &lt;/form&gt;
-  &lt;/div&gt;
-   </pre>
-  </details>
-
-  <br />
-
-  <hgroup>
-    <h2>User Registration Form</h2>
-    <p>A comprehensive form for new user signups.</p>
-  </hgroup>
-
-  
-
-  
-  <div class="form-container" style="width: 600px;">
-    <form>
-      <fieldset>
-        <legend>Create Your Account</legend>
-
-        <div class="flex-stretch gap">
+      
+      <form class="form">
+        <div class="grid-2">
           <p>
-            <label for="first-name">First Name</label>
-            <input type="text" id="first-name" name="firstName" placeholder="First name" required />
+            <label for="two-first">First name</label>
+            <input id="two-first" name="first" type="text" autocomplete="given-name">
           </p>
 
           <p>
-            <label for="last-name">Last Name</label>
-            <input type="text" id="last-name" name="lastName" placeholder="Last name" required />
+            <label for="two-last">Last name</label>
+            <input id="two-last" name="last" type="text" autocomplete="family-name">
           </p>
         </div>
+      </form>
+      
 
-        <p>
-          <label for="reg-email">Email Address</label>
-          <input type="email" id="reg-email" name="email" placeholder="Enter your email" required />
-        </p>
+      <details>
+        <summary>Example code</summary>
+        <pre>
+      &lt;form class=&#34;form&#34;&gt;
+        &lt;div class=&#34;grid-2&#34;&gt;
+          &lt;p&gt;
+            &lt;label for=&#34;two-first&#34;&gt;First name&lt;/label&gt;
+            &lt;input id=&#34;two-first&#34; name=&#34;first&#34; type=&#34;text&#34; autocomplete=&#34;given-name&#34;&gt;
+          &lt;/p&gt;
 
-        <p>
-          <label for="phone">Phone Number</label>
-          <input type="tel" id="phone" name="phone" placeholder="(123) 456-7890" />
-        </p>
+          &lt;p&gt;
+            &lt;label for=&#34;two-last&#34;&gt;Last name&lt;/label&gt;
+            &lt;input id=&#34;two-last&#34; name=&#34;last&#34; type=&#34;text&#34; autocomplete=&#34;family-name&#34;&gt;
+          &lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/form&gt;
+      </pre>
+      </details>
+    </div>
 
-        <p>
-          <label for="dob">Date of Birth</label>
-          <input type="date" id="dob" name="dob" />
-        </p>
+    <div class="pattern">
+      <hgroup>
+        <h3>Label-left row</h3>
+        <p>Compact, for settings screens and short labels. The label column is a fixed minimum width, and a hint would land in the control column where it loses its owner — so this pattern is for fields that need no explanation.</p>
+      </hgroup>
 
-        <div class="flex-stretch gap">
-          <p>
-            <label for="password-reg">Password</label>
-            <input type="password" id="password-reg" name="password" placeholder="Create password" required />
-          </p>
+      
 
-          <p>
-            <label for="confirm-password">Confirm Password</label>
-            <input type="password" id="confirm-password" name="confirmPassword" placeholder="Confirm password" required />
-          </p>
+      
+      <form class="form">
+        <div class="field-row">
+          <label for="row-name">Name</label>
+          <input id="row-name" name="name" type="text" autocomplete="name">
         </div>
 
-        <p>
-          <label for="country">Country</label>
-          <select id="country" name="country" required>
-            <option value="">Select Country</option>
-            <option value="us">United States</option>
-            <option value="ca">Canada</option>
-            <option value="uk">United Kingdom</option>
-            <option value="au">Australia</option>
-            <option value="de">Germany</option>
-            <option value="fr">France</option>
-            <option value="jp">Japan</option>
-            <option value="other">Other</option>
+        <div class="field-row">
+          <label for="row-timezone">Timezone</label>
+          <select id="row-timezone" name="timezone">
+            <option>Asia/Bangkok</option>
+            <option>Europe/London</option>
+            <option>America/New_York</option>
           </select>
-        </p>
+        </div>
+      </form>
+      
 
-        <p>
-          <label>
-            <input type="checkbox" name="terms" value="agreed" required /> I agree to the Terms of Service and Privacy Policy
-          </label>
-        </p>
+      <details>
+        <summary>Example code</summary>
+        <pre>
+      &lt;form class=&#34;form&#34;&gt;
+        &lt;div class=&#34;field-row&#34;&gt;
+          &lt;label for=&#34;row-name&#34;&gt;Name&lt;/label&gt;
+          &lt;input id=&#34;row-name&#34; name=&#34;name&#34; type=&#34;text&#34; autocomplete=&#34;name&#34;&gt;
+        &lt;/div&gt;
 
-        <p>
-          <label>
-            <input type="checkbox" name="marketing" value="yes" /> Send me marketing emails
+        &lt;div class=&#34;field-row&#34;&gt;
+          &lt;label for=&#34;row-timezone&#34;&gt;Timezone&lt;/label&gt;
+          &lt;select id=&#34;row-timezone&#34; name=&#34;timezone&#34;&gt;
+            &lt;option&gt;Asia/Bangkok&lt;/option&gt;
+            &lt;option&gt;Europe/London&lt;/option&gt;
+            &lt;option&gt;America/New_York&lt;/option&gt;
+          &lt;/select&gt;
+        &lt;/div&gt;
+      &lt;/form&gt;
+      </pre>
+      </details>
+    </div>
+
+    <div class="pattern">
+      <hgroup>
+        <h3>Row of fields</h3>
+        <p>For two or three controls of similar weight that are submitted together — a filter bar, a subscribe bar. Items divide the row equally, so do not use it when one field needs noticeably more room than the others.</p>
+      </hgroup>
+
+      
+
+      
+      <form class="form-wide">
+        <div class="flex-stretch gap">
+          <p>
+            <label for="inline-email">Email</label>
+            <input id="inline-email" name="email" type="email" autocomplete="email">
+          </p>
+
+          <p>
+            <label for="inline-topic">Topic</label>
+            <select id="inline-topic" name="topic">
+              <option>Product news</option>
+              <option>Release notes</option>
+              <option>Both</option>
+            </select>
+          </p>
+
+          <p>
+            <button type="submit" class="btn">Subscribe</button>
+          </p>
+        </div>
+      </form>
+      
+
+      <details>
+        <summary>Example code</summary>
+        <pre>
+      &lt;form class=&#34;form-wide&#34;&gt;
+        &lt;div class=&#34;flex-stretch gap&#34;&gt;
+          &lt;p&gt;
+            &lt;label for=&#34;inline-email&#34;&gt;Email&lt;/label&gt;
+            &lt;input id=&#34;inline-email&#34; name=&#34;email&#34; type=&#34;email&#34; autocomplete=&#34;email&#34;&gt;
+          &lt;/p&gt;
+
+          &lt;p&gt;
+            &lt;label for=&#34;inline-topic&#34;&gt;Topic&lt;/label&gt;
+            &lt;select id=&#34;inline-topic&#34; name=&#34;topic&#34;&gt;
+              &lt;option&gt;Product news&lt;/option&gt;
+              &lt;option&gt;Release notes&lt;/option&gt;
+              &lt;option&gt;Both&lt;/option&gt;
+            &lt;/select&gt;
+          &lt;/p&gt;
+
+          &lt;p&gt;
+            &lt;button type=&#34;submit&#34; class=&#34;btn&#34;&gt;Subscribe&lt;/button&gt;
+          &lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/form&gt;
+      </pre>
+      </details>
+    </div>
+
+    <div class="pattern">
+      <hgroup>
+        <h3>Sectioned form</h3>
+        <p>When a form stops being one topic, cut it into <code>&lt;fieldset&gt;</code> groups named by a <code>&lt;legend&gt;</code>. The gap between groups has to be visibly wider than the gap between fields, or the sections read as one long column.</p>
+      </hgroup>
+
+      
+
+      
+      <form class="form">
+        <fieldset>
+          <legend>Account</legend>
+          <p>
+            <label for="sec-email">Email</label>
+            <input id="sec-email" name="email" type="email" autocomplete="email" required>
+          </p>
+
+          <p>
+            <label for="sec-password">Password</label>
+            <input id="sec-password" name="password" type="password" autocomplete="new-password" required aria-describedby="sec-password-hint">
+            <small id="sec-password-hint" class="field-hint">At least 12 characters.</small>
+          </p>
+        </fieldset>
+
+        <fieldset>
+          <legend>Email preferences</legend>
+          <label class="switch">
+            <input type="checkbox" name="weekly-digest" role="switch" checked />
+            Weekly digest
           </label>
+          <label class="switch">
+            <input type="checkbox" name="product-news" role="switch" />
+            Product news
+          </label>
+        </fieldset>
+      </form>
+      
+
+      <details>
+        <summary>Example code</summary>
+        <pre>
+      &lt;form class=&#34;form&#34;&gt;
+        &lt;fieldset&gt;
+          &lt;legend&gt;Account&lt;/legend&gt;
+          &lt;p&gt;
+            &lt;label for=&#34;sec-email&#34;&gt;Email&lt;/label&gt;
+            &lt;input id=&#34;sec-email&#34; name=&#34;email&#34; type=&#34;email&#34; autocomplete=&#34;email&#34; required&gt;
+          &lt;/p&gt;
+
+          &lt;p&gt;
+            &lt;label for=&#34;sec-password&#34;&gt;Password&lt;/label&gt;
+            &lt;input id=&#34;sec-password&#34; name=&#34;password&#34; type=&#34;password&#34; autocomplete=&#34;new-password&#34; required aria-describedby=&#34;sec-password-hint&#34;&gt;
+            &lt;small id=&#34;sec-password-hint&#34; class=&#34;field-hint&#34;&gt;At least 12 characters.&lt;/small&gt;
+          &lt;/p&gt;
+        &lt;/fieldset&gt;
+
+        &lt;fieldset&gt;
+          &lt;legend&gt;Email preferences&lt;/legend&gt;
+          &lt;label class=&#34;switch&#34;&gt;
+            &lt;input type=&#34;checkbox&#34; name=&#34;weekly-digest&#34; role=&#34;switch&#34; checked /&gt;
+            Weekly digest
+          &lt;/label&gt;
+          &lt;label class=&#34;switch&#34;&gt;
+            &lt;input type=&#34;checkbox&#34; name=&#34;product-news&#34; role=&#34;switch&#34; /&gt;
+            Product news
+          &lt;/label&gt;
+        &lt;/fieldset&gt;
+      &lt;/form&gt;
+      </pre>
+      </details>
+    </div>
+
+    <div class="pattern">
+      <hgroup>
+        <h3>Actions</h3>
+        <p>Primary action last, so it is the one the eye lands on when reading the form downwards. Secondary actions sit to its left as an outline. There is no Reset: clearing a filled form throws away the user's work, which needs a confirmation step rather than a button beside Save.</p>
+      </hgroup>
+
+      
+
+      
+      <form class="form">
+        <p>
+          <label for="actions-name">Display name</label>
+          <input id="actions-name" name="display-name" type="text" value="jane_doe" autocomplete="nickname">
         </p>
 
         <footer class="actions">
-          <button type="submit" class="btn">Create Account</button>
-          <button type="reset" class="btn btn-outline">Reset Form</button>
+          <button type="button" class="btn-outline">Cancel</button>
+          <button type="submit">Save changes</button>
         </footer>
-      </fieldset>
-    </form>
-  </div>
-  
+      </form>
+      
 
-  <br />
-
-  <details>
-    <summary>Example Code</summary>
-    <pre>
-  &lt;div class=&#34;form-container&#34; style=&#34;width: 600px;&#34;&gt;
-    &lt;form&gt;
-      &lt;fieldset&gt;
-        &lt;legend&gt;Create Your Account&lt;/legend&gt;
-
-        &lt;div class=&#34;flex-stretch gap&#34;&gt;
-          &lt;p&gt;
-            &lt;label for=&#34;first-name&#34;&gt;First Name&lt;/label&gt;
-            &lt;input type=&#34;text&#34; id=&#34;first-name&#34; name=&#34;firstName&#34; placeholder=&#34;First name&#34; required /&gt;
-          &lt;/p&gt;
-
-          &lt;p&gt;
-            &lt;label for=&#34;last-name&#34;&gt;Last Name&lt;/label&gt;
-            &lt;input type=&#34;text&#34; id=&#34;last-name&#34; name=&#34;lastName&#34; placeholder=&#34;Last name&#34; required /&gt;
-          &lt;/p&gt;
-        &lt;/div&gt;
-
+      <details>
+        <summary>Example code</summary>
+        <pre>
+      &lt;form class=&#34;form&#34;&gt;
         &lt;p&gt;
-          &lt;label for=&#34;reg-email&#34;&gt;Email Address&lt;/label&gt;
-          &lt;input type=&#34;email&#34; id=&#34;reg-email&#34; name=&#34;email&#34; placeholder=&#34;Enter your email&#34; required /&gt;
-        &lt;/p&gt;
-
-        &lt;p&gt;
-          &lt;label for=&#34;phone&#34;&gt;Phone Number&lt;/label&gt;
-          &lt;input type=&#34;tel&#34; id=&#34;phone&#34; name=&#34;phone&#34; placeholder=&#34;(123) 456-7890&#34; /&gt;
-        &lt;/p&gt;
-
-        &lt;p&gt;
-          &lt;label for=&#34;dob&#34;&gt;Date of Birth&lt;/label&gt;
-          &lt;input type=&#34;date&#34; id=&#34;dob&#34; name=&#34;dob&#34; /&gt;
-        &lt;/p&gt;
-
-        &lt;div class=&#34;flex-stretch gap&#34;&gt;
-          &lt;p&gt;
-            &lt;label for=&#34;password-reg&#34;&gt;Password&lt;/label&gt;
-            &lt;input type=&#34;password&#34; id=&#34;password-reg&#34; name=&#34;password&#34; placeholder=&#34;Create password&#34; required /&gt;
-          &lt;/p&gt;
-
-          &lt;p&gt;
-            &lt;label for=&#34;confirm-password&#34;&gt;Confirm Password&lt;/label&gt;
-            &lt;input type=&#34;password&#34; id=&#34;confirm-password&#34; name=&#34;confirmPassword&#34; placeholder=&#34;Confirm password&#34; required /&gt;
-          &lt;/p&gt;
-        &lt;/div&gt;
-
-        &lt;p&gt;
-          &lt;label for=&#34;country&#34;&gt;Country&lt;/label&gt;
-          &lt;select id=&#34;country&#34; name=&#34;country&#34; required&gt;
-            &lt;option value=&#34;&#34;&gt;Select Country&lt;/option&gt;
-            &lt;option value=&#34;us&#34;&gt;United States&lt;/option&gt;
-            &lt;option value=&#34;ca&#34;&gt;Canada&lt;/option&gt;
-            &lt;option value=&#34;uk&#34;&gt;United Kingdom&lt;/option&gt;
-            &lt;option value=&#34;au&#34;&gt;Australia&lt;/option&gt;
-            &lt;option value=&#34;de&#34;&gt;Germany&lt;/option&gt;
-            &lt;option value=&#34;fr&#34;&gt;France&lt;/option&gt;
-            &lt;option value=&#34;jp&#34;&gt;Japan&lt;/option&gt;
-            &lt;option value=&#34;other&#34;&gt;Other&lt;/option&gt;
-          &lt;/select&gt;
-        &lt;/p&gt;
-
-        &lt;p&gt;
-          &lt;label&gt;
-            &lt;input type=&#34;checkbox&#34; name=&#34;terms&#34; value=&#34;agreed&#34; required /&gt; I agree to the Terms of Service and Privacy Policy
-          &lt;/label&gt;
-        &lt;/p&gt;
-
-        &lt;p&gt;
-          &lt;label&gt;
-            &lt;input type=&#34;checkbox&#34; name=&#34;marketing&#34; value=&#34;yes&#34; /&gt; Send me marketing emails
-          &lt;/label&gt;
+          &lt;label for=&#34;actions-name&#34;&gt;Display name&lt;/label&gt;
+          &lt;input id=&#34;actions-name&#34; name=&#34;display-name&#34; type=&#34;text&#34; value=&#34;jane_doe&#34; autocomplete=&#34;nickname&#34;&gt;
         &lt;/p&gt;
 
         &lt;footer class=&#34;actions&#34;&gt;
-          &lt;button type=&#34;submit&#34; class=&#34;btn&#34;&gt;Create Account&lt;/button&gt;
-          &lt;button type=&#34;reset&#34; class=&#34;btn btn-outline&#34;&gt;Reset Form&lt;/button&gt;
+          &lt;button type=&#34;button&#34; class=&#34;btn-outline&#34;&gt;Cancel&lt;/button&gt;
+          &lt;button type=&#34;submit&#34;&gt;Save changes&lt;/button&gt;
         &lt;/footer&gt;
-      &lt;/fieldset&gt;
-    &lt;/form&gt;
-  &lt;/div&gt;
-   </pre>
-  </details>
+      &lt;/form&gt;
+      </pre>
+      </details>
+    </div>
+  </section>
 
-  <br />
+  <section>
+    <hgroup>
+      <h2>Field anatomy and errors</h2>
+      <p>
+        A field is a label, a control, and — when it needs one — a message that belongs to the control through
+        <code>aria-describedby</code>. Required controls are marked by the <code>required</code> attribute alone: the
+        asterisk comes from CSS, so it never carries the meaning on its own.
+      </p>
+    </hgroup>
 
-  <hgroup>
-    <h2>Product Search Form</h2>
-    <p>A form for searching products with filters.</p>
-  </hgroup>
+    <div class="pattern">
+      <hgroup>
+        <h3>Summary when validation fails</h3>
+        <p>Name the problem at the top of the form, link each item straight to its control, and let the alert announce itself with <code>role="alert"</code>. The messages below the fields repeat the detail for anyone who arrives there directly.</p>
+      </hgroup>
 
-  
+      
 
-  
-  <div class="form-container" style="width: 600px;">
-    <form>
-      <fieldset>
-        <legend>Find Products</legend>
+      
+      <form class="form">
+        <div class="alert danger" role="alert">
+          <div>
+            <h3>2 fields need attention</h3>
+            <ul>
+              <li><a href="#err-email">Email address is not complete</a></li>
+              <li><a href="#err-postcode">Postcode is required</a></li>
+            </ul>
+          </div>
+        </div>
 
-        <div class="flex-stretch gap">
+        <p>
+          <label for="err-name">Display name</label>
+          <input id="err-name" name="display-name" type="text" value="jane_doe" autocomplete="nickname">
+          <small class="field-hint">Shown on your profile.</small>
+        </p>
+
+        <p>
+          <label for="err-email">Email address</label>
+          <input id="err-email" name="email" type="email" value="jane@" aria-invalid="true" aria-describedby="err-email-message">
+          <small id="err-email-message" class="field-hint">Enter a complete address, like jane@example.com.</small>
+        </p>
+
+        <p>
+          <label for="err-postcode">Postcode</label>
+          <input id="err-postcode" name="postcode" type="text" aria-invalid="true" aria-describedby="err-postcode-message" autocomplete="postal-code">
+          <small id="err-postcode-message" class="field-hint">Postcode is required.</small>
+        </p>
+
+        <footer class="actions">
+          <button type="submit">Save changes</button>
+        </footer>
+      </form>
+      
+
+      <details>
+        <summary>Example code</summary>
+        <pre>
+      &lt;form class=&#34;form&#34;&gt;
+        &lt;div class=&#34;alert danger&#34; role=&#34;alert&#34;&gt;
+          &lt;div&gt;
+            &lt;h3&gt;2 fields need attention&lt;/h3&gt;
+            &lt;ul&gt;
+              &lt;li&gt;&lt;a href=&#34;#err-email&#34;&gt;Email address is not complete&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&#34;#err-postcode&#34;&gt;Postcode is required&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;p&gt;
+          &lt;label for=&#34;err-name&#34;&gt;Display name&lt;/label&gt;
+          &lt;input id=&#34;err-name&#34; name=&#34;display-name&#34; type=&#34;text&#34; value=&#34;jane_doe&#34; autocomplete=&#34;nickname&#34;&gt;
+          &lt;small class=&#34;field-hint&#34;&gt;Shown on your profile.&lt;/small&gt;
+        &lt;/p&gt;
+
+        &lt;p&gt;
+          &lt;label for=&#34;err-email&#34;&gt;Email address&lt;/label&gt;
+          &lt;input id=&#34;err-email&#34; name=&#34;email&#34; type=&#34;email&#34; value=&#34;jane@&#34; aria-invalid=&#34;true&#34; aria-describedby=&#34;err-email-message&#34;&gt;
+          &lt;small id=&#34;err-email-message&#34; class=&#34;field-hint&#34;&gt;Enter a complete address, like jane@example.com.&lt;/small&gt;
+        &lt;/p&gt;
+
+        &lt;p&gt;
+          &lt;label for=&#34;err-postcode&#34;&gt;Postcode&lt;/label&gt;
+          &lt;input id=&#34;err-postcode&#34; name=&#34;postcode&#34; type=&#34;text&#34; aria-invalid=&#34;true&#34; aria-describedby=&#34;err-postcode-message&#34; autocomplete=&#34;postal-code&#34;&gt;
+          &lt;small id=&#34;err-postcode-message&#34; class=&#34;field-hint&#34;&gt;Postcode is required.&lt;/small&gt;
+        &lt;/p&gt;
+
+        &lt;footer class=&#34;actions&#34;&gt;
+          &lt;button type=&#34;submit&#34;&gt;Save changes&lt;/button&gt;
+        &lt;/footer&gt;
+      &lt;/form&gt;
+      </pre>
+      </details>
+    </div>
+
+    <div class="pattern">
+      <hgroup>
+        <h3>Required, hint and error together</h3>
+        <p>The asterisk is decorative — <code>required</code> is what assistive tech reports — and the hint and the error differ by more than colour: one explains, the other says what went wrong.</p>
+      </hgroup>
+
+      
+
+      
+      <form class="form">
+        <p>
+          <label for="anatomy-email">Email <small class="field-hint">required</small></label>
+          <input id="anatomy-email" name="email" type="email" required aria-describedby="anatomy-email-hint">
+          <small id="anatomy-email-hint" class="field-hint">We send a confirmation link.</small>
+        </p>
+
+        <p>
+          <label for="anatomy-phone">Phone</label>
+          <input id="anatomy-phone" name="phone" type="tel" autocomplete="tel" aria-invalid="false" aria-describedby="anatomy-phone-hint">
+          <small id="anatomy-phone-hint" class="field-hint">Looks good.</small>
+        </p>
+      </form>
+      
+
+      <details>
+        <summary>Example code</summary>
+        <pre>
+      &lt;form class=&#34;form&#34;&gt;
+        &lt;p&gt;
+          &lt;label for=&#34;anatomy-email&#34;&gt;Email &lt;small class=&#34;field-hint&#34;&gt;required&lt;/small&gt;&lt;/label&gt;
+          &lt;input id=&#34;anatomy-email&#34; name=&#34;email&#34; type=&#34;email&#34; required aria-describedby=&#34;anatomy-email-hint&#34;&gt;
+          &lt;small id=&#34;anatomy-email-hint&#34; class=&#34;field-hint&#34;&gt;We send a confirmation link.&lt;/small&gt;
+        &lt;/p&gt;
+
+        &lt;p&gt;
+          &lt;label for=&#34;anatomy-phone&#34;&gt;Phone&lt;/label&gt;
+          &lt;input id=&#34;anatomy-phone&#34; name=&#34;phone&#34; type=&#34;tel&#34; autocomplete=&#34;tel&#34; aria-invalid=&#34;false&#34; aria-describedby=&#34;anatomy-phone-hint&#34;&gt;
+          &lt;small id=&#34;anatomy-phone-hint&#34; class=&#34;field-hint&#34;&gt;Looks good.&lt;/small&gt;
+        &lt;/p&gt;
+      &lt;/form&gt;
+      </pre>
+      </details>
+    </div>
+  </section>
+
+  <section>
+    <hgroup>
+      <h2>Composed examples</h2>
+      <p>Four forms built from the patterns above, with the copy and the attributes a real screen would carry.</p>
+    </hgroup>
+
+    <div class="pattern">
+      <hgroup>
+        <h3>Sign in</h3>
+        <p>Two fields, one primary action, and the recovery link below the form instead of competing with it. The passwords get <code>autocomplete="current-password"</code> so a password manager can fill them.</p>
+      </hgroup>
+
+      
+
+      
+      <form class="form">
+        <p>
+          <label for="signin-email">Email</label>
+          <input id="signin-email" name="email" type="email" autocomplete="email" required>
+        </p>
+
+        <p>
+          <label for="signin-password">Password</label>
+          <input id="signin-password" name="password" type="password" autocomplete="current-password" required>
+        </p>
+
+        <footer class="actions">
+          <button type="submit">Sign in</button>
+        </footer>
+
+        <p><a href="#">Forgot your password?</a></p>
+      </form>
+      
+
+      <details>
+        <summary>Example code</summary>
+        <pre>
+      &lt;form class=&#34;form&#34;&gt;
+        &lt;p&gt;
+          &lt;label for=&#34;signin-email&#34;&gt;Email&lt;/label&gt;
+          &lt;input id=&#34;signin-email&#34; name=&#34;email&#34; type=&#34;email&#34; autocomplete=&#34;email&#34; required&gt;
+        &lt;/p&gt;
+
+        &lt;p&gt;
+          &lt;label for=&#34;signin-password&#34;&gt;Password&lt;/label&gt;
+          &lt;input id=&#34;signin-password&#34; name=&#34;password&#34; type=&#34;password&#34; autocomplete=&#34;current-password&#34; required&gt;
+        &lt;/p&gt;
+
+        &lt;footer class=&#34;actions&#34;&gt;
+          &lt;button type=&#34;submit&#34;&gt;Sign in&lt;/button&gt;
+        &lt;/footer&gt;
+
+        &lt;p&gt;&lt;a href=&#34;#&#34;&gt;Forgot your password?&lt;/a&gt;&lt;/p&gt;
+      &lt;/form&gt;
+      </pre>
+      </details>
+    </div>
+
+    <div class="pattern">
+      <hgroup>
+        <h3>Contact</h3>
+        <p>Stacked fields, a hint where the format matters, and the consent checkbox inside the same group as the rest of the message.</p>
+      </hgroup>
+
+      
+
+      
+      <form class="form">
+        <fieldset>
+          <legend>Contact us</legend>
+
+          <p>
+            <label for="contact-name">Full name</label>
+            <input id="contact-name" name="name" type="text" autocomplete="name" required>
+          </p>
+
+          <p>
+            <label for="contact-email">Email</label>
+            <input id="contact-email" name="email" type="email" autocomplete="email" required>
+          </p>
+
+          <p>
+            <label for="contact-message">Message</label>
+            <textarea id="contact-message" name="message" rows="5" required aria-describedby="contact-message-hint"></textarea>
+            <small id="contact-message-hint" class="field-hint">The order number helps us answer faster.</small>
+          </p>
+
+          <label>
+            <input type="checkbox" name="consent" value="yes" required />
+            You can email me about this request
+          </label>
+        </fieldset>
+
+        <footer class="actions">
+          <button type="submit">Send message</button>
+        </footer>
+      </form>
+      
+
+      <details>
+        <summary>Example code</summary>
+        <pre>
+      &lt;form class=&#34;form&#34;&gt;
+        &lt;fieldset&gt;
+          &lt;legend&gt;Contact us&lt;/legend&gt;
+
+          &lt;p&gt;
+            &lt;label for=&#34;contact-name&#34;&gt;Full name&lt;/label&gt;
+            &lt;input id=&#34;contact-name&#34; name=&#34;name&#34; type=&#34;text&#34; autocomplete=&#34;name&#34; required&gt;
+          &lt;/p&gt;
+
+          &lt;p&gt;
+            &lt;label for=&#34;contact-email&#34;&gt;Email&lt;/label&gt;
+            &lt;input id=&#34;contact-email&#34; name=&#34;email&#34; type=&#34;email&#34; autocomplete=&#34;email&#34; required&gt;
+          &lt;/p&gt;
+
+          &lt;p&gt;
+            &lt;label for=&#34;contact-message&#34;&gt;Message&lt;/label&gt;
+            &lt;textarea id=&#34;contact-message&#34; name=&#34;message&#34; rows=&#34;5&#34; required aria-describedby=&#34;contact-message-hint&#34;&gt;&lt;/textarea&gt;
+            &lt;small id=&#34;contact-message-hint&#34; class=&#34;field-hint&#34;&gt;The order number helps us answer faster.&lt;/small&gt;
+          &lt;/p&gt;
+
+          &lt;label&gt;
+            &lt;input type=&#34;checkbox&#34; name=&#34;consent&#34; value=&#34;yes&#34; required /&gt;
+            You can email me about this request
+          &lt;/label&gt;
+        &lt;/fieldset&gt;
+
+        &lt;footer class=&#34;actions&#34;&gt;
+          &lt;button type=&#34;submit&#34;&gt;Send message&lt;/button&gt;
+        &lt;/footer&gt;
+      &lt;/form&gt;
+      </pre>
+      </details>
+    </div>
+
+    <div class="pattern">
+      <hgroup>
+        <h3>Create account</h3>
+        <p>A two-up row for the name, sections for account and preferences, and <code>new-password</code> so the browser offers to generate one rather than filling an old one.</p>
+      </hgroup>
+
+      
+
+      
+      <form class="form">
+        <fieldset>
+          <legend>Your account</legend>
+
+          <div class="grid-2">
+            <p>
+              <label for="reg-first">First name</label>
+              <input id="reg-first" name="first-name" type="text" autocomplete="given-name" required>
+            </p>
+
+            <p>
+              <label for="reg-last">Last name</label>
+              <input id="reg-last" name="last-name" type="text" autocomplete="family-name" required>
+            </p>
+          </div>
+
+          <p>
+            <label for="reg-email">Email</label>
+            <input id="reg-email" name="email" type="email" autocomplete="email" required>
+          </p>
+
+          <p>
+            <label for="reg-password">Password</label>
+            <input id="reg-password" name="password" type="password" autocomplete="new-password" required aria-describedby="reg-password-hint">
+            <small id="reg-password-hint" class="field-hint">At least 12 characters.</small>
+          </p>
+        </fieldset>
+
+        <fieldset>
+          <legend>Preferences</legend>
+
+          <label class="switch">
+            <input type="checkbox" name="weekly-digest" role="switch" checked />
+            Weekly digest
+          </label>
+
+          <label>
+            <input type="checkbox" name="terms" value="agreed" required />
+            I agree to the terms of service
+          </label>
+        </fieldset>
+
+        <footer class="actions">
+          <button type="button" class="btn-outline">Cancel</button>
+          <button type="submit">Create account</button>
+        </footer>
+      </form>
+      
+
+      <details>
+        <summary>Example code</summary>
+        <pre>
+      &lt;form class=&#34;form&#34;&gt;
+        &lt;fieldset&gt;
+          &lt;legend&gt;Your account&lt;/legend&gt;
+
+          &lt;div class=&#34;grid-2&#34;&gt;
+            &lt;p&gt;
+              &lt;label for=&#34;reg-first&#34;&gt;First name&lt;/label&gt;
+              &lt;input id=&#34;reg-first&#34; name=&#34;first-name&#34; type=&#34;text&#34; autocomplete=&#34;given-name&#34; required&gt;
+            &lt;/p&gt;
+
+            &lt;p&gt;
+              &lt;label for=&#34;reg-last&#34;&gt;Last name&lt;/label&gt;
+              &lt;input id=&#34;reg-last&#34; name=&#34;last-name&#34; type=&#34;text&#34; autocomplete=&#34;family-name&#34; required&gt;
+            &lt;/p&gt;
+          &lt;/div&gt;
+
+          &lt;p&gt;
+            &lt;label for=&#34;reg-email&#34;&gt;Email&lt;/label&gt;
+            &lt;input id=&#34;reg-email&#34; name=&#34;email&#34; type=&#34;email&#34; autocomplete=&#34;email&#34; required&gt;
+          &lt;/p&gt;
+
+          &lt;p&gt;
+            &lt;label for=&#34;reg-password&#34;&gt;Password&lt;/label&gt;
+            &lt;input id=&#34;reg-password&#34; name=&#34;password&#34; type=&#34;password&#34; autocomplete=&#34;new-password&#34; required aria-describedby=&#34;reg-password-hint&#34;&gt;
+            &lt;small id=&#34;reg-password-hint&#34; class=&#34;field-hint&#34;&gt;At least 12 characters.&lt;/small&gt;
+          &lt;/p&gt;
+        &lt;/fieldset&gt;
+
+        &lt;fieldset&gt;
+          &lt;legend&gt;Preferences&lt;/legend&gt;
+
+          &lt;label class=&#34;switch&#34;&gt;
+            &lt;input type=&#34;checkbox&#34; name=&#34;weekly-digest&#34; role=&#34;switch&#34; checked /&gt;
+            Weekly digest
+          &lt;/label&gt;
+
+          &lt;label&gt;
+            &lt;input type=&#34;checkbox&#34; name=&#34;terms&#34; value=&#34;agreed&#34; required /&gt;
+            I agree to the terms of service
+          &lt;/label&gt;
+        &lt;/fieldset&gt;
+
+        &lt;footer class=&#34;actions&#34;&gt;
+          &lt;button type=&#34;button&#34; class=&#34;btn-outline&#34;&gt;Cancel&lt;/button&gt;
+          &lt;button type=&#34;submit&#34;&gt;Create account&lt;/button&gt;
+        &lt;/footer&gt;
+      &lt;/form&gt;
+      </pre>
+      </details>
+    </div>
+
+    <div class="pattern">
+      <hgroup>
+        <h3>Product search</h3>
+        <p>Two filters in a two-up row, an actions row to run it, and clearing the filters as a tertiary link. A search bar is not one row of controls — the query carries the search, the category only narrows it, and stacking the labels keeps them readable at any width.</p>
+      </hgroup>
+
+      
+
+      
+      <form class="form-wide">
+        <div class="grid-2">
           <p>
             <label for="search-query">Search</label>
-            <input type="search" id="search-query" name="query" placeholder="What are you looking for?" />
+            <input id="search-query" name="query" type="search" placeholder="Try &ldquo;adaptive learning&rdquo;">
           </p>
 
           <p>
-            <label for="category">Category</label>
-            <select id="category" name="category">
-              <option value="">All Categories</option>
+            <label for="search-category">Category</label>
+            <select id="search-category" name="category">
+              <option value="">All categories</option>
               <option value="electronics">Electronics</option>
               <option value="clothing">Clothing</option>
               <option value="books">Books</option>
-              <option value="home">Home & Garden</option>
-              <option value="sports">Sports</option>
             </select>
           </p>
         </div>
 
-        <div class="flex-stretch gap">
-          <p>
-            <label for="min-price">Min Price ($)</label>
-            <input type="number" id="min-price" name="minPrice" min="0" step="0.01" placeholder="0.00" />
-          </p>
-
-          <p>
-            <label for="max-price">Max Price ($)</label>
-            <input type="number" id="max-price" name="maxPrice" min="0" step="0.01" placeholder="999.99" />
-          </p>
-        </div>
-
-        <p>
-          <label>
-            <input type="checkbox" name="free-shipping" value="yes" /> Free Shipping Only
-          </label>
-        </p>
-
         <footer class="actions">
-          <button type="submit" class="btn">Search Products</button>
-          <button type="reset" class="btn btn-outline">Clear Filters</button>
+          <a href="#">Clear filters</a>
+          <button type="submit">Search products</button>
         </footer>
-      </fieldset>
-    </form>
-  </div>
-  
+      </form>
+      
 
-  <br />
-
-  <details>
-    <summary>Example Code</summary>
-    <pre>
-  &lt;div class=&#34;form-container&#34; style=&#34;width: 600px;&#34;&gt;
-    &lt;form&gt;
-      &lt;fieldset&gt;
-        &lt;legend&gt;Find Products&lt;/legend&gt;
-
-        &lt;div class=&#34;flex-stretch gap&#34;&gt;
+      <details>
+        <summary>Example code</summary>
+        <pre>
+      &lt;form class=&#34;form-wide&#34;&gt;
+        &lt;div class=&#34;grid-2&#34;&gt;
           &lt;p&gt;
             &lt;label for=&#34;search-query&#34;&gt;Search&lt;/label&gt;
-            &lt;input type=&#34;search&#34; id=&#34;search-query&#34; name=&#34;query&#34; placeholder=&#34;What are you looking for?&#34; /&gt;
+            &lt;input id=&#34;search-query&#34; name=&#34;query&#34; type=&#34;search&#34; placeholder=&#34;Try &amp;ldquo;adaptive learning&amp;rdquo;&#34;&gt;
           &lt;/p&gt;
 
           &lt;p&gt;
-            &lt;label for=&#34;category&#34;&gt;Category&lt;/label&gt;
-            &lt;select id=&#34;category&#34; name=&#34;category&#34;&gt;
-              &lt;option value=&#34;&#34;&gt;All Categories&lt;/option&gt;
+            &lt;label for=&#34;search-category&#34;&gt;Category&lt;/label&gt;
+            &lt;select id=&#34;search-category&#34; name=&#34;category&#34;&gt;
+              &lt;option value=&#34;&#34;&gt;All categories&lt;/option&gt;
               &lt;option value=&#34;electronics&#34;&gt;Electronics&lt;/option&gt;
               &lt;option value=&#34;clothing&#34;&gt;Clothing&lt;/option&gt;
               &lt;option value=&#34;books&#34;&gt;Books&lt;/option&gt;
-              &lt;option value=&#34;home&#34;&gt;Home &amp; Garden&lt;/option&gt;
-              &lt;option value=&#34;sports&#34;&gt;Sports&lt;/option&gt;
             &lt;/select&gt;
           &lt;/p&gt;
         &lt;/div&gt;
 
-        &lt;div class=&#34;flex-stretch gap&#34;&gt;
-          &lt;p&gt;
-            &lt;label for=&#34;min-price&#34;&gt;Min Price ($)&lt;/label&gt;
-            &lt;input type=&#34;number&#34; id=&#34;min-price&#34; name=&#34;minPrice&#34; min=&#34;0&#34; step=&#34;0.01&#34; placeholder=&#34;0.00&#34; /&gt;
-          &lt;/p&gt;
-
-          &lt;p&gt;
-            &lt;label for=&#34;max-price&#34;&gt;Max Price ($)&lt;/label&gt;
-            &lt;input type=&#34;number&#34; id=&#34;max-price&#34; name=&#34;maxPrice&#34; min=&#34;0&#34; step=&#34;0.01&#34; placeholder=&#34;999.99&#34; /&gt;
-          &lt;/p&gt;
-        &lt;/div&gt;
-
-        &lt;p&gt;
-          &lt;label&gt;
-            &lt;input type=&#34;checkbox&#34; name=&#34;free-shipping&#34; value=&#34;yes&#34; /&gt; Free Shipping Only
-          &lt;/label&gt;
-        &lt;/p&gt;
-
         &lt;footer class=&#34;actions&#34;&gt;
-          &lt;button type=&#34;submit&#34; class=&#34;btn&#34;&gt;Search Products&lt;/button&gt;
-          &lt;button type=&#34;reset&#34; class=&#34;btn btn-outline&#34;&gt;Clear Filters&lt;/button&gt;
+          &lt;a href=&#34;#&#34;&gt;Clear filters&lt;/a&gt;
+          &lt;button type=&#34;submit&#34;&gt;Search products&lt;/button&gt;
         &lt;/footer&gt;
-      &lt;/fieldset&gt;
-    &lt;/form&gt;
-  &lt;/div&gt;
-   </pre>
-  </details>
-
+      &lt;/form&gt;
+      </pre>
+      </details>
+    </div>
+  </section>
 </div>
 
         </main>
@@ -686,9 +964,12 @@
           window.localStorage.setItem('isLightTheme', isLightTheme);
       }
 
-      // init theme from localStorage
-      const isLightTheme = localStorage.getItem('isLightTheme') == 'true';
-      console.log({ isLightTheme })
+      // init theme from localStorage, falling back to the OS preference.
+      // Absent storage means first visit, which should not default to dark.
+      const storedTheme = localStorage.getItem('isLightTheme');
+      const isLightTheme = storedTheme === null
+          ? !window.matchMedia('(prefers-color-scheme: dark)').matches
+          : storedTheme === 'true';
       setTheme(isLightTheme)
 
       // set theme

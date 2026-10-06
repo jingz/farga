@@ -6,11 +6,11 @@
   gap: 0.5rem;
   padding: 0.5rem 0.75rem;
   box-sizing: border-box;
-  border: 1px solid #e5e5e5;
-  border-radius: 8px;
+  border: 1px solid var(--border-color-muted);
+  border-radius: var(--radius-lg);
   margin-bottom: 1rem;
   background-color: var(--bg-primary);
-  color: #000;
+  color: var(--text-color-primary);
 
   &::before {
     display: inline-flex;
@@ -59,6 +59,20 @@
     }
   }
 
+  &.danger {
+    border-color: var(--danger-color);
+    background-color: var(--bg-danger-color);
+    color: var(--danger-color);
+
+    h1, h2, h3, h4 {
+      color: var(--danger-color);
+    }
+
+    p {
+      color: var(--danger-color);
+    }
+  }
+
   &.success::before {
     content: "✓";
     font-size: var(--fs-1);
@@ -76,10 +90,16 @@
     min-width: 0;
   }
 
+  /* an alert can carry a list — an error summary usually does */
+  ul {
+    margin: 0.25rem 0 0;
+    padding-left: 1.1rem;
+  }
+
   h1, h2, h3, h4 {
     margin: 0;
     background-color: transparent;
-    color: #000;
+    color: var(--text-color-primary);
     font-family: var(--sans-serif-fonts);
     font-size: var(--fs-2);
     font-weight: 700;
@@ -89,24 +109,11 @@
   p {
     margin: 0;
     background-color: transparent;
-    color: #737373;
+    color: var(--text-color-muted);
     line-height: var(--base-line-height);
   }
 
   p + p {
     margin-top: 0.5rem;
-  }
-}
-
-body.dark-mode .alert {
-  border-color: var(--border-color-primary);
-  color: var(--text-color-primary);
-
-  h1, h2, h3, h4 {
-    color: var(--text-color-primary);
-  }
-
-  p {
-    color: var(--text-color-muted);
   }
 }

@@ -9,8 +9,20 @@
 nav.basic {
   display: flex;
   justify-content: space-between;
-  align-items: space-between;
   width: 100%;
+
+  @media (max-width: 720px) {
+    /* the dropdown leaves the flow and hangs past a narrow viewport; let it
+     * expand in place instead */
+    details ul {
+      position: static;
+      margin: 0;
+      border: 0;
+      background: none;
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
 
   ul {
     display: flex;
@@ -21,7 +33,7 @@ nav.basic {
       padding: button.$btn-padding;
       cursor: pointer;
       color: var(--color-primary);
-      border-radius: 5px;
+      border-radius: var(--radius);
 
       list-style: none;
 
@@ -90,6 +102,10 @@ nav.basic {
 nav.sidemenu {
   min-width: 180px;
   overflow-y: auto;
+
+  @media (max-width: 720px) {
+    min-width: 0;
+  }
 
   /* menu group name */
   p {
@@ -188,38 +204,71 @@ nav.tab {
   ul {
     display: flex;
     margin: 0;
+    /* the tab row cannot wrap; let it scroll rather than push the page wide */
+    overflow-x: auto;
+    /* the rail the active tab's bar sits on */
+    border-bottom: 1px solid var(--border-color-muted);
 
     li {
       list-style: none;
 
+      /* Active tab: the bar paints inside the item as an inset shadow, so it
+       * lands flush on the rail and the label never moves. The bold weight is
+       * what makes the state readable — a bar alone is the same colour as
+       * every other tab's text. */
       &.active {
-        border-bottom: 0;
-        border-bottom: 2px solid var(--color-primary);
+        box-shadow: inset 0 -2px 0 var(--color-primary);
+
+        a {
+          font-weight: bold;
+        }
       }
 
       a {
         @extend %menu-link-padding;
         display: block;
+
+        &:hover {
+          background-color: var(--bg-summary-hover);
+        }
       }
     }
+  }
+
+  /* a panel under a tab bar supplies its own top edge; do not double the rail */
+  ul + section {
+    border-top: 0;
   }
 
   section {
     margin: 0;
     padding: 8px 12px;
-    border-top: 1px solid var(--text-color-primary);
+    border-top: 1px solid var(--border-color-muted);
   }
 
   &.tab-radio {
     display: flex;
     flex-wrap: wrap;
 
-    /* input x label */
+    /* input x label: the radio stays focusable so the group is reachable by
+     * keyboard (Tab, then arrow keys) and to screen readers */
     input[type="radio"] {
-      display: none;
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      clip-path: inset(50%);
+      white-space: nowrap;
 
       &:checked + label {
         border-bottom: 2px solid var(--color-primary);
+        font-weight: bold;
+      }
+
+      &:focus-visible + label {
+        outline: 2px solid var(--color-primary);
+        outline-offset: -2px;
       }
 
       &:checked + label + section {
@@ -227,22 +276,17 @@ nav.tab {
       }
     }
 
-    label:first-of-type {
-
-      &:after {
-        width: 10px;
-        display: block;
-        border: 1px solid red;
-      }
-    }
-
     label {
       @extend %menu-link-padding;
       display: block;
+
+      &:hover {
+        background-color: var(--bg-summary-hover);
+      }
     }
 
     section {
-      border-top: 1px solid var(--text-color-primary);
+      border-top: 1px solid var(--border-color-muted);
       display: none;
       padding: 8px 10px;
       flex-grow: 1;
@@ -259,26 +303,29 @@ nav.breadcrumbs {
   ul {
     display: flex;
 
+    @media (max-width: 720px) {
+      flex-wrap: wrap;
+    }
+
     li {
       display: flex;
       align-items: baseline;
       list-style: none;
 
-      &.active { }
-
       &:not(:last-child):after {
         content: " / ";
       }
 
+      /* the current page is a <span aria-current="page">, or a link when it
+       * still points somewhere the user can go. Both need the same padding as
+       * the other items, or the last crumb sits high and to the left. */
       &:last-child {
-        a {
+        a, span {
+          @extend %menu-link-padding;
+
           color: var(--text-color-muted);
           cursor: default;
-
-          &:hover {
-            text-decoration: none;
-            pointer-events: none;
-          }
+          text-decoration: none;
         }
       }
 
@@ -300,17 +347,25 @@ nav.pagination {
   ul {
     display: flex;
 
+    @media (max-width: 720px) {
+      /* these rows cannot shrink; wrapping beats widening the page */
+      flex-wrap: wrap;
+    }
+
     li {
       display: flex;
       align-items: baseline;
       list-style: none;
-      margin-right: 0.2rem;
+      margin-right: 0.25rem;
 
+      /* Disabled pages are <span aria-disabled="true">. Styling the anchor
+       * case too keeps a stray <a href="#"> from looking enabled, but it is
+       * never disabled by pointer-events alone: that blocks the mouse while
+       * leaving the keyboard able to activate it. */
       &.disabled {
-        a {
+        a, span {
           color: var(--text-color-muted);
           cursor: default;
-          pointer-events: none;
         }
       }
 
@@ -324,6 +379,9 @@ nav.pagination {
       /* for ... */
       span {
         @extend %menu-link-padding;
+
+        /* transparent border so a span lines up with the bordered links */
+        border: 1px solid transparent;
         display: block;
       }
 
@@ -331,7 +389,7 @@ nav.pagination {
         @extend %menu-link-padding;
         text-decoration: none;
         border: 1px solid var(--dim);
-        border-radius: 5px;
+        border-radius: var(--radius);
 
         color: var(--color-primary);
         display: block;

@@ -4,21 +4,20 @@
 <div>
   <hgroup>
     <h1>Drawer Component</h1>
-    <p>A CSS-only right-side drawer toggled by a hidden checkbox. No JavaScript required.</p>
+    <p>A right-side drawer built on the native popover API. No JavaScript, and the browser supplies Escape, outside-click dismissal and focus return.</p>
   </hgroup>
 
   <h2>Interactive Example</h2>
-  <p>Click the button below to slide the panel in from the right. Close it with the backdrop or the close button.</p>
+  <p>Activate the button to slide the panel in. Close it with the close button, <kbd>Esc</kbd>, or a click outside.</p>
 
   {% set drawer_example %}
-<div class="drawer">
-  <input type="checkbox" id="demo-drawer" class="drawer-toggle" />
-  <label for="demo-drawer" class="btn btn-small">Open Drawer</label>
-  <label for="demo-drawer" class="drawer-backdrop" aria-hidden="true"></label>
-  <aside class="drawer-panel" role="dialog" aria-label="Demo drawer">
+<div>
+  <button type="button" class="btn btn-small" popovertarget="demo-drawer">Open Drawer</button>
+
+  <aside id="demo-drawer" popover class="drawer-panel" role="dialog" aria-label="Filters">
     <header class="drawer-header">
       <h3>Filters</h3>
-      <label for="demo-drawer" class="drawer-close" aria-label="Close">&times;</label>
+      <button type="button" class="drawer-close" popovertarget="demo-drawer" popovertargetaction="hide" aria-label="Close">&times;</button>
     </header>
     <form>
       <label>Keyword

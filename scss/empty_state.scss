@@ -1,0 +1,41 @@
+@use 'base';
+
+/* Empty state: shown when a list, table, search or inbox has nothing to show.
+ * Never leave the blank surface bare — name what would appear here and offer
+ * the action that creates it.
+ *
+ * Markup:
+ *   <div class="empty-state">
+ *     <h3>No saved words yet</h3>
+ *     <p>Words you save while reading will show up here.</p>
+ *     <a class="btn btn-small" href="...">Browse today's words</a>
+ *   </div>
+ */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--px-n1);
+  padding: var(--px-p2) var(--px-0);
+  border: 1px solid var(--border-color-muted);
+  border-radius: var(--radius-lg);
+  background-color: var(--bg-primary-alt);
+  text-align: center;
+
+  svg {
+    color: var(--text-color-muted);
+  }
+
+  h1, h2, h3, h4 {
+    margin: 0;
+    font-family: var(--serif-fonts);
+    font-size: var(--fs-4);
+  }
+
+  p {
+    margin: 0;
+    max-width: 45ch;
+    color: var(--text-color-muted);
+    line-height: var(--base-line-height);
+  }
+}

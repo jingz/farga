@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>Farga Documentation</title>
     <link rel="icon" type="image/x-icon" href="./assets/olives-16px.ico">
@@ -13,9 +13,12 @@
         pre {
           font-size: 0.8rem;
           background-color: var(--dim);
-          border-radius: 5px;
+          border-radius: var(--radius);
           padding: 0.8rem;
-          width: 120ch;
+          /* max-width, not width: an explicit 120ch box cannot shrink and drags
+           * its container wider than a 320px viewport */
+          max-width: 100%;
+          box-sizing: border-box;
           overflow-x: auto;
         }
     }
@@ -27,11 +30,31 @@
     #side-menu {
         width: 28ch;
         border-right: 1px solid var(--grey-2);
-        height: 100vh;
+        height: 100dvh;
     }
 
     #main-container {
         padding: 0 1rem;
+    }
+
+    /* Page rhythm for pages built as <section> blocks: the sections space
+     * themselves, so no <br> spacers between demos. */
+    #main-container > div > section + section {
+        margin-top: 3rem;
+    }
+
+    #main-container > div > section > hgroup {
+        margin-bottom: 1.25rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid var(--border-color-muted);
+    }
+
+    #main-container > div > section > hgroup p {
+        max-width: 65ch;
+    }
+
+    #main-container > div > section > details {
+        margin-top: 1rem;
     }
     </style>
 
@@ -39,8 +62,8 @@
   <body>
     <div class="flex-sidebar fixed gap">
         <nav id="side-menu" class="sidemenu">
-          <hgroup class="flex" align="center">
-             <img width="48" src="./assets/olives.png" />
+          <hgroup class="flex items-center">
+             <img width="48" src="./assets/olives.png" alt="" />
              <h1> Farga </h1>
           </hgroup>
           <p>Farga Documentation</p>
@@ -49,7 +72,7 @@
               <li><a href="./color.html">Colors</a></li>
               <li><a href="./typography.html">Typography</a></li>
           </ul>
-          <details open>
+          <details>
             <summary>
               <span>Navigation</span>
             </summary>
@@ -61,7 +84,7 @@
               <li><a href="./pagination.html">Pagination</a></li>
             </ul>
           </details>
-          <details open>
+          <details>
             <summary>
               <span>Layout</span>
             </summary>
@@ -73,16 +96,16 @@
           <ul>
               <li><a href="./button.html">Buttons</a></li>
           </ul>
-          <details open>
+          <details>
             <summary>
               <span>Form</span>
             </summary>
             <ul>
-              <li><a href="./form.html">Form Basic</a></li>
+              <li><a href="./form.html">Form Controls</a></li>
               <li><a href="./form_with_layout.html">Form Layouts</a></li>
             </ul>
           </details>
-          <details open>
+          <details>
             <summary>
               <span>Tables</span>
             </summary>
@@ -92,16 +115,16 @@
               <li><a href="./fixed_first_column_table.html">Fixed First Column Table</a></li>
             </ul>
           </details>
-          <details open>
+          <details>
             <summary>
               <span>Components</span>
             </summary>
             <ul>
               <li><a href="./accordion.html">Accordion</a></li>
               <li><a href="./card.html">Card</a></li>
-              <li><a href="./flashcard.html">Flashcard</a></li>
               <li><a href="./badge.html">Badge</a></li>
               <li><a href="./detail.html">Detail List</a></li>
+              <li><a href="./empty_state.html">Empty state</a></li>
               <li><a href="./alert.html">Alert</a></li>
               <li><a href="./dialog.html">Dialog / Modal</a></li>
               <li><a href="./popover.html">Popover &amp; Tooltip</a></li>
@@ -115,7 +138,7 @@
             <ul>
               <li>
                   <a href="https://jingz.github.io/farga/site/index.html" target="_blank">
-                      <img src="./assets/github-mark.svg" width="14px;" />
+                      <img src="./assets/github-mark.svg" alt="" width="14" />
                       GitHub
                   </a>
               </li>
@@ -141,35 +164,35 @@
   
 
   
-  <div class="overflow-auto" style="width: 500px; overflow-xy: auto; margin-left: 1rem;">
+  <div class="overflow-auto" style="max-width: 500px; margin-left: 1rem;">
     <table class="fixed-first-col">
        <thead>
             <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Type</th>
-                <th>Region</th>
-                <th>Status</th>
-                <th>Date 1</th>
-                <th>Value A</th>
-                <th>Value B</th>
-                <th>Flag X</th>
-                <th>Flag Y</th>
-                <th>Metric 1</th>
-                <th>Metric 2</th>
-                <th>Metric 3</th>
-                <th>Source</th>
-                <th>Owner</th>
-                <th>Department</th>
-                <th>Start Time</th>
-                <th>End Time</th>
-                <th>Config A</th>
-                <th>Config B</th>
-                <th>Notes</th>
-                <th>Link</th>
-                <th>Priority</th>
-                <th>Category</th>
-                <th>Action</th>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Region</th>
+                <th scope="col">Status</th>
+                <th scope="col">Date 1</th>
+                <th scope="col">Value A</th>
+                <th scope="col">Value B</th>
+                <th scope="col">Flag X</th>
+                <th scope="col">Flag Y</th>
+                <th scope="col">Metric 1</th>
+                <th scope="col">Metric 2</th>
+                <th scope="col">Metric 3</th>
+                <th scope="col">Source</th>
+                <th scope="col">Owner</th>
+                <th scope="col">Department</th>
+                <th scope="col">Start Time</th>
+                <th scope="col">End Time</th>
+                <th scope="col">Config A</th>
+                <th scope="col">Config B</th>
+                <th scope="col">Notes</th>
+                <th scope="col">Link</th>
+                <th scope="col">Priority</th>
+                <th scope="col">Category</th>
+                <th scope="col">Action</th>
             </tr>
         </thead>
         <tbody>
@@ -264,35 +287,35 @@
   <details open>
       <summary>Example Code</summary>
       <pre>
-  &lt;div class=&#34;overflow-auto&#34; style=&#34;width: 500px; overflow-xy: auto; margin-left: 1rem;&#34;&gt;
+  &lt;div class=&#34;overflow-auto&#34; style=&#34;max-width: 500px; margin-left: 1rem;&#34;&gt;
     &lt;table class=&#34;fixed-first-col&#34;&gt;
        &lt;thead&gt;
             &lt;tr&gt;
-                &lt;th&gt;ID&lt;/th&gt;
-                &lt;th&gt;Name&lt;/th&gt;
-                &lt;th&gt;Type&lt;/th&gt;
-                &lt;th&gt;Region&lt;/th&gt;
-                &lt;th&gt;Status&lt;/th&gt;
-                &lt;th&gt;Date 1&lt;/th&gt;
-                &lt;th&gt;Value A&lt;/th&gt;
-                &lt;th&gt;Value B&lt;/th&gt;
-                &lt;th&gt;Flag X&lt;/th&gt;
-                &lt;th&gt;Flag Y&lt;/th&gt;
-                &lt;th&gt;Metric 1&lt;/th&gt;
-                &lt;th&gt;Metric 2&lt;/th&gt;
-                &lt;th&gt;Metric 3&lt;/th&gt;
-                &lt;th&gt;Source&lt;/th&gt;
-                &lt;th&gt;Owner&lt;/th&gt;
-                &lt;th&gt;Department&lt;/th&gt;
-                &lt;th&gt;Start Time&lt;/th&gt;
-                &lt;th&gt;End Time&lt;/th&gt;
-                &lt;th&gt;Config A&lt;/th&gt;
-                &lt;th&gt;Config B&lt;/th&gt;
-                &lt;th&gt;Notes&lt;/th&gt;
-                &lt;th&gt;Link&lt;/th&gt;
-                &lt;th&gt;Priority&lt;/th&gt;
-                &lt;th&gt;Category&lt;/th&gt;
-                &lt;th&gt;Action&lt;/th&gt;
+                &lt;th scope=&#34;col&#34;&gt;ID&lt;/th&gt;
+                &lt;th scope=&#34;col&#34;&gt;Name&lt;/th&gt;
+                &lt;th scope=&#34;col&#34;&gt;Type&lt;/th&gt;
+                &lt;th scope=&#34;col&#34;&gt;Region&lt;/th&gt;
+                &lt;th scope=&#34;col&#34;&gt;Status&lt;/th&gt;
+                &lt;th scope=&#34;col&#34;&gt;Date 1&lt;/th&gt;
+                &lt;th scope=&#34;col&#34;&gt;Value A&lt;/th&gt;
+                &lt;th scope=&#34;col&#34;&gt;Value B&lt;/th&gt;
+                &lt;th scope=&#34;col&#34;&gt;Flag X&lt;/th&gt;
+                &lt;th scope=&#34;col&#34;&gt;Flag Y&lt;/th&gt;
+                &lt;th scope=&#34;col&#34;&gt;Metric 1&lt;/th&gt;
+                &lt;th scope=&#34;col&#34;&gt;Metric 2&lt;/th&gt;
+                &lt;th scope=&#34;col&#34;&gt;Metric 3&lt;/th&gt;
+                &lt;th scope=&#34;col&#34;&gt;Source&lt;/th&gt;
+                &lt;th scope=&#34;col&#34;&gt;Owner&lt;/th&gt;
+                &lt;th scope=&#34;col&#34;&gt;Department&lt;/th&gt;
+                &lt;th scope=&#34;col&#34;&gt;Start Time&lt;/th&gt;
+                &lt;th scope=&#34;col&#34;&gt;End Time&lt;/th&gt;
+                &lt;th scope=&#34;col&#34;&gt;Config A&lt;/th&gt;
+                &lt;th scope=&#34;col&#34;&gt;Config B&lt;/th&gt;
+                &lt;th scope=&#34;col&#34;&gt;Notes&lt;/th&gt;
+                &lt;th scope=&#34;col&#34;&gt;Link&lt;/th&gt;
+                &lt;th scope=&#34;col&#34;&gt;Priority&lt;/th&gt;
+                &lt;th scope=&#34;col&#34;&gt;Category&lt;/th&gt;
+                &lt;th scope=&#34;col&#34;&gt;Action&lt;/th&gt;
             &lt;/tr&gt;
         &lt;/thead&gt;
         &lt;tbody&gt;
@@ -409,9 +432,12 @@
           window.localStorage.setItem('isLightTheme', isLightTheme);
       }
 
-      // init theme from localStorage
-      const isLightTheme = localStorage.getItem('isLightTheme') == 'true';
-      console.log({ isLightTheme })
+      // init theme from localStorage, falling back to the OS preference.
+      // Absent storage means first visit, which should not default to dark.
+      const storedTheme = localStorage.getItem('isLightTheme');
+      const isLightTheme = storedTheme === null
+          ? !window.matchMedia('(prefers-color-scheme: dark)').matches
+          : storedTheme === 'true';
       setTheme(isLightTheme)
 
       // set theme

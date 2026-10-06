@@ -1,12 +1,5 @@
 {% extends "layout/base.html" %}
 
-{% block inline_style %}
-#card-1 {
-    width: 500px;
-    border: 1px solid black;
-}
-{% endblock %}
-
 {% block content %}
 <div>
   <hgroup>
@@ -15,7 +8,7 @@
   </hgroup>
 
   {% set card %}
-  <article id="card-1" class="card">
+  <article class="card">
       <h2>Card</h2>
       <p>This is content of the card.</p>
   </article>{% endset %}

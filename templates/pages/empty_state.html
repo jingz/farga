@@ -1,0 +1,53 @@
+{% extends "layout/base.html" %}
+
+{% block content %}
+<div>
+  <hgroup>
+    <h1>Empty State</h1>
+    <p>Shown when a list, table, search or inbox has nothing to display. A blank surface tells the user nothing: name what would appear here and offer the action that creates it.</p>
+  </hgroup>
+
+  <h2>Basic</h2>
+
+  {% set empty_example %}
+<div class="empty-state">
+  <h3>No saved words yet</h3>
+  <p>Words you save while reading will show up here, newest first.</p>
+  <a class="btn btn-small" href="#">Browse today's words</a>
+</div>{% endset %}
+
+  {{ empty_example }}
+
+  <br/>
+
+  <details open>
+    <summary>Example Code</summary>
+    <pre>{{ empty_example | e }}</pre>
+  </details>
+
+  <h2>With Icon</h2>
+
+  {% set empty_icon_example %}
+<div class="empty-state">
+  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M3 6h18" />
+    <path d="M19 6v14a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-14" />
+    <path d="M8 6v-2a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v2" />
+    <path d="M10 11v6" />
+    <path d="M14 11v6" />
+  </svg>
+  <h3>No results for "quixotic"</h3>
+  <p>Check the spelling, or search a shorter form of the word.</p>
+  <a class="btn btn-small btn-outline" href="#">Clear filters</a>
+</div>{% endset %}
+
+  {{ empty_icon_example }}
+
+  <br/>
+
+  <details open>
+    <summary>Example Code</summary>
+    <pre>{{ empty_icon_example | e }}</pre>
+  </details>
+</div>
+{% endblock %}

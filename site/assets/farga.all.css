@@ -7,7 +7,7 @@
   --monospace-fonts: "Lucida Console", "Monaco", monospace;
   --fantasy-fonts: Papyrus,fantasy;
   --cursive-fonts: 'Brush Script MT', cursive;
-  --base-font-size: $base-font-size;
+  --base-font-size: 14px;
   --base-line-height: 1.5;
   --base-line-height-head: 1;
   --base-line-height-small: 1.75;
@@ -224,7 +224,9 @@
   --color-secondary-accent: var(--secondary-9);
   --text-color-primary: var(--grey-9);
   --text-color-secondary: white;
-  --text-color-muted: var(--grey-6);
+  /* grey-7, not grey-6: grey-6 measured 3.98:1 on white, under the 4.5:1 text
+   * floor. Still clearly lighter than --text-color-primary (11.26:1). */
+  --text-color-muted: var(--grey-7);
   --bg-primary: white;
   --bg-primary-alt: var(--grey-0);
   /* action colors */
@@ -241,19 +243,46 @@
   --bg-summary-open: var(--grey-0);
   --border-nested-link: var(--grey-3);
   /* form */
-  --bg-toggle-color: var(--grey-3);
+  /* grey-6 clears 3:1 against both the page and the knob; grey-5 measured 2.94:1 */
+  --bg-toggle-color: var(--grey-6);
   --bg-input-color: var(--grey-a);
   --success-color: var(--green-9);
   --bg-success-color: var(--green-2);
-  --danger-color: var(--red-7);
+  /* red-8 and blue-8, not red-7/blue-7: the 7 shades measure 4.04:1 and 3.74:1
+   * on their own tint backgrounds, below the 4.5:1 text floor. */
+  --danger-color: var(--red-8);
   --bg-danger-color: var(--red-2);
-  --info-color: var(--blue-7);
+  --info-color: var(--blue-8);
   --bg-info-color: var(--blue-2);
   --warning-color: var(--yellow-9);
   --bg-warning-color: var(--yellow-2);
+  --disabled-color: var(--grey-7);
+  --bg-disabled-color: var(--grey-1);
   /* ---------------------------------------------- */
   /* config variable */
   --fixed-sidebar-w: 25ch;
+  /* Width of a form column. See .form in form.scss. */
+  --form-w: 36rem;
+  /* A row of two or three controls needs a wider column than one field per row. */
+  --form-w-wide: 48rem;
+  /* Minimum height of a button, input or menu row.
+   * 2rem clears the 24px WCAG 2.2 target minimum; raise to 2.75rem for the 44px AAA target. */
+  --control-h: 2rem;
+  /* One radius per tier. Controls sit next to each other in every form, so
+   * inputs and buttons must not disagree. Pill shapes (switch track, avatar,
+   * alert dot) stay their own thing. */
+  --radius: 0.5rem; /* buttons, inputs, badges, nav rows, tooltips */
+  --radius-lg: 0.75rem; /* cards, panels, dialogs, popovers, alerts */
+  /* One overhead light source, five depths, tinted with the brand hue rather
+   * than flat black. --shadow-panel is elevation 5 cast left by a side panel. */
+  --shadow-1: 0 1px 3px rgba(35, 61, 95, 0.12);
+  --shadow-2: 0 4px 6px rgba(35, 61, 95, 0.12);
+  --shadow-3: 0 5px 15px rgba(35, 61, 95, 0.15);
+  --shadow-4: 0 10px 24px rgba(35, 61, 95, 0.15);
+  --shadow-5: 0 15px 35px rgba(35, 61, 95, 0.18);
+  --shadow-panel: -8px 0 24px rgba(35, 61, 95, 0.15);
+  /* One scrim behind every modal surface. */
+  --backdrop: rgba(0, 0, 0, 0.35);
 }
 
 body.dark-mode {
@@ -280,13 +309,15 @@ body.dark-mode {
   --bg-toggle-color: var(--grey-6);
   --bg-input-color: var(--grey-11);
   --success-color: var(--green-2);
-  --bg-success-color: var(--green-8);
+  /* darker tints than light mode: green-2 on green-8 was 3.35:1, red-2 on red-7
+   * 4.04:1, blue-2 on blue-7 3.74:1, yellow-2 on yellow-8 4.09:1 — all under 4.5:1 */
+  --bg-success-color: var(--green-9);
   --danger-color: var(--red-2);
-  --bg-danger-color: var(--red-7);
+  --bg-danger-color: var(--red-8);
   --info-color: var(--blue-2);
-  --bg-info-color: var(--blue-7);
+  --bg-info-color: var(--blue-8);
   --warning-color: var(--yellow-2);
-  --bg-warning-color: var(--yellow-8);
+  --bg-warning-color: var(--yellow-9);
   --disabled-color: var(--grey-5);
   --bg-disabled-color: var(--grey-10);
 }
@@ -297,6 +328,19 @@ ul {
   padding: 0;
 }
 
+/* One visible focus ring for every interactive element, at zero specificity so
+ * components can override it. Never remove it without a replacement. */
+:where(a, button, summary, input, select, textarea, [tabindex]):focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
 body, div, section, main, p {
   font-size: var(--fs-2);
   color: var(--text-color-primary);
@@ -304,6 +348,8 @@ body, div, section, main, p {
 
 body {
   background-color: var(--bg-primary);
+  /* inherited line height keeps control and menu-row heights deterministic */
+  line-height: var(--base-line-height);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -414,19 +460,18 @@ form input[type=submit], button, .btn {
   color: var(--primary-0);
   padding: 8px 10px;
   font-size: 14px;
+  /* form controls do not inherit line-height from the UA `font` shorthand */
+  line-height: var(--base-line-height);
+  min-height: var(--control-h);
   border: 0;
   cursor: pointer;
-  border-radius: 0.5rem;
+  border-radius: var(--radius);
   transition: background-color 150ms ease-in-out, border-color 150ms ease-in-out, color 150ms ease-in-out;
 }
 
 button:hover, .btn:hover {
   background-color: var(--primary-hover);
   color: var(--primary-0);
-}
-button:focus-visible, .btn:focus-visible {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 2px;
 }
 button.btn-secondary, .btn.btn-secondary {
   background-color: var(--secondary);
@@ -454,27 +499,34 @@ button.btn-danger:hover, .btn.btn-danger:hover {
 }
 button.btn-danger-outline, .btn.btn-danger-outline {
   background-color: var(--bg-primary);
-  border: 1px solid var(--red-4);
-  color: var(--red-4);
+  border: 1px solid var(--danger-color);
+  color: var(--danger-color);
 }
 button.btn-danger-outline:hover, .btn.btn-danger-outline:hover {
-  background-color: var(--red-0);
+  background-color: var(--bg-danger-color);
+}
+button, .btn {
+  /* The green ramp at 80% saturation is bright at equal HSL lightness, so
+   * green-7 (41%) under a green-0 label measures only 2.40:1. Green-9 is the
+   * one shade that clears 4.5:1 without changing the label, and it is used
+   * directly rather than via --success-color so it stays fixed across themes. */
 }
 button.btn-success, .btn.btn-success {
-  background-color: var(--green-7);
+  background-color: var(--green-9);
   color: var(--green-0);
 }
 button.btn-success:hover, .btn.btn-success:hover {
   color: var(--green-0);
-  background-color: var(--green-8);
+  /* no darker ramp shade exists, so darken the fill itself */
+  background-color: color-mix(in oklab, var(--green-9) 85%, black);
 }
 button.btn-success-outline, .btn.btn-success-outline {
   background-color: var(--bg-primary);
-  border: 1px solid var(--green-7);
-  color: var(--green-7);
+  border: 1px solid var(--success-color);
+  color: var(--success-color);
 }
 button.btn-success-outline:hover, .btn.btn-success-outline:hover {
-  background-color: var(--green-0);
+  background-color: var(--bg-success-color);
 }
 button.btn-outline, .btn.btn-outline {
   background-color: var(--bg-primary);
@@ -538,7 +590,7 @@ a.btn.btn-danger:link, a.btn.btn-danger:visited {
 }
 
 a.btn.btn-danger-outline:link, a.btn.btn-danger-outline:visited {
-  color: var(--red-4);
+  color: var(--danger-color);
 }
 
 a.btn.btn-success:link, a.btn.btn-success:visited {
@@ -546,19 +598,13 @@ a.btn.btn-success:link, a.btn.btn-success:visited {
 }
 
 a.btn.btn-success-outline:link, a.btn.btn-success-outline:visited {
-  color: var(--green-7);
+  color: var(--success-color);
 }
 
 a.btn.btn-outline:link, a.btn.btn-outline:visited {
   color: var(--color-primary);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  button,
-  .btn {
-    transition: none;
-  }
-}
 a:link {
   color: var(--color-primary);
 }
@@ -566,7 +612,7 @@ a:visited {
   color: var(--color-primary-accent);
 }
 
-nav.pagination ul li a, nav.pagination ul li span, nav.breadcrumbs ul li a, nav.tab.tab-radio label, nav.tab ul li a, nav.sidemenu ul li a, nav.sidemenu details ul li, nav.sidemenu details summary {
+nav.pagination ul li a, nav.pagination ul li span, nav.breadcrumbs ul li a, nav.breadcrumbs ul li:last-child a, nav.breadcrumbs ul li:last-child span, nav.tab.tab-radio label, nav.tab ul li a, nav.sidemenu ul li a, nav.sidemenu details ul li, nav.sidemenu details summary {
   padding: 6px 10px;
   cursor: pointer;
 }
@@ -574,8 +620,21 @@ nav.pagination ul li a, nav.pagination ul li span, nav.breadcrumbs ul li a, nav.
 nav.basic {
   display: flex;
   justify-content: space-between;
-  align-items: space-between;
   width: 100%;
+}
+@media (max-width: 720px) {
+  nav.basic {
+    /* the dropdown leaves the flow and hangs past a narrow viewport; let it
+     * expand in place instead */
+  }
+  nav.basic details ul {
+    position: static;
+    margin: 0;
+    border: 0;
+    background: none;
+    display: flex;
+    flex-wrap: wrap;
+  }
 }
 nav.basic ul {
   display: flex;
@@ -586,7 +645,7 @@ nav.basic ul li {
   padding: 8px 10px;
   cursor: pointer;
   color: var(--color-primary);
-  border-radius: 5px;
+  border-radius: var(--radius);
   list-style: none;
 }
 nav.basic ul li:hover {
@@ -636,6 +695,13 @@ nav.basic details ul li {
 nav.sidemenu {
   min-width: 180px;
   overflow-y: auto;
+}
+@media (max-width: 720px) {
+  nav.sidemenu {
+    min-width: 0;
+  }
+}
+nav.sidemenu {
   /* menu group name */
 }
 nav.sidemenu p {
@@ -703,46 +769,75 @@ nav.sidemenu ul li a:visited {
 nav.tab ul {
   display: flex;
   margin: 0;
+  /* the tab row cannot wrap; let it scroll rather than push the page wide */
+  overflow-x: auto;
+  /* the rail the active tab's bar sits on */
+  border-bottom: 1px solid var(--border-color-muted);
 }
 nav.tab ul li {
   list-style: none;
+  /* Active tab: the bar paints inside the item as an inset shadow, so it
+   * lands flush on the rail and the label never moves. The bold weight is
+   * what makes the state readable — a bar alone is the same colour as
+   * every other tab's text. */
 }
 nav.tab ul li.active {
-  border-bottom: 0;
-  border-bottom: 2px solid var(--color-primary);
+  box-shadow: inset 0 -2px 0 var(--color-primary);
+}
+nav.tab ul li.active a {
+  font-weight: bold;
 }
 nav.tab ul li a {
   display: block;
 }
+nav.tab ul li a:hover {
+  background-color: var(--bg-summary-hover);
+}
+nav.tab {
+  /* a panel under a tab bar supplies its own top edge; do not double the rail */
+}
+nav.tab ul + section {
+  border-top: 0;
+}
 nav.tab section {
   margin: 0;
   padding: 8px 12px;
-  border-top: 1px solid var(--text-color-primary);
+  border-top: 1px solid var(--border-color-muted);
 }
 nav.tab.tab-radio {
   display: flex;
   flex-wrap: wrap;
-  /* input x label */
+  /* input x label: the radio stays focusable so the group is reachable by
+   * keyboard (Tab, then arrow keys) and to screen readers */
 }
 nav.tab.tab-radio input[type=radio] {
-  display: none;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 nav.tab.tab-radio input[type=radio]:checked + label {
   border-bottom: 2px solid var(--color-primary);
+  font-weight: bold;
+}
+nav.tab.tab-radio input[type=radio]:focus-visible + label {
+  outline: 2px solid var(--color-primary);
+  outline-offset: -2px;
 }
 nav.tab.tab-radio input[type=radio]:checked + label + section {
   display: block;
 }
-nav.tab.tab-radio label:first-of-type:after {
-  width: 10px;
-  display: block;
-  border: 1px solid red;
-}
 nav.tab.tab-radio label {
   display: block;
 }
+nav.tab.tab-radio label:hover {
+  background-color: var(--bg-summary-hover);
+}
 nav.tab.tab-radio section {
-  border-top: 1px solid var(--text-color-primary);
+  border-top: 1px solid var(--border-color-muted);
   display: none;
   padding: 8px 10px;
   flex-grow: 1;
@@ -754,6 +849,11 @@ nav.tab.tab-radio section {
 nav.breadcrumbs ul {
   display: flex;
 }
+@media (max-width: 720px) {
+  nav.breadcrumbs ul {
+    flex-wrap: wrap;
+  }
+}
 nav.breadcrumbs ul li {
   display: flex;
   align-items: baseline;
@@ -762,13 +862,15 @@ nav.breadcrumbs ul li {
 nav.breadcrumbs ul li:not(:last-child):after {
   content: " / ";
 }
-nav.breadcrumbs ul li:last-child a {
+nav.breadcrumbs ul li {
+  /* the current page is a <span aria-current="page">, or a link when it
+   * still points somewhere the user can go. Both need the same padding as
+   * the other items, or the last crumb sits high and to the left. */
+}
+nav.breadcrumbs ul li:last-child a, nav.breadcrumbs ul li:last-child span {
   color: var(--text-color-muted);
   cursor: default;
-}
-nav.breadcrumbs ul li:last-child a:hover {
   text-decoration: none;
-  pointer-events: none;
 }
 nav.breadcrumbs ul li a {
   color: var(--color-primary);
@@ -781,16 +883,25 @@ nav.breadcrumbs ul li a:hover {
 nav.pagination ul {
   display: flex;
 }
+@media (max-width: 720px) {
+  nav.pagination ul {
+    /* these rows cannot shrink; wrapping beats widening the page */
+    flex-wrap: wrap;
+  }
+}
 nav.pagination ul li {
   display: flex;
   align-items: baseline;
   list-style: none;
-  margin-right: 0.2rem;
+  margin-right: 0.25rem;
+  /* Disabled pages are <span aria-disabled="true">. Styling the anchor
+   * case too keeps a stray <a href="#"> from looking enabled, but it is
+   * never disabled by pointer-events alone: that blocks the mouse while
+   * leaving the keyboard able to activate it. */
 }
-nav.pagination ul li.disabled a {
+nav.pagination ul li.disabled a, nav.pagination ul li.disabled span {
   color: var(--text-color-muted);
   cursor: default;
-  pointer-events: none;
 }
 nav.pagination ul li.active a {
   background-color: var(--primary);
@@ -800,12 +911,14 @@ nav.pagination ul li {
   /* for ... */
 }
 nav.pagination ul li span {
+  /* transparent border so a span lines up with the bordered links */
+  border: 1px solid transparent;
   display: block;
 }
 nav.pagination ul li a {
   text-decoration: none;
   border: 1px solid var(--dim);
-  border-radius: 5px;
+  border-radius: var(--radius);
   color: var(--color-primary);
   display: block;
 }
@@ -815,50 +928,73 @@ nav.pagination ul li a:hover {
 }
 
 /* all css includes utilities */
-input:not([type=range]), select, textarea {
-  padding: 6px 10px;
-  border: 0;
-  border-radius: 5px;
-  color: var(--text-primary-color);
-  background-color: var(--bg-input-color);
+/* The form column: one field per row at a readable measure, wide enough for a
+ * two-up row, narrow enough that a field never stretches across a screen.
+ * Forms are centred by their page, not by this class. */
+.form {
+  max-width: var(--form-w);
 }
-input:not([type=range])[aria-invalid=false], select[aria-invalid=false], textarea[aria-invalid=false] {
+
+/* For a row of two or three controls, which need more room than one column. */
+.form-wide {
+  max-width: var(--form-w-wide);
+}
+
+/* Text-entry controls only. Checkboxes and radios are excluded deliberately:
+ * they render natively, so padding, a grey fill and --control-h would stretch
+ * them into a box that no longer lines up with its label. */
+input:not([type=range]):not([type=checkbox]):not([type=radio]), select, textarea {
+  padding: 6px 10px;
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  color: var(--text-color-primary);
+  background-color: var(--bg-input-color);
+  line-height: var(--base-line-height);
+  min-height: var(--control-h);
+  box-sizing: border-box;
+}
+input:not([type=range]):not([type=checkbox]):not([type=radio])[aria-invalid=false], select[aria-invalid=false], textarea[aria-invalid=false] {
   border: 1px solid var(--success-color);
 }
-input:not([type=range])[aria-invalid=false] + span, input:not([type=range])[aria-invalid=false] + small, select[aria-invalid=false] + span, select[aria-invalid=false] + small, textarea[aria-invalid=false] + span, textarea[aria-invalid=false] + small {
+input:not([type=range]):not([type=checkbox]):not([type=radio])[aria-invalid=false] + span, input:not([type=range]):not([type=checkbox]):not([type=radio])[aria-invalid=false] + small, select[aria-invalid=false] + span, select[aria-invalid=false] + small, textarea[aria-invalid=false] + span, textarea[aria-invalid=false] + small {
   color: var(--success-color);
 }
-input:not([type=range])[aria-invalid=true], select[aria-invalid=true], textarea[aria-invalid=true] {
+input:not([type=range]):not([type=checkbox]):not([type=radio])[aria-invalid=true], select[aria-invalid=true], textarea[aria-invalid=true] {
   border: 1px solid var(--danger-color);
 }
-input:not([type=range])[aria-invalid=true] + span, input:not([type=range])[aria-invalid=true] + small, select[aria-invalid=true] + span, select[aria-invalid=true] + small, textarea[aria-invalid=true] + span, textarea[aria-invalid=true] + small {
+input:not([type=range]):not([type=checkbox]):not([type=radio])[aria-invalid=true] + span, input:not([type=range]):not([type=checkbox]):not([type=radio])[aria-invalid=true] + small, select[aria-invalid=true] + span, select[aria-invalid=true] + small, textarea[aria-invalid=true] + span, textarea[aria-invalid=true] + small {
   color: var(--danger-color);
 }
-input:not([type=range]):placeholder, select:placeholder, textarea:placeholder {
+input:not([type=range]):not([type=checkbox]):not([type=radio])::placeholder, select::placeholder, textarea::placeholder {
   color: var(--text-color-muted);
 }
 
+/* Checkbox and radio: keep the native rendering, only size and align it.
+ * margin: 0 clears the UA's 3px/4px offset, which the label's gap replaces. */
+input[type=checkbox],
+input[type=radio] {
+  flex: 0 0 auto;
+  width: 1rem;
+  height: 1rem;
+  margin: 0;
+  accent-color: var(--primary);
+  cursor: pointer;
+}
+input[type=checkbox][disabled],
+input[type=radio][disabled] {
+  cursor: not-allowed;
+}
+
+/* The shared input rule above supplies padding, border, radius and colors.
+ * Only the chevron is added here. */
 select {
   appearance: none;
-  width: 8rem;
-  height: 2rem;
-  box-sizing: border-box;
-  padding: 0 2rem 0 0.625rem;
-  border: 1px solid #e5e5e5;
-  border-radius: 8px;
-  background-color: var(--bg-primary);
+  padding-right: 2rem;
+  cursor: pointer;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23737373' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6l6 -6'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 0.5rem center;
   background-size: 1.125rem;
-  color: #000;
-  font-family: var(--sans-serif-fonts);
-  font-size: var(--fs-3);
-}
-
-body.dark-mode select {
-  border-color: var(--border-color-primary);
-  color: var(--text-color-primary);
 }
 
 form {
@@ -876,16 +1012,30 @@ form label {
   font-size: 0.8rem;
 }
 form label:not(:first-of-type) {
-  margin-top: 0.8rem;
+  margin-top: 0.75rem;
+}
+form label {
+  /* a label that wraps a checkbox or radio: centre the control on the text
+   * line instead of letting it baseline-align with 12.8px serif text */
 }
 form label:has([type=checkbox]), form label:has([type=radio]) {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   margin-top: 0.25rem;
 }
 form label {
   /* margin-top of label when its under a status message */
 }
 form label:has(small) + label {
-  margin-top: 0.3rem;
+  margin-top: 0.25rem;
+}
+form label {
+  /* required marker after the label text, so it is never read as part of the name */
+}
+form label:has([required])::after, form label.required::after {
+  content: " *";
+  color: var(--danger-color);
 }
 form label small {
   font-family: var(--sans-serif-fonts);
@@ -895,63 +1045,93 @@ form label select, form label input:not([type=checkbox]):not([type=radio]) {
   width: 100%;
   box-sizing: border-box;
 }
+form label {
+  /* Switch: a checkbox drawn as a track and knob.
+   * The generic input rule above (padding, min-height, radius, colours) is
+   * reset first, otherwise min-height beats the track height. */
+}
 form label.switch {
-  display: flex;
+  display: inline-flex;
   align-items: center;
+  gap: 0.5rem;
+  min-height: var(--control-h);
   color: var(--text-color-primary);
+  cursor: pointer;
 }
 form label.switch [type=checkbox] {
   appearance: none;
-  background-color: var(--bg-toggle-color);
-  height: 1.25rem;
+  flex: 0 0 auto;
+  position: relative;
+  box-sizing: border-box;
   width: 2.25rem;
+  height: 1.25rem;
+  min-height: 0;
+  padding: 0;
+  border: 1px solid var(--grey-4);
   border-radius: 1.25rem;
-  margin-right: 0.5rem;
+  background-color: var(--bg-toggle-color);
+  cursor: pointer;
+  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+  /* knob: 1rem on a 2.25rem track, so 100% is exactly the travel */
 }
-form label.switch [type=checkbox]:not([aria-invalid]) {
-  border-color: var(--grey-4);
-}
-form label.switch [type=checkbox]:before {
-  display: block;
-  aspect-ratio: 1;
-  margin-left: -0.4rem;
-  margin-top: -0.13rem;
-  height: 150%;
+form label.switch [type=checkbox]::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 1px;
+  width: 1rem;
+  height: 1rem;
   border-radius: 50%;
   background-color: var(--bg-primary);
-  content: "";
-  transition: margin 0.1s ease-in-out;
+  box-shadow: var(--shadow-1);
+  transform: translate(0, -50%);
+  transition: transform 0.15s ease-in-out;
 }
 form label.switch [type=checkbox]:checked {
-  background-color: var(--bg-success-color);
   border-color: var(--success-color);
-  background-image: none;
+  background-color: var(--success-color);
 }
 form label.switch [type=checkbox]:checked::before {
-  margin-inline-start: 0.6rem;
+  transform: translate(100%, -50%);
 }
 form label.switch [type=checkbox][disabled] {
-  background-color: var(--dim);
-  border-color: var(--dim);
+  border-color: var(--disabled-color);
+  background-color: var(--bg-disabled-color);
+  cursor: not-allowed;
 }
-form div {
-  display: flex;
-  align-items: baseline;
+form label.switch [type=checkbox][disabled]::before {
+  background-color: var(--disabled-color);
+  box-shadow: none;
+}
+form {
+  /* A grid inside a form: its cells are spacing containers rather than fields,
+   * so the form's field margin does not apply to them. */
+}
+form .grid-2 > p, form .grid-3 > p, form .grid-4 > p {
+  margin: 0;
 }
 form fieldset {
   border: 1px solid var(--dim);
-  border-radius: 5px;
+  border-radius: var(--radius);
+  /* two groups need visibly more space between them than the fields inside
+   * them, or the grouping reads as a guess */
+}
+form fieldset + fieldset {
+  margin-top: var(--px-p1);
 }
 form fieldset legend {
   font-weight: 700;
   font-family: var(--serif-fonts);
-  margin-left: -0.3rem;
+  margin-left: -0.25rem;
 }
 form {
   /* bottom most section of the form */
 }
 form footer.actions {
   display: flex;
+  /* centre, not stretch: a text link beside a button must not sit at the
+   * top of the row */
+  align-items: center;
   justify-content: flex-end;
   gap: 0.5rem;
   margin-top: 1rem;
@@ -971,7 +1151,7 @@ input[type=file]::file-selector-button {
   font-size: var(--fs-1);
   font-family: inherit;
   border: 0;
-  border-radius: 4px;
+  border-radius: var(--radius);
   background-color: var(--primary);
   color: var(--primary-0);
   cursor: pointer;
@@ -1016,6 +1196,14 @@ input[type=file][disabled]::file-selector-button {
   margin: -0.5rem 0 0.75rem;
   color: var(--danger-color);
   font-size: 0.75rem;
+}
+
+/* Helper text under a control, referenced with aria-describedby. */
+.field-hint {
+  display: block;
+  margin-top: 0.25rem;
+  color: var(--text-color-muted);
+  font-size: var(--fs-1);
 }
 
 /* all css includes utilities */
@@ -1122,7 +1310,7 @@ table.striped tbody tr:nth-child(odd) {
   overflow-wrap: anywhere;
 }
 .accordion details section ul {
-  margin: 0 10px;
+  margin: 0 0.5rem;
 }
 .accordion details section h1, .accordion details section h2, .accordion details section h3, .accordion details section h4, .accordion details section h5, .accordion details section h6 {
   margin: 0;
@@ -1162,7 +1350,7 @@ table.striped tbody tr:nth-child(odd) {
   background-color: var(--bg-primary);
 }
 .flex-sidebar.fixed > *:first-child.full-h {
-  height: 100vh;
+  height: 100dvh;
 }
 .flex-sidebar.fixed > *:last-child {
   margin-left: calc(var(--fixed-sidebar-w) + var(--fs-1));
@@ -1228,7 +1416,7 @@ table.striped tbody tr:nth-child(odd) {
 .holy-grail {
   display: flex;
   width: 100%;
-  min-height: 100vh;
+  min-height: 100dvh;
   flex-direction: column;
 }
 .holy-grail > header, .holy-grail > footer {
@@ -1295,10 +1483,51 @@ table.striped tbody tr:nth-child(odd) {
     grid-template-columns: 1fr;
   }
 }
+/* Below this width a fixed-width sidebar cannot sit beside content. Stack
+ * everything that assumes a wide row, or the page scrolls in two dimensions
+ * at the 320px SC 1.4.10 tests at. */
+@media (max-width: 720px) {
+  .flex-sidebar,
+  .flex-sidebar-right,
+  .flex-golden,
+  .flex-golden-right,
+  .holy-grail > main {
+    flex-direction: column;
+  }
+  .flex-sidebar > *,
+  .flex-sidebar-right > *,
+  .flex-golden > *,
+  .flex-golden-right > *,
+  .holy-grail > main > nav,
+  .holy-grail > main > aside {
+    /* min-width: 0 or a wide child (a code block, a long table) sets the flex
+     * item's min-content width and pushes the page sideways */
+    min-width: 0;
+    width: auto;
+    flex-grow: 1;
+    flex-shrink: 1;
+  }
+  /* a pinned sidebar has to rejoin the flow before it can stack */
+  .flex-sidebar.fixed > *:first-child {
+    position: static;
+    height: auto;
+  }
+  .flex-sidebar.fixed > *:last-child {
+    margin-left: 0;
+    /* auto, not 100%: a 100% content width ignores the item's own padding and
+     * makes it wider than the container */
+    width: auto;
+  }
+  /* rows of items that cannot shrink have to wrap on a narrow screen */
+  .flex-stretch,
+  .flex,
+  nav.basic ul {
+    flex-wrap: wrap;
+  }
+}
 .flex-btw {
   display: flex;
   justify-content: space-between;
-  align-items: space-between;
 }
 
 .full-w {
@@ -1311,7 +1540,7 @@ table.striped tbody tr:nth-child(odd) {
   align-content: flex-end;
 }
 .flex * + * {
-  margin-left: 0.3rem;
+  margin-left: 0.25rem;
 }
 
 .overflow-auto {
@@ -1319,92 +1548,28 @@ table.striped tbody tr:nth-child(odd) {
   width: 100%;
 }
 
-/* all css includes utilities */
-article.card {
-  padding-left: 1rem;
+/* Measure constraint for long-form reading. Keep prose near 65 characters per
+ * line regardless of how wide the container is. */
+.prose {
+  max-width: 65ch;
 }
 
 /* all css includes utilities */
-.flashcard {
-  box-sizing: border-box;
-  overflow: hidden;
+/* Card: a surface that groups related content.
+ * Needs a border, a radius and a background of its own, otherwise every
+ * consumer invents one (and the docs end up drawing a black 1px box). */
+.card {
+  padding: var(--px-0);
   border: 1px solid var(--border-color-muted);
-  border-radius: 0.75rem;
+  border-radius: var(--radius-lg);
   background-color: var(--bg-primary);
-  color: var(--text-color-primary);
-}
-.flashcard > header, .flashcard > summary {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  min-height: 3.25rem;
-  box-sizing: border-box;
-  padding: 0.875rem 1.25rem;
-  border-bottom: 1px solid var(--border-color-muted);
-  background-color: var(--bg-primary-alt);
-  color: var(--text-color-primary);
-  font-family: var(--sans-serif-fonts);
-  font-size: var(--fs-3);
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  line-height: 1;
-  text-transform: uppercase;
-}
-.flashcard > summary {
-  cursor: pointer;
-  list-style: none;
-}
-.flashcard > summary::-webkit-details-marker {
-  display: none;
-}
-.flashcard > summary:focus-visible {
-  outline: 2px solid var(--color-primary);
-  outline-offset: -2px;
-}
-.flashcard > .flashcard-body {
-  min-height: 8rem;
-  padding: var(--px-p1);
-}
-.flashcard.question > header, .flashcard.question > summary {
-  border-bottom-color: var(--primary-2);
-  background-color: var(--primary-0);
-}
-.flashcard.answer > header, .flashcard.answer > summary {
-  border-bottom-color: var(--secondary-2);
-  background-color: var(--secondary-0);
-}
-
-.flashcard-lines {
-  display: grid;
-  gap: var(--px-0);
-}
-.flashcard-lines > * {
-  min-height: var(--px-p1);
-  margin: 0;
-  border-bottom: 1px solid var(--border-color-muted);
-}
-
-body.dark-mode .flashcard {
-  border-color: var(--border-color-primary);
-}
-body.dark-mode .flashcard > header, body.dark-mode .flashcard > summary {
-  border-color: var(--border-color-muted);
-  background-color: var(--bg-primary-alt);
-}
-body.dark-mode .flashcard.question > header, body.dark-mode .flashcard.question > summary {
-  border-bottom-color: var(--primary-7);
-  background-color: var(--primary-9);
-}
-body.dark-mode .flashcard.answer > header, body.dark-mode .flashcard.answer > summary {
-  border-bottom-color: var(--secondary-7);
-  background-color: var(--secondary-9);
 }
 
 /* all css includes utilities */
 span.badge {
   font-size: var(--fs-1);
   padding: 5px 10px;
-  border-radius: 5px;
+  border-radius: var(--radius);
   background-color: var(--bg-primary-alt);
   cursor: default;
   white-space: nowrap;
@@ -1467,7 +1632,7 @@ span.badge.disabled {
 .detail-list {
   display: grid;
   grid-template-columns: max-content minmax(0, 1fr);
-  gap: 0.4rem 1rem;
+  gap: 0.5rem 1rem;
   margin: 0;
 }
 .detail-list dt {
@@ -1500,14 +1665,13 @@ dialog {
   overflow: hidden;
   padding: 1rem 1rem 0;
   background-color: var(--bg-primary);
-  color: #000;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  color: var(--text-color-primary);
+  border: 1px solid var(--border-color-primary);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-5);
 }
 dialog::backdrop {
-  background-color: rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(2px);
+  background-color: var(--backdrop);
 }
 dialog header {
   display: flex;
@@ -1517,7 +1681,6 @@ dialog header {
 }
 dialog header h1, dialog header h2, dialog header h3, dialog header h4 {
   margin: 0;
-  color: #000;
   font-family: var(--sans-serif-fonts);
   font-size: var(--fs-3);
   font-weight: 700;
@@ -1525,7 +1688,7 @@ dialog header h1, dialog header h2, dialog header h3, dialog header h4 {
 }
 dialog > p {
   margin: 0.5rem 0 0;
-  color: #737373;
+  color: var(--text-color-muted);
   line-height: var(--base-line-height);
 }
 dialog footer {
@@ -1533,53 +1696,17 @@ dialog footer {
   justify-content: flex-end;
   margin: 0.75rem -1rem 0;
   padding: 1rem;
-  border-top: 1px solid #e5e5e5;
-  background-color: #fafafa;
+  border-top: 1px solid var(--border-color-muted);
+  background-color: var(--bg-primary-alt);
 }
 dialog footer form {
   display: flex;
   gap: 0.5rem;
 }
-dialog footer button {
-  border-radius: 0.5rem;
-}
-dialog footer button:first-child {
-  background-color: var(--bg-primary);
-  border: 1px solid #e5e5e5;
-  color: #000;
-}
-dialog footer button:last-child {
-  background-color: #000;
-  color: #fff;
-}
-dialog footer button:first-child:hover {
-  background-color: var(--bg-primary-alt);
-}
-dialog footer button:last-child:hover {
-  background-color: #222;
-}
-
-body.dark-mode dialog {
-  color: var(--text-color-primary);
-  border-color: var(--border-color-primary);
-}
-body.dark-mode dialog header h1, body.dark-mode dialog header h2, body.dark-mode dialog header h3, body.dark-mode dialog header h4 {
-  color: var(--text-color-primary);
-}
-body.dark-mode dialog > p {
-  color: var(--text-color-muted);
-}
-body.dark-mode dialog footer {
-  border-color: var(--border-color-muted);
-  background-color: var(--bg-primary-alt);
-}
-body.dark-mode dialog footer button:first-child {
-  border-color: var(--border-color-muted);
-  color: var(--text-color-primary);
-}
-body.dark-mode dialog footer button:last-child {
-  background-color: var(--grey-2);
-  color: var(--grey-12);
+dialog footer {
+  /* Footer buttons carry their own intent: the secondary action is a
+   * .btn-outline. Nothing is styled by DOM position, so reordering the
+   * buttons cannot flip which one looks primary. */
 }
 
 /* all css includes utilities */
@@ -1589,11 +1716,11 @@ body.dark-mode dialog footer button:last-child {
   gap: 0.5rem;
   padding: 0.5rem 0.75rem;
   box-sizing: border-box;
-  border: 1px solid #e5e5e5;
-  border-radius: 8px;
+  border: 1px solid var(--border-color-muted);
+  border-radius: var(--radius-lg);
   margin-bottom: 1rem;
   background-color: var(--bg-primary);
-  color: #000;
+  color: var(--text-color-primary);
 }
 .alert::before, [role=alert].alert::before {
   display: inline-flex;
@@ -1635,6 +1762,17 @@ body.dark-mode dialog footer button:last-child {
 .alert.warning p, [role=alert].alert.warning p {
   color: var(--warning-color);
 }
+.alert.danger, [role=alert].alert.danger {
+  border-color: var(--danger-color);
+  background-color: var(--bg-danger-color);
+  color: var(--danger-color);
+}
+.alert.danger h1, .alert.danger h2, .alert.danger h3, .alert.danger h4, [role=alert].alert.danger h1, [role=alert].alert.danger h2, [role=alert].alert.danger h3, [role=alert].alert.danger h4 {
+  color: var(--danger-color);
+}
+.alert.danger p, [role=alert].alert.danger p {
+  color: var(--danger-color);
+}
 .alert.success::before, [role=alert].alert.success::before {
   content: "✓";
   font-size: var(--fs-1);
@@ -1648,10 +1786,17 @@ body.dark-mode dialog footer button:last-child {
 .alert > div, [role=alert].alert > div {
   min-width: 0;
 }
+.alert, [role=alert].alert {
+  /* an alert can carry a list — an error summary usually does */
+}
+.alert ul, [role=alert].alert ul {
+  margin: 0.25rem 0 0;
+  padding-left: 1.1rem;
+}
 .alert h1, .alert h2, .alert h3, .alert h4, [role=alert].alert h1, [role=alert].alert h2, [role=alert].alert h3, [role=alert].alert h4 {
   margin: 0;
   background-color: transparent;
-  color: #000;
+  color: var(--text-color-primary);
   font-family: var(--sans-serif-fonts);
   font-size: var(--fs-2);
   font-weight: 700;
@@ -1660,22 +1805,11 @@ body.dark-mode dialog footer button:last-child {
 .alert p, [role=alert].alert p {
   margin: 0;
   background-color: transparent;
-  color: #737373;
+  color: var(--text-color-muted);
   line-height: var(--base-line-height);
 }
 .alert p + p, [role=alert].alert p + p {
   margin-top: 0.5rem;
-}
-
-body.dark-mode .alert {
-  border-color: var(--border-color-primary);
-  color: var(--text-color-primary);
-}
-body.dark-mode .alert h1, body.dark-mode .alert h2, body.dark-mode .alert h3, body.dark-mode .alert h4 {
-  color: var(--text-color-primary);
-}
-body.dark-mode .alert p {
-  color: var(--text-color-muted);
 }
 
 /* all css includes utilities */
@@ -1683,16 +1817,16 @@ body.dark-mode .alert p {
   background-color: var(--bg-primary);
   color: var(--text-color-primary);
   border: 1px solid var(--border-color-primary);
-  border-radius: 6px;
+  border-radius: var(--radius-lg);
   padding: 1rem;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--shadow-4);
   margin: auto;
 }
 [popover] h1, [popover] h2, [popover] h3, [popover] h4, [popover] h5, [popover] h6 {
   margin-top: 0;
 }
 [popover]::backdrop {
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: var(--backdrop);
 }
 
 [data-tooltip] {
@@ -1708,10 +1842,14 @@ body.dark-mode .alert p {
   background-color: var(--grey-11);
   color: var(--grey-0);
   padding: 4px 8px;
-  border-radius: 4px;
+  border-radius: var(--radius);
   font-size: var(--fs-0);
   line-height: 1.2;
-  white-space: nowrap;
+  /* wrap instead of overflowing narrow viewports */
+  width: max-content;
+  max-width: min(90vw, 20rem);
+  white-space: normal;
+  text-align: center;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.15s ease-in-out;
@@ -1722,51 +1860,37 @@ body.dark-mode .alert p {
 }
 
 /* all css includes utilities */
-.drawer {
-  position: relative;
-}
-
-.drawer-toggle {
-  position: absolute;
-  opacity: 0;
-  pointer-events: none;
-}
-
 .drawer-panel {
   position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 1000;
+  inset: 0 0 0 auto;
+  margin: 0;
   width: min(90vw, 24rem);
   max-width: 100%;
+  height: 100dvh;
+  box-sizing: border-box;
   padding: var(--px-0);
   overflow-y: auto;
+  border: 0;
+  border-left: 1px solid var(--border-color-primary);
+  border-radius: 0;
   background-color: var(--bg-primary);
   color: var(--text-color-primary);
-  border-left: 1px solid var(--border-color-primary);
-  box-shadow: -8px 0 24px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--shadow-panel);
   transform: translateX(100%);
-  transition: transform 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out, opacity 0.25s ease-in-out, display 0.25s allow-discrete, overlay 0.25s allow-discrete;
 }
-
-.drawer-backdrop {
-  position: fixed;
-  inset: 0;
-  z-index: 999;
-  background-color: rgba(0, 0, 0, 0.35);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.25s ease-in-out;
-}
-
-.drawer-toggle:checked ~ .drawer-panel {
+.drawer-panel:popover-open {
   transform: translateX(0);
 }
 
-.drawer-toggle:checked ~ .drawer-backdrop {
-  opacity: 1;
-  pointer-events: auto;
+@starting-style {
+  .drawer-panel:popover-open {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+.drawer-panel::backdrop {
+  background-color: var(--backdrop);
 }
 
 .drawer-header {
@@ -1783,6 +1907,9 @@ body.dark-mode .alert p {
 }
 
 .drawer-close {
+  padding: 0 var(--px-n1);
+  border: 0;
+  background: none;
   cursor: pointer;
   color: var(--text-color-muted);
   font-size: var(--fs-5);
@@ -1796,7 +1923,7 @@ body.dark-mode .alert p {
 /* all css includes utilities */
 .word-card {
   border: 1px solid var(--border-color-muted);
-  border-radius: 0.75rem;
+  border-radius: var(--radius-lg);
   background-color: var(--bg-primary);
   padding: var(--px-p1);
 }
@@ -1834,7 +1961,7 @@ body.dark-mode .alert p {
   margin-top: 1rem;
 }
 .word-card .word-card-section h4 {
-  margin: 0 0 0.4rem;
+  margin: 0 0 0.5rem;
   font-size: var(--fs-2);
   text-transform: uppercase;
   letter-spacing: 0.04em;
@@ -1849,12 +1976,50 @@ body.dark-mode .alert p {
   padding-left: 1.25rem;
 }
 .word-card .word-card-section li {
-  margin: 0.2rem 0;
+  margin: 0.25rem 0;
   line-height: 1.5;
 }
 
 body.dark-mode .word-card {
   border-color: var(--border-color-primary);
+}
+
+/* all css includes utilities */
+/* Empty state: shown when a list, table, search or inbox has nothing to show.
+ * Never leave the blank surface bare — name what would appear here and offer
+ * the action that creates it.
+ *
+ * Markup:
+ *   <div class="empty-state">
+ *     <h3>No saved words yet</h3>
+ *     <p>Words you save while reading will show up here.</p>
+ *     <a class="btn btn-small" href="...">Browse today's words</a>
+ *   </div>
+ */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--px-n1);
+  padding: var(--px-p2) var(--px-0);
+  border: 1px solid var(--border-color-muted);
+  border-radius: var(--radius-lg);
+  background-color: var(--bg-primary-alt);
+  text-align: center;
+}
+.empty-state svg {
+  color: var(--text-color-muted);
+}
+.empty-state h1, .empty-state h2, .empty-state h3, .empty-state h4 {
+  margin: 0;
+  font-family: var(--serif-fonts);
+  font-size: var(--fs-4);
+}
+.empty-state p {
+  margin: 0;
+  max-width: 45ch;
+  color: var(--text-color-muted);
+  line-height: var(--base-line-height);
 }
 
 .bg-primary-0 {
@@ -2455,6 +2620,32 @@ body.dark-mode .word-card {
 
 .bg-grey-9 {
   background-color: var(--grey-9);
+}
+
+/* text alignment: use these instead of the deprecated align attribute */
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+/* cross-axis alignment for .flex and friends, which default to flex-end */
+.items-start {
+  align-items: flex-start;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.items-baseline {
+  align-items: baseline;
 }
 
 /*# sourceMappingURL=farga.all.css.map */

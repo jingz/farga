@@ -1,5 +1,11 @@
 @use 'base';
 
-article.card {
-  padding-left: 1rem;
+/* Card: a surface that groups related content.
+ * Needs a border, a radius and a background of its own, otherwise every
+ * consumer invents one (and the docs end up drawing a black 1px box). */
+.card {
+  padding: var(--px-0);
+  border: 1px solid var(--border-color-muted);
+  border-radius: var(--radius-lg);
+  background-color: var(--bg-primary);
 }

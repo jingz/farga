@@ -11,27 +11,18 @@
   </hgroup>
 
   <hgroup>
-    <h3>1. Basic Tabs</h3>
-    <p>These tabs require JavaScript for toggling between different tab panels</p>
+    <h3>1. Link Tabs</h3>
+    <p>These tabs are links to other pages, so they need no JavaScript — the browser supplies focus, Enter, and back-button behaviour. Mark the current page with <code>aria-current="page"</code>.</p>
   </hgroup>
 
   {% set normal_tabs %}
   <nav class="tab">
     <ul>
-        <li><a>Introduction</a></li>
-        <li class='active'><a>Get Started</a></li>
-        <li><a>Tutorials</a></li>
-        <li><a>Changelog</a></li>
+        <li><a href="#">Introduction</a></li>
+        <li class='active' aria-current="page"><a href="#">Get Started</a></li>
+        <li><a href="#">Tutorials</a></li>
+        <li><a href="#">Changelog</a></li>
     </ul>
-    <section>
-        <h3>Accessibility Features:</h3>
-        <p>
-        Keyboard navigation with arrow keys, Home, and End keys
-        Proper focus management
-        Screen reader support through ARIA attributes
-        Clear visual indicators for active and focused states
-        </p>
-    </section>
   </nav>
   {% endset %}
   {{ normal_tabs }}
@@ -44,7 +35,9 @@
   <hgroup>
     <h3>2. Radio Tabs</h3>
     <p>
-      This semantic approach does not require JavaScript to switch the active content according to the selected tab.
+      This variant switches content without JavaScript by pairing a radio group with its labels.
+      The radios stay in the tab order, so <kbd>Tab</kbd> reaches the group and the arrow keys change the
+      selected tab; the focus ring is drawn on the label.
       <a href="https://dev.to/joxx/building-a-tab-component-with-pure-css-using-radio-and-label-tags-200b">Building a tab component with Pure CSS using Radio and Label Tags</a>
     </p>
   </hgroup>
@@ -56,11 +49,8 @@
       <section>
           <h3>Introduction Content</h3>
           <p>
-            Introduction Features:
-            Keyboard navigation with arrow keys, Home, and End keys
-            Proper focus management
-            Screen reader support through ARIA attributes
-            Clear visual indicators for active and focused states
+            Introduction Features: radio groups are announced as a set, so a screen reader user
+            hears how many options exist and which one is selected.
           </p>
       </section>
 
@@ -69,11 +59,8 @@
       <section>
           <h3>Get Started Content</h3>
           <p>
-            Get started Features:
-            Keyboard navigation with arrow keys, Home, and End keys
-            Proper focus management
-            Screen reader support through ARIA attributes
-            Clear visual indicators for active and focused states
+            Get started Features: only the selected panel is rendered visible, and no panel state
+            is left to a CSS class the user cannot reach.
             </p>
       </section>
 
@@ -82,11 +69,8 @@
       <section>
           <h3>Tutorials Content</h3>
           <p>
-            Tutorials Features:
-            Keyboard navigation with arrow keys, Home, and End keys
-            Proper focus management
-            Screen reader support through ARIA attributes
-            Clear visual indicators for active and focused states
+            Tutorials Features: each label is a real target, at least as wide as its text,
+            so the tap area is not limited to the glyph.
           </p>
       </section>
 
@@ -95,11 +79,8 @@
       <section>
           <h3>Changelog Content</h3>
           <p>
-            Changelog Features:
-            Keyboard navigation with arrow keys, Home, and End keys
-            Proper focus management
-            Screen reader support through ARIA attributes
-            Clear visual indicators for active and focused states
+            Changelog Features: no JavaScript, no hidden focus stop, and the whole component
+            degrades to a plain radio group with the stylesheet removed.
           </p>
       </section>
   </nav>

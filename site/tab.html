@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>Farga Documentation</title>
     <link rel="icon" type="image/x-icon" href="./assets/olives-16px.ico">
@@ -13,9 +13,12 @@
         pre {
           font-size: 0.8rem;
           background-color: var(--dim);
-          border-radius: 5px;
+          border-radius: var(--radius);
           padding: 0.8rem;
-          width: 120ch;
+          /* max-width, not width: an explicit 120ch box cannot shrink and drags
+           * its container wider than a 320px viewport */
+          max-width: 100%;
+          box-sizing: border-box;
           overflow-x: auto;
         }
     }
@@ -27,11 +30,31 @@
     #side-menu {
         width: 28ch;
         border-right: 1px solid var(--grey-2);
-        height: 100vh;
+        height: 100dvh;
     }
 
     #main-container {
         padding: 0 1rem;
+    }
+
+    /* Page rhythm for pages built as <section> blocks: the sections space
+     * themselves, so no <br> spacers between demos. */
+    #main-container > div > section + section {
+        margin-top: 3rem;
+    }
+
+    #main-container > div > section > hgroup {
+        margin-bottom: 1.25rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid var(--border-color-muted);
+    }
+
+    #main-container > div > section > hgroup p {
+        max-width: 65ch;
+    }
+
+    #main-container > div > section > details {
+        margin-top: 1rem;
     }
     </style>
 
@@ -39,8 +62,8 @@
   <body>
     <div class="flex-sidebar fixed gap">
         <nav id="side-menu" class="sidemenu">
-          <hgroup class="flex" align="center">
-             <img width="48" src="./assets/olives.png" />
+          <hgroup class="flex items-center">
+             <img width="48" src="./assets/olives.png" alt="" />
              <h1> Farga </h1>
           </hgroup>
           <p>Farga Documentation</p>
@@ -49,7 +72,7 @@
               <li><a href="./color.html">Colors</a></li>
               <li><a href="./typography.html">Typography</a></li>
           </ul>
-          <details open>
+          <details>
             <summary>
               <span>Navigation</span>
             </summary>
@@ -61,7 +84,7 @@
               <li><a href="./pagination.html">Pagination</a></li>
             </ul>
           </details>
-          <details open>
+          <details>
             <summary>
               <span>Layout</span>
             </summary>
@@ -73,16 +96,16 @@
           <ul>
               <li><a href="./button.html">Buttons</a></li>
           </ul>
-          <details open>
+          <details>
             <summary>
               <span>Form</span>
             </summary>
             <ul>
-              <li><a href="./form.html">Form Basic</a></li>
+              <li><a href="./form.html">Form Controls</a></li>
               <li><a href="./form_with_layout.html">Form Layouts</a></li>
             </ul>
           </details>
-          <details open>
+          <details>
             <summary>
               <span>Tables</span>
             </summary>
@@ -92,16 +115,16 @@
               <li><a href="./fixed_first_column_table.html">Fixed First Column Table</a></li>
             </ul>
           </details>
-          <details open>
+          <details>
             <summary>
               <span>Components</span>
             </summary>
             <ul>
               <li><a href="./accordion.html">Accordion</a></li>
               <li><a href="./card.html">Card</a></li>
-              <li><a href="./flashcard.html">Flashcard</a></li>
               <li><a href="./badge.html">Badge</a></li>
               <li><a href="./detail.html">Detail List</a></li>
+              <li><a href="./empty_state.html">Empty state</a></li>
               <li><a href="./alert.html">Alert</a></li>
               <li><a href="./dialog.html">Dialog / Modal</a></li>
               <li><a href="./popover.html">Popover &amp; Tooltip</a></li>
@@ -115,7 +138,7 @@
             <ul>
               <li>
                   <a href="https://jingz.github.io/farga/site/index.html" target="_blank">
-                      <img src="./assets/github-mark.svg" width="14px;" />
+                      <img src="./assets/github-mark.svg" alt="" width="14" />
                       GitHub
                   </a>
               </li>
@@ -139,28 +162,19 @@
   </hgroup>
 
   <hgroup>
-    <h3>1. Basic Tabs</h3>
-    <p>These tabs require JavaScript for toggling between different tab panels</p>
+    <h3>1. Link Tabs</h3>
+    <p>These tabs are links to other pages, so they need no JavaScript — the browser supplies focus, Enter, and back-button behaviour. Mark the current page with <code>aria-current="page"</code>.</p>
   </hgroup>
 
   
   
   <nav class="tab">
     <ul>
-        <li><a>Introduction</a></li>
-        <li class='active'><a>Get Started</a></li>
-        <li><a>Tutorials</a></li>
-        <li><a>Changelog</a></li>
+        <li><a href="#">Introduction</a></li>
+        <li class='active' aria-current="page"><a href="#">Get Started</a></li>
+        <li><a href="#">Tutorials</a></li>
+        <li><a href="#">Changelog</a></li>
     </ul>
-    <section>
-        <h3>Accessibility Features:</h3>
-        <p>
-        Keyboard navigation with arrow keys, Home, and End keys
-        Proper focus management
-        Screen reader support through ARIA attributes
-        Clear visual indicators for active and focused states
-        </p>
-    </section>
   </nav>
   
 
@@ -169,20 +183,11 @@
     <pre>
   &lt;nav class=&#34;tab&#34;&gt;
     &lt;ul&gt;
-        &lt;li&gt;&lt;a&gt;Introduction&lt;/a&gt;&lt;/li&gt;
-        &lt;li class=&#39;active&#39;&gt;&lt;a&gt;Get Started&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a&gt;Tutorials&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a&gt;Changelog&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#&#34;&gt;Introduction&lt;/a&gt;&lt;/li&gt;
+        &lt;li class=&#39;active&#39; aria-current=&#34;page&#34;&gt;&lt;a href=&#34;#&#34;&gt;Get Started&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#&#34;&gt;Tutorials&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#&#34;&gt;Changelog&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
-    &lt;section&gt;
-        &lt;h3&gt;Accessibility Features:&lt;/h3&gt;
-        &lt;p&gt;
-        Keyboard navigation with arrow keys, Home, and End keys
-        Proper focus management
-        Screen reader support through ARIA attributes
-        Clear visual indicators for active and focused states
-        &lt;/p&gt;
-    &lt;/section&gt;
   &lt;/nav&gt;
   </pre>
   </details>
@@ -190,7 +195,9 @@
   <hgroup>
     <h3>2. Radio Tabs</h3>
     <p>
-      This semantic approach does not require JavaScript to switch the active content according to the selected tab.
+      This variant switches content without JavaScript by pairing a radio group with its labels.
+      The radios stay in the tab order, so <kbd>Tab</kbd> reaches the group and the arrow keys change the
+      selected tab; the focus ring is drawn on the label.
       <a href="https://dev.to/joxx/building-a-tab-component-with-pure-css-using-radio-and-label-tags-200b">Building a tab component with Pure CSS using Radio and Label Tags</a>
     </p>
   </hgroup>
@@ -203,11 +210,8 @@
       <section>
           <h3>Introduction Content</h3>
           <p>
-            Introduction Features:
-            Keyboard navigation with arrow keys, Home, and End keys
-            Proper focus management
-            Screen reader support through ARIA attributes
-            Clear visual indicators for active and focused states
+            Introduction Features: radio groups are announced as a set, so a screen reader user
+            hears how many options exist and which one is selected.
           </p>
       </section>
 
@@ -216,11 +220,8 @@
       <section>
           <h3>Get Started Content</h3>
           <p>
-            Get started Features:
-            Keyboard navigation with arrow keys, Home, and End keys
-            Proper focus management
-            Screen reader support through ARIA attributes
-            Clear visual indicators for active and focused states
+            Get started Features: only the selected panel is rendered visible, and no panel state
+            is left to a CSS class the user cannot reach.
             </p>
       </section>
 
@@ -229,11 +230,8 @@
       <section>
           <h3>Tutorials Content</h3>
           <p>
-            Tutorials Features:
-            Keyboard navigation with arrow keys, Home, and End keys
-            Proper focus management
-            Screen reader support through ARIA attributes
-            Clear visual indicators for active and focused states
+            Tutorials Features: each label is a real target, at least as wide as its text,
+            so the tap area is not limited to the glyph.
           </p>
       </section>
 
@@ -242,11 +240,8 @@
       <section>
           <h3>Changelog Content</h3>
           <p>
-            Changelog Features:
-            Keyboard navigation with arrow keys, Home, and End keys
-            Proper focus management
-            Screen reader support through ARIA attributes
-            Clear visual indicators for active and focused states
+            Changelog Features: no JavaScript, no hidden focus stop, and the whole component
+            degrades to a plain radio group with the stylesheet removed.
           </p>
       </section>
   </nav>
@@ -260,11 +255,8 @@
       &lt;section&gt;
           &lt;h3&gt;Introduction Content&lt;/h3&gt;
           &lt;p&gt;
-            Introduction Features:
-            Keyboard navigation with arrow keys, Home, and End keys
-            Proper focus management
-            Screen reader support through ARIA attributes
-            Clear visual indicators for active and focused states
+            Introduction Features: radio groups are announced as a set, so a screen reader user
+            hears how many options exist and which one is selected.
           &lt;/p&gt;
       &lt;/section&gt;
 
@@ -273,11 +265,8 @@
       &lt;section&gt;
           &lt;h3&gt;Get Started Content&lt;/h3&gt;
           &lt;p&gt;
-            Get started Features:
-            Keyboard navigation with arrow keys, Home, and End keys
-            Proper focus management
-            Screen reader support through ARIA attributes
-            Clear visual indicators for active and focused states
+            Get started Features: only the selected panel is rendered visible, and no panel state
+            is left to a CSS class the user cannot reach.
             &lt;/p&gt;
       &lt;/section&gt;
 
@@ -286,11 +275,8 @@
       &lt;section&gt;
           &lt;h3&gt;Tutorials Content&lt;/h3&gt;
           &lt;p&gt;
-            Tutorials Features:
-            Keyboard navigation with arrow keys, Home, and End keys
-            Proper focus management
-            Screen reader support through ARIA attributes
-            Clear visual indicators for active and focused states
+            Tutorials Features: each label is a real target, at least as wide as its text,
+            so the tap area is not limited to the glyph.
           &lt;/p&gt;
       &lt;/section&gt;
 
@@ -299,11 +285,8 @@
       &lt;section&gt;
           &lt;h3&gt;Changelog Content&lt;/h3&gt;
           &lt;p&gt;
-            Changelog Features:
-            Keyboard navigation with arrow keys, Home, and End keys
-            Proper focus management
-            Screen reader support through ARIA attributes
-            Clear visual indicators for active and focused states
+            Changelog Features: no JavaScript, no hidden focus stop, and the whole component
+            degrades to a plain radio group with the stylesheet removed.
           &lt;/p&gt;
       &lt;/section&gt;
   &lt;/nav&gt;
@@ -337,9 +320,12 @@
           window.localStorage.setItem('isLightTheme', isLightTheme);
       }
 
-      // init theme from localStorage
-      const isLightTheme = localStorage.getItem('isLightTheme') == 'true';
-      console.log({ isLightTheme })
+      // init theme from localStorage, falling back to the OS preference.
+      // Absent storage means first visit, which should not default to dark.
+      const storedTheme = localStorage.getItem('isLightTheme');
+      const isLightTheme = storedTheme === null
+          ? !window.matchMedia('(prefers-color-scheme: dark)').matches
+          : storedTheme === 'true';
       setTheme(isLightTheme)
 
       // set theme

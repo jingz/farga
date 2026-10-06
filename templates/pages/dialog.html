@@ -18,14 +18,14 @@
   Open Dialog
 </button>
 
-<dialog id="demo-dialog" role="alertdialog">
+<dialog id="demo-dialog" aria-labelledby="demo-dialog-title">
   <header>
-    <h3>Are you absolutely sure?</h3>
+    <h3 id="demo-dialog-title">Are you absolutely sure?</h3>
   </header>
   <p>This action cannot be undone. This will permanently delete your account from our servers.</p>
   <footer>
     <form method="dialog">
-      <button value="cancel">Cancel</button>
+      <button value="cancel" class="btn-outline">Cancel</button>
       <button value="confirm">Continue</button>
     </form>
   </footer>
